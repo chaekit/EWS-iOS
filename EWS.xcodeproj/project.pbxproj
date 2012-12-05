@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190E9954166FF05B006FDF0D /* EWSDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E9953166FF05B006FDF0D /* EWSDataController.m */; };
 		1959BA8A166F1ED800C79F98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA89166F1ED800C79F98 /* UIKit.framework */; };
 		1959BA8C166F1ED800C79F98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA8B166F1ED800C79F98 /* Foundation.framework */; };
 		1959BA8E166F1ED800C79F98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA8D166F1ED800C79F98 /* CoreGraphics.framework */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190E9952166FF05B006FDF0D /* EWSDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSDataController.h; sourceTree = "<group>"; };
+		190E9953166FF05B006FDF0D /* EWSDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDataController.m; sourceTree = "<group>"; };
 		1959BA85166F1ED800C79F98 /* EWS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1959BA89166F1ED800C79F98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1959BA8B166F1ED800C79F98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +88,8 @@
 			children = (
 				1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */,
 				1959BAAE166F1FF600C79F98 /* EWSViewController.h */,
+				190E9952166FF05B006FDF0D /* EWSDataController.h */,
+				190E9953166FF05B006FDF0D /* EWSDataController.m */,
 				1959BAAF166F1FF600C79F98 /* EWSViewController.m */,
 				1959BA98166F1ED800C79F98 /* EWSAppDelegate.h */,
 				1959BA99166F1ED800C79F98 /* EWSAppDelegate.m */,
@@ -177,6 +182,7 @@
 				1959BA96166F1ED800C79F98 /* main.m in Sources */,
 				1959BA9A166F1ED800C79F98 /* EWSAppDelegate.m in Sources */,
 				1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */,
+				190E9954166FF05B006FDF0D /* EWSDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +291,7 @@
 				1959BAA5166F1ED900C79F98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

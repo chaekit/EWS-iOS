@@ -7,6 +7,7 @@
 //
 
 #import "EWSViewController.h"
+#import "EWSDataController.h"
 
 @interface EWSViewController ()
 
@@ -14,6 +15,13 @@
 
 @implementation EWSViewController
 
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.dataController = [[EWSDataController alloc] init];
+}
+
+/*
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -22,6 +30,7 @@
     }
     return self;
 }
+ */
 
 - (void)viewDidLoad
 {
@@ -44,25 +53,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.dataController countOfMainLabList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"LabInfoCell";
+  
     
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+   
+    NSString *stringAtIndex = [self.dataController objectAtIndex:indexPath.row];
+    [[cell textLabel] setText:stringAtIndex];
+
     return cell;
 }
 

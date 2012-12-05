@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class EWSDataController;
+
 @interface EWSViewController : UITableViewController
+
+@property (strong, nonatomic)EWSDataController *dataController;
+//@property (nonatomic) NSMutableArray *list;
 
 @end
