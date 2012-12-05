@@ -8,6 +8,7 @@
 
 #import "EWSViewController.h"
 #import "EWSDataController.h"
+#import "Lab.h"
 
 @interface EWSViewController ()
 
@@ -70,8 +71,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
    
-    NSString *stringAtIndex = [self.dataController objectAtIndex:indexPath.row];
-    [[cell textLabel] setText:stringAtIndex];
+    Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
+    [[cell textLabel] setText:labAtIndex.name];
+    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%d", labAtIndex.maxCapacity]];
 
     return cell;
 }
