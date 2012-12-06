@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface EWSDataController : NSObject
+{
+    NSMutableData *responseData;
+}
 
 @property (nonatomic, copy) NSMutableArray *mainLabList;
 
 -(NSUInteger) countOfMainLabList;
 -(NSString *) objectAtIndex:(NSUInteger) index;
-
 @end

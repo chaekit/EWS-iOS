@@ -71,9 +71,10 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
    
-    Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
+    Lab *labAtIndex = (Lab *) [self.dataController objectAtIndex:indexPath.row];
+    NSString *usageInString = [NSString stringWithFormat:@"%d/%d", labAtIndex.currentLabUsage, labAtIndex.maxCapacity];
     [[cell textLabel] setText:labAtIndex.name];
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%d", labAtIndex.maxCapacity]];
+    [[cell detailTextLabel] setText:usageInString];
 
     return cell;
 }
