@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		190E9954166FF05B006FDF0D /* EWSDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E9953166FF05B006FDF0D /* EWSDataController.m */; };
 		190E9960166FF5E7006FDF0D /* Lab.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E995F166FF5E7006FDF0D /* Lab.m */; };
-		190E996F166FFB59006FDF0D /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E996A166FFB59006FDF0D /* TFHpple.m */; };
-		190E9970166FFB59006FDF0D /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E996C166FFB59006FDF0D /* TFHppleElement.m */; };
-		190E9971166FFB59006FDF0D /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E996E166FFB59006FDF0D /* XPathQuery.m */; };
 		190E9974166FFD3B006FDF0D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 190E9973166FFD3B006FDF0D /* libxml2.dylib */; };
 		190E998F167009D6006FDF0D /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E9977167009D6006FDF0D /* NSObject+SBJson.m */; };
 		190E9990167009D6006FDF0D /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E997A167009D6006FDF0D /* SBJsonParser.m */; };
@@ -36,6 +33,7 @@
 		1959BAA0166F1ED900C79F98 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959BA9F166F1ED900C79F98 /* Default-568h@2x.png */; };
 		1959BAA9166F1F0D00C79F98 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */; };
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
+		19BD2020167168BC00379C57 /* EWSAsyncDemoCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BD201F167168BC00379C57 /* EWSAsyncDemoCode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,12 +41,6 @@
 		190E9953166FF05B006FDF0D /* EWSDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDataController.m; sourceTree = "<group>"; };
 		190E995E166FF5E7006FDF0D /* Lab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lab.h; sourceTree = "<group>"; };
 		190E995F166FF5E7006FDF0D /* Lab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lab.m; sourceTree = "<group>"; };
-		190E9969166FFB59006FDF0D /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = ../Libraries/hpple/TFHpple.h; sourceTree = "<group>"; };
-		190E996A166FFB59006FDF0D /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = ../Libraries/hpple/TFHpple.m; sourceTree = "<group>"; };
-		190E996B166FFB59006FDF0D /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = ../Libraries/hpple/TFHppleElement.h; sourceTree = "<group>"; };
-		190E996C166FFB59006FDF0D /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = ../Libraries/hpple/TFHppleElement.m; sourceTree = "<group>"; };
-		190E996D166FFB59006FDF0D /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = ../Libraries/hpple/XPathQuery.h; sourceTree = "<group>"; };
-		190E996E166FFB59006FDF0D /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = ../Libraries/hpple/XPathQuery.m; sourceTree = "<group>"; };
 		190E9973166FFD3B006FDF0D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		190E9976167009D6006FDF0D /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "../../Libraries/json-framework/Classes/NSObject+SBJson.h"; sourceTree = "<group>"; };
 		190E9977167009D6006FDF0D /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJson.m"; path = "../../Libraries/json-framework/Classes/NSObject+SBJson.m"; sourceTree = "<group>"; };
@@ -91,6 +83,8 @@
 		1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1959BAAE166F1FF600C79F98 /* EWSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSViewController.h; sourceTree = "<group>"; };
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
+		19BD201E167168BC00379C57 /* EWSAsyncDemoCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSAsyncDemoCode.h; sourceTree = "<group>"; };
+		19BD201F167168BC00379C57 /* EWSAsyncDemoCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSAsyncDemoCode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,20 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		190E9972166FFB5D006FDF0D /* hpple */ = {
-			isa = PBXGroup;
-			children = (
-				190E9969166FFB59006FDF0D /* TFHpple.h */,
-				190E996A166FFB59006FDF0D /* TFHpple.m */,
-				190E996B166FFB59006FDF0D /* TFHppleElement.h */,
-				190E996C166FFB59006FDF0D /* TFHppleElement.m */,
-				190E996D166FFB59006FDF0D /* XPathQuery.h */,
-				190E996E166FFB59006FDF0D /* XPathQuery.m */,
-			);
-			name = hpple;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		190E99751670099E006FDF0D /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,8 +165,8 @@
 		1959BA8F166F1ED800C79F98 /* EWS */ = {
 			isa = PBXGroup;
 			children = (
+				19BD202116719DCA00379C57 /* PullToRefresh */,
 				190E99751670099E006FDF0D /* JSON */,
-				190E9972166FFB5D006FDF0D /* hpple */,
 				1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */,
 				1959BAAE166F1FF600C79F98 /* EWSViewController.h */,
 				190E9952166FF05B006FDF0D /* EWSDataController.h */,
@@ -196,6 +176,7 @@
 				1959BAAF166F1FF600C79F98 /* EWSViewController.m */,
 				1959BA98166F1ED800C79F98 /* EWSAppDelegate.h */,
 				1959BA99166F1ED800C79F98 /* EWSAppDelegate.m */,
+				19BD201C167168AC00379C57 /* AsyncDemoCode */,
 				1959BA90166F1ED800C79F98 /* Supporting Files */,
 			);
 			path = EWS;
@@ -213,6 +194,22 @@
 				1959BA9F166F1ED900C79F98 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		19BD201C167168AC00379C57 /* AsyncDemoCode */ = {
+			isa = PBXGroup;
+			children = (
+				19BD201E167168BC00379C57 /* EWSAsyncDemoCode.h */,
+				19BD201F167168BC00379C57 /* EWSAsyncDemoCode.m */,
+			);
+			name = AsyncDemoCode;
+			sourceTree = "<group>";
+		};
+		19BD202116719DCA00379C57 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PullToRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,9 +284,6 @@
 				1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */,
 				190E9954166FF05B006FDF0D /* EWSDataController.m in Sources */,
 				190E9960166FF5E7006FDF0D /* Lab.m in Sources */,
-				190E996F166FFB59006FDF0D /* TFHpple.m in Sources */,
-				190E9970166FFB59006FDF0D /* TFHppleElement.m in Sources */,
-				190E9971166FFB59006FDF0D /* XPathQuery.m in Sources */,
 				190E998F167009D6006FDF0D /* NSObject+SBJson.m in Sources */,
 				190E9990167009D6006FDF0D /* SBJsonParser.m in Sources */,
 				190E9991167009D6006FDF0D /* SBJsonStreamParser.m in Sources */,
@@ -302,6 +296,7 @@
 				190E9998167009D6006FDF0D /* SBJsonTokeniser.m in Sources */,
 				190E9999167009D6006FDF0D /* SBJsonUTF8Stream.m in Sources */,
 				190E999A167009D6006FDF0D /* SBJsonWriter.m in Sources */,
+				19BD2020167168BC00379C57 /* EWSAsyncDemoCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,14 @@
 
 #import "EWSDataController.h"
 #import "Lab.h"
-#import "TFHpple.h"
 #import "SBJson.h"
+
+//Import QuartzCore into frameworks
+//#import <QuartzCore/QuartzCore.h>
+//UILabel *label;
+//[label.layer setCornerRadius:10];
+
+//#import "EWSAsyncDemoCode.h"
 
 @interface EWSDataController ()
 -(void)initDefault;
@@ -30,20 +36,19 @@
 
 -(void)initDefault
 {
-    
-    Lab *lab1 = [[Lab alloc] initWithName:@"SIEBL 0220" Capacity:21];
-    Lab *lab2 = [[Lab alloc] initWithName:@"SIEBL 0222" Capacity:21];
-    Lab *lab3 = [[Lab alloc] initWithName:@"SIEBL 0218" Capacity:21];
-    Lab *lab4 = [[Lab alloc] initWithName:@"GELIB 057" Capacity:40];
-    Lab *lab5 = [[Lab alloc] initWithName:@"GELIB 4th" Capacity:39];
-    Lab *lab6 = [[Lab alloc] initWithName:@"EH 406B1" Capacity:40];
-    Lab *lab7 = [[Lab alloc] initWithName:@"EH 406B8" Capacity:40];
-    Lab *lab8 = [[Lab alloc] initWithName:@"EVRT 252" Capacity:39];
+    Lab *lab1 = [[Lab alloc] initWithName:@"DCL L416" Capacity:26];
+    Lab *lab2 = [[Lab alloc] initWithName:@"DCL L440" Capacity:29];
+    Lab *lab3 = [[Lab alloc] initWithName:@"DCL L520" Capacity:41];
+    Lab *lab4 = [[Lab alloc] initWithName:@"EH 406B1" Capacity:40];
+    Lab *lab5 = [[Lab alloc] initWithName:@"EH 406B8" Capacity:40];
+    Lab *lab6 = [[Lab alloc] initWithName:@"EVRT 252" Capacity:39];
+    Lab *lab7 = [[Lab alloc] initWithName:@"GELIB 057" Capacity:40];
+    Lab *lab8 = [[Lab alloc] initWithName:@"GELIB 4th" Capacity:39];
     Lab *lab9 = [[Lab alloc] initWithName:@"MEL 1001" Capacity:25];
     Lab *lab10 = [[Lab alloc] initWithName:@"MEL 1009" Capacity:40];
-    Lab *lab11 = [[Lab alloc] initWithName:@"DCL L416" Capacity:26];
-    Lab *lab12 = [[Lab alloc] initWithName:@"DCL L440" Capacity:29];
-    Lab *lab13 = [[Lab alloc] initWithName:@"DCL L520" Capacity:41];
+    Lab *lab11 = [[Lab alloc] initWithName:@"SIEBL 0218" Capacity:21];
+    Lab *lab12 = [[Lab alloc] initWithName:@"SIEBL 0220" Capacity:21];
+    Lab *lab13 = [[Lab alloc] initWithName:@"SIEBL 0222" Capacity:21];
     self.mainLabList =  [[NSMutableArray alloc] initWithObjects:lab1, lab2, lab3, lab4, lab5, lab6, lab7, lab8, lab9, lab10, lab11, lab12, lab13, nil];
 }
 
@@ -57,10 +62,19 @@
     return [self.mainLabList objectAtIndex:index];
 }
 
+//-(void)asyncDownload {
+//    //Set yourself as the delegate in the header file!
+//    EWSAsyncDemoCode *manager = [[EWSAsyncDemoCode alloc] initWithDelegate:self];
+//    [manager downloadDataAtUrlStr:@"http://www.google.com/?q=cats"];
+//}
+//
+//-(void)downloadData:(NSData*)data withError:(NSError *)error {
+//    //Process the data
+//}
+
 -(void)pollCurrentLabUsage
 {
     // Create new SBJSON parser object
-    //SBJsonParser *parser = [[SBJsonParser alloc] init];
 
     // Prepare URL request to download statuses from Twitter
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
@@ -79,7 +93,6 @@
     for (NSDictionary *lab in labJsonData) {
         NSUInteger currentUsage = [[lab objectForKey:@"inusecount"] integerValue];
         ((Lab *)[self.mainLabList objectAtIndex:indexForMainList]).currentLabUsage = currentUsage;
-        NSLog(@"%d", currentUsage);
         indexForMainList++;
     }
 }

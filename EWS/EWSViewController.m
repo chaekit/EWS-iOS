@@ -71,10 +71,27 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
    
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        cell.accessoryView = UITableViewCellAccessoryNone;
+    }
+    
+    UILabel *nameLabel;
+    UILabel *fractionText;
+    UIProgressView *progressView;
+    
+    nameLabel = (UILabel*)[cell.contentView viewWithTag:3];
+    fractionText = (UILabel*)[cell.contentView viewWithTag:1];
+    progressView = (UIProgressView*)[cell.contentView viewWithTag:2];
+   
+    
     Lab *labAtIndex = (Lab *) [self.dataController objectAtIndex:indexPath.row];
     NSString *usageInString = [NSString stringWithFormat:@"%d/%d", labAtIndex.currentLabUsage, labAtIndex.maxCapacity];
-    [[cell textLabel] setText:labAtIndex.name];
-    [[cell detailTextLabel] setText:usageInString];
+    [nameLabel setText:labAtIndex.name];
+    [fractionText setText:usageInString];
+    
+    [progressView setProgress:(double)labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity];
 
     return cell;
 }
