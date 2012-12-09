@@ -5,73 +5,6 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="Tf4-r3-evY">
-            <objects>
-                <viewController id="rdB-LR-Cnf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XLt-OI-ngb">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oog-j4-vh2">
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4RP-tm-Xl8">
-                                    <size key="itemSize" width="135" height="90"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dP7-u1-bY1">
-                                        <rect key="frame" x="10" y="10" width="135" height="90"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="135" height="90"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b1y-5V-E6f">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="117" id="h3K-qA-fh0"/>
-                                                    </constraints>
-                                                </progressView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dn10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cw-BB-l1n">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="35/40" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atW-W0-ejH">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="0.36836436646085569" blue="0.37412092603983726" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="b1y-5V-E6f" secondAttribute="bottom" constant="18" id="9Sv-0b-k2F"/>
-                                            <constraint firstItem="1cw-BB-l1n" firstAttribute="top" secondItem="dP7-u1-bY1" secondAttribute="top" constant="26" id="AJS-jH-Xip"/>
-                                            <constraint firstItem="b1y-5V-E6f" firstAttribute="trailing" secondItem="atW-W0-ejH" secondAttribute="trailing" type="default" id="BJv-Rq-vQF"/>
-                                            <constraint firstItem="b1y-5V-E6f" firstAttribute="centerX" secondItem="dP7-u1-bY1" secondAttribute="centerX" type="default" id="Jgz-8Y-07a"/>
-                                            <constraint firstItem="atW-W0-ejH" firstAttribute="baseline" secondItem="1cw-BB-l1n" secondAttribute="baseline" type="default" id="XgK-ka-nVa"/>
-                                            <constraint firstItem="1cw-BB-l1n" firstAttribute="leading" secondItem="b1y-5V-E6f" secondAttribute="leading" type="default" id="xIP-0c-rlK"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Oog-j4-vh2" firstAttribute="bottom" secondItem="XLt-OI-ngb" secondAttribute="bottom" type="default" id="Dfh-u5-UyH"/>
-                            <constraint firstItem="Oog-j4-vh2" firstAttribute="top" secondItem="XLt-OI-ngb" secondAttribute="top" type="default" id="LO9-Vc-yG0"/>
-                            <constraint firstItem="Oog-j4-vh2" firstAttribute="trailing" secondItem="XLt-OI-ngb" secondAttribute="trailing" type="default" id="QdW-cK-hUO"/>
-                            <constraint firstItem="Oog-j4-vh2" firstAttribute="leading" secondItem="XLt-OI-ngb" secondAttribute="leading" type="default" id="tUl-VW-OOn"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GRj-q3-Y0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="294" y="444"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="3Rw-bX-sre">
             <objects>
                 <tableViewController id="PDR-S1-E6D" customClass="EWSViewController" sceneMemberID="viewController">
@@ -88,7 +21,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mui-H9-02c">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="7vE-du-sVJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -108,10 +44,10 @@
                                 <color key="backgroundColor" red="0.2208378318" green="0.43875219830000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Mui-H9-02c" firstAttribute="leading" secondItem="vQ1-yv-OrN" secondAttribute="leading" constant="8" id="2XT-Lp-qxs"/>
+                                    <constraint firstItem="PCr-wX-7Op" firstAttribute="top" secondItem="Mui-H9-02c" secondAttribute="top" type="default" id="9hd-ve-Qnd"/>
                                     <constraint firstItem="TkG-KE-Gow" firstAttribute="leading" secondItem="vQ1-yv-OrN" secondAttribute="leading" constant="116" id="JFB-cF-jVU"/>
                                     <constraint firstItem="Mui-H9-02c" firstAttribute="top" secondItem="vQ1-yv-OrN" secondAttribute="top" constant="11" id="NFz-Fq-Xgd"/>
                                     <constraint firstItem="TkG-KE-Gow" firstAttribute="centerY" secondItem="PCr-wX-7Op" secondAttribute="centerY" type="default" id="PsM-Ld-Nb5"/>
-                                    <constraint firstItem="PCr-wX-7Op" firstAttribute="baseline" secondItem="Mui-H9-02c" secondAttribute="baseline" type="default" id="osL-cf-ycM"/>
                                     <constraint firstAttribute="trailing" secondItem="PCr-wX-7Op" secondAttribute="trailing" constant="10" id="phg-II-1Ka"/>
                                 </constraints>
                             </tableViewCell>
@@ -124,7 +60,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gH-JC-odW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="-268"/>
+            <point key="canvasLocation" x="-197" y="-134"/>
         </scene>
     </scenes>
     <classes>
@@ -133,18 +69,6 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		190E9954166FF05B006FDF0D /* EWSDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E9953166FF05B006FDF0D /* EWSDataController.m */; };
 		190E9960166FF5E7006FDF0D /* Lab.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E995F166FF5E7006FDF0D /* Lab.m */; };
-		190E9974166FFD3B006FDF0D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 190E9973166FFD3B006FDF0D /* libxml2.dylib */; };
 		190E998F167009D6006FDF0D /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E9977167009D6006FDF0D /* NSObject+SBJson.m */; };
 		190E9990167009D6006FDF0D /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E997A167009D6006FDF0D /* SBJsonParser.m */; };
 		190E9991167009D6006FDF0D /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E997C167009D6006FDF0D /* SBJsonStreamParser.m */; };
@@ -34,6 +33,8 @@
 		1959BAA9166F1F0D00C79F98 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */; };
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
 		19BD2020167168BC00379C57 /* EWSAsyncDemoCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BD201F167168BC00379C57 /* EWSAsyncDemoCode.m */; };
+		19EC82AA1672709E00BB6C77 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EC82A91672709E00BB6C77 /* PullRefreshTableViewController.m */; };
+		19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC82AC167270C800BB6C77 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +42,6 @@
 		190E9953166FF05B006FDF0D /* EWSDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDataController.m; sourceTree = "<group>"; };
 		190E995E166FF5E7006FDF0D /* Lab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lab.h; sourceTree = "<group>"; };
 		190E995F166FF5E7006FDF0D /* Lab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lab.m; sourceTree = "<group>"; };
-		190E9973166FFD3B006FDF0D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		190E9976167009D6006FDF0D /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "../../Libraries/json-framework/Classes/NSObject+SBJson.h"; sourceTree = "<group>"; };
 		190E9977167009D6006FDF0D /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJson.m"; path = "../../Libraries/json-framework/Classes/NSObject+SBJson.m"; sourceTree = "<group>"; };
 		190E9978167009D6006FDF0D /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = "../../Libraries/json-framework/Classes/SBJson.h"; sourceTree = "<group>"; };
@@ -85,6 +85,9 @@
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
 		19BD201E167168BC00379C57 /* EWSAsyncDemoCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSAsyncDemoCode.h; sourceTree = "<group>"; };
 		19BD201F167168BC00379C57 /* EWSAsyncDemoCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSAsyncDemoCode.m; sourceTree = "<group>"; };
+		19EC82A81672709E00BB6C77 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		19EC82A91672709E00BB6C77 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		19EC82AC167270C800BB6C77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				190E9974166FFD3B006FDF0D /* libxml2.dylib in Frameworks */,
+				19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */,
 				1959BA8A166F1ED800C79F98 /* UIKit.framework in Frameworks */,
 				1959BA8C166F1ED800C79F98 /* Foundation.framework in Frameworks */,
 				1959BA8E166F1ED800C79F98 /* CoreGraphics.framework in Frameworks */,
@@ -137,7 +140,6 @@
 		1959BA7A166F1ED800C79F98 = {
 			isa = PBXGroup;
 			children = (
-				190E9973166FFD3B006FDF0D /* libxml2.dylib */,
 				1959BA8F166F1ED800C79F98 /* EWS */,
 				1959BA88166F1ED800C79F98 /* Frameworks */,
 				1959BA86166F1ED800C79F98 /* Products */,
@@ -155,6 +157,7 @@
 		1959BA88166F1ED800C79F98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19EC82AC167270C800BB6C77 /* QuartzCore.framework */,
 				1959BA89166F1ED800C79F98 /* UIKit.framework */,
 				1959BA8B166F1ED800C79F98 /* Foundation.framework */,
 				1959BA8D166F1ED800C79F98 /* CoreGraphics.framework */,
@@ -208,6 +211,8 @@
 		19BD202116719DCA00379C57 /* PullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				19EC82A81672709E00BB6C77 /* PullRefreshTableViewController.h */,
+				19EC82A91672709E00BB6C77 /* PullRefreshTableViewController.m */,
 			);
 			name = PullToRefresh;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				190E9999167009D6006FDF0D /* SBJsonUTF8Stream.m in Sources */,
 				190E999A167009D6006FDF0D /* SBJsonWriter.m in Sources */,
 				19BD2020167168BC00379C57 /* EWSAsyncDemoCode.m in Sources */,
+				19EC82AA1672709E00BB6C77 /* PullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

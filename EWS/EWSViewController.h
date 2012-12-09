@@ -12,6 +12,6 @@
 
 @interface EWSViewController : UITableViewController
 
-@property (strong, nonatomic)EWSDataController *dataController;
+@property (strong, nonatomic) EWSDataController *dataController;
 
 @end
