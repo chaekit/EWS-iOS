@@ -8,6 +8,7 @@
 
 #import "EWSViewController.h"
 #import "EWSDataController.h"
+#import "EWSDetailViewController.h"
 #import "Lab.h"
 
 @interface EWSViewController ()
@@ -60,7 +61,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"LabInfoCell";
-  
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
    
@@ -79,7 +79,7 @@
     progressView = (UIProgressView*)[cell.contentView viewWithTag:2];
    
     
-    Lab *labAtIndex = (Lab *) [self.dataController objectAtIndex:indexPath.row];
+    Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     NSString *usageInString = [NSString stringWithFormat:@"%d/%d", labAtIndex.currentLabUsage, labAtIndex.maxCapacity];
     [nameLabel setText:labAtIndex.name];
     [fractionText setText:usageInString];
@@ -130,15 +130,11 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if ([[segue identifier] isEqualToString:@"ShowLabDetails"]) {
+        EWSDetailViewController *detailViewController = [segue destinationViewController];
+        detailViewController.ewsLab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    }
 }
-
 @end

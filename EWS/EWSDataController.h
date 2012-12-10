@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class Lab;
+
 @interface EWSDataController : NSObject
 {
     NSMutableData *responseData;
@@ -16,5 +18,5 @@
 @property (nonatomic, copy) NSMutableArray *mainLabList;
 
 -(NSUInteger) countOfMainLabList;
--(NSString *) objectAtIndex:(NSUInteger) index;
+-(Lab *) objectAtIndex:(NSUInteger) index;
 @end

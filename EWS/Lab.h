@@ -15,5 +15,5 @@
 @property (nonatomic) NSUInteger currentLabUsage;
 
 -(id)initWithName:(NSString *)labName Capacity:(NSUInteger)labCapacity;
--(void) setUsageToLab:(NSUInteger)usage;
+//-(void) setUsageToLab:(NSUInteger)usage;
 @end

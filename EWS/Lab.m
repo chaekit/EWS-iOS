@@ -25,8 +25,4 @@
     return nil;
 }
 
--(void)setUsageToLab:(NSUInteger)usage
-{
-    //
-}
 @end

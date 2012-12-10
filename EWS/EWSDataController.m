@@ -57,7 +57,7 @@
     return [self.mainLabList count];
 }
 
-- (NSString *)objectAtIndex:(NSUInteger)index
+- (Lab *)objectAtIndex:(NSUInteger)index
 {
     return [self.mainLabList objectAtIndex:index];
 }
