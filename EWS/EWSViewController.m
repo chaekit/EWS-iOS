@@ -10,9 +10,9 @@
 #import "EWSDataController.h"
 #import "EWSDetailViewController.h"
 #import "Lab.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface EWSViewController ()
-
 @end
 
 @implementation EWSViewController
@@ -39,9 +39,21 @@
     [super viewDidLoad];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [machinesTableView reloadData];
+    
+    //[UIView beginAnimations:@"fade out" context:nil];
+    //[UIView setAnimationDuration:1.0f];
+    //[UIView setAnimationRepeatAutoreverses:YES];
+    //machinesTableView.transform =  CGAffineTransformMakeRotation(3.14159623);
+    //[UIView commitAnimations];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    
 }
 
 #pragma mark - Table view data source
@@ -73,11 +85,13 @@
     UILabel *nameLabel;
     UILabel *fractionText;
     UIProgressView *progressView;
+    UIView *loadingView;
     
     nameLabel = (UILabel*)[cell.contentView viewWithTag:3];
     fractionText = (UILabel*)[cell.contentView viewWithTag:1];
     progressView = (UIProgressView*)[cell.contentView viewWithTag:2];
-   
+    progressView.progressViewStyle = UIProgressViewStyleBar;
+    loadingView = (UIView *)[cell.contentView viewWithTag:4];
     
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     NSString *usageInString = [NSString stringWithFormat:@"%d/%d", labAtIndex.currentLabUsage, labAtIndex.maxCapacity];
@@ -86,6 +100,15 @@
     
     [progressView setProgress:(double)labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity];
 
+    double width = ((double)labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity)*320;
+    [loadingView setFrame:CGRectMake(loadingView.frame.origin.x, loadingView.frame.origin.y, width, loadingView.frame.size.height)];
+    
+    //[UIView beginAnimations:@"" context:nil];
+    //[UIView setAnimationDuration:5.0f];
+    
+    loadingView.alpha = width/320;
+    //[UIView commitAnimations];
+    
     return cell;
 }
 

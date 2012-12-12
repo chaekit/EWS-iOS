@@ -10,7 +10,9 @@
 
 @class EWSDataController;
 
-@interface EWSViewController : UITableViewController
+@interface EWSViewController : UITableViewController {
+    IBOutlet UITableView *machinesTableView;
+}
 
 @property (strong, nonatomic) EWSDataController *dataController;
 
