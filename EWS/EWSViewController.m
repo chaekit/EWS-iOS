@@ -77,7 +77,7 @@
     UILabel *fractionText;
     UIView *loadingView;
     UITableViewCell *cell;
-    
+    UIPanGestureRecognizer *panGestureRecognizer;
     static NSString *CellIdentifier = @"LabInfoCell";
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil) {
@@ -102,7 +102,11 @@
     double widthBasedOnUsage = ((double) labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity)*320;
     [loadingView setFrame:CGRectMake(loadingView.frame.origin.x, loadingView.frame.origin.y, widthBasedOnUsage, loadingView.frame.size.height)];
     loadingView.alpha = widthBasedOnUsage/320;
-    
+   
+    //Added Gesture
+    panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [panGestureRecognizer setDelegate:self];
+    [cell addGestureRecognizer:panGestureRecognizer];
     //[UIView beginAnimations:@"" context:nil];
     //[UIView setAnimationDuration:5.0f];
     //[UIView commitAnimations];
@@ -158,4 +162,19 @@
         detailViewController.ewsLab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
+
+
+
+
+#pragma mark - UIGestureRecognizerDelegate
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    return YES;
+}
+
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    
+}
+
 @end

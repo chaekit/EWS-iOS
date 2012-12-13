@@ -10,7 +10,7 @@
 
 @class EWSDataController;
 
-@interface EWSViewController : UITableViewController {
+@interface EWSViewController : UITableViewController <UITableViewDataSource, UIGestureRecognizerDelegate> {
     IBOutlet UITableView *machinesTableView;
 }
 
