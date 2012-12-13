@@ -28,13 +28,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabInfoCell" id="vQ1-yv-OrN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabInfoCell" id="vQ1-yv-OrN">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EN1-6e-fzl">
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-ff-F22">
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mui-H9-02c">
@@ -52,22 +55,19 @@
                                                 <constraint firstItem="Mui-H9-02c" firstAttribute="centerX" secondItem="lBf-ff-F22" secondAttribute="centerX" type="default" id="yXt-Md-6ym"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCr-wX-7Op">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="0.2208378318" green="0.43875219830000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="PCr-wX-7Op" firstAttribute="centerY" secondItem="lBf-ff-F22" secondAttribute="centerY" type="default" id="Ne8-gb-F2i"/>
-                                    <constraint firstItem="PCr-wX-7Op" firstAttribute="top" secondItem="vQ1-yv-OrN" secondAttribute="top" constant="11" id="fo9-yI-Ez1"/>
-                                    <constraint firstItem="lBf-ff-F22" firstAttribute="trailing" secondItem="vQ1-yv-OrN" secondAttribute="trailing" type="default" id="jJw-uJ-QWg"/>
-                                    <constraint firstItem="lBf-ff-F22" firstAttribute="top" secondItem="vQ1-yv-OrN" secondAttribute="top" type="default" id="kke-mh-S3Z"/>
-                                    <constraint firstAttribute="trailing" secondItem="PCr-wX-7Op" secondAttribute="trailing" constant="10" id="phg-II-1Ka"/>
-                                    <constraint firstItem="lBf-ff-F22" firstAttribute="leading" secondItem="vQ1-yv-OrN" secondAttribute="leading" type="default" id="rKp-op-xix"/>
+                                    <constraint firstItem="lBf-ff-F22" firstAttribute="trailing" secondItem="vQ1-yv-OrN" secondAttribute="trailing" type="default" id="3Sf-TA-wTn"/>
+                                    <constraint firstItem="lBf-ff-F22" firstAttribute="top" secondItem="vQ1-yv-OrN" secondAttribute="top" type="default" id="3u1-Wk-0pG"/>
+                                    <constraint firstItem="EN1-6e-fzl" firstAttribute="top" secondItem="vQ1-yv-OrN" secondAttribute="top" type="default" id="ApG-cC-bz7"/>
+                                    <constraint firstItem="EN1-6e-fzl" firstAttribute="leading" secondItem="vQ1-yv-OrN" secondAttribute="leading" type="default" id="cMI-GG-xTe"/>
+                                    <constraint firstItem="lBf-ff-F22" firstAttribute="leading" secondItem="vQ1-yv-OrN" secondAttribute="leading" type="default" id="kwK-Zv-bNP"/>
+                                    <constraint firstItem="EN1-6e-fzl" firstAttribute="trailing" secondItem="vQ1-yv-OrN" secondAttribute="trailing" type="default" id="ouq-j0-A4j"/>
+                                    <constraint firstItem="lBf-ff-F22" firstAttribute="bottom" secondItem="EN1-6e-fzl" secondAttribute="bottom" type="default" id="sb6-uV-wbc"/>
+                                    <constraint firstAttribute="bottom" secondItem="lBf-ff-F22" secondAttribute="bottom" constant="1" id="yMv-X3-hA4"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="w7x-se-eOE" kind="push" identifier="ShowLabDetails" id="KGd-At-pHw"/>
