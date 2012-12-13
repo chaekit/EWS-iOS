@@ -15,5 +15,4 @@
 }
 
 @property (strong, nonatomic) EWSDataController *dataController;
-
 @end

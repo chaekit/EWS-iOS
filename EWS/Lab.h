@@ -11,9 +11,20 @@
 @interface Lab : NSObject
 
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *buildingName;
+@property (nonatomic, copy) NSString *computerPlatformName;
+
 @property (nonatomic) NSUInteger maxCapacity;
 @property (nonatomic) NSUInteger currentLabUsage;
 
--(id)initWithName:(NSString *)labName Capacity:(NSUInteger)labCapacity;
+
+
+-(id)initWithName:(NSString *)labName
+        Capacity:(NSUInteger)labCapacity
+        Building:(NSString *)buildingName
+        Platform:(NSString *)computerPlatFormName;
+
+
+
 //-(void) setUsageToLab:(NSUInteger)usage;
 @end

@@ -11,18 +11,33 @@
 
 @implementation Lab
 
--(id)initWithName:(NSString *)labName Capacity:(NSUInteger)labCapacity
+-(id)initWithName:(NSString *)labName Capacity:(NSUInteger)labCapacity Building:(NSString *)buildingName Platform:(NSString *)computerPlatFormName
 {
-    // creates an NSObject
     self = [super init];
     if (self)
     {
         self.name = labName;
         self.maxCapacity = labCapacity;
         self.currentLabUsage = 0;
+        self.buildingName = buildingName;
+        self.computerPlatformName = computerPlatFormName;
         return self;
     }
     return nil;
 }
 
+//-(id)initWithName:(NSString *)labName Capacity:(NSUInteger)labCapacity
+//{
+//    // creates an NSObject
+//    self = [super init];
+//    if (self)
+//    {
+//        self.name = labName;
+//        self.maxCapacity = labCapacity;
+//        self.currentLabUsage = 0;
+//        return self;
+//    }
+//    return nil;
+//}
+//
 @end

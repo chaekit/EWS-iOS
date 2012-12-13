@@ -72,41 +72,39 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"LabInfoCell";
+    //Interfaces
+    UILabel *nameLabel;
+    UILabel *fractionText;
+    UIView *loadingView;
+    UITableViewCell *cell;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-   
+    static NSString *CellIdentifier = @"LabInfoCell";
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
         cell.accessoryView = UITableViewCellAccessoryNone;
     }
     
-    UILabel *nameLabel;
-    UILabel *fractionText;
-    UIProgressView *progressView;
-    UIView *loadingView;
-    
     nameLabel = (UILabel*)[cell.contentView viewWithTag:3];
     fractionText = (UILabel*)[cell.contentView viewWithTag:1];
-    progressView = (UIProgressView*)[cell.contentView viewWithTag:2];
-    progressView.progressViewStyle = UIProgressViewStyleBar;
     loadingView = (UIView *)[cell.contentView viewWithTag:4];
+
+//    progressView = (UIProgressView*)[cell.contentView viewWithTag:2];
+//    progressView.progressViewStyle = UIProgressViewStyleBar;
     
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     NSString *usageInString = [NSString stringWithFormat:@"%d/%d", labAtIndex.currentLabUsage, labAtIndex.maxCapacity];
     [nameLabel setText:labAtIndex.name];
     [fractionText setText:usageInString];
     
-    [progressView setProgress:(double)labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity];
+//    [progressView setProgress:(double)labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity];
 
-    double width = ((double)labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity)*320;
-    [loadingView setFrame:CGRectMake(loadingView.frame.origin.x, loadingView.frame.origin.y, width, loadingView.frame.size.height)];
+    double widthBasedOnUsage = ((double) labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity)*320;
+    [loadingView setFrame:CGRectMake(loadingView.frame.origin.x, loadingView.frame.origin.y, widthBasedOnUsage, loadingView.frame.size.height)];
+    loadingView.alpha = widthBasedOnUsage/320;
     
     //[UIView beginAnimations:@"" context:nil];
     //[UIView setAnimationDuration:5.0f];
-    
-    loadingView.alpha = width/320;
     //[UIView commitAnimations];
     
     return cell;
