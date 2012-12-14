@@ -34,6 +34,7 @@
 		1959BAA9166F1F0D00C79F98 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */; };
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
 		19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC82AC167270C800BB6C77 /* QuartzCore.framework */; };
+		19EEAAC8167B1A2B000E4F6D /* EWSCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,8 @@
 		1959BAAE166F1FF600C79F98 /* EWSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSViewController.h; sourceTree = "<group>"; };
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
 		19EC82AC167270C800BB6C77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSCustomCell.h; sourceTree = "<group>"; };
+		19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSCustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 			children = (
 				190E99751670099E006FDF0D /* JSON */,
 				1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */,
+				19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */,
+				19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */,
 				193DD4201675AA52005595E8 /* EWSDetailViewController.h */,
 				193DD4211675AA52005595E8 /* EWSDetailViewController.m */,
 				1959BAAE166F1FF600C79F98 /* EWSViewController.h */,
@@ -281,6 +286,7 @@
 				190E9999167009D6006FDF0D /* SBJsonUTF8Stream.m in Sources */,
 				190E999A167009D6006FDF0D /* SBJsonWriter.m in Sources */,
 				193DD4221675AA52005595E8 /* EWSDetailViewController.m in Sources */,
+				19EEAAC8167B1A2B000E4F6D /* EWSCustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

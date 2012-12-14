@@ -10,12 +10,19 @@
 #import "EWSDataController.h"
 #import "EWSDetailViewController.h"
 #import "Lab.h"
+#import "EWSCustomCell.h"
 #import <QuartzCore/QuartzCore.h>
+
+#define FAST_ANIMATION_DURATION 0.35
+#define SLOW_ANIMATION_DURATION 0.75
+#define PAN_CLOSED_X 0
+#define PAN_OPEN_X -500
 
 @interface EWSViewController ()
 @end
 
 @implementation EWSViewController
+@synthesize openCellLastTX, openCellIndexPath;
 
 -(void)awakeFromNib
 {
@@ -40,7 +47,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    //[super viewDidAppear:animated];
     [machinesTableView reloadData];
     
     //[UIView beginAnimations:@"fade out" context:nil];
@@ -74,38 +81,32 @@
 {
     //Interfaces
     UILabel *nameLabel;
-    UILabel *fractionText;
-    UIView *loadingView;
-    UITableViewCell *cell;
+    //UILabel *fractionText;
+    UIView *meterView;
+    EWSCustomCell *cell;
     
     static NSString *CellIdentifier = @"LabInfoCell";
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryView = UITableViewCellAccessoryNone;
+        cell = [[EWSCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        //cell.accessoryView = UITableViewCellAccessoryNone;
     }
     
     nameLabel = (UILabel*)[cell.contentView viewWithTag:3];
-    fractionText = (UILabel*)[cell.contentView viewWithTag:1];
-    loadingView = (UIView *)[cell.contentView viewWithTag:4];
+    //loadingView = (UIView *)[cell.contentView viewWithTag:4];
+    meterView = cell.meterView;
 
-//    progressView = (UIProgressView*)[cell.contentView viewWithTag:2];
-//    progressView.progressViewStyle = UIProgressViewStyleBar;
-    
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
-    NSString *usageInString = [NSString stringWithFormat:@"%d/%d", labAtIndex.currentLabUsage, labAtIndex.maxCapacity];
     [nameLabel setText:labAtIndex.name];
-    [fractionText setText:usageInString];
-    
-//    [progressView setProgress:(double)labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity];
 
     double widthBasedOnUsage = ((double) labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity)*320;
-    [loadingView setFrame:CGRectMake(loadingView.frame.origin.x, loadingView.frame.origin.y, widthBasedOnUsage, loadingView.frame.size.height)];
-    loadingView.alpha = widthBasedOnUsage/320;
-    
-    //[UIView beginAnimations:@"" context:nil];
-    //[UIView setAnimationDuration:5.0f];
-    //[UIView commitAnimations];
+    [meterView setFrame:CGRectMake(meterView.frame.origin.x, meterView.frame.origin.y, widthBasedOnUsage, meterView.frame.size.height)];
+    meterView.alpha = widthBasedOnUsage/320;
+
+    // Gesture initialization
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [panGestureRecognizer setDelegate:self];
+    [cell.meterView addGestureRecognizer:panGestureRecognizer];
     
     return cell;
 }
@@ -149,13 +150,117 @@
 }
 */
 
-#pragma mark - Table view delegate
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - Demo gesture handler
+-(void) handlePan:(UIPanGestureRecognizer *)panGestureRecognizer
 {
-    if ([[segue identifier] isEqualToString:@"ShowLabDetails"]) {
-        EWSDetailViewController *detailViewController = [segue destinationViewController];
-        detailViewController.ewsLab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    NSLog(@"wow nig");
+    if (panGestureRecognizer.state == UIGestureRecognizerStateChanged ||
+        panGestureRecognizer.state == UIGestureRecognizerStateEnded)
+    {
+        UIView *gestureView = [panGestureRecognizer view];
+        CGPoint translation = [panGestureRecognizer translationInView:gestureView];
+        panGestureRecognizer.view.center = CGPointMake(gestureView.center.x+translation.x, gestureView.center.y);
+        [panGestureRecognizer setTranslation:CGPointZero inView:[panGestureRecognizer view]];
+        //NSLog(@"%@", translation);
     }
 }
+
+#pragma mark - Gesture recognizer delegate
+//- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer
+//{
+//    NSLog(@"SHould begin");
+//    NSLog(@"%@", self.openCellIndexPath);
+//    EWSCustomCell *cell = (EWSCustomCell *)[panGestureRecognizer view];
+//    CGPoint translation = [panGestureRecognizer translationInView:[cell superview] ];
+//    //NSLog(@"Super View %@", [cell superview]);
+//    NSLog(@"The cell : %@", cell);
+//    (fabs(translation.x) / fabs(translation.y) > 1) ? NSLog(@"YESSSS") : NSLog(@"NOOOOO");
+//    NSLog(@"-------");
+//    //return YES;
+//    return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
+//}
+//
+//#pragma mark - Gesture handlers
+//
+//-(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer
+//{
+//    
+//    float threshold = (PAN_OPEN_X+PAN_CLOSED_X)/2.0;
+//    float vX = 0.0;
+//    float compare;
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:(EWSCustomCell *)[panGestureRecognizer view]];
+//    UIView *view = ((EWSCustomCell *)panGestureRecognizer.view).meterView;
+//    //UIView *view = panGestureRecognizer.view;
+//    
+//    switch ([panGestureRecognizer state]) {
+//        case UIGestureRecognizerStateBegan:
+//            if (self.openCellIndexPath.section != indexPath.section || self.openCellIndexPath.row != indexPath.row) {
+//                [self snapView:((EWSCustomCell *)[self.tableView cellForRowAtIndexPath:self.openCellIndexPath]).meterView toX:PAN_CLOSED_X animated:YES];
+//                [self setOpenCellIndexPath:nil];
+//                [self setOpenCellLastTX:0];
+//            }
+//           
+//            NSLog(@"Started");
+//            NSLog(@"indexPath bro %@", indexPath);
+//            NSLog(@"--------");
+//            break;
+//        case UIGestureRecognizerStateEnded:
+//            vX = (FAST_ANIMATION_DURATION/2.0)*[panGestureRecognizer velocityInView:self.view].x;
+//            compare = view.transform.tx + vX;
+//            if (compare > threshold) {
+//                [self snapView:view toX:PAN_CLOSED_X animated:YES];
+//                [self setOpenCellIndexPath:nil];
+//                [self setOpenCellLastTX:0];
+//            } else {
+//                [self snapView:view toX:PAN_OPEN_X animated:YES];
+//                [self setOpenCellIndexPath:[self.tableView indexPathForCell:(EWSCustomCell *)panGestureRecognizer.view] ];
+//                [self setOpenCellLastTX:view.transform.tx];
+//            }
+//            NSLog(@"Ended");
+//            NSLog(@"%@", self.openCellIndexPath);
+//            NSLog(@"--------");
+//            break;
+//        case UIGestureRecognizerStateChanged:
+//            compare = self.openCellLastTX+[panGestureRecognizer translationInView:self.view].x;
+//            if (compare > PAN_CLOSED_X)
+//                compare = PAN_CLOSED_X;
+//            else if (compare < PAN_OPEN_X)
+//                compare = PAN_OPEN_X;
+//            [view setTransform:CGAffineTransformMakeTranslation(compare, 0)];
+//            
+//            NSLog(@"Changing");
+//            //NSLog(@"%@", self.openCellIndexPath);
+//            break;
+//        default:
+//            NSLog(@"Didn't WOrk");
+//            break;
+//    }
+//}
+-(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated
+{
+    if (animated) {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [UIView setAnimationDuration:FAST_ANIMATION_DURATION];
+    }
+    
+    [view setTransform:CGAffineTransformMakeTranslation(x, 0)];
+    
+    if (animated) {
+        [UIView commitAnimations];
+    }
+}
+
+#pragma mark - Table view delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"ShowLabDetails"]) {
+//        EWSDetailViewController *detailViewController = [segue destinationViewController];
+//        detailViewController.ewsLab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+//    }
+//}
 @end

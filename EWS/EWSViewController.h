@@ -10,9 +10,13 @@
 
 @class EWSDataController;
 
-@interface EWSViewController : UITableViewController {
+@interface EWSViewController : UITableViewController <UIGestureRecognizerDelegate> {
     IBOutlet UITableView *machinesTableView;
 }
 
+@property (nonatomic) float openCellLastTX;
+@property (nonatomic, strong) NSIndexPath *openCellIndexPath;
+- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer;
+- (void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated;
 @property (strong, nonatomic) EWSDataController *dataController;
 @end
