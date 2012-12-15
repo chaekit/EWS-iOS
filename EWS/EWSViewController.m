@@ -15,10 +15,8 @@
 
 #define FAST_ANIMATION_DURATION 0.35
 #define SLOW_ANIMATION_DURATION 0.75
-#define PAN_CLOSED_X 0
-#define PAN_OPEN_X -500
 
-#define CELL_OPEN_X -500
+#define CELL_OPEN_X -300
 #define CELL_CLOSED_X 0
 
 @interface EWSViewController ()
@@ -103,8 +101,8 @@
     [nameLabel setText:labAtIndex.name];
 
     double widthBasedOnUsage = ((double) labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity)*320;
-    [meterView setFrame:CGRectMake(meterView.frame.origin.x, meterView.frame.origin.y, widthBasedOnUsage, meterView.frame.size.height)];
-    meterView.alpha = widthBasedOnUsage/320;
+    //[meterView setFrame:CGRectMake(meterView.frame.origin.x, meterView.frame.origin.y, widthBasedOnUsage, meterView.frame.size.height)];
+    //meterView.alpha = widthBasedOnUsage/320;
 
     // Gesture initialization
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
@@ -156,7 +154,7 @@
 #pragma mark - Demo gesture handler
 -(void) handlePan:(UIPanGestureRecognizer *)panGestureRecognizer
 {
-    float threshold = (PAN_OPEN_X+PAN_CLOSED_X)/2.0;
+    float threshold = (CELL_CLOSED_X + CELL_OPEN_X)/2.0;
     UIView *gestureView = [panGestureRecognizer view];
     CGPoint translation;
     float vX = 0.0;
@@ -186,13 +184,13 @@
             vX = (FAST_ANIMATION_DURATION/2.0)*[panGestureRecognizer velocityInView:self.view].x;
             newTXOfOpenCell = vX + gestureView.transform.tx;
            
-            if (newTXOfOpenCell < threshold) {
-                [self snapView:gestureView toX:CELL_OPEN_X animated:YES];
-                self.openCellLastTX = gestureView.transform.tx;
-//                NSLog(@"Snapped open, transfor TX %f", gestureView.transform.tx);
-            } else {
+            if (newTXOfOpenCell > threshold) {
                 [self snapView:gestureView toX:CELL_CLOSED_X animated:YES];
                 self.openCellLastTX = 0;
+                //                NSLog(@"Snapped open, transfor TX %f", gestureView.transform.tx);
+            } else {
+                [self snapView:gestureView toX:CELL_OPEN_X animated:YES];
+                self.openCellLastTX = gestureView.transform.tx;
 //                NSLog(@"Snapped CLOSED, transfor TX %f", gestureView.transform.tx);
             }
             

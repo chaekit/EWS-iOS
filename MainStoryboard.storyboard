@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PDR-S1-E6D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="PDR-S1-E6D">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -20,44 +20,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8h-40-XJ7">
+                                        <view contentMode="scaleToFill" id="E8h-40-XJ7">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <subviews>
-                                                <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-ff-F22">
+                                                <view tag="4" contentMode="scaleToFill" id="lBf-ff-F22">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mui-H9-02c">
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="21" id="7vE-du-sVJ"/>
-                                                            </constraints>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mui-H9-02c">
+                                                            <rect key="frame" x="139" y="11" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.30480278972004071" green="0.64898264608462963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstItem="Mui-H9-02c" firstAttribute="centerX" secondItem="lBf-ff-F22" secondAttribute="centerX" type="default" id="90i-iI-dLJ"/>
-                                                        <constraint firstItem="Mui-H9-02c" firstAttribute="centerY" secondItem="lBf-ff-F22" secondAttribute="centerY" type="default" id="hlU-ZO-D8a"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstItem="lBf-ff-F22" firstAttribute="bottom" secondItem="E8h-40-XJ7" secondAttribute="bottom" type="default" id="Cts-kU-9kq"/>
-                                                <constraint firstItem="lBf-ff-F22" firstAttribute="top" secondItem="E8h-40-XJ7" secondAttribute="top" type="default" id="H7I-Ye-3jW"/>
-                                                <constraint firstItem="lBf-ff-F22" firstAttribute="trailing" secondItem="E8h-40-XJ7" secondAttribute="trailing" type="default" id="Wex-34-Syg"/>
-                                                <constraint firstItem="lBf-ff-F22" firstAttribute="leading" secondItem="E8h-40-XJ7" secondAttribute="leading" type="default" id="hem-8f-ipY"/>
-                                            </constraints>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="0.2208378318" green="0.43875219830000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="E8h-40-XJ7" firstAttribute="trailing" secondItem="vQ1-yv-OrN" secondAttribute="trailing" type="default" id="2uK-av-4wR"/>
-                                    <constraint firstItem="E8h-40-XJ7" firstAttribute="top" secondItem="vQ1-yv-OrN" secondAttribute="top" type="default" id="6fg-Nm-b4C"/>
-                                    <constraint firstItem="E8h-40-XJ7" firstAttribute="leading" secondItem="vQ1-yv-OrN" secondAttribute="leading" type="default" id="sU8-6t-yWp"/>
-                                    <constraint firstAttribute="bottom" secondItem="E8h-40-XJ7" secondAttribute="bottom" constant="1" id="ucu-ID-f9G"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="detailView" destination="E8h-40-XJ7" id="gjn-ZA-aXj"/>
                                     <outlet property="meterView" destination="lBf-ff-F22" id="3aL-a4-RrQ"/>
@@ -92,9 +76,6 @@
             <relationships>
                 <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
             </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
