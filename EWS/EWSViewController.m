@@ -18,6 +18,9 @@
 #define PAN_CLOSED_X 0
 #define PAN_OPEN_X -500
 
+#define CELL_OPEN_X -500
+#define CELL_CLOSED_X 0
+
 @interface EWSViewController ()
 @end
 
@@ -153,17 +156,56 @@
 #pragma mark - Demo gesture handler
 -(void) handlePan:(UIPanGestureRecognizer *)panGestureRecognizer
 {
-    NSLog(@"wow nig");
-    if (panGestureRecognizer.state == UIGestureRecognizerStateChanged ||
-        panGestureRecognizer.state == UIGestureRecognizerStateEnded)
-    {
-        UIView *gestureView = [panGestureRecognizer view];
-        CGPoint translation = [panGestureRecognizer translationInView:gestureView];
-        panGestureRecognizer.view.center = CGPointMake(gestureView.center.x+translation.x, gestureView.center.y);
-        [panGestureRecognizer setTranslation:CGPointZero inView:[panGestureRecognizer view]];
-        //NSLog(@"%@", translation);
+    float threshold = (PAN_OPEN_X+PAN_CLOSED_X)/2.0;
+    UIView *gestureView = [panGestureRecognizer view];
+    CGPoint translation;
+    float vX = 0.0;
+    float newTXOfOpenCell;
+    
+    switch (panGestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            self.openCellLastTX = 0.0;
+            break;
+        
+        case UIGestureRecognizerStateChanged:
+            //translation = [panGestureRecognizer translationInView:[gestureView superview]];
+            translation = [panGestureRecognizer translationInView:self.view];
+            newTXOfOpenCell = self.openCellLastTX + translation.x;
+            
+            if (newTXOfOpenCell > CELL_CLOSED_X)
+                newTXOfOpenCell = CELL_CLOSED_X;
+            else if (newTXOfOpenCell < CELL_OPEN_X)
+                newTXOfOpenCell = CELL_OPEN_X;
+            
+            [gestureView setTransform:CGAffineTransformMakeTranslation(newTXOfOpenCell, 0)];
+            NSLog(@"updating TX     %f", newTXOfOpenCell);
+            break;
+        case UIGestureRecognizerStateEnded:
+            // WTF is this
+            //vX = (FAST_ANIMATION_DURATION/2.0)*[panGestureRecognizer velocityInView:[gestureView superview]].x;
+            vX = (FAST_ANIMATION_DURATION/2.0)*[panGestureRecognizer velocityInView:self.view].x;
+            newTXOfOpenCell = vX + gestureView.transform.tx;
+           
+            if (newTXOfOpenCell < threshold) {
+                [self snapView:gestureView toX:CELL_OPEN_X animated:YES];
+                self.openCellLastTX = gestureView.transform.tx;
+//                NSLog(@"Snapped open, transfor TX %f", gestureView.transform.tx);
+            } else {
+                [self snapView:gestureView toX:CELL_CLOSED_X animated:YES];
+                self.openCellLastTX = 0;
+//                NSLog(@"Snapped CLOSED, transfor TX %f", gestureView.transform.tx);
+            }
+            
+//            NSLog(@"the view is  %@", [gestureView superview]);
+//            NSLog(@"self view is  %@", self.view);
+//            NSLog(@"self is  %@", self);
+            break;
+        default:
+            break;
     }
 }
+
+
 
 #pragma mark - Gesture recognizer delegate
 //- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer
@@ -238,6 +280,8 @@
 //}
 -(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated
 {
+    NSLog(@"SnapView");
+    NSLog(@"Snapview  X  %f", view.transform.tx);
     if (animated) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
