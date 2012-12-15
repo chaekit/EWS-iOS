@@ -51,11 +51,6 @@
     //[super viewDidAppear:animated];
     [machinesTableView reloadData];
     
-    //[UIView beginAnimations:@"fade out" context:nil];
-    //[UIView setAnimationDuration:1.0f];
-    //[UIView setAnimationRepeatAutoreverses:YES];
-    //machinesTableView.transform =  CGAffineTransformMakeRotation(3.14159623);
-    //[UIView commitAnimations];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +80,7 @@
     //UILabel *fractionText;
     UIView *meterView;
     EWSCustomCell *cell;
+
     
     static NSString *CellIdentifier = @"LabInfoCell";
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -100,10 +96,16 @@
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     [nameLabel setText:labAtIndex.name];
 
+    UIView *loadingView = (UIView *)[cell.contentView viewWithTag:5];
     double widthBasedOnUsage = ((double) labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity)*320;
-    //[meterView setFrame:CGRectMake(meterView.frame.origin.x, meterView.frame.origin.y, widthBasedOnUsage, meterView.frame.size.height)];
-    //meterView.alpha = widthBasedOnUsage/320;
-
+    NSLog(@"%f", widthBasedOnUsage);
+    [loadingView setFrame:CGRectMake(loadingView.frame.origin.x, loadingView.frame.origin.y, widthBasedOnUsage, loadingView.frame.size.height)];
+    loadingView.alpha = widthBasedOnUsage/320;
+    //loadingView.alpha = 1;
+    
+    //always have the name label on top of the loadingView
+    [meterView insertSubview:nameLabel aboveSubview:loadingView];
+    
     // Gesture initialization
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [panGestureRecognizer setDelegate:self];
@@ -194,9 +196,6 @@
 //                NSLog(@"Snapped CLOSED, transfor TX %f", gestureView.transform.tx);
             }
             
-//            NSLog(@"the view is  %@", [gestureView superview]);
-//            NSLog(@"self view is  %@", self.view);
-//            NSLog(@"self is  %@", self);
             break;
         default:
             break;

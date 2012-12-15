@@ -26,14 +26,19 @@
                                                 <view tag="4" contentMode="scaleToFill" id="lBf-ff-F22">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mui-H9-02c">
-                                                            <rect key="frame" x="139" y="11" width="42" height="21"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mui-H9-02c">
+                                                            <rect key="frame" x="84" y="8" width="152" height="27"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
+                                                        <view tag="5" contentMode="scaleToFill" id="4Ly-ty-goE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="43"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.30480278970000002" green="0.6489826461" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.30480278972004071" green="0.64898264608462963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -63,21 +68,6 @@
             <point key="canvasLocation" x="-197" y="-134"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="EWSCustomCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="EWSViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
