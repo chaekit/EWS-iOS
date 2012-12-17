@@ -19,7 +19,7 @@
 @property (nonatomic) float openCellLastTX;
 @property (nonatomic, strong) UIView *openGestureView;
 
-- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer;
+//- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer;
 - (void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated;
 
 

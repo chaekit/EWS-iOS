@@ -28,7 +28,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="0.45414282916692861" blue="0.18048624453906192" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Button">
+                                                    <state key="normal">
                                                         <color key="titleColor" red="1" green="0.45414282919999999" blue="0.1804862445" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" red="1" green="0.48023182641392193" blue="0.16887133346715855" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -90,24 +90,6 @@
             <point key="canvasLocation" x="-197" y="-134"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="EWSCustomCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="platformNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EWSViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
