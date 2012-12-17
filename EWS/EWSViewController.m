@@ -85,10 +85,20 @@
     
     float alphaAdjuster = widthBasedOnUsage/320;
     loadingView.alpha = alphaAdjuster * 0.5 + 0.5;
+
+    NSString *labUsageSring = [NSString stringWithFormat:@"%d/%d", labAtIndex.currentLabUsage, labAtIndex.maxCapacity];
     
+    // Adjusts the subview overlays
     //always have the name label on top of the loadingView
+    // sets up the usageFractionLabel
     [meterView insertSubview:nameLabel aboveSubview:loadingView];
+    [cell.detailView insertSubview:meterView aboveSubview:cell.usageFractionLabel];
+    [cell.usageFractionLabel setText:labUsageSring];
     
+    cell.usageFractionLabel.layer.borderColor = [UIColor whiteColor].CGColor;
+    cell.usageFractionLabel.layer.borderWidth = 2.0;
+    
+
     // Gesture initialization
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [panGestureRecognizer setDelegate:self];
@@ -112,11 +122,7 @@
                 [self snapView:self.openGestureView toX:CELL_CLOSED_X animated:YES];
                 self.openGestureView = nil;
                 self.openCellLastTX = 0.0;
-                NSLog(@"It was different man ");
-            } else {
-                NSLog(@"It was the same bro");
             }
-            
             break;
         
         case UIGestureRecognizerStateChanged:

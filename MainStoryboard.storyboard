@@ -23,6 +23,26 @@
                                         <view contentMode="scaleToFill" id="E8h-40-XJ7">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="eD6-0D-69O">
+                                                    <rect key="frame" x="265" y="5" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.45414282916692861" blue="0.18048624453906192" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="1" green="0.45414282919999999" blue="0.1804862445" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="1" green="0.48023182641392193" blue="0.16887133346715855" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="clR-hC-rcf">
+                                                    <rect key="frame" x="140" y="10" width="63" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view tag="4" contentMode="scaleToFill" id="lBf-ff-F22">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <subviews>
@@ -50,6 +70,8 @@
                                 <connections>
                                     <outlet property="detailView" destination="E8h-40-XJ7" id="gjn-ZA-aXj"/>
                                     <outlet property="meterView" destination="lBf-ff-F22" id="3aL-a4-RrQ"/>
+                                    <outlet property="notifyButton" destination="eD6-0D-69O" id="nye-oI-wYb"/>
+                                    <outlet property="usageFractionLabel" destination="clR-hC-rcf" id="zXW-yG-OjZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -74,6 +96,9 @@
             <relationships>
                 <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="platformNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="EWSViewController" superclassName="UITableViewController">
