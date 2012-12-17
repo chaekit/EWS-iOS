@@ -13,4 +13,9 @@
 @property (nonatomic, strong) IBOutlet UIView *meterView;
 @property (nonatomic, strong) IBOutlet UIView *detailView;
 
+
+@property (nonatomic, strong) IBOutlet UILabel *usageFractionLabel;
+@property (nonatomic, strong) IBOutlet UIButton *notifyButton;
+@property (nonatomic, strong) IBOutlet UILabel *platformNameLabel;
+
 @end

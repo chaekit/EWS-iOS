@@ -23,52 +23,35 @@
 @end
 
 @implementation EWSViewController
-@synthesize openCellLastTX, openCellIndexPath;
+//@synthesize openCellLastTX, openGestureView;
 
--(void)awakeFromNib
-{
+-(void)awakeFromNib {
     [super awakeFromNib];
     self.dataController = [[EWSDataController alloc] init];
 }
 
-/*
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
- */
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
     [machinesTableView reloadData];
-    
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [self.dataController countOfMainLabList];
 }
@@ -77,7 +60,6 @@
 {
     //Interfaces
     UILabel *nameLabel;
-    //UILabel *fractionText;
     UIView *meterView;
     EWSCustomCell *cell;
 
@@ -98,63 +80,25 @@
 
     UIView *loadingView = (UIView *)[cell.contentView viewWithTag:5];
     double widthBasedOnUsage = ((double) labAtIndex.currentLabUsage/(double)labAtIndex.maxCapacity)*320;
-    NSLog(@"%f", widthBasedOnUsage);
+    //NSLog(@"%f", widthBasedOnUsage);
     [loadingView setFrame:CGRectMake(loadingView.frame.origin.x, loadingView.frame.origin.y, widthBasedOnUsage, loadingView.frame.size.height)];
-    loadingView.alpha = widthBasedOnUsage/320;
-    //loadingView.alpha = 1;
+    
+    float alphaAdjuster = widthBasedOnUsage/320;
+    loadingView.alpha = alphaAdjuster * 0.5 + 0.5;
     
     //always have the name label on top of the loadingView
     [meterView insertSubview:nameLabel aboveSubview:loadingView];
     
     // Gesture initialization
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [panGestureRecognizer setDelegate:self];
     [cell.meterView addGestureRecognizer:panGestureRecognizer];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Demo gesture handler
--(void) handlePan:(UIPanGestureRecognizer *)panGestureRecognizer
+-(void) handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer
 {
     float threshold = (CELL_CLOSED_X + CELL_OPEN_X)/2.0;
     UIView *gestureView = [panGestureRecognizer view];
@@ -164,7 +108,15 @@
     
     switch (panGestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
-            self.openCellLastTX = 0.0;
+            if (![self.openGestureView isEqual:gestureView]) {
+                [self snapView:self.openGestureView toX:CELL_CLOSED_X animated:YES];
+                self.openGestureView = nil;
+                self.openCellLastTX = 0.0;
+                NSLog(@"It was different man ");
+            } else {
+                NSLog(@"It was the same bro");
+            }
+            
             break;
         
         case UIGestureRecognizerStateChanged:
@@ -178,7 +130,6 @@
                 newTXOfOpenCell = CELL_OPEN_X;
             
             [gestureView setTransform:CGAffineTransformMakeTranslation(newTXOfOpenCell, 0)];
-            NSLog(@"updating TX     %f", newTXOfOpenCell);
             break;
         case UIGestureRecognizerStateEnded:
             // WTF is this
@@ -189,11 +140,10 @@
             if (newTXOfOpenCell > threshold) {
                 [self snapView:gestureView toX:CELL_CLOSED_X animated:YES];
                 self.openCellLastTX = 0;
-                //                NSLog(@"Snapped open, transfor TX %f", gestureView.transform.tx);
             } else {
                 [self snapView:gestureView toX:CELL_OPEN_X animated:YES];
                 self.openCellLastTX = gestureView.transform.tx;
-//                NSLog(@"Snapped CLOSED, transfor TX %f", gestureView.transform.tx);
+                self.openGestureView = gestureView;
             }
             
             break;
@@ -205,80 +155,16 @@
 
 
 #pragma mark - Gesture recognizer delegate
-//- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer
-//{
-//    NSLog(@"SHould begin");
-//    NSLog(@"%@", self.openCellIndexPath);
-//    EWSCustomCell *cell = (EWSCustomCell *)[panGestureRecognizer view];
-//    CGPoint translation = [panGestureRecognizer translationInView:[cell superview] ];
-//    //NSLog(@"Super View %@", [cell superview]);
-//    NSLog(@"The cell : %@", cell);
-//    (fabs(translation.x) / fabs(translation.y) > 1) ? NSLog(@"YESSSS") : NSLog(@"NOOOOO");
-//    NSLog(@"-------");
-//    //return YES;
-//    return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
-//}
-//
-//#pragma mark - Gesture handlers
-//
-//-(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer
-//{
-//    
-//    float threshold = (PAN_OPEN_X+PAN_CLOSED_X)/2.0;
-//    float vX = 0.0;
-//    float compare;
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:(EWSCustomCell *)[panGestureRecognizer view]];
-//    UIView *view = ((EWSCustomCell *)panGestureRecognizer.view).meterView;
-//    //UIView *view = panGestureRecognizer.view;
-//    
-//    switch ([panGestureRecognizer state]) {
-//        case UIGestureRecognizerStateBegan:
-//            if (self.openCellIndexPath.section != indexPath.section || self.openCellIndexPath.row != indexPath.row) {
-//                [self snapView:((EWSCustomCell *)[self.tableView cellForRowAtIndexPath:self.openCellIndexPath]).meterView toX:PAN_CLOSED_X animated:YES];
-//                [self setOpenCellIndexPath:nil];
-//                [self setOpenCellLastTX:0];
-//            }
-//           
-//            NSLog(@"Started");
-//            NSLog(@"indexPath bro %@", indexPath);
-//            NSLog(@"--------");
-//            break;
-//        case UIGestureRecognizerStateEnded:
-//            vX = (FAST_ANIMATION_DURATION/2.0)*[panGestureRecognizer velocityInView:self.view].x;
-//            compare = view.transform.tx + vX;
-//            if (compare > threshold) {
-//                [self snapView:view toX:PAN_CLOSED_X animated:YES];
-//                [self setOpenCellIndexPath:nil];
-//                [self setOpenCellLastTX:0];
-//            } else {
-//                [self snapView:view toX:PAN_OPEN_X animated:YES];
-//                [self setOpenCellIndexPath:[self.tableView indexPathForCell:(EWSCustomCell *)panGestureRecognizer.view] ];
-//                [self setOpenCellLastTX:view.transform.tx];
-//            }
-//            NSLog(@"Ended");
-//            NSLog(@"%@", self.openCellIndexPath);
-//            NSLog(@"--------");
-//            break;
-//        case UIGestureRecognizerStateChanged:
-//            compare = self.openCellLastTX+[panGestureRecognizer translationInView:self.view].x;
-//            if (compare > PAN_CLOSED_X)
-//                compare = PAN_CLOSED_X;
-//            else if (compare < PAN_OPEN_X)
-//                compare = PAN_OPEN_X;
-//            [view setTransform:CGAffineTransformMakeTranslation(compare, 0)];
-//            
-//            NSLog(@"Changing");
-//            //NSLog(@"%@", self.openCellIndexPath);
-//            break;
-//        default:
-//            NSLog(@"Didn't WOrk");
-//            break;
-//    }
-//}
+
+// Makes sure that the recognizer doesn't block vertical gesutre, which is scrolling
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer
+{
+    CGPoint translation = [panGestureRecognizer translationInView:self.view];
+    return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
+}
+
 -(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated
 {
-    NSLog(@"SnapView");
-    NSLog(@"Snapview  X  %f", view.transform.tx);
     if (animated) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];

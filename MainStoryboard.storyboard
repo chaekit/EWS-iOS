@@ -33,7 +33,7 @@
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
                                                         <view tag="5" contentMode="scaleToFill" id="4Ly-ty-goE">
-                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="43"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.30480278970000002" green="0.6489826461" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </view>
@@ -68,6 +68,21 @@
             <point key="canvasLocation" x="-197" y="-134"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="EWSCustomCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="EWSViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
