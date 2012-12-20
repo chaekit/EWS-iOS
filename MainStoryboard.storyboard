@@ -20,14 +20,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" id="E8h-40-XJ7">
+                                        <view contentMode="scaleToFill" id="E8h-40-XJ7" userLabel="DetailView">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="Y80-Y1-SDX">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="Y80-Y1-SDX" userLabel="PlatformIcon">
                                                     <rect key="frame" x="40" y="4" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="eD6-0D-69O">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="eD6-0D-69O" userLabel="NotificationBtn">
                                                     <rect key="frame" x="265" y="5" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="0.45414282916692861" blue="0.18048624453906192" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,23 +40,23 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="clR-hC-rcf">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="clR-hC-rcf" userLabel="LabUsageLabel">
                                                     <rect key="frame" x="140" y="10" width="63" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view tag="4" contentMode="scaleToFill" id="lBf-ff-F22">
+                                                <view tag="4" contentMode="scaleToFill" id="lBf-ff-F22" userLabel="MeterViewContainer">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mui-H9-02c">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mui-H9-02c" userLabel="LabNameLabel">
                                                             <rect key="frame" x="84" y="8" width="152" height="27"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
-                                                        <view tag="5" contentMode="scaleToFill" id="4Ly-ty-goE">
+                                                        <view tag="5" contentMode="scaleToFill" id="4Ly-ty-goE" userLabel="MeterView">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.30480278970000002" green="0.6489826461" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gH-JC-odW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-197" y="-134"/>
+            <point key="canvasLocation" x="-357" y="-144"/>
         </scene>
     </scenes>
     <resources>
