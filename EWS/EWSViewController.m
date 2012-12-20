@@ -44,6 +44,10 @@
     [super didReceiveMemoryWarning];
 }
 
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
@@ -93,6 +97,15 @@
     [meterView insertSubview:nameLabel aboveSubview:loadingView];
     [cell.detailView insertSubview:meterView aboveSubview:cell.usageFractionLabel];
     [cell.usageFractionLabel setText:labUsageSring];
+    
+    UIImage *linuxIcon = [UIImage imageNamed:@"tux.png"];
+    UIImage *windowsIcon = [UIImage imageNamed:@"windowsIcon.png"];
+    
+    if ([labAtIndex.computerPlatformName isEqualToString:@"Linux"]) {
+        [cell.platformIcon setImage:linuxIcon];
+    } else {
+        [cell.platformIcon setImage:windowsIcon];
+    }
     
     cell.usageFractionLabel.layer.borderColor = [UIColor whiteColor].CGColor;
     cell.usageFractionLabel.layer.borderWidth = 2.0;
@@ -183,13 +196,11 @@
 }
 #pragma mark - Table view delegate
 
--(void) refresh
-{
+-(void) refresh {
     [self performSelector:@selector(refreshLabUsage) withObject:nil afterDelay:2.0];
 }
 
--(void) refreshLabUsage
-{
+-(void) refreshLabUsage {
     [self.dataController pollCurrentLabUsage];
     [self.tableView reloadData];
     [self stopLoading];

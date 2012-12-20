@@ -14,8 +14,10 @@
 @property (nonatomic, strong) IBOutlet UIView *detailView;
 
 
+#pragma DetailView
 @property (nonatomic, strong) IBOutlet UILabel *usageFractionLabel;
 @property (nonatomic, strong) IBOutlet UIButton *notifyButton;
-@property (nonatomic, strong) IBOutlet UILabel *platformNameLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *platformIcon;
+//@property (nonatomic, strong) IBOutlet UILabel *platformNameLabel;
 
 @end

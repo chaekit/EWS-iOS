@@ -33,6 +33,8 @@
 		1959BAA0166F1ED900C79F98 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959BA9F166F1ED900C79F98 /* Default-568h@2x.png */; };
 		1959BAA9166F1F0D00C79F98 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */; };
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
+		19E063C41683B29D006B19A7 /* tux.png in Resources */ = {isa = PBXBuildFile; fileRef = 19E063C31683B29D006B19A7 /* tux.png */; };
+		19E063C61683B43F006B19A7 /* windowsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 19E063C51683B43F006B19A7 /* windowsIcon.png */; };
 		19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC82AC167270C800BB6C77 /* QuartzCore.framework */; };
 		19EEAAC8167B1A2B000E4F6D /* EWSCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1959BAAE166F1FF600C79F98 /* EWSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSViewController.h; sourceTree = "<group>"; };
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
+		19E063C31683B29D006B19A7 /* tux.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tux.png; path = ../../../../Downloads/tux.png; sourceTree = "<group>"; };
+		19E063C51683B43F006B19A7 /* windowsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = windowsIcon.png; path = ../../../../Downloads/windowsIcon.png; sourceTree = "<group>"; };
 		19EC82AC167270C800BB6C77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSCustomCell.h; sourceTree = "<group>"; };
 		19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSCustomCell.m; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */,
 				1959BA98166F1ED800C79F98 /* EWSAppDelegate.h */,
 				1959BA99166F1ED800C79F98 /* EWSAppDelegate.m */,
+				19E063C51683B43F006B19A7 /* windowsIcon.png */,
+				19E063C31683B29D006B19A7 /* tux.png */,
 				1959BA90166F1ED800C79F98 /* Supporting Files */,
 			);
 			path = EWS;
@@ -258,6 +264,8 @@
 				1959BA9E166F1ED800C79F98 /* Default@2x.png in Resources */,
 				1959BAA0166F1ED900C79F98 /* Default-568h@2x.png in Resources */,
 				1959BAA9166F1F0D00C79F98 /* MainStoryboard.storyboard in Resources */,
+				19E063C41683B29D006B19A7 /* tux.png in Resources */,
+				19E063C61683B43F006B19A7 /* windowsIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

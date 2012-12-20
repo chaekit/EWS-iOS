@@ -23,6 +23,10 @@
                                         <view contentMode="scaleToFill" id="E8h-40-XJ7">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="Y80-Y1-SDX">
+                                                    <rect key="frame" x="40" y="4" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="eD6-0D-69O">
                                                     <rect key="frame" x="265" y="5" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -71,6 +75,7 @@
                                     <outlet property="detailView" destination="E8h-40-XJ7" id="gjn-ZA-aXj"/>
                                     <outlet property="meterView" destination="lBf-ff-F22" id="3aL-a4-RrQ"/>
                                     <outlet property="notifyButton" destination="eD6-0D-69O" id="nye-oI-wYb"/>
+                                    <outlet property="platformIcon" destination="Y80-Y1-SDX" id="6Ib-CQ-Odi"/>
                                     <outlet property="usageFractionLabel" destination="clR-hC-rcf" id="zXW-yG-OjZ"/>
                                 </connections>
                             </tableViewCell>
@@ -90,6 +95,30 @@
             <point key="canvasLocation" x="-197" y="-134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default.png" width="320" height="480"/>
+    </resources>
+    <classes>
+        <class className="EWSCustomCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="platformIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EWSViewController" superclassName="PullRefreshTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PullRefreshTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
