@@ -19,7 +19,6 @@
 
 @interface EWSDataController ()
 -(void)initDefault;
--(void)pollCurrentLabUsage;
 @end
 
 @implementation EWSDataController

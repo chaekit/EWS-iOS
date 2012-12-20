@@ -21,6 +21,7 @@
 		190E9998167009D6006FDF0D /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998A167009D6006FDF0D /* SBJsonTokeniser.m */; };
 		190E9999167009D6006FDF0D /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998C167009D6006FDF0D /* SBJsonUTF8Stream.m */; };
 		190E999A167009D6006FDF0D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998E167009D6006FDF0D /* SBJsonWriter.m */; };
+		193D0AD41681AA0200C6B428 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */; };
 		1959BA8A166F1ED800C79F98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA89166F1ED800C79F98 /* UIKit.framework */; };
 		1959BA8C166F1ED800C79F98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA8B166F1ED800C79F98 /* Foundation.framework */; };
 		1959BA8E166F1ED800C79F98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA8D166F1ED800C79F98 /* CoreGraphics.framework */; };
@@ -66,6 +67,8 @@
 		190E998C167009D6006FDF0D /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = "../../Libraries/json-framework/Classes/SBJsonUTF8Stream.m"; sourceTree = "<group>"; };
 		190E998D167009D6006FDF0D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "../../Libraries/json-framework/Classes/SBJsonWriter.h"; sourceTree = "<group>"; };
 		190E998E167009D6006FDF0D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "../../Libraries/json-framework/Classes/SBJsonWriter.m"; sourceTree = "<group>"; };
+		193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		1959BA85166F1ED800C79F98 /* EWS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1959BA89166F1ED800C79F98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1959BA8B166F1ED800C79F98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -175,6 +178,8 @@
 				190E995E166FF5E7006FDF0D /* Lab.h */,
 				190E995F166FF5E7006FDF0D /* Lab.m */,
 				1959BAAF166F1FF600C79F98 /* EWSViewController.m */,
+				193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */,
+				193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */,
 				1959BA98166F1ED800C79F98 /* EWSAppDelegate.h */,
 				1959BA99166F1ED800C79F98 /* EWSAppDelegate.m */,
 				1959BA90166F1ED800C79F98 /* Supporting Files */,
@@ -281,6 +286,7 @@
 				190E9999167009D6006FDF0D /* SBJsonUTF8Stream.m in Sources */,
 				190E999A167009D6006FDF0D /* SBJsonWriter.m in Sources */,
 				19EEAAC8167B1A2B000E4F6D /* EWSCustomCell.m in Sources */,
+				193D0AD41681AA0200C6B428 /* PullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

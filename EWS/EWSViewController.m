@@ -182,8 +182,17 @@
     }
 }
 #pragma mark - Table view delegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
+-(void) refresh
+{
+    [self performSelector:@selector(refreshLabUsage) withObject:nil afterDelay:2.0];
+}
+
+-(void) refreshLabUsage
+{
+    [self.dataController pollCurrentLabUsage];
+    [self.tableView reloadData];
+    [self stopLoading];
 }
 
 

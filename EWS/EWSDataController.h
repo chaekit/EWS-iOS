@@ -19,4 +19,5 @@
 
 -(NSUInteger) countOfMainLabList;
 -(Lab *) objectAtIndex:(NSUInteger) index;
+-(void) pollCurrentLabUsage;
 @end
