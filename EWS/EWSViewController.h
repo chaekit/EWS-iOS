@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PullRefreshTableViewController.h"
 @class EWSDataController;
 
-@interface EWSViewController : UITableViewController <UIGestureRecognizerDelegate> {
+@interface EWSViewController : PullRefreshTableViewController <UIGestureRecognizerDelegate> {
     IBOutlet UITableView *machinesTableView;
 }
 
@@ -19,7 +19,6 @@
 @property (nonatomic) float openCellLastTX;
 @property (nonatomic, strong) UIView *openGestureView;
 
-//- (void)handlePan:(UIPanGestureRecognizer *)panGestureRecognizer;
 - (void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated;
 
 

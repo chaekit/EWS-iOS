@@ -8,7 +8,6 @@
 
 #import "EWSViewController.h"
 #import "EWSDataController.h"
-#import "EWSDetailViewController.h"
 #import "Lab.h"
 #import "EWSCustomCell.h"
 #import <QuartzCore/QuartzCore.h>
@@ -25,13 +24,14 @@
 @implementation EWSViewController
 //@synthesize openCellLastTX, openGestureView;
 
--(void)awakeFromNib {
+-(void)awakeFromNib
+{
     [super awakeFromNib];
     self.dataController = [[EWSDataController alloc] init];
 }
 
-
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 }
 
@@ -45,11 +45,11 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -87,7 +87,6 @@
     loadingView.alpha = alphaAdjuster * 0.5 + 0.5;
 
     NSString *labUsageSring = [NSString stringWithFormat:@"%d/%d", labAtIndex.currentLabUsage, labAtIndex.maxCapacity];
-    
     // Adjusts the subview overlays
     //always have the name label on top of the loadingView
     // sets up the usageFractionLabel
@@ -107,7 +106,33 @@
     return cell;
 }
 
-#pragma mark - Demo gesture handler
+
+
+
+#pragma mark - Gesture recognizer delegate
+
+// Makes sure that the recognizer doesn't block vertical gesutre, which is scrolling
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer
+{
+    CGPoint translation = [panGestureRecognizer translationInView:self.view];
+    return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
+}
+
+-(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated
+{
+    if (animated) {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [UIView setAnimationDuration:FAST_ANIMATION_DURATION];
+    }
+    
+    [view setTransform:CGAffineTransformMakeTranslation(x, 0)];
+    
+    if (animated) {
+        [UIView commitAnimations];
+    }
+}
+
 -(void) handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer
 {
     float threshold = (CELL_CLOSED_X + CELL_OPEN_X)/2.0;
@@ -151,49 +176,15 @@
                 self.openCellLastTX = gestureView.transform.tx;
                 self.openGestureView = gestureView;
             }
-            
             break;
         default:
             break;
     }
 }
-
-
-
-#pragma mark - Gesture recognizer delegate
-
-// Makes sure that the recognizer doesn't block vertical gesutre, which is scrolling
-- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer
-{
-    CGPoint translation = [panGestureRecognizer translationInView:self.view];
-    return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
-}
-
--(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated
-{
-    if (animated) {
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-        [UIView setAnimationDuration:FAST_ANIMATION_DURATION];
-    }
-    
-    [view setTransform:CGAffineTransformMakeTranslation(x, 0)];
-    
-    if (animated) {
-        [UIView commitAnimations];
-    }
-}
-
 #pragma mark - Table view delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([[segue identifier] isEqualToString:@"ShowLabDetails"]) {
-//        EWSDetailViewController *detailViewController = [segue destinationViewController];
-//        detailViewController.ewsLab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-//    }
-//}
+
 @end
