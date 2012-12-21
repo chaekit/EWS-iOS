@@ -12,17 +12,24 @@
 #import "EWSCustomCell.h"
 #import <QuartzCore/QuartzCore.h>
 
+// For page control
+#import "EWSPageController.h"
+
 #define FAST_ANIMATION_DURATION 0.35
 #define SLOW_ANIMATION_DURATION 0.75
 
 #define CELL_OPEN_X -300
 #define CELL_CLOSED_X 0
 
+#define NUM_OF_CTRL_PAGES 2
+
 @interface EWSViewController ()
 @end
 
 @implementation EWSViewController
 //@synthesize openCellLastTX, openGestureView;
+
+@synthesize pageControlView;
 
 -(void)awakeFromNib
 {
@@ -35,13 +42,62 @@
     self.pageControl.numberOfPages = 2;
     self.pageControl.currentPage = 0;
 
-//    self.pageControlView = [[UIView alloc] init];
-//    [self.pageControlView setBackgroundColor:[UIColor blackColor]];
+ 
+    // size of the pageControlView before
+    NSLog(@"%@", NSStringFromCGSize(pageControlView.contentSize));
+    // pageControlView initialization
+    self.pageControlUsed = NO;
+   
+    NSLog(@"WTF  %@", pageControlView);
+    
+    self.pageControlView.pagingEnabled = YES;
+    self.pageControlView.delegate = self;
+    self.pageControlView.contentSize = CGSizeMake(self.pageControlView.frame.size.width * 2, self.pageControlView.frame.size.height);
+   
+    NSLog(@"%@", NSStringFromCGRect(self.pageControlView.frame));
+    NSLog(@"%@", NSStringFromCGSize(self.pageControlView.contentSize));
+    // pageController initialization
+    self.pageControllers = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 2; i++) {
+        [self.pageControllers addObject:[NSNull null]];
+    }
+    
+    
+    [self loadScrollViewWithPage:0];
+    [self loadScrollViewWithPage:1];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    
+    [self.view insertSubview:self.pageControl aboveSubview:pageControlView];
+    
+    self.pageControl.hidesForSinglePage = NO;
+    self.pageControl.numberOfPages = 2;
+    self.pageControl.currentPage = 0;
+
+    // pageControlView initialization
+    self.pageControlUsed = NO;
+    
+    self.pageControlView.pagingEnabled = YES;
+    self.pageControlView.delegate = self;
+    self.pageControlView.showsVerticalScrollIndicator = NO;
+    self.pageControlView.showsHorizontalScrollIndicator = NO;
+    
+    
+    self.pageControlView.contentSize = CGSizeMake(self.pageControlView.frame.size.width * 2, self.pageControlView.frame.size.height);
+   
+    // pageController initialization
+    self.pageControllers = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 2; i++) {
+        [self.pageControllers addObject:[NSNull null]];
+    }
+    
+    
+    [self loadScrollViewWithPage:0];
+    [self loadScrollViewWithPage:1];
     //[self.view insertSubview:self.pageControlView aboveSubview:self.tableView];
 }
 
@@ -204,7 +260,9 @@
             break;
     }
 }
-#pragma mark - Table view delegate
+
+
+#pragma mark - PullToRefresh method override
 
 -(void) refresh {
     [self performSelector:@selector(refreshLabUsage) withObject:nil afterDelay:2.0];
@@ -216,5 +274,136 @@
     //[self stopLoading];
 }
 
+
+#pragma mark - ScrollView delegate stuff
+
+-(void) loadScrollViewWithPage:(NSInteger) page
+{
+    if (page < 0)
+        return;
+    if (page >= NUM_OF_CTRL_PAGES)
+        return;
+    
+    // replace the placeholder if necessary
+    EWSPageController *currentPageController = [self.pageControllers objectAtIndex:page];
+    if ((NSNull *)currentPageController == [NSNull null])
+    {
+        currentPageController = [[EWSPageController alloc] initWithPageNumber:page];
+        [self.pageControllers replaceObjectAtIndex:page withObject:currentPageController];
+        
+        // code from the sample. Don't need it since we use ARC
+        //[controller release];
+    }
+   
+    
+    // add the controller's view to the scroll view
+    if (currentPageController.view.superview == nil)
+    {
+        CGRect frame = self.pageControlView.frame;
+        frame.origin.x = frame.size.width * page;
+        frame.origin.y = 0;
+        currentPageController.view.frame = frame;
+        
+        
+        [self.pageControlView addSubview:currentPageController.view];
+
+        UILabel *pageControlLabel = [[UILabel alloc] init];
+        [pageControlLabel setFrame:CGRectMake(118 + 320 * page, 23, 90, 21)];
+        [pageControlLabel setBackgroundColor:[UIColor clearColor]];
+        [pageControlLabel setTextColor:[UIColor whiteColor]];
+        [pageControlLabel setFont:[UIFont fontWithName:@"Futura" size:17]];
+        [pageControlLabel setTextAlignment:NSTextAlignmentCenter];
+        [self.pageControlView addSubview:pageControlLabel];
+        
+        if (page == 0) {
+            [pageControlLabel setText:@"DetailView"];
+        } else if (page == 1) {
+            [pageControlLabel setText:@"GlanceView"];
+        }
+    }
+    
+    
+    
+}
+
+static float lastPage = 0;
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender
+{
+    
+    //NSLog(@"scrollViewDidScroll");
+    // We don't want a "feedback loop" between the UIPageControl and the scroll delegate in
+    // which a scroll event generated from the user hitting the page control triggers updates from
+    // the delegate method. We use a boolean to disable the delegate logic when the page control is used.
+    if (self.pageControlUsed)
+    {
+        // do nothing - the scroll was initiated from the page control, not the user dragging
+        return;
+    }
+	
+    // Switch the indicator when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = self.pageControlView.frame.size.width;
+    //NSLog(@"pageWidth %f",self.pageControlView.contentOffset.x);
+   
+    float contentOffset = self.pageControlView.contentOffset.x;
+    
+    int page = floor((self.pageControlView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+    if (lastPage == 0.0f) {
+        [self.pageControlView setAlpha:(1 - contentOffset/320 * 0.5)];
+    } else {
+        [self.pageControlView setAlpha:(0.5 + (320 - contentOffset)/320 * 0.5)];
+    }
+  
+    //NSLog(@"fraction   %f", contentOffset/320);
+    NSLog(@"alpha baby %f", self.pageControlView.alpha);
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+    [self loadScrollViewWithPage:page - 1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page + 1];
+    
+    // A possible optimization would be to unload the views+controllers which are no longer visible
+}
+
+
+// At the begin of scroll dragging, reset the boolean used when scrolls originate from the UIPageControl
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+//    NSLog(@"scrollViewWillBeginDraggin");
+    self.pageControlUsed = NO;
+}
+
+// At the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+//    NSLog(@"scrollViewDidEndDeceleratin");
+    self.pageControlUsed = NO;
+    lastPage = self.pageControl.currentPage;
+    NSLog(@"lastPage  %f", lastPage);
+}
+
+
+- (IBAction)changePageControlView:(id)sender
+{
+//    NSLog(@"changePage dude");
+    int page = self.pageControl.currentPage;
+	
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+    [self loadScrollViewWithPage:page - 1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page + 1];
+    
+	// update the scroll view to the appropriate page
+    CGRect frame = self.pageControlView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    
+    NSLog(@"frame inside changePageControlView %@", NSStringFromCGRect(frame));
+    NSLog(@"Current page of the pageControl %d", page);
+    [self.pageControlView scrollRectToVisible:frame animated:YES];
+    
+	// Set the boolean used when scrolls originate from the UIPageControl. See scrollViewDidScroll: above.
+    self.pageControlUsed = YES;
+}
 
 @end

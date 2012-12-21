@@ -11,14 +11,13 @@
 @class EWSDataController;
 
 //@interface EWSViewController : PullRefreshTableViewController <UIGestureRecognizerDelegate> {
-@interface EWSViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface EWSViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
     IBOutlet UITableView *machinesTableView;
+    UIScrollView *pageControlView;
 }
 
 #pragma mark - View properties
 @property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIView *pageControlView;
-@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 #pragma mark - Model property
 @property (strong, nonatomic) EWSDataController *dataController;
@@ -28,5 +27,15 @@
 @property (nonatomic, strong) UIView *openGestureView;
 - (void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated;
 
+#pragma mark - PageControl Stuff
+@property (strong, nonatomic) IBOutlet UIScrollView *pageControlView;
+@property (strong, nonatomic) NSMutableArray *pageControllers;
+//@property (strong, nonatomic) IBOutlet UIScrollView *pageControlView;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
+@property (nonatomic) BOOL pageControlUsed;
+//@property (strong, nonatomic) IBOutlet UILabel *detailControlLabel;
+//@property (strong, nonatomic) IBOutlet UILabel *glanceControlLabel;
+
+- (IBAction)changePageControlView:(id)sender;
 @end
