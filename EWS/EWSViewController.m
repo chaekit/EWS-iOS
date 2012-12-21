@@ -28,11 +28,21 @@
 {
     [super awakeFromNib];
     self.dataController = [[EWSDataController alloc] init];
+    
+   
+    // pageControl initialization
+    self.pageControl.hidesForSinglePage = NO;
+    self.pageControl.numberOfPages = 2;
+    self.pageControl.currentPage = 0;
+
+//    self.pageControlView = [[UIView alloc] init];
+//    [self.pageControlView setBackgroundColor:[UIColor blackColor]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //[self.view insertSubview:self.pageControlView aboveSubview:self.tableView];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -203,7 +213,7 @@
 -(void) refreshLabUsage {
     [self.dataController pollCurrentLabUsage];
     [self.tableView reloadData];
-    [self stopLoading];
+    //[self stopLoading];
 }
 
 
