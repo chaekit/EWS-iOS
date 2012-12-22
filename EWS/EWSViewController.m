@@ -354,8 +354,6 @@ static float lastPage = 0;
         [self.pageControlView setAlpha:(0.5 + (320 - contentOffset)/320 * 0.5)];
     }
   
-    //NSLog(@"fraction   %f", contentOffset/320);
-    NSLog(@"alpha baby %f", self.pageControlView.alpha);
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     [self loadScrollViewWithPage:page - 1];
     [self loadScrollViewWithPage:page];
