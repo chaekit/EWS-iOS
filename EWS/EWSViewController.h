@@ -36,4 +36,7 @@
 @property (nonatomic) BOOL pageControlUsed;
 
 - (IBAction)changePageControlView:(id)sender;
+
+
+@property (nonatomic, strong) NSMutableArray *meterViewArray;
 @end

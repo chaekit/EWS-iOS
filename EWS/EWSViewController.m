@@ -24,11 +24,28 @@
 #define NUM_OF_CTRL_PAGES 2
 
 @interface EWSViewController ()
+
+@property (nonatomic, strong) UIView *meterView1;
+@property (nonatomic, strong) UIView *meterView2;
+@property (nonatomic, strong) UIView *meterView3;
+@property (nonatomic, strong) UIView *meterView4;
+@property (nonatomic, strong) UIView *meterView5;
+@property (nonatomic, strong) UIView *meterView6;
+@property (nonatomic, strong) UIView *meterView7;
+@property (nonatomic, strong) UIView *meterView8;
+@property (nonatomic, strong) UIView *meterView9;
+@property (nonatomic, strong) UIView *meterView10;
+@property (nonatomic, strong) UIView *meterView11;
+@property (nonatomic, strong) UIView *meterView12;
+@property (nonatomic, strong) UIView *meterView13;
+
 @end
 
 @implementation EWSViewController
 
 @synthesize pageControlView;
+@synthesize meterView1, meterView2, meterView3, meterView4, meterView5, meterView6, meterView7, meterView8, meterView9,
+    meterView10, meterView11, meterView12, meterView13;
 
 -(void)awakeFromNib
 {
@@ -98,11 +115,32 @@
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
     //[self.view insertSubview:self.pageControlView aboveSubview:self.tableView];
+    
+    // Experiment
+    
+    self.meterViewArray = [[NSMutableArray alloc] init];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
     [machinesTableView reloadData];
+    
+    meterView1 = [self.meterViewArray objectAtIndex:0];
+    meterView2 = [self.meterViewArray objectAtIndex:1];
+    meterView3 = [self.meterViewArray objectAtIndex:2];
+    meterView4 = [self.meterViewArray objectAtIndex:3];
+    meterView5 = [self.meterViewArray objectAtIndex:4];
+    meterView6 = [self.meterViewArray objectAtIndex:5];
+    meterView7 = [self.meterViewArray objectAtIndex:6];
+    meterView8 = [self.meterViewArray objectAtIndex:7];
+    meterView9 = [self.meterViewArray objectAtIndex:8];
+//    meterView10 = [self.meterViewArray objectAtIndex:9];
+//    meterView11 = [self.meterViewArray objectAtIndex:10];
+//    meterView12 = [self.meterViewArray objectAtIndex:11];
+//    meterView13 = [self.meterViewArray objectAtIndex:12];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -180,6 +218,11 @@
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [panGestureRecognizer setDelegate:self];
     [cell.meterView addGestureRecognizer:panGestureRecognizer];
+
+    
+   
+    // experiment purpose
+    [self.meterViewArray addObject:cell.meterView];
     
     return cell;
 }
@@ -354,6 +397,27 @@ static float lastPage = 0;
         [self.pageControlView setAlpha:(0.5 + (320 - contentOffset)/320 * 0.5)];
     }
   
+    
+    float viewTXofCell = 0;
+    //UIView *meterView = [self.meterViewArray objectAtIndex:0];
+    //NSLog(@"The meterview  %@", meterView);
+    
+    viewTXofCell -= contentOffset;
+    
+    [meterView1 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    [meterView2 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    [meterView3 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    [meterView4 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    [meterView5 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    [meterView6 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    [meterView7 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    [meterView8 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    [meterView9 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+//    [meterView10 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+//    [meterView11 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+//    [meterView12 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+//    [meterView13 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+    
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     [self loadScrollViewWithPage:page - 1];
     [self loadScrollViewWithPage:page];
