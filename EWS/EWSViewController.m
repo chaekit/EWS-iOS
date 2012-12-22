@@ -27,7 +27,6 @@
 @end
 
 @implementation EWSViewController
-//@synthesize openCellLastTX, openGestureView;
 
 @synthesize pageControlView;
 
@@ -369,41 +368,38 @@ static float lastPage = 0;
 // At the begin of scroll dragging, reset the boolean used when scrolls originate from the UIPageControl
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-//    NSLog(@"scrollViewWillBeginDraggin");
     self.pageControlUsed = NO;
 }
 
 // At the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-//    NSLog(@"scrollViewDidEndDeceleratin");
     self.pageControlUsed = NO;
     lastPage = self.pageControl.currentPage;
-    NSLog(@"lastPage  %f", lastPage);
 }
 
 
-- (IBAction)changePageControlView:(id)sender
-{
-//    NSLog(@"changePage dude");
-    int page = self.pageControl.currentPage;
-	
-    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self loadScrollViewWithPage:page - 1];
-    [self loadScrollViewWithPage:page];
-    [self loadScrollViewWithPage:page + 1];
-    
-	// update the scroll view to the appropriate page
-    CGRect frame = self.pageControlView.frame;
-    frame.origin.x = frame.size.width * page;
-    frame.origin.y = 0;
-    
-    NSLog(@"frame inside changePageControlView %@", NSStringFromCGRect(frame));
-    NSLog(@"Current page of the pageControl %d", page);
-    [self.pageControlView scrollRectToVisible:frame animated:YES];
-    
-	// Set the boolean used when scrolls originate from the UIPageControl. See scrollViewDidScroll: above.
-    self.pageControlUsed = YES;
-}
-
+//- (IBAction)changePageControlView:(id)sender
+//{
+////    NSLog(@"changePage dude");
+//    int page = self.pageControl.currentPage;
+//	
+//    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+//    [self loadScrollViewWithPage:page - 1];
+//    [self loadScrollViewWithPage:page];
+//    [self loadScrollViewWithPage:page + 1];
+//    
+//	// update the scroll view to the appropriate page
+//    CGRect frame = self.pageControlView.frame;
+//    frame.origin.x = frame.size.width * page;
+//    frame.origin.y = 0;
+//    
+//    NSLog(@"frame inside changePageControlView %@", NSStringFromCGRect(frame));
+//    NSLog(@"Current page of the pageControl %d", page);
+//    [self.pageControlView scrollRectToVisible:frame animated:YES];
+//    
+//	// Set the boolean used when scrolls originate from the UIPageControl. See scrollViewDidScroll: above.
+//    self.pageControlUsed = YES;
+//}
+//
 @end

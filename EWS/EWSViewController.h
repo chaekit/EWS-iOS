@@ -34,8 +34,6 @@
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (nonatomic) BOOL pageControlUsed;
-//@property (strong, nonatomic) IBOutlet UILabel *detailControlLabel;
-//@property (strong, nonatomic) IBOutlet UILabel *glanceControlLabel;
 
 - (IBAction)changePageControlView:(id)sender;
 @end

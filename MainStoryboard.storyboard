@@ -15,9 +15,6 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="CCq-cg-Fb4">
                                 <rect key="frame" x="141" y="510" width="38" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="changePageControlView:" destination="Mxj-6I-Cx2" eventType="valueChanged" id="lJE-vo-CP8"/>
-                                </connections>
                             </pageControl>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aRx-yn-oZI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="481"/>
@@ -140,34 +137,6 @@
     <resources>
         <image name="Default.png" width="320" height="480"/>
     </resources>
-    <classes>
-        <class className="EWSCustomCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="platformIcon" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EWSPageController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSPageController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pageIcon" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="pageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EWSViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changePageControlView:"/>
-                <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="pageControlView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
