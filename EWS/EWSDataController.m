@@ -76,8 +76,9 @@
     // Create new SBJSON parser object
 
     // Prepare URL request to download statuses from Twitter
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
+    //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
 
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"http://127.0.0.1:3000"]];
     // Perform request and get JSON back as a NSData object
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 

@@ -33,10 +33,8 @@
 //@property (strong, nonatomic) IBOutlet UIScrollView *pageControlView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
-@property (nonatomic) BOOL pageControlUsed;
-
-- (IBAction)changePageControlView:(id)sender;
-
+//@property (nonatomic) BOOL pageControlUsed;
+@property (nonatomic) BOOL tableViewInGlanceMode;
 
 @property (nonatomic, strong) NSMutableArray *meterViewArray;
 @end

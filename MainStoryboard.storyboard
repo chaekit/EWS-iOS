@@ -32,7 +32,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="Y80-Y1-SDX" userLabel="PlatformIcon">
-                                                            <rect key="frame" x="40" y="4" width="35" height="35"/>
+                                                            <rect key="frame" x="30" y="4" width="35" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="eD6-0D-69O" userLabel="NotificationBtn">
@@ -49,7 +49,7 @@
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="clR-hC-rcf" userLabel="LabUsageLabel">
-                                                            <rect key="frame" x="140" y="10" width="63" height="22"/>
+                                                            <rect key="frame" x="130" y="10" width="63" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,7 +81,9 @@
                                         <color key="backgroundColor" red="0.2208378318" green="0.43875219830000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="detailView" destination="E8h-40-XJ7" id="gjn-ZA-aXj"/>
-                                            <outlet property="meterView" destination="lBf-ff-F22" id="3aL-a4-RrQ"/>
+                                            <outlet property="labNameLabel" destination="Mui-H9-02c" id="moy-s7-MZ3"/>
+                                            <outlet property="meterContainerView" destination="lBf-ff-F22" id="S3Z-rG-m93"/>
+                                            <outlet property="meterView" destination="4Ly-ty-goE" id="K2U-5p-YQA"/>
                                             <outlet property="notifyButton" destination="eD6-0D-69O" id="nye-oI-wYb"/>
                                             <outlet property="platformIcon" destination="Y80-Y1-SDX" id="6Ib-CQ-Odi"/>
                                             <outlet property="usageFractionLabel" destination="clR-hC-rcf" id="zXW-yG-OjZ"/>
@@ -114,6 +116,28 @@
     <resources>
         <image name="Default.png" width="320" height="480"/>
     </resources>
+    <classes>
+        <class className="EWSCustomCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="labNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="meterContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="platformIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EWSViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="pageControlView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

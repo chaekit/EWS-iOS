@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class Lab;
+
 @interface EWSCustomCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UIView *meterView;
+@property (nonatomic, strong) Lab *lab;
+
+#pragma Major views
+@property (nonatomic, strong) IBOutlet UIView *meterContainerView;
 @property (nonatomic, strong) IBOutlet UIView *detailView;
+@property (nonatomic, strong) IBOutlet UIView *meterView;
 
 
 #pragma DetailView
@@ -19,5 +25,14 @@
 @property (nonatomic, strong) IBOutlet UIButton *notifyButton;
 @property (nonatomic, strong) IBOutlet UIImageView *platformIcon;
 //@property (nonatomic, strong) IBOutlet UILabel *platformNameLabel;
+
+// methods
+-(void) initSubViewsWithLab:(Lab *) labAtIndex;
+
+//-(void) setLoadi
+
+#pragma MeterView
+@property (nonatomic,strong) IBOutlet UILabel *labNameLabel;
+
 
 @end
