@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>DCL L416</string>
+		<key>capacity</key>
+		<integer>29</integer>
+		<key>building</key>
+		<string>DCL</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>DCL L440</string>
+		<key>capacity</key>
+		<integer>26</integer>
+		<key>building</key>
+		<string>DCL</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>DCL L520</string>
+		<key>capacity</key>
+		<integer>41</integer>
+		<key>building</key>
+		<string>DCL</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>EH 406B1</string>
+		<key>capacity</key>
+		<integer>40</integer>
+		<key>building</key>
+		<string>EH</string>
+		<key>platform_name</key>
+		<string>Windows</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>EH 406B8</string>
+		<key>capacity</key>
+		<integer>40</integer>
+		<key>building</key>
+		<string>EH</string>
+		<key>platform_name</key>
+		<string>Windows</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>EVRT 252</string>
+		<key>capacity</key>
+		<integer>39</integer>
+		<key>building</key>
+		<string>EVRT</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>GELIB 057</string>
+		<key>capacity</key>
+		<integer>40</integer>
+		<key>building</key>
+		<string>GE</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>GELIB 4th</string>
+		<key>capacity</key>
+		<integer>39</integer>
+		<key>building</key>
+		<string>GE</string>
+		<key>platform_name</key>
+		<string>Windows</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>MEL 1001</string>
+		<key>capacity</key>
+		<integer>25</integer>
+		<key>building</key>
+		<string>MEL</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>MEL 1009</string>
+		<key>capacity</key>
+		<integer>40</integer>
+		<key>building</key>
+		<string>MEL</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>SIEBL 0218</string>
+		<key>capacity</key>
+		<integer>21</integer>
+		<key>building</key>
+		<string>SIEBL</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>SIEBL 0220</string>
+		<key>capacity</key>
+		<integer>21</integer>
+		<key>building</key>
+		<string>SIEBL</string>
+		<key>platform_name</key>
+		<string>Linux</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>SIEBL 0222</string>
+		<key>capacity</key>
+		<integer>21</integer>
+		<key>building</key>
+		<string>SIEBL</string>
+		<key>platform_name</key>
+		<string>Windows</string>
+	</dict>
+</array>
+</plist>

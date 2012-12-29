@@ -35,4 +35,6 @@
 @property (nonatomic,strong) IBOutlet UILabel *labNameLabel;
 
 
+-(void) scrollMeterViewWithPageControl:(NSNumber *) newTXOfCellObject;
+
 @end

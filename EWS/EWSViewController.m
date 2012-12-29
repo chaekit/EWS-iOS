@@ -11,6 +11,7 @@
 #import "EWSViewController.h"
 #import "EWSDataController.h"
 #import "EWSCustomCell.h"
+#import <UIKit/UIKit.h>
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -25,29 +26,17 @@
 
 @interface EWSViewController ()
 
-@property (nonatomic, strong) UIView *meterView1;
-@property (nonatomic, strong) UIView *meterView2;
-@property (nonatomic, strong) UIView *meterView3;
-@property (nonatomic, strong) UIView *meterView4;
-@property (nonatomic, strong) UIView *meterView5;
-@property (nonatomic, strong) UIView *meterView6;
-@property (nonatomic, strong) UIView *meterView7;
-@property (nonatomic, strong) UIView *meterView8;
-@property (nonatomic, strong) UIView *meterView9;
-@property (nonatomic, strong) UIView *meterView10;
-@property (nonatomic, strong) UIView *meterView11;
-@property (nonatomic, strong) UIView *meterView12;
-@property (nonatomic, strong) UIView *meterView13;
+@property (nonatomic) int previousPage;
+@property (nonatomic) float openCellLastTX;
+@property (nonatomic, strong) UIView *openGestureView;
+- (void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated;
+- (void)initPageControViews;
 
 @end
 
 @implementation EWSViewController
 
-@synthesize pageControlView;
-@synthesize meterView1, meterView2, meterView3, meterView4, meterView5, meterView6, meterView7, meterView8, meterView9,
-    meterView10, meterView11, meterView12, meterView13;
-
-@synthesize pageControl, tableViewInGlanceMode;
+@synthesize pageControlView, pageControl, previousPage;
 
 -(void)awakeFromNib
 {
@@ -58,60 +47,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view insertSubview:self.pageControl aboveSubview:pageControlView];
-    
-    pageControl.hidesForSinglePage = NO;
-    pageControl.numberOfPages = 2;
-    pageControl.currentPage = 0;
 
-    // pageControlView initialization
-    self.pageControlView.pagingEnabled = YES;
-    self.pageControlView.delegate = self;
-    self.pageControlView.showsVerticalScrollIndicator = NO;
-    self.pageControlView.showsHorizontalScrollIndicator = NO;
-    
-    
-    self.pageControlView.contentSize = CGSizeMake(self.pageControlView.frame.size.width * 2, self.pageControlView.frame.size.height);
-   
-    // pageController initialization
-    self.pageControllers = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 2; i++) {
-        [self.pageControllers addObject:[NSNull null]];
-    }
-    
-    
-    [self loadScrollViewWithPage:0];
-    [self loadScrollViewWithPage:1];
-    //[self.view insertSubview:self.pageControlView aboveSubview:self.tableView];
-    
-    // Experiment
-    
-    self.meterViewArray = [[NSMutableArray alloc] initWithCapacity:13];
-    for (NSInteger i = 0; i < 10; i++) {
-        self.meterViewArray[i] = [NSNull null];
-    }
+    [self initPageControViews];
+    self.setOfTableViewCells = [[NSMutableSet alloc] init];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
     [machinesTableView reloadData];
-    
-    meterView1 = [self.meterViewArray objectAtIndex:0];
-    meterView2 = [self.meterViewArray objectAtIndex:1];
-    meterView3 = [self.meterViewArray objectAtIndex:2];
-    meterView4 = [self.meterViewArray objectAtIndex:3];
-    meterView5 = [self.meterViewArray objectAtIndex:4];
-    meterView6 = [self.meterViewArray objectAtIndex:5];
-    meterView7 = [self.meterViewArray objectAtIndex:6];
-    meterView8 = [self.meterViewArray objectAtIndex:7];
-    meterView9 = [self.meterViewArray objectAtIndex:8];
-    meterView10 = [self.meterViewArray objectAtIndex:9];
-    meterView11 = [self.meterViewArray objectAtIndex:10];
-//    meterView12 = [self.meterViewArray objectAtIndex:11];
-//    meterView13 = [self.meterViewArray objectAtIndex:12];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,12 +62,37 @@
     [super didReceiveMemoryWarning];
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate {
     return NO;
 }
 
+-(void)initPageControViews
+{
+    [self.view insertSubview:self.pageControl aboveSubview:pageControlView];
+
+    previousPage = 0;
+    
+    pageControl.hidesForSinglePage = NO;
+    pageControl.numberOfPages = NUM_OF_CTRL_PAGES;
+    pageControl.currentPage = 0;
+
+    // pageControlView initialization
+    pageControlView.pagingEnabled = YES;
+    pageControlView.delegate = self;
+    pageControlView.showsVerticalScrollIndicator = NO;
+    pageControlView.showsHorizontalScrollIndicator = NO;
+    
+    
+    pageControlView.contentSize = CGSizeMake(pageControlView.frame.size.width * 2, pageControlView.frame.size.height);
+   
+    // pageController initialization
+    
+    [self loadScrollViewWithPage:0];
+    [self loadScrollViewWithPage:1];
+}
+
 #pragma mark - Table view data source
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -135,19 +103,21 @@
     return [self.dataController countOfMainLabList];
 }
 
-
-static int cellCounter = 0;
+static int numNils = 0;
+static int numNonNils = 0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Interfaces
     static NSString *CellIdentifier = @"LabInfoCell";
     EWSCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSLog(@"@index reused   %@", indexPath);
     if(cell == nil) {
         cell = [[EWSCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        NSLog(@"It was nil");
+        numNils++;
+        NSLog(@"num Nils now   %d", numNils);
     }
-
+    NSLog(@"This is cell  bro   %@", cell);
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     [cell initSubViewsWithLab:labAtIndex];
     
@@ -157,19 +127,12 @@ static int cellCounter = 0;
     [cell.meterContainerView addGestureRecognizer:panGestureRecognizer];
     
     // experiment purpose@!#!@$@!#@$#!@#@!$
-    
-    if ([self.meterViewArray count] == 11) {
-        [self.meterViewArray removeObjectAtIndex:0];
-    }
-    [self.meterViewArray addObject:cell.meterContainerView];
 
+    [self.setOfTableViewCells addObject:cell];
 
-    NSLog(@"row reused  %d", indexPath.row);
-    //NSLog(@"# of cells %d", cellCounter++);
     
     return cell;
 }
-
 
 
 
@@ -264,47 +227,37 @@ static int cellCounter = 0;
 
 -(void) loadScrollViewWithPage:(NSInteger) page
 {
-    if (page < 0)
+    if (page < 0 || page >= NUM_OF_CTRL_PAGES)
         return;
-    if (page >= NUM_OF_CTRL_PAGES)
-        return;
-    
-    // replace the placeholder if necessary
-    EWSPageController *currentPageController = [self.pageControllers objectAtIndex:page];
-    if ((NSNull *)currentPageController == [NSNull null])
-    {
-        currentPageController = [[EWSPageController alloc] initWithPageNumber:page];
-        [self.pageControllers replaceObjectAtIndex:page withObject:currentPageController];
-    }
-    
-    // add the controller's view to the scroll view
-    if (currentPageController.view.superview == nil)
-    {
-        CGRect frame = self.pageControlView.frame;
-        frame.origin.x = frame.size.width * page;
-        frame.origin.y = 0;
-        currentPageController.view.frame = frame;
-        
-        
-        [self.pageControlView addSubview:currentPageController.view];
+   
+    CGRect frame = self.pageControlView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
 
-        UILabel *pageControlLabel = [[UILabel alloc] init];
-        [pageControlLabel setFrame:CGRectMake(118 + 320 * page, 23, 90, 21)];
-        [pageControlLabel setBackgroundColor:[UIColor clearColor]];
-        [pageControlLabel setTextColor:[UIColor whiteColor]];
-        [pageControlLabel setFont:[UIFont fontWithName:@"Futura" size:17]];
-        [pageControlLabel setTextAlignment:NSTextAlignmentCenter];
-        [self.pageControlView addSubview:pageControlLabel];
-        
-        if (page == 0) {
-            [pageControlLabel setText:@"Glance"];
-        } else if (page == 1) {
-            [pageControlLabel setText:@"Detail"];
-        }
+    // Might need to change this later
+    UIView *pgView = [[UIView alloc] initWithFrame:frame];
+
+    [self.pageControlView addSubview:pgView];
+
+    UILabel *pageControlLabel = [[UILabel alloc] init];
+    [pageControlLabel setFrame:CGRectMake(118 + 320 * page, 23, 90, 21)];
+    [pageControlLabel setBackgroundColor:[UIColor clearColor]];
+    [pageControlLabel setTextColor:[UIColor whiteColor]];
+    [pageControlLabel setFont:[UIFont fontWithName:@"Futura" size:17]];
+    [pageControlLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.pageControlView addSubview:pageControlLabel];
+    
+    if (page == 0) {
+        [pageControlLabel setText:@"Glance"];
+    } else if (page == 1) {
+        [pageControlLabel setText:@"Detail"];
     }
 }
 
-static float lastPage = 0;
+
+-(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+}
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     // We don't want a "feedback loop" between the UIPageControl and the scroll delegate in
@@ -316,52 +269,34 @@ static float lastPage = 0;
    
     float contentOffset = self.pageControlView.contentOffset.x;
     
-    int page = floor((self.pageControlView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    pageControl.currentPage = page;
+    int newPage = floor((self.pageControlView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    pageControl.currentPage = newPage;
     
     if (contentOffset <= 320.000 && contentOffset >= 0.0f) {
-        if (lastPage == 0.0f) {
+        if (previousPage == 0) {
             [self.pageControlView setAlpha:(1 - contentOffset/320 * 0.5)];
         } else {
             [self.pageControlView setAlpha:(0.5 + (320 - contentOffset)/320 * 0.5)];
         }
     }
-    NSLog(@"content offset %f", contentOffset);
-  
     
     float viewTXofCell = 0;
     viewTXofCell -= contentOffset;
 
     // Doesn't pass beyond the left boundary of the screen when it is on glancemode
     if (viewTXofCell < 0) {
-        [meterView1 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView2 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView3 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView4 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView5 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView6 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView7 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView8 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView9 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView10 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-        [meterView11 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
+        [self.setOfTableViewCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
     }
-//    [meterView12 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-//    [meterView13 setTransform:CGAffineTransformMakeTranslation(viewTXofCell, 0)];
-    
-    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self loadScrollViewWithPage:page - 1];
-    [self loadScrollViewWithPage:page];
-    [self loadScrollViewWithPage:page + 1];
-    
-    // A possible optimization would be to unload the views+controllers which are no longer visible
+
+    NSLog(@"WTFFFFFFFFFFFFF");
 }
+
 
 #pragma UIScrollViewDelegate methods
 
 // At the end of scroll set lastPage for alpha manipulation
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    lastPage = pageControl.currentPage;
+    previousPage = pageControl.currentPage;
 }
 
 @end

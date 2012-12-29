@@ -18,23 +18,12 @@
 
 #pragma mark - View properties
 @property (strong, nonatomic) UITableView *tableView;
-
-#pragma mark - Model property
 @property (strong, nonatomic) EWSDataController *dataController;
 
-#pragma mark - Helper properties for gestures
-@property (nonatomic) float openCellLastTX;
-@property (nonatomic, strong) UIView *openGestureView;
-- (void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated;
-
-#pragma mark - PageControl Stuff
 @property (strong, nonatomic) IBOutlet UIScrollView *pageControlView;
-@property (strong, nonatomic) NSMutableArray *pageControllers;
-//@property (strong, nonatomic) IBOutlet UIScrollView *pageControlView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
-//@property (nonatomic) BOOL pageControlUsed;
-@property (nonatomic) BOOL tableViewInGlanceMode;
+@property (nonatomic, strong) NSMutableSet *setOfTableViewCells;
 
-@property (nonatomic, strong) NSMutableArray *meterViewArray;
+
 @end

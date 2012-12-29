@@ -23,8 +23,7 @@
 
 @implementation EWSDataController
 
--(id) init
-{
+-(id) init {
     if (self = [super init]) {
         [self initDefault];
         [self pollCurrentLabUsage];
@@ -35,6 +34,7 @@
 
 -(void)initDefault
 {
+    NSString *pathToLabPlist = [[NSBundle mainBundle] pathForResource:@"lab_info" ofType:@"plist"];
     Lab *lab1 = [[Lab alloc] initWithName:@"DCL L416" Capacity:26 Building:@"DCL" Platform:@"Linux"];
     Lab *lab2 = [[Lab alloc] initWithName:@"DCL L440" Capacity:29 Building:@"DCL" Platform:@"Linux"];
     Lab *lab3 = [[Lab alloc] initWithName:@"DCL L520" Capacity:41 Building:@"DCL" Platform:@"Linux"];
@@ -49,6 +49,31 @@
     Lab *lab12 = [[Lab alloc] initWithName:@"SIEBL 0220" Capacity:21 Building:@"SIEBL" Platform:@"Linux"];
     Lab *lab13 = [[Lab alloc] initWithName:@"SIEBL 0222" Capacity:21 Building:@"SIEBL" Platform:@"Windows"];
     self.mainLabList =  [[NSMutableArray alloc] initWithObjects:lab1, lab2, lab3, lab4, lab5, lab6, lab7, lab8, lab9, lab10, lab11, lab12, lab13, nil];
+    
+    
+//    NSArray *testArray = [NSArray arrayWithContentsOfFile:pathToLabPlist];
+//    self.mainLabList = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    Lab *lab;
+//    for (int i =0; i < [testArray count]; i++) {
+//        NSLog(@"class of cap   %@",[[[testArray objectAtIndex:i] objectForKey:@"capacity"] class]);
+//        NSString *name = [[testArray objectAtIndex:i] objectForKey:@"name"];
+//        NSUInteger capacity = [[[testArray objectAtIndex:i] objectForKey:@"capacity"] unsignedIntegerValue];
+//        NSString *building = [[testArray objectAtIndex:i] objectForKey:@"building"];
+//        NSString *platform = [[testArray objectAtIndex:i] objectForKey:@"platform_name"];
+//       
+//        
+////        Lab *lab = [[Lab alloc] initWithName:name Capacity:capacity Building:building Platform:platform];
+//        
+//        lab = [[Lab alloc] initWithName:@"SIEBL 0222" Capacity:21 Building:@"SIEBL" Platform:@"Windows"];
+//        NSLog(@"name   %@", lab.name);
+//        NSLog(@"capactiy   %d", lab.maxCapacity);
+//        NSLog(@"building   %@", lab.buildingName);
+//        NSLog(@"platform   %@", lab.computerPlatformName);
+//        NSLog(@"lab     %@", lab);
+//        [self.mainLabList addObject:lab];
+//    }
+//    NSLog(@"mainLablist     %@", testArray);
 }
 
 - (NSUInteger)countOfMainLabList
@@ -78,7 +103,7 @@
     // Prepare URL request to download statuses from Twitter
     //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"http://127.0.0.1:3000"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"http://127.0.0.1:8080"]];
     // Perform request and get JSON back as a NSData object
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 

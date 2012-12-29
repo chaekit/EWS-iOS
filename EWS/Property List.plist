@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+		<key>name</key>
+		<string>DCL L416</string>
+		<key>capactiy</key>
+        <number>26</number>
+        <key>building</key>
+        <string>DCL</string>
+        <key>platform</key>
+        <string>Linux</string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string>DCL L440</string>
+		<key>capactiy</key>
+        <number>29</number>
+        <key>building</key>
+        <string>DCL</string>
+        <key>platform</key>
+        <string>Linux</string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+    <dict>
+		<key>name</key>
+		<string></string>
+		<key>capactiy</key>
+        <number></number>
+        <key>building</key>
+        <string></string>
+        <key>platform</key>
+        <string></string>
+    </dict>
+
+
+</array>
+</plist>

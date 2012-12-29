@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Mxj-6I-Cx2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RPI-aP-hHq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Czp-Yo-XAe">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="RPI-aP-hHq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qm6-Jc-S17">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Mxj-6I-Cx2" kind="relationship" relationship="rootViewController" id="bV1-On-uXi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VJd-a6-XI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2139" y="-161"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="qJb-xG-MuS">
             <objects>
                 <viewController id="Mxj-6I-Cx2" customClass="EWSViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xjS-L1-AnA">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="CCq-cg-Fb4">
@@ -17,15 +32,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aRx-yn-oZI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="481"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="437"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabInfoCell" id="vQ1-yv-OrN" customClass="EWSCustomCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabInfoCell" id="vQ1-yv-OrN" customClass="EWSCustomCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="E8h-40-XJ7" userLabel="DetailView">
@@ -87,6 +102,7 @@
                                             <outlet property="notifyButton" destination="eD6-0D-69O" id="nye-oI-wYb"/>
                                             <outlet property="platformIcon" destination="Y80-Y1-SDX" id="6Ib-CQ-Odi"/>
                                             <outlet property="usageFractionLabel" destination="clR-hC-rcf" id="zXW-yG-OjZ"/>
+                                            <segue destination="CF8-9r-eLl" kind="push" id="2TF-zB-MQc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -96,13 +112,14 @@
                                 </connections>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="EhY-y0-pWE">
-                                <rect key="frame" x="0.0" y="481" width="320" height="67"/>
+                                <rect key="frame" x="0.0" y="437" width="320" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mny-ea-99K"/>
                     <connections>
                         <outlet property="pageControl" destination="CCq-cg-Fb4" id="3QZ-L2-GoM"/>
                         <outlet property="pageControlView" destination="EhY-y0-pWE" id="22e-gO-Dur"/>
@@ -110,7 +127,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2F5-aK-YiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-794" y="-114"/>
+            <point key="canvasLocation" x="-1445" y="-161"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pFj-y5-OkY">
+            <objects>
+                <viewController id="CF8-9r-eLl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wWc-pV-G12">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fUo-iI-Sk1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6X-gL-YrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-826" y="-161"/>
         </scene>
     </scenes>
     <resources>

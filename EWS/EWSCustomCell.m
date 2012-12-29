@@ -21,7 +21,6 @@
 
 @end
 
-
 @implementation EWSCustomCell
 
 @synthesize lab;
@@ -46,6 +45,7 @@
 
 -(void) initSubViewsWithLab:(Lab *)labAtIndex
 {
+    [self setAccessoryType:UITableViewCellAccessoryNone];
     lab = labAtIndex;
     [self setUsageFractionLabel];
     [self setPlatformIcon];
@@ -96,5 +96,8 @@
     [detailView insertSubview:meterContainerView aboveSubview:usageFractionLabel];
 }
 
+-(void) scrollMeterViewWithPageControl:(NSNumber *) newTXOfCellObject {
+    [self.meterContainerView setTransform:CGAffineTransformMakeTranslation([newTXOfCellObject floatValue], 0)];
+}
 
 @end
