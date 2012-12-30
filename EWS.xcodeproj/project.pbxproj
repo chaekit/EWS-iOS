@@ -27,6 +27,7 @@
 		1957E476168FDE4B00DC1824 /* EWSLabDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */; };
 		1957E479168FE3E300DC1824 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1957E478168FE3E300DC1824 /* MapKit.framework */; };
 		1957E47C168FFB1D00DC1824 /* LabMKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */; };
+		1957E47E169011E300DC1824 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1957E47D169011E300DC1824 /* CoreLocation.framework */; };
 		1959BA8A166F1ED800C79F98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA89166F1ED800C79F98 /* UIKit.framework */; };
 		1959BA8C166F1ED800C79F98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA8B166F1ED800C79F98 /* Foundation.framework */; };
 		1959BA8E166F1ED800C79F98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA8D166F1ED800C79F98 /* CoreGraphics.framework */; };
@@ -83,6 +84,7 @@
 		1957E478168FE3E300DC1824 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1957E47A168FFB1D00DC1824 /* LabMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabMKAnnotation.h; sourceTree = "<group>"; };
 		1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabMKAnnotation.m; sourceTree = "<group>"; };
+		1957E47D169011E300DC1824 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1959BA85166F1ED800C79F98 /* EWS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1959BA89166F1ED800C79F98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1959BA8B166F1ED800C79F98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1957E47E169011E300DC1824 /* CoreLocation.framework in Frameworks */,
 				1957E479168FE3E300DC1824 /* MapKit.framework in Frameworks */,
 				19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */,
 				1959BA8A166F1ED800C79F98 /* UIKit.framework in Frameworks */,
@@ -158,7 +161,6 @@
 		1959BA7A166F1ED800C79F98 = {
 			isa = PBXGroup;
 			children = (
-				1957E478168FE3E300DC1824 /* MapKit.framework */,
 				1959BA8F166F1ED800C79F98 /* EWS */,
 				1959BA88166F1ED800C79F98 /* Frameworks */,
 				1959BA86166F1ED800C79F98 /* Products */,
@@ -176,6 +178,8 @@
 		1959BA88166F1ED800C79F98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1957E47D169011E300DC1824 /* CoreLocation.framework */,
+				1957E478168FE3E300DC1824 /* MapKit.framework */,
 				19EC82AC167270C800BB6C77 /* QuartzCore.framework */,
 				1959BA89166F1ED800C79F98 /* UIKit.framework */,
 				1959BA8B166F1ED800C79F98 /* Foundation.framework */,

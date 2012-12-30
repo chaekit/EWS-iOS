@@ -11,6 +11,17 @@
 		<string>DCL</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<integer>0</integer>
+			<key>longitude</key>
+			<integer>0</integer>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -21,6 +32,17 @@
 		<string>DCL</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<integer>0</integer>
+			<key>longitude</key>
+			<integer>0</integer>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -31,6 +53,17 @@
 		<string>DCL</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<integer>0</integer>
+			<key>longitude</key>
+			<integer>0</integer>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -41,6 +74,17 @@
 		<string>EH</string>
 		<key>platform_name</key>
 		<string>Windows</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.11076966507974</real>
+			<key>longitude</key>
+			<real>-88.22696328163147</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -51,6 +95,17 @@
 		<string>EH</string>
 		<key>platform_name</key>
 		<string>Windows</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.11076966507974</real>
+			<key>longitude</key>
+			<real>-88.22696328163147</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -61,6 +116,17 @@
 		<string>EVRT</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.11090915702887</real>
+			<key>longitude</key>
+			<real>-88.22837948799133</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -71,6 +137,17 @@
 		<string>GE</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.1125173964848</real>
+			<key>longitude</key>
+			<real>-88.22673797607422</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -81,6 +158,17 @@
 		<string>GE</string>
 		<key>platform_name</key>
 		<string>Windows</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.1125173964848</real>
+			<key>longitude</key>
+			<real>-88.22673797607422</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -91,6 +179,17 @@
 		<string>MEL</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.1118363609493</real>
+			<key>longitude</key>
+			<real>-88.22616934776306</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -101,6 +200,17 @@
 		<string>MEL</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.1118363609493</real>
+			<key>longitude</key>
+			<real>-88.22616934776306</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -111,6 +221,17 @@
 		<string>SIEBL</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.11386303701121</real>
+			<key>longitude</key>
+			<real>-88.22508573532104</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -121,6 +242,17 @@
 		<string>SIEBL</string>
 		<key>platform_name</key>
 		<string>Linux</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.11386303701121</real>
+			<key>longitude</key>
+			<real>-88.22508573532104</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<false/>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -131,6 +263,17 @@
 		<string>SIEBL</string>
 		<key>platform_name</key>
 		<string>Windows</string>
+		<key>geoLocation</key>
+		<dict>
+			<key>latitude</key>
+			<real>40.11386303701121</real>
+			<key>longitude</key>
+			<real>-88.22508573532104</real>
+		</dict>
+		<key>monitor_size</key>
+		<integer>0</integer>
+		<key>dual_screen</key>
+		<true/>
 	</dict>
 </array>
 </plist>

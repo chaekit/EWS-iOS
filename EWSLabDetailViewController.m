@@ -8,6 +8,7 @@
 
 #import "EWSLabDetailViewController.h"
 #import "LabMKAnnotation.h"
+#import "Lab.h"
 
 @interface EWSLabDetailViewController ()
 
@@ -29,14 +30,26 @@
     [super viewDidLoad];
     
 
-    CLLocationCoordinate2D coordinate;
-    coordinate.latitude = 40.1164;
-    coordinate.longitude = 88.2433;
+//    CLLocationCoordinate2D coordinate;
+//    coordinate.latitude = 40.1164;
+//    coordinate.longitude = 88.2433;
 
     
-    LabMKAnnotation *labAnnotation = [[LabMKAnnotation alloc] initWithCoordinate:coordinate Location:@"Basement"];
+    LabMKAnnotation *labAnnotation = [[LabMKAnnotation alloc] initWithCoordinate:self.lab.geoLocation Location:@"Basement"];
     [self.mapView addAnnotation:labAnnotation];
+    NSLog(@"annotation    %f", labAnnotation.coordinate.latitude );
     NSLog(@"annotation    %f", labAnnotation.coordinate.longitude );
+    [self.navigationItem.titleView setBackgroundColor:[UIColor blackColor]];
+    
+
+    UIBarButtonItem *backbutton =  [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    
+    [backbutton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIColor blackColor],UITextAttributeTextColor,[UIFont fontWithName:@"Monaco" size:16.0f],UITextAttributeFont,
+                                        nil] forState:UIControlStateNormal];
+    
+    self.navigationController.navigationItem.backBarButtonItem = backbutton;
+
 	// Do any additional setup after loading the view.
 }
 

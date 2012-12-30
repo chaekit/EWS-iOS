@@ -15,7 +15,7 @@
     NSMutableData *responseData;
 }
 
-@property (nonatomic, copy) NSMutableArray *mainLabList;
+@property (nonatomic, retain) NSMutableArray *mainLabList;
 
 -(NSUInteger) countOfMainLabList;
 -(Lab *) objectAtIndex:(NSUInteger) index;

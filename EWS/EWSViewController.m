@@ -11,8 +11,10 @@
 #import "EWSViewController.h"
 #import "EWSDataController.h"
 #import "EWSCustomCell.h"
-#import <UIKit/UIKit.h>
+#import "EWSLabDetailViewController.h"
 
+//Frameworks
+#import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -55,7 +57,8 @@
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
     [machinesTableView reloadData];
-}
+
+    }
 
 - (void)didReceiveMemoryWarning
 {
@@ -301,7 +304,8 @@ static int numNonNils = 0;
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
-        
+        EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
+        labDetailViewController.lab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 

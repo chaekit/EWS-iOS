@@ -7,6 +7,7 @@
 //
 
 #import "LabMKAnnotation.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation LabMKAnnotation
 
@@ -14,7 +15,7 @@
 
 -(id) initWithCoordinate:(CLLocationCoordinate2D)coord Location:(NSString *)location {
     if (self  = [super init]) {
-        coordinate = coord;
+        coordinate = CLLocationCoordinate2DMake(coord.latitude, coord.longitude);
         locationInBuilding = location;
     }
     return self;

@@ -10,9 +10,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
+@class Lab;
+
 @interface EWSLabDetailViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) Lab *lab;
 
 @end

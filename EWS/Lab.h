@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Lab : NSObject
 
@@ -17,14 +18,16 @@
 @property (nonatomic) NSUInteger maxCapacity;
 @property (nonatomic) NSUInteger currentLabUsage;
 
+@property (nonatomic) CLLocationCoordinate2D geoLocation;
+
 
 
 -(id)initWithName:(NSString *)labName
         Capacity:(NSUInteger)labCapacity
         Building:(NSString *)buildingName
-        Platform:(NSString *)computerPlatFormName;
+        Platform:(NSString *)computerPlatFormName
+        LatLng:(NSDictionary *)geoLoc;
 
 
 
-//-(void) setUsageToLab:(NSUInteger)usage;
 @end
