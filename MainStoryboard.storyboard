@@ -123,6 +123,7 @@
                     <connections>
                         <outlet property="pageControl" destination="CCq-cg-Fb4" id="3QZ-L2-GoM"/>
                         <outlet property="pageControlView" destination="EhY-y0-pWE" id="22e-gO-Dur"/>
+                        <outlet property="tableView" destination="aRx-yn-oZI" id="Nml-K6-WSB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2F5-aK-YiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,6 +168,7 @@
                 <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="pageControlView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
     </classes>

@@ -126,9 +126,9 @@ static int numNonNils = 0;
     [panGestureRecognizer setDelegate:self];
     [cell.meterContainerView addGestureRecognizer:panGestureRecognizer];
     
-    // experiment purpose@!#!@$@!#@$#!@#@!$
-
-    [self.setOfTableViewCells addObject:cell];
+    
+    //EXPERIMENT
+    //[self.setOfTableViewCells addObject:cell];
 
     
     return cell;
@@ -256,6 +256,8 @@ static int numNonNils = 0;
 
 
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSLog(@"tableView   %@", self.tableView);
+    NSLog(@"visible Cells   %@", self.tableView.visibleCells);
 }
 
 
@@ -285,7 +287,8 @@ static int numNonNils = 0;
 
     // Doesn't pass beyond the left boundary of the screen when it is on glancemode
     if (viewTXofCell < 0) {
-        [self.setOfTableViewCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
+        [self.tableView.visibleCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
+        //[self.setOfTableViewCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
     }
 
     NSLog(@"WTFFFFFFFFFFFFF");

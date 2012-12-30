@@ -45,13 +45,13 @@
 
 -(void) initSubViewsWithLab:(Lab *)labAtIndex
 {
-    [self setAccessoryType:UITableViewCellAccessoryNone];
     lab = labAtIndex;
     [self setUsageFractionLabel];
     [self setPlatformIcon];
     [self setMeterView];
     [self setLabNameLabel];
     [self adjustSubViewOverlay];
+    [self setAccessoryType:UITableViewCellAccessoryNone];
 }
 
 - (void) setUsageFractionLabel

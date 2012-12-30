@@ -17,7 +17,7 @@
 }
 
 #pragma mark - View properties
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) EWSDataController *dataController;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *pageControlView;
