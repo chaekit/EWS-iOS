@@ -24,6 +24,9 @@
 		193D0AD41681AA0200C6B428 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */; };
 		193E952E168EB3AA00D68246 /* tux.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E952C168EB3AA00D68246 /* tux.png */; };
 		193E952F168EB3AA00D68246 /* windowsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E952D168EB3AA00D68246 /* windowsIcon.png */; };
+		1957E476168FDE4B00DC1824 /* EWSLabDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */; };
+		1957E479168FE3E300DC1824 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1957E478168FE3E300DC1824 /* MapKit.framework */; };
+		1957E47C168FFB1D00DC1824 /* LabMKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */; };
 		1959BA8A166F1ED800C79F98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA89166F1ED800C79F98 /* UIKit.framework */; };
 		1959BA8C166F1ED800C79F98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA8B166F1ED800C79F98 /* Foundation.framework */; };
 		1959BA8E166F1ED800C79F98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1959BA8D166F1ED800C79F98 /* CoreGraphics.framework */; };
@@ -75,6 +78,11 @@
 		193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		193E952C168EB3AA00D68246 /* tux.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tux.png; sourceTree = "<group>"; };
 		193E952D168EB3AA00D68246 /* windowsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windowsIcon.png; sourceTree = "<group>"; };
+		1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSLabDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSLabDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		1957E478168FE3E300DC1824 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1957E47A168FFB1D00DC1824 /* LabMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabMKAnnotation.h; sourceTree = "<group>"; };
+		1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabMKAnnotation.m; sourceTree = "<group>"; };
 		1959BA85166F1ED800C79F98 /* EWS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1959BA89166F1ED800C79F98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1959BA8B166F1ED800C79F98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1957E479168FE3E300DC1824 /* MapKit.framework in Frameworks */,
 				19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */,
 				1959BA8A166F1ED800C79F98 /* UIKit.framework in Frameworks */,
 				1959BA8C166F1ED800C79F98 /* Foundation.framework in Frameworks */,
@@ -149,6 +158,7 @@
 		1959BA7A166F1ED800C79F98 = {
 			isa = PBXGroup;
 			children = (
+				1957E478168FE3E300DC1824 /* MapKit.framework */,
 				1959BA8F166F1ED800C79F98 /* EWS */,
 				1959BA88166F1ED800C79F98 /* Frameworks */,
 				1959BA86166F1ED800C79F98 /* Products */,
@@ -179,6 +189,8 @@
 			children = (
 				190E99751670099E006FDF0D /* JSON */,
 				1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */,
+				1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */,
+				1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */,
 				19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */,
 				19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */,
 				1959BAAE166F1FF600C79F98 /* EWSViewController.h */,
@@ -194,6 +206,8 @@
 				19CF17891684F83500F5E530 /* EWSPageController.h */,
 				19CF178A1684F83500F5E530 /* EWSPageController.m */,
 				19F86A74168B6380009B1B30 /* lab_info.plist */,
+				1957E47A168FFB1D00DC1824 /* LabMKAnnotation.h */,
+				1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */,
 				1959BA90166F1ED800C79F98 /* Supporting Files */,
 			);
 			path = EWS;
@@ -305,6 +319,8 @@
 				19EEAAC8167B1A2B000E4F6D /* EWSCustomCell.m in Sources */,
 				193D0AD41681AA0200C6B428 /* PullRefreshTableViewController.m in Sources */,
 				19CF178B1684F83500F5E530 /* EWSPageController.m in Sources */,
+				1957E476168FDE4B00DC1824 /* EWSLabDetailViewController.m in Sources */,
+				1957E47C168FFB1D00DC1824 /* LabMKAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

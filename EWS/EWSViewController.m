@@ -111,13 +111,10 @@ static int numNonNils = 0;
     //Interfaces
     static NSString *CellIdentifier = @"LabInfoCell";
     EWSCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSLog(@"@index reused   %@", indexPath);
     if(cell == nil) {
         cell = [[EWSCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         numNils++;
-        NSLog(@"num Nils now   %d", numNils);
     }
-    NSLog(@"This is cell  bro   %@", cell);
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     [cell initSubViewsWithLab:labAtIndex];
     
@@ -300,6 +297,12 @@ static int numNonNils = 0;
 // At the end of scroll set lastPage for alpha manipulation
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     previousPage = pageControl.currentPage;
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
+        
+    }
 }
 
 @end
