@@ -21,6 +21,7 @@
 		190E9998167009D6006FDF0D /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998A167009D6006FDF0D /* SBJsonTokeniser.m */; };
 		190E9999167009D6006FDF0D /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998C167009D6006FDF0D /* SBJsonUTF8Stream.m */; };
 		190E999A167009D6006FDF0D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998E167009D6006FDF0D /* SBJsonWriter.m */; };
+		192B3F471690E0BA00E70BAC /* EWSDetailLabMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */; };
 		193D0AD41681AA0200C6B428 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */; };
 		193E952E168EB3AA00D68246 /* tux.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E952C168EB3AA00D68246 /* tux.png */; };
 		193E952F168EB3AA00D68246 /* windowsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E952D168EB3AA00D68246 /* windowsIcon.png */; };
@@ -39,6 +40,7 @@
 		1959BAA0166F1ED900C79F98 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1959BA9F166F1ED900C79F98 /* Default-568h@2x.png */; };
 		1959BAA9166F1F0D00C79F98 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */; };
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
+		19C39F881691072400D26E55 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C39F871691072400D26E55 /* NotificationViewController.m */; };
 		19CF178B1684F83500F5E530 /* EWSPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF178A1684F83500F5E530 /* EWSPageController.m */; };
 		19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC82AC167270C800BB6C77 /* QuartzCore.framework */; };
 		19EEAAC8167B1A2B000E4F6D /* EWSCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */; };
@@ -75,6 +77,8 @@
 		190E998C167009D6006FDF0D /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = "../../Libraries/json-framework/Classes/SBJsonUTF8Stream.m"; sourceTree = "<group>"; };
 		190E998D167009D6006FDF0D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "../../Libraries/json-framework/Classes/SBJsonWriter.h"; sourceTree = "<group>"; };
 		190E998E167009D6006FDF0D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "../../Libraries/json-framework/Classes/SBJsonWriter.m"; sourceTree = "<group>"; };
+		192B3F451690E0BA00E70BAC /* EWSDetailLabMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSDetailLabMapViewController.h; sourceTree = "<group>"; };
+		192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDetailLabMapViewController.m; sourceTree = "<group>"; };
 		193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		193E952C168EB3AA00D68246 /* tux.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tux.png; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1959BAAE166F1FF600C79F98 /* EWSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSViewController.h; sourceTree = "<group>"; };
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
+		19C39F861691072400D26E55 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		19C39F871691072400D26E55 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		19CF17891684F83500F5E530 /* EWSPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSPageController.h; sourceTree = "<group>"; };
 		19CF178A1684F83500F5E530 /* EWSPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSPageController.m; sourceTree = "<group>"; };
 		19EC82AC167270C800BB6C77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -195,6 +201,10 @@
 				1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */,
 				1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */,
 				1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */,
+				192B3F451690E0BA00E70BAC /* EWSDetailLabMapViewController.h */,
+				192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */,
+				19C39F861691072400D26E55 /* NotificationViewController.h */,
+				19C39F871691072400D26E55 /* NotificationViewController.m */,
 				19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */,
 				19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */,
 				1959BAAE166F1FF600C79F98 /* EWSViewController.h */,
@@ -325,6 +335,8 @@
 				19CF178B1684F83500F5E530 /* EWSPageController.m in Sources */,
 				1957E476168FDE4B00DC1824 /* EWSLabDetailViewController.m in Sources */,
 				1957E47C168FFB1D00DC1824 /* LabMKAnnotation.m in Sources */,
+				192B3F471690E0BA00E70BAC /* EWSDetailLabMapViewController.m in Sources */,
+				19C39F881691072400D26E55 /* NotificationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

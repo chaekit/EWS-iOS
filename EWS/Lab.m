@@ -11,7 +11,10 @@
 
 @implementation Lab
 
--(id)initWithName:(NSString *)labName Capacity:(NSUInteger)labCapacity Building:(NSString *)buildingName Platform:(NSString *)computerPlatFormName LatLng:(NSDictionary *)geoLoc
+-(id)initWithName:(NSString *)labName Capacity:(NSUInteger)labCapacity
+         Building:(NSString *)buildingName Platform:(NSString *)computerPlatFormName
+           LatLng:(NSDictionary *)geoLoc
+            LocationTip:(NSString *)locTip
 {
     self = [super init];
     if (self)
@@ -26,6 +29,8 @@
         NSLog(@"class of this object shit    %@", [[geoLoc objectForKey:@"latitude"] class]);
         self.geoLocation = CLLocationCoordinate2DMake([[geoLoc objectForKey:@"latitude"] doubleValue],
                                                       [[geoLoc objectForKey:@"longitude"] doubleValue]);
+        
+        self.locationTip = locTip;
         return self;
     }
     return nil;

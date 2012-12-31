@@ -45,9 +45,10 @@
         NSString *building = [[testArray objectAtIndex:i] objectForKey:@"building"];
         NSString *platform = [[testArray objectAtIndex:i] objectForKey:@"platform_name"];
         NSDictionary *geoLocation = [[testArray objectAtIndex:i] objectForKey:@"geoLocation"];
+        NSString *locationTip = [[testArray objectAtIndex:i] objectForKey:@"location_tip"];
        
         
-        Lab *lab = [[Lab alloc] initWithName:name Capacity:capacity Building:building Platform:platform LatLng:geoLocation];
+        Lab *lab = [[Lab alloc] initWithName:name Capacity:capacity Building:building Platform:platform LatLng:geoLocation LocationTip:locationTip];
         
         [self.mainLabList addObject:lab];
     }

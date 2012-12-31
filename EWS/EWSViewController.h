@@ -23,7 +23,4 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *pageControlView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
-@property (nonatomic, strong) NSMutableSet *setOfTableViewCells;
-
-
 @end

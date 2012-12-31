@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface EWSDetailLabMapViewController : NSObject
+@interface EWSDetailLabMapViewController : UIViewController <MKMapViewDelegate>
+
+@property (nonatomic, strong) IBOutlet MKMapView *detailMapView;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *closeButton;
+
+@property (nonatomic) CLLocationCoordinate2D mapCenter;
+@property (nonatomic) MKCoordinateSpan mapSpan;
 
 @end

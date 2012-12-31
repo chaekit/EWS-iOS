@@ -12,10 +12,17 @@
 
 @class Lab;
 
-@interface EWSLabDetailViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface EWSLabDetailViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate>
 
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
-@property (nonatomic, strong) Lab *lab;
+@property (nonatomic, strong) IBOutlet UILabel *labLocationTip;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *closeButton;
+@property (nonatomic, strong) IBOutlet UILabel *labUsageLabel;
+@property (nonatomic, strong) IBOutlet UIButton *notifyButton;
 
+-(IBAction) closeDetailMapView:(id)sender;
+
+@property (nonatomic, strong) Lab *lab;
+@property (nonatomic) BOOL isParent;
 @end

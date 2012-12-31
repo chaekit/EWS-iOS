@@ -17,7 +17,6 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-
 #define FAST_ANIMATION_DURATION 0.35
 #define SLOW_ANIMATION_DURATION 0.75
 
@@ -49,16 +48,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self initPageControViews];
-    self.setOfTableViewCells = [[NSMutableSet alloc] init];
+    [self.navigationItem setTitle:@"EWS Labs"];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
     [machinesTableView reloadData];
 
-    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -129,7 +127,6 @@ static int numNonNils = 0;
     
     //EXPERIMENT
     //[self.setOfTableViewCells addObject:cell];
-
     
     return cell;
 }
@@ -256,8 +253,6 @@ static int numNonNils = 0;
 
 
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    NSLog(@"tableView   %@", self.tableView);
-    NSLog(@"visible Cells   %@", self.tableView.visibleCells);
 }
 
 
@@ -288,7 +283,6 @@ static int numNonNils = 0;
     // Doesn't pass beyond the left boundary of the screen when it is on glancemode
     if (viewTXofCell < 0) {
         [self.tableView.visibleCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
-        //[self.setOfTableViewCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
     }
 
     NSLog(@"WTFFFFFFFFFFFFF");
@@ -306,6 +300,7 @@ static int numNonNils = 0;
     if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
         EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
         labDetailViewController.lab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        [labDetailViewController setIsParent:YES];
     }
 }
 

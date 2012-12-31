@@ -10,4 +10,6 @@
 
 @interface NotificationViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *closeButton;
+
 @end

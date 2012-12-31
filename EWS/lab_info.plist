@@ -22,6 +22,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Digital Computer Lab Basement</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -43,6 +45,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Digital Computer Lab Basement</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -64,6 +68,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Digital Computer Lab Basement</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -85,6 +91,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Engineering Hall 4th Floor</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -106,6 +114,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Engineering Hall 4th Floor</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -127,6 +137,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Everitt Lab 2nd Floor</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -148,6 +160,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Grainger Library Basement</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -169,6 +183,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Grainger Library 4th Floor</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -190,6 +206,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Mechanical Eng Lab 1st Floor</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -211,6 +229,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Mechanical Eng Lab 1st Floor</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -232,6 +252,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Siebel Center Basement</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -253,6 +275,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<false/>
+		<key>location_tip</key>
+		<string>Siebel Center Basement</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -274,6 +298,8 @@
 		<integer>0</integer>
 		<key>dual_screen</key>
 		<true/>
+		<key>location_tip</key>
+		<string>Siebel Center Basement</string>
 	</dict>
 </array>
 </plist>

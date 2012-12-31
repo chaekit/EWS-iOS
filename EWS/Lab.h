@@ -11,9 +11,10 @@
 
 @interface Lab : NSObject
 
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *buildingName;
-@property (nonatomic, copy) NSString *computerPlatformName;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *buildingName;
+@property (nonatomic, strong) NSString *computerPlatformName;
+@property (nonatomic, strong) NSString *locationTip;
 
 @property (nonatomic) NSUInteger maxCapacity;
 @property (nonatomic) NSUInteger currentLabUsage;
@@ -26,7 +27,8 @@
         Capacity:(NSUInteger)labCapacity
         Building:(NSString *)buildingName
         Platform:(NSString *)computerPlatFormName
-        LatLng:(NSDictionary *)geoLoc;
+        LatLng:(NSDictionary *)geoLoc
+        LocationTip:(NSString *)locTip;
 
 
 
