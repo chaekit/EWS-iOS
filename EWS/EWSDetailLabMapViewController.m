@@ -26,11 +26,20 @@
     [super viewDidLoad];
     [self setMapView];
     [self setLabAnnotation];
+    [self initLocationManager];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) initLocationManager {
+    userLocationManager = [[CLLocationManager alloc] init];
+    [userLocationManager setDelegate:self];
+    [userLocationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    //[userLocationManager startUpdatingLocation];
+    //[userLocationManager startUpdatingLocation];
 }
 
 -(void) setMapView {
@@ -39,6 +48,7 @@
     MKCoordinateSpan regionForMap = MKCoordinateSpanMake(0.003f, 0.00020f);
     [detailMapView setRegion:MKCoordinateRegionMake(mapCenter, regionForMap)];
     [closeButton setAction:@selector(closeMapView)];
+    [detailMapView setShowsUserLocation:YES];
 }
 
 -(void) closeMapView {
@@ -59,5 +69,11 @@
     MKPinAnnotationView *labPAV = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     //labPAV.enabled = YES;
     return labPAV;
+}
+
+#pragma mark - CLLocationManager protocols
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    NSLog(@"%@", [locations lastObject] );
 }
 @end

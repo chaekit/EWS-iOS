@@ -10,7 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface EWSDetailLabMapViewController : UIViewController <MKMapViewDelegate>
+@interface EWSDetailLabMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> {
+    CLLocationManager *userLocationManager;
+}
 
 @property (nonatomic, strong) IBOutlet MKMapView *detailMapView;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *closeButton;
