@@ -50,6 +50,8 @@
     [super viewDidLoad];
     [self initPageControViews];
     [self.navigationItem setTitle:@"EWS Labs"];
+    
+
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -104,8 +106,6 @@
     return [self.dataController countOfMainLabList];
 }
 
-static int numNils = 0;
-static int numNonNils = 0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,21 +114,25 @@ static int numNonNils = 0;
     EWSCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil) {
         cell = [[EWSCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        numNils++;
     }
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     [cell initSubViewsWithLab:labAtIndex];
     
     // Gesture initialization
+    
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [panGestureRecognizer setDelegate:self];
-    [cell.meterContainerView addGestureRecognizer:panGestureRecognizer];
+    //[cell.meterContainerView addGestureRecognizer:panGestureRecognizer];
+    [cell addGestureRecognizer:panGestureRecognizer];
     
-    
-    //EXPERIMENT
-    //[self.setOfTableViewCells addObject:cell];
-    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    [panGestureRecognizer setDelegate:self];
+    //[cell.detailView addGestureRecognizer:tapGestureRecognizer];
+    [cell addGestureRecognizer:tapGestureRecognizer];
     return cell;
+}
+
+-(void) handleTap:(UITapGestureRecognizer *) sender {
 }
 
 
@@ -160,7 +164,8 @@ static int numNonNils = 0;
 -(void) handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer
 {
     float threshold = (CELL_CLOSED_X + CELL_OPEN_X)/2.0;
-    UIView *gestureView = [panGestureRecognizer view];
+    EWSCustomCell *cell = (EWSCustomCell *) [panGestureRecognizer view];
+    UIView *gestureView = cell.meterContainerView;
     CGPoint translation;
     float vX = 0.0;
     float newTXOfOpenCell;
@@ -171,6 +176,7 @@ static int numNonNils = 0;
                 [self snapView:self.openGestureView toX:CELL_CLOSED_X animated:YES];
                 self.openGestureView = nil;
                 self.openCellLastTX = 0.0;
+                cell.meterViewOpen = NO;
             }
             break;
         
@@ -194,9 +200,11 @@ static int numNonNils = 0;
            
             if (newTXOfOpenCell > threshold) {
                 [self snapView:gestureView toX:CELL_CLOSED_X animated:YES];
+                cell.meterViewOpen = NO;
                 self.openCellLastTX = 0;
             } else {
                 [self snapView:gestureView toX:CELL_OPEN_X animated:YES];
+                cell.meterViewOpen = YES;
                 self.openCellLastTX = gestureView.transform.tx;
                 self.openGestureView = gestureView;
             }
@@ -253,6 +261,7 @@ static int numNonNils = 0;
 
 
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    
 }
 
 
@@ -262,30 +271,30 @@ static int numNonNils = 0;
     // the delegate method. We use a boolean to disable the delegate logic when the page control is used.
 	
     // Switch the indicator when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = self.pageControlView.frame.size.width;
-   
-    float contentOffset = self.pageControlView.contentOffset.x;
-    
-    int newPage = floor((self.pageControlView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    pageControl.currentPage = newPage;
-    
-    if (contentOffset <= 320.000 && contentOffset >= 0.0f) {
-        if (previousPage == 0) {
-            [self.pageControlView setAlpha:(1 - contentOffset/320 * 0.5)];
-        } else {
-            [self.pageControlView setAlpha:(0.5 + (320 - contentOffset)/320 * 0.5)];
+    if ([sender isEqual:pageControlView]) {
+        CGFloat pageWidth = self.pageControlView.frame.size.width;
+       
+        float contentOffset = self.pageControlView.contentOffset.x;
+        
+        int newPage = floor((self.pageControlView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        pageControl.currentPage = newPage;
+        
+        if (contentOffset <= 320.000 && contentOffset >= 0.0f) {
+            if (previousPage == 0) {
+                [self.pageControlView setAlpha:(1 - contentOffset/320 * 0.5)];
+            } else {
+                [self.pageControlView setAlpha:(0.5 + (320 - contentOffset)/320 * 0.5)];
+            }
+        }
+        
+        float viewTXofCell = 0;
+        viewTXofCell -= contentOffset;
+
+        // Doesn't pass beyond the left boundary of the screen when it is on glancemode
+        if (viewTXofCell < 0) {
+            [self.tableView.visibleCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
         }
     }
-    
-    float viewTXofCell = 0;
-    viewTXofCell -= contentOffset;
-
-    // Doesn't pass beyond the left boundary of the screen when it is on glancemode
-    if (viewTXofCell < 0) {
-        [self.tableView.visibleCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
-    }
-
-    NSLog(@"WTFFFFFFFFFFFFF");
 }
 
 
@@ -300,7 +309,16 @@ static int numNonNils = 0;
     if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
         EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
         labDetailViewController.lab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-        [labDetailViewController setIsParent:YES];
+    }
+}
+
+
+
+-(void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    EWSCustomCell *cell = (EWSCustomCell *) [sender view];
+    if (cell.meterViewOpen) {
+        [self performSegueWithIdentifier:@"ShowLabDetail" sender:self];
+        NSLog(@"lolol");
     }
 }
 

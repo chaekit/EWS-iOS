@@ -24,7 +24,8 @@
 @implementation EWSCustomCell
 
 @synthesize lab;
-@synthesize meterContainerView, detailView, usageFractionLabel, platformIcon, meterView, labNameLabel;
+@synthesize meterContainerView, detailView, usageFractionLabel, platformIcon, meterView, labNameLabel, labNameLabelInDetailView;
+@synthesize meterViewOpen;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -45,9 +46,11 @@
 
 -(void) initSubViewsWithLab:(Lab *)labAtIndex
 {
+    meterViewOpen = NO;
     lab = labAtIndex;
     [self setUsageFractionLabel];
-    [self setPlatformIcon];
+    //[self setPlatformIcon];
+    [self setLabNameLabelInDetailView];
     [self setMeterView];
     [self setLabNameLabel];
     [self adjustSubViewOverlay];
@@ -62,6 +65,7 @@
     [usageFractionLabel.layer setBorderWidth:2.0];
 }
 
+/*
 -(void) setPlatformIcon
 {
     // optimize by having to load up these images only once
@@ -74,6 +78,12 @@
         [platformIcon setImage:windowsIcon];
     }
     
+}
+*/
+
+-(void) setLabNameLabelInDetailView
+{
+    [labNameLabelInDetailView setText:lab.name];
 }
 
 -(void) setMeterView

@@ -24,6 +24,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *usageFractionLabel;
 @property (nonatomic, strong) IBOutlet UIButton *notifyButton;
 @property (nonatomic, strong) IBOutlet UIImageView *platformIcon;
+@property (nonatomic, strong) IBOutlet UILabel *labNameLabelInDetailView;
+
 //@property (nonatomic, strong) IBOutlet UILabel *platformNameLabel;
 
 // methods
@@ -33,6 +35,8 @@
 
 #pragma MeterView
 @property (nonatomic,strong) IBOutlet UILabel *labNameLabel;
+
+@property BOOL meterViewOpen;
 
 
 -(void) scrollMeterViewWithPageControl:(NSNumber *) newTXOfCellObject;

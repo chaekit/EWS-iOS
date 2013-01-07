@@ -2,17 +2,27 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.web
 import tornado.options
-
 from tornado.options import define, options
 
 import simplejson as json
+
+from apns import APNs, Payload
+
+from sqlalchemy.orm import scoped_session, sessionmaker
+from models import *
 
 define("port", default=8080, help="run on the given port", type=int)
 
 class Application(tornado.web.Application):
     def __init__(self):
-        handlers = [(r"/", PollUsageHandler)]
+        handlers = [
+            (r"/", PollUsageHandler),
+            (r"/add-device", DeviceHandler),
+            (r"/add-notification", NotificationHandler)
+        ]
+
         tornado.web.Application.__init__(self, handlers, debug=True)
+        self.db = scoped_session(sessionmaker(bind=engine))
 
 class PollUsageHandler(tornado.web.RequestHandler):
     def get(self):
@@ -30,7 +40,36 @@ class PollUsageHandler(tornado.web.RequestHandler):
             {"strlabname": "SIEBL 0220","inusecount": 6,"machinecount": 21},
             {"strlabname": "SIEBL 0222","inusecount": 21,"machinecount": 21}]}
         self.write(json.dumps(lab_usage_json))
+        print self.application.db.query(Lab).all()
         return
+
+class DeviceHandler(tornado.web.RequestHandler):
+    def post(self):
+        access_token_arg = self.get_argument('access_token')
+        udid_arg = self.get_argument('udid')
+        print access_token_arg
+        print udid_arg
+        device = Device(udid=udid_arg, access_token=access_token_arg)
+        self.application.db.add(device)
+        self.application.db.commit()
+
+
+class NotificationHandler(tornado.web.RequestHandler):
+    def post(self):
+        apns = APNs(use_sandbox=True, cert_file='apns-dev-cert.pem', key_file='apns-dev-key.pem')
+        # Send a notification
+        token_hex = 'f51e9c1d23dbcc431c5c621c4eb77cf4991beee6725e329f411173a2829462ae'
+        payload = Payload(alert="Hello World!", sound="default", badge=1)
+        apns.gateway_server.send_notification(token_hex, payload)
+        print "LOL"
+
+    def get(self):
+        apns = APNs(use_sandbox=True, cert_file='apns-dev-cert.pem', key_file='apns-dev-key.pem')
+        # Send a notification
+        token_hex = 'f51e9c1d23dbcc431c5c621c4eb77cf4991beee6725e329f411173a2829462ae'
+        payload = Payload(alert="Hello World!", sound="default", badge=1)
+        apns.gateway_server.send_notification(token_hex, payload)
+        print "LOL"
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()

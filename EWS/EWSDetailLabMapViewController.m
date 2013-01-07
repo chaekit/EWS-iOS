@@ -45,11 +45,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 -(void) setLabAnnotation {
     LabMKAnnotation *labAnnotation = [[LabMKAnnotation alloc] initWithCoordinate:mapCenter Location:@"Basement"];
     [detailMapView addAnnotation:labAnnotation];
     [detailMapView setCenterCoordinate:mapCenter];
 }
+
+
+#pragma mark - MKMapViewDelegate protocols
 
 -(MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     MKPinAnnotationView *labPAV = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];

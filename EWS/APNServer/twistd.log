@@ -1,0 +1,61 @@
+2013-01-06 19:55:23-0800 [-] Log opened.
+2013-01-06 19:55:23-0800 [-] twistd 12.0.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.2) starting up.
+2013-01-06 19:55:23-0800 [-] reactor class: twisted.internet.selectreactor.SelectReactor.
+2013-01-06 19:55:23-0800 [-] Site starting on 7077
+2013-01-06 19:55:23-0800 [-] Starting factory <twisted.web.server.Site instance at 0x10b716488>
+2013-01-06 19:56:39-0800 [HTTPChannel,0,127.0.0.1] APNSService __init__
+2013-01-06 19:56:39-0800 [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:03:56:38 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 19:56:39-0800 [HTTPChannel,1,127.0.0.1] APNSService write (connecting)
+2013-01-06 19:56:39-0800 [HTTPChannel,1,127.0.0.1] APNSClientContextFactory ssl_cert_file={FROM_STRING}
+2013-01-06 19:56:39-0800 [HTTPChannel,1,127.0.0.1] Unhandled Error
+	Traceback (most recent call last):
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/web/server.py", line 132, in process
+	    self.render(resrc)
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/web/server.py", line 167, in render
+	    body = resrc.render(self)
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/web/resource.py", line 216, in render
+	    return m(request)
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/web/xmlrpc.py", line 172, in render_POST
+	    d = defer.maybeDeferred(function, *args)
+	--- <exception caught here> ---
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py", line 134, in maybeDeferred
+	    result = f(*args, **kw)
+	  File "/Library/Python/2.7/site-packages/pyapns/server.py", line 292, in xmlrpc_notify
+	    aps_dict_or_list))
+	  File "/Library/Python/2.7/site-packages/pyapns/server.py", line 194, in write
+	    context = self.getContextFactory()
+	  File "/Library/Python/2.7/site-packages/pyapns/server.py", line 184, in getContextFactory
+	    return APNSClientContextFactory(self.cert_path)
+	  File "/Library/Python/2.7/site-packages/pyapns/server.py", line 60, in __init__
+	    pkey = crypto.load_privatekey(crypto.FILETYPE_PEM, ssl_cert_file)
+	OpenSSL.crypto.Error: [('PEM routines', 'PEM_def_callback', 'problems getting password'), ('PEM routines', 'PEM_do_header', 'bad password read')]
+	
+2013-01-06 19:56:39-0800 [HTTPChannel,1,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:03:56:38 +0000] "POST /RPC2 HTTP/1.1" 200 263 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 19:57:46-0800 [HTTPChannel,2,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:03:57:46 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 19:58:01-0800 [-] "errback in APNSClientFactory __init__ : [Failure instance: Traceback (failure with no frames): <type 'exceptions.Exception'>: Notification timed out after 15 seconds\n]"
+2013-01-06 19:58:01-0800 [-] "errback in apns-service-write : [Failure instance: Traceback (failure with no frames): <type 'exceptions.Exception'>: Notification timed out after 15 seconds\n]"
+2013-01-06 19:58:01-0800 [-] 127.0.0.1 - - [07/Jan/2013:03:58:01 +0000] "POST /RPC2 HTTP/1.1" 200 305 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 19:58:26-0800 [HTTPChannel,4,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:03:58:26 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 19:58:26-0800 [HTTPChannel,5,127.0.0.1] "errback in apns-service-write : [Failure instance: Traceback: <type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'sendMessage'\n/Library/Python/2.7/site-packages/pyapns/server.py:292:xmlrpc_notify\n/Library/Python/2.7/site-packages/pyapns/server.py:210:write\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:301:addCallback\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:290:addCallbacks\n--- <exception caught here> ---\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:551:_runCallbacks\n/Library/Python/2.7/site-packages/pyapns/server.py:210:<lambda>\n]"
+2013-01-06 19:58:26-0800 [HTTPChannel,5,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:03:58:26 +0000] "POST /RPC2 HTTP/1.1" 200 305 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 19:59:02-0800 [HTTPChannel,6,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:03:59:01 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 19:59:02-0800 [HTTPChannel,7,127.0.0.1] "errback in apns-service-write : [Failure instance: Traceback: <type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'sendMessage'\n/Library/Python/2.7/site-packages/pyapns/server.py:292:xmlrpc_notify\n/Library/Python/2.7/site-packages/pyapns/server.py:210:write\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:301:addCallback\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:290:addCallbacks\n--- <exception caught here> ---\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:551:_runCallbacks\n/Library/Python/2.7/site-packages/pyapns/server.py:210:<lambda>\n]"
+2013-01-06 19:59:02-0800 [HTTPChannel,7,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:03:59:01 +0000] "POST /RPC2 HTTP/1.1" 200 305 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:09:47-0800 [HTTPChannel,8,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:09:46 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:09:47-0800 [HTTPChannel,9,127.0.0.1] "errback in apns-service-write : [Failure instance: Traceback: <type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'sendMessage'\n/Library/Python/2.7/site-packages/pyapns/server.py:292:xmlrpc_notify\n/Library/Python/2.7/site-packages/pyapns/server.py:210:write\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:301:addCallback\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:290:addCallbacks\n--- <exception caught here> ---\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:551:_runCallbacks\n/Library/Python/2.7/site-packages/pyapns/server.py:210:<lambda>\n]"
+2013-01-06 20:09:47-0800 [HTTPChannel,9,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:09:46 +0000] "POST /RPC2 HTTP/1.1" 200 305 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:12:37-0800 [HTTPChannel,10,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:12:36 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:12:37-0800 [HTTPChannel,11,127.0.0.1] "errback in apns-service-write : [Failure instance: Traceback: <type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'sendMessage'\n/Library/Python/2.7/site-packages/pyapns/server.py:292:xmlrpc_notify\n/Library/Python/2.7/site-packages/pyapns/server.py:210:write\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:301:addCallback\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:290:addCallbacks\n--- <exception caught here> ---\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:551:_runCallbacks\n/Library/Python/2.7/site-packages/pyapns/server.py:210:<lambda>\n]"
+2013-01-06 20:12:37-0800 [HTTPChannel,11,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:12:36 +0000] "POST /RPC2 HTTP/1.1" 200 305 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:13:41-0800 [HTTPChannel,12,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:13:40 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:13:41-0800 [HTTPChannel,13,127.0.0.1] "errback in apns-service-write : [Failure instance: Traceback: <type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'sendMessage'\n/Library/Python/2.7/site-packages/pyapns/server.py:292:xmlrpc_notify\n/Library/Python/2.7/site-packages/pyapns/server.py:210:write\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:301:addCallback\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:290:addCallbacks\n--- <exception caught here> ---\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:551:_runCallbacks\n/Library/Python/2.7/site-packages/pyapns/server.py:210:<lambda>\n]"
+2013-01-06 20:13:41-0800 [HTTPChannel,13,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:13:40 +0000] "POST /RPC2 HTTP/1.1" 200 305 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:13:59-0800 [HTTPChannel,14,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:13:58 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:13:59-0800 [HTTPChannel,15,127.0.0.1] "errback in apns-service-write : [Failure instance: Traceback: <type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'sendMessage'\n/Library/Python/2.7/site-packages/pyapns/server.py:292:xmlrpc_notify\n/Library/Python/2.7/site-packages/pyapns/server.py:210:write\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:301:addCallback\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:290:addCallbacks\n--- <exception caught here> ---\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:551:_runCallbacks\n/Library/Python/2.7/site-packages/pyapns/server.py:210:<lambda>\n]"
+2013-01-06 20:13:59-0800 [HTTPChannel,15,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:13:58 +0000] "POST /RPC2 HTTP/1.1" 200 305 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:14:23-0800 [HTTPChannel,16,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:14:22 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:14:23-0800 [HTTPChannel,17,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:14:22 +0000] "POST /RPC2 HTTP/1.1" 200 303 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:14:29-0800 [HTTPChannel,18,127.0.0.1] APNSService __init__
+2013-01-06 20:14:29-0800 [HTTPChannel,18,127.0.0.1] 127.0.0.1 - - [07/Jan/2013:04:14:28 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-06 20:14:29-0800 [HTTPChannel,19,127.0.0.1] APNSService write (connecting)
+2013-01-06 20:14:29-0800 [HTTPChannel,19,127.0.0.1] APNSClientContextFactory ssl_cert_file={FROM_STRING}

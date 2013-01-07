@@ -38,20 +38,23 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabInfoCell" id="vQ1-yv-OrN" customClass="EWSCustomCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabInfoCell" id="vQ1-yv-OrN" customClass="EWSCustomCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="E8h-40-XJ7" userLabel="DetailView">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="Y80-Y1-SDX" userLabel="PlatformIcon">
-                                                            <rect key="frame" x="30" y="4" width="35" height="35"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xPC-Ze-grI" userLabel="LabNameLabel">
+                                                            <rect key="frame" x="30" y="9" width="70" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="eD6-0D-69O" userLabel="NotificationBtn">
                                                             <rect key="frame" x="265" y="5" width="35" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -65,10 +68,10 @@
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="clR-hC-rcf" userLabel="LabUsageLabel">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="clR-hC-rcf" userLabel="LabUsageLabel">
                                                             <rect key="frame" x="130" y="10" width="63" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -99,12 +102,12 @@
                                         <connections>
                                             <outlet property="detailView" destination="E8h-40-XJ7" id="gjn-ZA-aXj"/>
                                             <outlet property="labNameLabel" destination="Mui-H9-02c" id="moy-s7-MZ3"/>
+                                            <outlet property="labNameLabelInDetailView" destination="xPC-Ze-grI" id="a42-K2-3UT"/>
                                             <outlet property="meterContainerView" destination="lBf-ff-F22" id="S3Z-rG-m93"/>
                                             <outlet property="meterView" destination="4Ly-ty-goE" id="K2U-5p-YQA"/>
                                             <outlet property="notifyButton" destination="eD6-0D-69O" id="nye-oI-wYb"/>
-                                            <outlet property="platformIcon" destination="Y80-Y1-SDX" id="6Ib-CQ-Odi"/>
                                             <outlet property="usageFractionLabel" destination="clR-hC-rcf" id="zXW-yG-OjZ"/>
-                                            <segue destination="CF8-9r-eLl" kind="push" identifier="ShowLabDetail" id="2TF-zB-MQc"/>
+                                            <segue destination="CF8-9r-eLl" kind="push" identifier="ShowLabDetail" id="K8X-gS-xnv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -144,8 +147,7 @@
                                 <rect key="frame" x="10" y="78" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="dsa"/>
-                                    <segment title="Second"/>
+                                    <segment title=""/>
                                     <segment title=""/>
                                     <segment title=""/>
                                 </segments>
@@ -169,9 +171,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="4nD-gg-v5W" kind="modal" identifier="SetNotification" id="q4L-bC-37V"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WRG-SO-Exu" userLabel="NotificationLabel">
                                 <rect key="frame" x="200" y="6" width="85" height="38"/>
@@ -188,13 +187,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nyn-Ct-i5R" userLabel="locationTipLabel">
-                                <rect key="frame" x="10" y="283" width="300" height="23"/>
+                                <rect key="frame" x="10" y="283" width="300" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="rh4-hd-YLu">
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="rh4-hd-YLu">
                                 <rect key="frame" x="204" y="43" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
@@ -208,8 +207,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97403617527173914" green="0.97403617527173914" blue="0.97403617527173914" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fUo-iI-Sk1"/>
+                    <navigationItem key="navigationItem" id="fUo-iI-Sk1">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="tFg-Zq-lgt" userLabel="RefreshButton"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="labFeaturesSegCtrl" destination="Jer-rg-85T" id="f3r-zP-zDN"/>
                         <outlet property="labLocationTip" destination="nyn-Ct-i5R" id="YeY-1H-2Ka"/>
                         <outlet property="labUsageLabel" destination="IL6-49-H9u" id="EBE-Qv-4w3"/>
                         <outlet property="mapView" destination="GSI-mw-NuA" id="H5U-FS-lox"/>
@@ -234,7 +236,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.091433558139999996" green="0.29162646240000001" blue="0.44962211279999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Title" id="kD2-JT-4X6">
+                                    <navigationItem title="Map" id="kD2-JT-4X6">
                                         <barButtonItem key="leftBarButtonItem" title="Close" id="51R-Zl-v9w">
                                             <color key="tintColor" red="0.091433558139999996" green="0.29162646240000001" blue="0.44962211279999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </barButtonItem>
@@ -340,9 +342,55 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-142" y="216"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Default.png" width="320" height="480"/>
-    </resources>
+    <classes>
+        <class className="EWSCustomCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="labNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labNameLabelInDetailView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="meterContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="platformIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EWSDetailLabMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSDetailLabMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="detailMapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="EWSLabDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSLabDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeDetailMapView:"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="labFeaturesSegCtrl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="labLocationTip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labUsageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="EWSViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="pageControlView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NotificationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

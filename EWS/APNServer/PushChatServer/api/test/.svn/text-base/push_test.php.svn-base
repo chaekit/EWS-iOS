@@ -1,0 +1,29 @@
+<?php
+
+// Put your device token here:
+$device_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
+if ($argc > 1)
+	$alert = $argv[1];
+else
+	$alert = 'This is a test';
+
+$body['aps'] = array(
+	'alert' => $alert, 
+	'sound' => 'default'
+	);
+
+require_once('push_config.php');
+
+mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD)
+	or die(mysql_error());
+
+mysql_select_db(MYSQL_DATABASE)
+	or die(mysql_error());
+
+$payload = mysql_real_escape_string(json_encode($body));
+
+mysql_query("INSERT INTO push_queue (device_token, payload, time_queued) VALUES ('$device_token', '$payload', NOW())")
+	or die(mysql_error());
+
+echo 'New notification inserted' . PHP_EOL;
