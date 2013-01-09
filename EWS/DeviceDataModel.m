@@ -11,40 +11,40 @@
 static NSString* const DeviceTokenKey = @"DeviceToken";
 static NSString* const SecretCodeKey = @"SecretCode";
 
+static DeviceDataModel *instance = nil;
+
 @implementation DeviceDataModel
 
-+ (void)initialize
-{
-	if (self == [DeviceDataModel class])
-	{
-		[[NSUserDefaults standardUserDefaults] registerDefaults:
-			[NSDictionary dictionaryWithObjectsAndKeys:
-				@"", SecretCodeKey,
- 
-				// ADD THIS LINE:
-				@"0", DeviceTokenKey,
- 
-				nil]];
-	}
-}
-- (NSString*)udid
-{
-	UIDevice* device = [UIDevice currentDevice];
-	return [device.uniqueIdentifier stringByReplacingOccurrencesOfString:@"-" withString:@""];
+@synthesize udid, secretCode, deviceToken;
+
++(DeviceDataModel *) getInstance {
+    @synchronized(self) {
+        if (instance == nil) {
+            [[NSUserDefaults standardUserDefaults] registerDefaults:
+                [NSDictionary dictionaryWithObjectsAndKeys:
+                    @"", SecretCodeKey,
+     
+                    // ADD THIS LINE:
+                    @"0", DeviceTokenKey,
+     
+                    nil]];
+            instance = [DeviceDataModel new];
+            
+            UIDevice* device = [UIDevice currentDevice];
+            
+            instance.udid = [device.uniqueIdentifier stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            instance.deviceToken = [[NSUserDefaults standardUserDefaults] stringForKey:DeviceTokenKey];
+            instance.secretCode = [[NSUserDefaults standardUserDefaults] stringForKey:SecretCodeKey];
+        }
+    }
+    return instance;
 }
 
-- (NSString*)deviceToken
++ (void)setDeviceToken:(NSString*)token
 {
-	return [[NSUserDefaults standardUserDefaults] stringForKey:DeviceTokenKey];
-}
- 
-- (void)setDeviceToken:(NSString*)token
-{
-	[[NSUserDefaults standardUserDefaults] setObject:token forKey:DeviceTokenKey];
+    instance.deviceToken = token;
+	//[[NSUserDefaults standardUserDefaults] setObject:token forKey:DeviceTokenKey];
 }
 
-- (NSString *)secretCode
-{
-	return [[NSUserDefaults standardUserDefaults] stringForKey:SecretCodeKey];
-}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "EWSAppDelegate.h"
+#import "DeviceDataModel.h"
 
 @implementation EWSAppDelegate
 
@@ -14,12 +15,27 @@
 {
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
     return YES;
 }
 
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
+    
+    NSString* token = [[[[deviceToken description]
+                     stringByReplacingOccurrencesOfString: @"<" withString: @""] 
+                        stringByReplacingOccurrencesOfString: @">" withString: @""]
+                            stringByReplacingOccurrencesOfString: @" " withString: @""] ;
+
+
+    DeviceDataModel *deviceData = [DeviceDataModel getInstance];
+
+    NSLog(@"token %@",token);
+    [DeviceDataModel setDeviceToken:token];
+    //DeviceDataModel *deviceData = [DeviceDataModel getInstance];
+    //deviceData.deviceToken = valu deviceToken;
+    //NSLog(@"token in string  %@", [[NSString alloc] initWithData:deviceToken encoding:NSASCIIStringEncoding]);
 	NSLog(@"My token is: %@", deviceToken);
 }
  

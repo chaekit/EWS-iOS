@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class DeviceDataModel;
+
 @interface EWSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) DeviceDataModel *deviceData;
 
 @end

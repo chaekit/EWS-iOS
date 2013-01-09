@@ -141,6 +141,11 @@
     if (buttonIndex == 0) {
         NSLog(@"lol");
     }
+   
+    DeviceDataModel *deviceData = [DeviceDataModel getInstance];
+    NSLog(@"udid  %@",deviceData.udid);
+    NSLog(@"secretCode  %@",deviceData.secretCode);
+    NSLog(@"deviceToken  %@", deviceData.deviceToken);
 }
 
 -(void) setNotifyMeActionSheet {

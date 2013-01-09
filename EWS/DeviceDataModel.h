@@ -11,10 +11,12 @@
 
 @interface DeviceDataModel : NSObject
 
--(NSString *) udid;
--(NSString *) deviceToken;
--(NSString *) secretCode;
 
-- (void)setDeviceToken:(NSString*)token;
+@property (nonatomic, strong) NSString *udid;
+@property (nonatomic, strong) NSString *deviceToken;
+@property (nonatomic, strong) NSString *secretCode;
+
++ (void)setDeviceToken:(NSString*)token;
++(DeviceDataModel *) getInstance;
 
 @end
