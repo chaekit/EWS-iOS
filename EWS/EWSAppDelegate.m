@@ -11,42 +11,12 @@
 
 @implementation EWSAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;
 }
 
 
-- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
-{
-    
-    NSString* token = [[[[deviceToken description]
-                     stringByReplacingOccurrencesOfString: @"<" withString: @""] 
-                        stringByReplacingOccurrencesOfString: @">" withString: @""]
-                            stringByReplacingOccurrencesOfString: @" " withString: @""] ;
-
-
-    DeviceDataModel *deviceData = [DeviceDataModel getInstance];
-
-    NSLog(@"token %@",token);
-    [DeviceDataModel setDeviceToken:token];
-    //DeviceDataModel *deviceData = [DeviceDataModel getInstance];
-    //deviceData.deviceToken = valu deviceToken;
-    //NSLog(@"token in string  %@", [[NSString alloc] initWithData:deviceToken encoding:NSASCIIStringEncoding]);
-	NSLog(@"My token is: %@", deviceToken);
-}
- 
-- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
-{
-	NSLog(@"Failed to get token, error: %@", error);
-}
-
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
+- (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }

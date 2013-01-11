@@ -25,7 +25,6 @@
 
 @property (nonatomic, strong) UIActionSheet *notifyMeActionSheet;
 
--(IBAction) closeDetailMapView:(id)sender;
 
 @property (nonatomic, strong) Lab *lab;
 @property (nonatomic, strong) DeviceDataModel *deviceData;

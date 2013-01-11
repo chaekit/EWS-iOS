@@ -14,7 +14,6 @@
 @interface EWSCustomCell ()
 
 -(void) setUsageFractionLabel;
--(void) setPlatformIcon;
 -(void) setMeterView;
 -(void) setLabNameLabel;
 -(void) adjustSubViewOverlay;
@@ -24,7 +23,7 @@
 @implementation EWSCustomCell
 
 @synthesize lab;
-@synthesize meterContainerView, detailView, usageFractionLabel, platformIcon, meterView, labNameLabel, labNameLabelInDetailView;
+@synthesize meterContainerView, detailView, usageFractionLabel, meterView, labNameLabel, labNameLabelInDetailView;
 @synthesize meterViewOpen;
 
 

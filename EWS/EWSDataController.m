@@ -17,6 +17,8 @@
 
 //#import "EWSAsyncDemoCode.h"
 
+//#define LAB_URL [NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]]
+
 @interface EWSDataController ()
 -(void)initDefault;
 @end
@@ -79,9 +81,10 @@
     // Create new SBJSON parser object
 
     // Prepare URL request to download statuses from Twitter
-    //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://99.125.139.5:8080"]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:LAB_URL]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://99.125.139.5:8080"]];
     NSLog(@"wtf");
     // Perform request and get JSON back as a NSData object
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];

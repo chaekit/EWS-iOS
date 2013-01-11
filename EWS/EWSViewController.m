@@ -39,29 +39,23 @@
 
 @synthesize pageControlView, pageControl, previousPage;
 
--(void)awakeFromNib
-{
+-(void)awakeFromNib {
     [super awakeFromNib];
     self.dataController = [[EWSDataController alloc] init];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self initPageControViews];
     [self.navigationItem setTitle:@"EWS Labs"];
-    
-
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
     [machinesTableView reloadData];
-
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
@@ -69,8 +63,7 @@
     return NO;
 }
 
--(void)initPageControViews
-{
+-(void)initPageControViews {
     [self.view insertSubview:self.pageControl aboveSubview:pageControlView];
 
     previousPage = 0;
@@ -122,13 +115,13 @@
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [panGestureRecognizer setDelegate:self];
-    //[cell.meterContainerView addGestureRecognizer:panGestureRecognizer];
     [cell addGestureRecognizer:panGestureRecognizer];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     [panGestureRecognizer setDelegate:self];
-    //[cell.detailView addGestureRecognizer:tapGestureRecognizer];
     [cell addGestureRecognizer:tapGestureRecognizer];
+    
+    NSLog(@"Tap gesture view   %@", [tapGestureRecognizer view]);
     return cell;
 }
 
@@ -307,18 +300,20 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
+        NSLog(@"Preparing for segue   this is Sender  %@", sender);
         EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
-        labDetailViewController.lab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        labDetailViewController.lab = ((EWSCustomCell *)sender).lab;
+        //labDetailViewController.lab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        NSLog(@"row num %d", [self.tableView indexPathForSelectedRow].row);
     }
 }
-
 
 
 -(void)handleTapGesture:(UITapGestureRecognizer *)sender {
     EWSCustomCell *cell = (EWSCustomCell *) [sender view];
     if (cell.meterViewOpen) {
-        [self performSegueWithIdentifier:@"ShowLabDetail" sender:self];
-        NSLog(@"lolol");
+        NSLog(@"handling tap gesture   %@", [sender view]);
+        [self performSegueWithIdentifier:@"ShowLabDetail" sender:[sender view]];
     }
 }
 
