@@ -114,3 +114,26 @@
 2013-01-08 15:39:40-0800 [HTTPChannel,15,127.0.0.1] 127.0.0.1 - - [08/Jan/2013:23:39:40 +0000] "POST /RPC2 HTTP/1.1" 200 114 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
 2013-01-08 15:39:40-0800 [HTTPChannel,16,127.0.0.1] "errback in apns-service-write : [Failure instance: Traceback: <type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'sendMessage'\n/Library/Python/2.7/site-packages/pyapns/server.py:292:xmlrpc_notify\n/Library/Python/2.7/site-packages/pyapns/server.py:210:write\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:301:addCallback\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:290:addCallbacks\n--- <exception caught here> ---\n/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/defer.py:551:_runCallbacks\n/Library/Python/2.7/site-packages/pyapns/server.py:210:<lambda>\n]"
 2013-01-08 15:39:40-0800 [HTTPChannel,16,127.0.0.1] 127.0.0.1 - - [08/Jan/2013:23:39:40 +0000] "POST /RPC2 HTTP/1.1" 200 305 "-" "xmlrpclib.py/1.0.1 (by www.pythonware.com)"
+2013-01-08 23:16:46-0800 [-] Received SIGTERM, shutting down.
+2013-01-08 23:16:46-0800 [-] Received SIGTERM, shutting down.
+2013-01-08 23:16:46-0800 [-] Unhandled Error
+	Traceback (most recent call last):
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/application/app.py", line 402, in startReactor
+	    self.config, oldstdout, oldstderr, self.profiler, reactor)
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/application/app.py", line 323, in runReactorWithLogging
+	    reactor.run()
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1169, in run
+	    self.mainLoop()
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 1178, in mainLoop
+	    self.runUntilCurrent()
+	--- <exception caught here> ---
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 773, in runUntilCurrent
+	    f(*a, **kw)
+	  File "/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/internet/base.py", line 577, in stop
+	    "Can't stop reactor that isn't running.")
+	twisted.internet.error.ReactorNotRunning: Can't stop reactor that isn't running.
+	
+2013-01-08 23:16:46-0800 [-] (TCP Port 7077 Closed)
+2013-01-08 23:16:46-0800 [-] Stopping factory <twisted.web.server.Site instance at 0x1046f33f8>
+2013-01-08 23:16:46-0800 [-] Main loop terminated.
+2013-01-08 23:16:46-0800 [-] Server Shut Down.

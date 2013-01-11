@@ -28,8 +28,7 @@
 
 @synthesize notifyButton, notifyMeActionSheet, labFeaturesSegCtrl, deviceData;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -37,8 +36,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     deviceData = [[DeviceDataModel alloc] init];
@@ -78,8 +76,7 @@
 -(void) viewDidAppear {
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -141,11 +138,9 @@
     if (buttonIndex == 0) {
         NSLog(@"lol");
     }
-   
+
+    [self postNotifyRequest];
     DeviceDataModel *deviceData = [DeviceDataModel getInstance];
-    NSLog(@"udid  %@",deviceData.udid);
-    NSLog(@"secretCode  %@",deviceData.secretCode);
-    NSLog(@"deviceToken  %@", deviceData.deviceToken);
 }
 
 -(void) setNotifyMeActionSheet {
@@ -176,21 +171,35 @@
 }
 
 
--(void)postNotifyRequest
-{
+-(void)postNotifyRequest {
+    
+    DeviceDataModel *deviceData = [DeviceDataModel getInstance];
     MBProgressHUD *progressHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	progressHud.labelText = @"Sending";
     
-	NSURL* url = [NSURL URLWithString:@"http://localhost:8080/add-notification"];
-	__block ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-	[request setDelegate:self];
-   
+	//NSURL* url = [NSURL URLWithString:@"http://localhost:8080/add-notification"];
+	NSURL* url = [NSURL URLWithString:@"http://localhost:8080"];
+    //	__block ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
+//	[request setDelegate:self];
+  
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+  
+//    [request setPostValue:deviceData.deviceToken forKey:@"token"];
+//    [request setPostValue:deviceData.secretCode forKey:@"code"];
+//    [request setPostValue:deviceData.udid forKey:@"udid"];
+
+    [request startSynchronous];
     
-	[request setPostValue:@"notify" forKey:@"cmd"];
-	[request setPostValue:[deviceData udid] forKey:@"udid"];
-	[request setPostValue:[deviceData deviceToken] forKey:@"token"];
-	[request setPostValue:[deviceData secretCode] forKey:@"code"];
-    
+//	[request setPostValue:[deviceData udid] forKey:@"udid"];
+//	[request setPostValue:[deviceData deviceToken] forKey:@"token"];
+//	[request setPostValue:[deviceData secretCode] forKey:@"code"];
+
+    [request setCompletionBlock:^ {
+        NSLog(@"lol");
+    }];
+    [request setFailedBlock:^ {
+        NSLog(@"lol");
+    }];
     
 //	[request setCompletionBlock:^ {
 //         if ([self isViewLoaded]) {

@@ -52,7 +52,6 @@
         
         [self.mainLabList addObject:lab];
     }
-    NSLog(@"mainLablist     %@", testArray);
 }
 
 - (NSUInteger)countOfMainLabList
@@ -82,15 +81,18 @@
     // Prepare URL request to download statuses from Twitter
     //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"http://127.0.0.1:8080"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://99.125.139.5:8080"]];
+    NSLog(@"wtf");
     // Perform request and get JSON back as a NSData object
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 
+    NSLog(@"%@", response);
     // Get JSON as a NSString from NSData response
     NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     NSDictionary *results = [json_string JSONValue];
     NSArray *labJsonData = [results objectForKey:@"data"];
-  
+
+    NSLog(@"%@", results);
     //NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     //[formatter setNumberStyle:NSNumberFormatterNoStyle];
     NSUInteger indexForMainList = 0;
