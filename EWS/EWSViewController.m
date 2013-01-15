@@ -42,7 +42,8 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    self.dataController = [[EWSDataController alloc] init];
+    //self.dataController = [[EWSDataController alloc] init];
+    self.dataController = [EWSDataController sharedEWSLabSingleton];
 }
 
 - (void)viewDidLoad
@@ -129,6 +130,7 @@
     [panGestureRecognizer setDelegate:self];
     //[cell.detailView addGestureRecognizer:tapGestureRecognizer];
     [cell addGestureRecognizer:tapGestureRecognizer];
+    NSLog(@"cell  class  %@", [cell class]);
     return cell;
 }
 

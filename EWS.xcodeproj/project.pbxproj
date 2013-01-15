@@ -21,6 +21,7 @@
 		190E9998167009D6006FDF0D /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998A167009D6006FDF0D /* SBJsonTokeniser.m */; };
 		190E9999167009D6006FDF0D /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998C167009D6006FDF0D /* SBJsonUTF8Stream.m */; };
 		190E999A167009D6006FDF0D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E998E167009D6006FDF0D /* SBJsonWriter.m */; };
+		19176DB916A5314400423E48 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19176DB816A5314400423E48 /* NotificationViewController.m */; };
 		192B3F471690E0BA00E70BAC /* EWSDetailLabMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */; };
 		193D0AD41681AA0200C6B428 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */; };
 		193E952E168EB3AA00D68246 /* tux.png in Resources */ = {isa = PBXBuildFile; fileRef = 193E952C168EB3AA00D68246 /* tux.png */; };
@@ -42,8 +43,9 @@
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
 		196EA91316921F2500D19A86 /* detail_tux@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 196EA91216921F2500D19A86 /* detail_tux@2x.png */; };
 		196EA9151692209400D19A86 /* dual_screen_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 196EA9141692209400D19A86 /* dual_screen_icon.png */; };
-		19C39F881691072400D26E55 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C39F871691072400D26E55 /* NotificationViewController.m */; };
-		19CF178B1684F83500F5E530 /* EWSPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF178A1684F83500F5E530 /* EWSPageController.m */; };
+		19A06C1816A5E02F00C63A04 /* LabUsageTrackerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A06C1716A5E02F00C63A04 /* LabUsageTrackerController.m */; };
+		19A06C2216A5E6BE00C63A04 /* EWSCustomLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A06C2116A5E6BE00C63A04 /* EWSCustomLocalNotification.m */; };
+		19CDED3516A6046700824A18 /* LocalNotificationTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CDED3416A6046700824A18 /* LocalNotificationTicket.m */; };
 		19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC82AC167270C800BB6C77 /* QuartzCore.framework */; };
 		19EEAAC8167B1A2B000E4F6D /* EWSCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */; };
 		19EFA388169A047300D1309D /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EFA375169A047300D1309D /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -94,6 +96,8 @@
 		190E998C167009D6006FDF0D /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = "../../Libraries/json-framework/Classes/SBJsonUTF8Stream.m"; sourceTree = "<group>"; };
 		190E998D167009D6006FDF0D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "../../Libraries/json-framework/Classes/SBJsonWriter.h"; sourceTree = "<group>"; };
 		190E998E167009D6006FDF0D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "../../Libraries/json-framework/Classes/SBJsonWriter.m"; sourceTree = "<group>"; };
+		19176DB716A5314400423E48 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationViewController.h; path = ../NotificationViewController.h; sourceTree = "<group>"; };
+		19176DB816A5314400423E48 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationViewController.m; path = ../NotificationViewController.m; sourceTree = "<group>"; };
 		192B3F451690E0BA00E70BAC /* EWSDetailLabMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSDetailLabMapViewController.h; sourceTree = "<group>"; };
 		192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDetailLabMapViewController.m; sourceTree = "<group>"; };
 		193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.h; sourceTree = "<group>"; };
@@ -124,10 +128,12 @@
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
 		196EA91216921F2500D19A86 /* detail_tux@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_tux@2x.png"; sourceTree = "<group>"; };
 		196EA9141692209400D19A86 /* dual_screen_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dual_screen_icon.png; sourceTree = "<group>"; };
-		19C39F861691072400D26E55 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
-		19C39F871691072400D26E55 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
-		19CF17891684F83500F5E530 /* EWSPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSPageController.h; sourceTree = "<group>"; };
-		19CF178A1684F83500F5E530 /* EWSPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSPageController.m; sourceTree = "<group>"; };
+		19A06C1616A5E02F00C63A04 /* LabUsageTrackerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabUsageTrackerController.h; sourceTree = "<group>"; };
+		19A06C1716A5E02F00C63A04 /* LabUsageTrackerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabUsageTrackerController.m; sourceTree = "<group>"; };
+		19A06C2016A5E6BE00C63A04 /* EWSCustomLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSCustomLocalNotification.h; sourceTree = SOURCE_ROOT; };
+		19A06C2116A5E6BE00C63A04 /* EWSCustomLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSCustomLocalNotification.m; sourceTree = SOURCE_ROOT; };
+		19CDED3316A6046700824A18 /* LocalNotificationTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationTicket.h; sourceTree = "<group>"; };
+		19CDED3416A6046700824A18 /* LocalNotificationTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationTicket.m; sourceTree = "<group>"; };
 		19EC82AC167270C800BB6C77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSCustomCell.h; sourceTree = "<group>"; };
 		19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSCustomCell.m; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 		190C8346169B86D000281B59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */,
+				19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -222,6 +230,16 @@
 				190E998E167009D6006FDF0D /* SBJsonWriter.m */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		19176DB616A52CFA00423E48 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				19EFA39C169A08C100D1309D /* MBProgress */,
+				19EFA390169A047700D1309D /* ASIHTTPRequest */,
+				190E99751670099E006FDF0D /* JSON */,
+			);
+			name = External;
 			sourceTree = "<group>";
 		};
 		1959BA7A166F1ED800C79F98 = {
@@ -261,33 +279,23 @@
 		1959BA8F166F1ED800C79F98 /* EWS */ = {
 			isa = PBXGroup;
 			children = (
+				19176DB616A52CFA00423E48 /* External */,
 				190C8346169B86D000281B59 /* Views */,
 				19EFA3A0169A0A8800D1309D /* Model */,
-				19EFA39C169A08C100D1309D /* MBProgress */,
-				19EFA390169A047700D1309D /* ASIHTTPRequest */,
-				190E99751670099E006FDF0D /* JSON */,
 				1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */,
+				19176DB716A5314400423E48 /* NotificationViewController.h */,
+				19176DB816A5314400423E48 /* NotificationViewController.m */,
 				1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */,
 				1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */,
 				192B3F451690E0BA00E70BAC /* EWSDetailLabMapViewController.h */,
 				192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */,
-				19C39F861691072400D26E55 /* NotificationViewController.h */,
-				19C39F871691072400D26E55 /* NotificationViewController.m */,
-				19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */,
-				19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */,
 				1959BAAE166F1FF600C79F98 /* EWSViewController.h */,
-				190E9952166FF05B006FDF0D /* EWSDataController.h */,
-				190E9953166FF05B006FDF0D /* EWSDataController.m */,
 				1959BAAF166F1FF600C79F98 /* EWSViewController.m */,
 				193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */,
 				193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */,
 				1959BA98166F1ED800C79F98 /* EWSAppDelegate.h */,
 				1959BA99166F1ED800C79F98 /* EWSAppDelegate.m */,
-				19CF17891684F83500F5E530 /* EWSPageController.h */,
-				19CF178A1684F83500F5E530 /* EWSPageController.m */,
 				19F86A74168B6380009B1B30 /* lab_info.plist */,
-				1957E47A168FFB1D00DC1824 /* LabMKAnnotation.h */,
-				1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */,
 				1959BA90166F1ED800C79F98 /* Supporting Files */,
 			);
 			path = EWS;
@@ -352,8 +360,18 @@
 		19EFA3A0169A0A8800D1309D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				19CDED3316A6046700824A18 /* LocalNotificationTicket.h */,
+				19CDED3416A6046700824A18 /* LocalNotificationTicket.m */,
+				19A06C2016A5E6BE00C63A04 /* EWSCustomLocalNotification.h */,
+				19A06C2116A5E6BE00C63A04 /* EWSCustomLocalNotification.m */,
+				1957E47A168FFB1D00DC1824 /* LabMKAnnotation.h */,
+				1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */,
 				190E995E166FF5E7006FDF0D /* Lab.h */,
 				190E995F166FF5E7006FDF0D /* Lab.m */,
+				190E9952166FF05B006FDF0D /* EWSDataController.h */,
+				190E9953166FF05B006FDF0D /* EWSDataController.m */,
+				19A06C1616A5E02F00C63A04 /* LabUsageTrackerController.h */,
+				19A06C1716A5E02F00C63A04 /* LabUsageTrackerController.m */,
 				19EFA3A1169A0ABE00D1309D /* DeviceDataModel.h */,
 				19EFA3A2169A0ABE00D1309D /* DeviceDataModel.m */,
 			);
@@ -452,11 +470,9 @@
 				190E999A167009D6006FDF0D /* SBJsonWriter.m in Sources */,
 				19EEAAC8167B1A2B000E4F6D /* EWSCustomCell.m in Sources */,
 				193D0AD41681AA0200C6B428 /* PullRefreshTableViewController.m in Sources */,
-				19CF178B1684F83500F5E530 /* EWSPageController.m in Sources */,
 				1957E476168FDE4B00DC1824 /* EWSLabDetailViewController.m in Sources */,
 				1957E47C168FFB1D00DC1824 /* LabMKAnnotation.m in Sources */,
 				192B3F471690E0BA00E70BAC /* EWSDetailLabMapViewController.m in Sources */,
-				19C39F881691072400D26E55 /* NotificationViewController.m in Sources */,
 				19EFA388169A047300D1309D /* ASIAuthenticationDialog.m in Sources */,
 				19EFA389169A047300D1309D /* ASIDataCompressor.m in Sources */,
 				19EFA38A169A047300D1309D /* ASIDataDecompressor.m in Sources */,
@@ -468,6 +484,10 @@
 				19EFA393169A04C900D1309D /* Reachability.m in Sources */,
 				19EFA39F169A08D600D1309D /* MBProgressHUD.m in Sources */,
 				19EFA3A3169A0ABE00D1309D /* DeviceDataModel.m in Sources */,
+				19176DB916A5314400423E48 /* NotificationViewController.m in Sources */,
+				19A06C1816A5E02F00C63A04 /* LabUsageTrackerController.m in Sources */,
+				19A06C2216A5E6BE00C63A04 /* EWSCustomLocalNotification.m in Sources */,
+				19CDED3516A6046700824A18 /* LocalNotificationTicket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,13 +10,13 @@
 
 @class Lab;
 
-@interface EWSDataController : NSObject
-{
+@interface EWSDataController : NSObject {
     NSMutableData *responseData;
 }
 
 @property (nonatomic, retain) NSMutableArray *mainLabList;
 
++(EWSDataController *) sharedEWSLabSingleton;
 -(NSUInteger) countOfMainLabList;
 -(Lab *) objectAtIndex:(NSUInteger) index;
 -(void) pollCurrentLabUsage;

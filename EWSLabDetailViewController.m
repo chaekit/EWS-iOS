@@ -9,7 +9,6 @@
 #import "EWSLabDetailViewController.h"
 #import "LabMKAnnotation.h"
 #import "Lab.h"
-#import "NotificationViewController.h"
 #import "EWSDetailLabMapViewController.h"
 
 //#import "ASIHTTPRequest.h"
@@ -19,6 +18,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "EWSDataController.h"
+#import "NotificationViewController.h"
 @interface EWSLabDetailViewController ()
 
 @end
@@ -26,7 +27,7 @@
 @implementation EWSLabDetailViewController
 
 
-@synthesize notifyButton, notifyMeActionSheet, labFeaturesSegCtrl, deviceData;
+@synthesize notifyButton, notifyMeActionSheet, labFeaturesSegCtrl, deviceData, refreshButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,10 +43,13 @@
     deviceData = [[DeviceDataModel alloc] init];
 
     [self setTitle:self.lab.name];
-    
+   
+    //NSLog(@"%@  ", [[EWSDataController sharedEWSLabSingleton] objectAtIndex:0]);
     
     [self setNotifyButton];
     [self setNotifyMeActionSheet];
+    
+    [self initRefreshButton];
    
     [self setIcons];
     
@@ -96,10 +100,12 @@
         EWSDetailLabMapViewController  *detailMapViewController = [segue destinationViewController];
         [detailMapViewController setMapCenter:self.lab.geoLocation];
         [detailMapViewController setTitle:self.lab.name];
+    } else if ([segueIdentifier isEqualToString:@"ShowNotificationView"]) {
+        NotificationViewController *notificationController = [segue destinationViewController];
+        [notificationController setLab:self.lab];
     }
     
 //    else if ([segueIdentifier isEqualToString:@"SetNotification"]) {
-//        NotificationViewController *notificationController = [segue destinationViewController];
 //    }
 }
 
@@ -124,13 +130,22 @@
 }
 
 -(void) setNotifyButton {
-    [notifyButton addTarget:self action:@selector(showActionSheet:) forControlEvents:UIControlEventTouchUpInside];
+    //[notifyButton addTarget:self action:@selector(showActionSheet:) forControlEvents:UIControlEventTouchUpInside];
     
 //    self.notifyButton.layer.borderWidth = 0.5f;
 //    self.notifyButton.layer.cornerRadius = 10.0f;
 }
 
 
+-(void) initRefreshButton {
+    [refreshButton setTarget:self];
+    [refreshButton setAction:@selector(refreshLabUsage:)];
+}
+
+-(void) refreshLabUsage:(id) sender {
+    [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
+    [self setTextForLabUsage];
+}
 
 #pragma mark - UIActionSheet protocols
 
@@ -139,7 +154,7 @@
         NSLog(@"lol");
     }
 
-    [self postNotifyRequest];
+    //[self postNotifyRequest];
     DeviceDataModel *deviceData = [DeviceDataModel getInstance];
 }
 
@@ -200,6 +215,8 @@
     [request setFailedBlock:^ {
         NSLog(@"lol");
     }];
+
+    
     
 //	[request setCompletionBlock:^ {
 //         if ([self isViewLoaded]) {

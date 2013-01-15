@@ -171,6 +171,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="4nD-gg-v5W" kind="modal" identifier="ShowNotificationView" modalTransitionStyle="coverVertical" id="bHH-Kd-rh9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WRG-SO-Exu" userLabel="NotificationLabel">
                                 <rect key="frame" x="200" y="6" width="85" height="38"/>
@@ -216,6 +219,7 @@
                         <outlet property="labUsageLabel" destination="IL6-49-H9u" id="EBE-Qv-4w3"/>
                         <outlet property="mapView" destination="GSI-mw-NuA" id="H5U-FS-lox"/>
                         <outlet property="notifyButton" destination="M4A-oA-1TY" id="Uoe-kO-eb2"/>
+                        <outlet property="refreshButton" destination="tFg-Zq-lgt" id="hp8-wI-D6y"/>
                         <segue destination="nAQ-NY-tLT" kind="modal" identifier="ShowDetailMapView" id="WJT-Qs-d9F"/>
                     </connections>
                 </viewController>
@@ -279,8 +283,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="Hdd-qm-RiZ">
-                                <rect key="frame" x="10" y="139" width="300" height="216"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" id="Hdd-qm-RiZ">
+                                <rect key="frame" x="0.0" y="244" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="378605244.45085502">
                                     <!--2012-12-31 00:07:24 +0000-->
@@ -307,22 +311,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
                             </datePicker>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Mns-lT-W1v">
-                                <rect key="frame" x="10" y="75" width="290" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L07-M6-WBM">
-                                <rect key="frame" x="10" y="397" width="300" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5qp-I8-l8R">
+                                <rect key="frame" x="0.0" y="193" width="164" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -330,16 +323,46 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rfE-tm-dHh">
+                                <rect key="frame" x="165" y="193" width="155" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Set">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNotification:" destination="4nD-gg-v5W" eventType="touchDown" id="CuL-Wu-Qe2"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="hfO-Q8-lbD">
+                                <rect key="frame" x="80" y="79" width="161" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="5"/>
+                                    <segment title="10"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentSwitch:" destination="4nD-gg-v5W" eventType="valueChanged" id="myk-t1-tZS"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="HNH-Cs-5gd"/>
                     <connections>
-                        <outlet property="closeButton" destination="8BU-jX-vm1" id="RQG-Ks-Q0p"/>
+                        <outlet property="cancelButton" destination="5qp-I8-l8R" id="B0I-Ye-OxR"/>
+                        <outlet property="closeButton" destination="8BU-jX-vm1" id="6so-SH-Az7"/>
+                        <outlet property="datePicker" destination="Hdd-qm-RiZ" id="tU3-Ye-iOB"/>
+                        <outlet property="setButton" destination="rfE-tm-dHh" id="qlg-0Y-t2y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKU-kX-YYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142" y="216"/>
+            <point key="canvasLocation" x="-221" y="208"/>
         </scene>
     </scenes>
     <classes>
@@ -366,13 +389,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="EWSLabDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSLabDetailViewController.h"/>
             <relationships>
-                <relationship kind="action" name="closeDetailMapView:"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="labFeaturesSegCtrl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="labLocationTip" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labUsageLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="EWSViewController" superclassName="UIViewController">
@@ -387,7 +410,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="NotificationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addNotification:"/>
+                <relationship kind="action" name="segmentSwitch:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="notificationTimePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="setButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

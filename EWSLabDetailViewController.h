@@ -23,9 +23,10 @@
 @property (nonatomic, strong) IBOutlet UIButton *notifyButton;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *labFeaturesSegCtrl;
 
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *refreshButton;
+
 @property (nonatomic, strong) UIActionSheet *notifyMeActionSheet;
 
--(IBAction) closeDetailMapView:(id)sender;
 
 @property (nonatomic, strong) Lab *lab;
 @property (nonatomic, strong) DeviceDataModel *deviceData;

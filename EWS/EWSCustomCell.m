@@ -14,7 +14,6 @@
 @interface EWSCustomCell ()
 
 -(void) setUsageFractionLabel;
--(void) setPlatformIcon;
 -(void) setMeterView;
 -(void) setLabNameLabel;
 -(void) adjustSubViewOverlay;
@@ -65,21 +64,6 @@
     [usageFractionLabel.layer setBorderWidth:2.0];
 }
 
-/*
--(void) setPlatformIcon
-{
-    // optimize by having to load up these images only once
-    UIImage *linuxIcon = [UIImage imageNamed:@"tux.png"];
-    UIImage *windowsIcon = [UIImage imageNamed:@"windowsIcon.png"];
-    
-    if ([lab.computerPlatformName isEqualToString:@"Linux"]) {
-        [platformIcon setImage:linuxIcon];
-    } else {
-        [platformIcon setImage:windowsIcon];
-    }
-    
-}
-*/
 
 -(void) setLabNameLabelInDetailView
 {

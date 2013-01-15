@@ -23,6 +23,17 @@
 
 @implementation EWSDataController
 
+static EWSDataController *sharedEWSLabSingleton;
+
++(EWSDataController *) sharedEWSLabSingleton {
+    @synchronized(self) {
+        if (!sharedEWSLabSingleton) {
+            sharedEWSLabSingleton = [[EWSDataController alloc] init];
+        }
+        return sharedEWSLabSingleton;
+    }
+}
+
 -(id) init {
     if (self = [super init]) {
         [self initDefault];
@@ -31,6 +42,14 @@
     }
     return nil;
 }
+
+//+(void) initialize {
+//    static BOOL initialized = NO;
+//    if (!initialized) {
+//        initialized = YES;
+//        sharedEWSLabSingleton = [[EWSDataController alloc] init];
+//    }
+//}
 
 -(void)initDefault
 {
@@ -54,13 +73,11 @@
     }
 }
 
-- (NSUInteger)countOfMainLabList
-{
+- (NSUInteger)countOfMainLabList {
     return [self.mainLabList count];
 }
 
-- (Lab *)objectAtIndex:(NSUInteger)index
-{
+- (Lab *)objectAtIndex:(NSUInteger)index {
     return [self.mainLabList objectAtIndex:index];
 }
 
@@ -79,9 +96,8 @@
     // Create new SBJSON parser object
 
     // Prepare URL request to download statuses from Twitter
-    //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://99.125.139.5:8080"]];
     NSLog(@"wtf");
     // Perform request and get JSON back as a NSData object
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
