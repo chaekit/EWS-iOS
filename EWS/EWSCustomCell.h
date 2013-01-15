@@ -25,8 +25,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *notifyButton;
 @property (nonatomic, strong) IBOutlet UILabel *labNameLabelInDetailView;
 
-//@property (nonatomic, strong) IBOutlet UILabel *platformNameLabel;
-
 // methods
 -(void) initSubViewsWithLab:(Lab *) labAtIndex;
 

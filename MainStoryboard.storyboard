@@ -176,7 +176,7 @@
                                         </connections>
                                     </mapView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nyn-Ct-i5R" userLabel="locationTipLabel">
-                                        <rect key="frame" x="5" y="160" width="290" height="24"/>
+                                        <rect key="frame" x="5" y="180" width="290" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
