@@ -12,6 +12,8 @@
 @interface LocalNotificationTicket : NSObject
 
 @property (nonatomic, strong) UILocalNotification *notification;
-@property (nonatomic, strong)
+
+@property (nonatomic, strong) NSString *labName;
+@property (nonatomic) NSUInteger requestedLabSize;
 
 @end

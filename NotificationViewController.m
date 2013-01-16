@@ -11,6 +11,8 @@
 #import "Lab.h"
 #import "EWSDataController.h"
 
+#import "LocalNotificationTicket.h"
+
 @interface NotificationViewController ()
 
 @property NSUInteger requestedOpenLabSize;
@@ -33,6 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCloseButton];
+    
+    //initial segemented control value is 5
+    requestedOpenLabSize = 5;
 	// Do any additional setup after loading the view.
 }
 
@@ -51,18 +56,15 @@
 
 
 - (IBAction) addNotification:(id)sender {
-    EWSCustomLocalNotification *notification = [[EWSCustomLocalNotification alloc] init];
-    NSLog(@"notification before  %@",[notification class]);
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
     [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:[datePicker countDownDuration]]];
     [notification setAlertBody:@"wtf"];
 
-    NSLog(@"class this shit %@", [notification class]);
-    NSLog(@"class this shit %@", [[EWSDataController sharedEWSLabSingleton] class]);
-    [notification setLabName:lab.name];
-    //notification.labName = lab.name;
-    NSLog(@"size is set      %d", requestedOpenLabSize);
-    [notification setRequestedOpenStations:requestedOpenLabSize];
-    
+    LocalNotificationTicket *ticket = [[LocalNotificationTicket alloc] init];
+    [ticket setLabName:lab.name];
+    [ticket setRequestedLabSize:requestedOpenLabSize];
+    [ticket setNotification:notification];
+
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     NSLog(@"notification   %f", [datePicker countDownDuration]);
 }
