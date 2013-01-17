@@ -15,6 +15,7 @@
          Building:(NSString *)buildingName Platform:(NSString *)computerPlatFormName
            LatLng:(NSDictionary *)geoLoc
             LocationTip:(NSString *)locTip
+                Index:(NSUInteger)index
 {
     self = [super init];
     if (self)
@@ -31,6 +32,7 @@
                                                       [[geoLoc objectForKey:@"longitude"] doubleValue]);
         
         self.locationTip = locTip;
+        self.indexInPlist = index;
         return self;
     }
     return nil;

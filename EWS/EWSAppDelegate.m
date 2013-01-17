@@ -8,6 +8,7 @@
 
 #import "EWSAppDelegate.h"
 #import "DeviceDataModel.h"
+#import "TicketController.h"
 
 @implementation EWSAppDelegate
 
@@ -15,7 +16,7 @@
 {
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
+    [TicketController initialize];
     return YES;
 }
 

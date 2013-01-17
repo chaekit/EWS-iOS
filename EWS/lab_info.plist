@@ -14,9 +14,9 @@
 		<key>geoLocation</key>
 		<dict>
 			<key>latitude</key>
-			<integer>0</integer>
+			<real>40.113091758503</real>
 			<key>longitude</key>
-			<integer>0</integer>
+			<real>-88.22646975517273</real>
 		</dict>
 		<key>monitor_size</key>
 		<integer>0</integer>
@@ -37,9 +37,9 @@
 		<key>geoLocation</key>
 		<dict>
 			<key>latitude</key>
-			<integer>0</integer>
+			<real>40.113091758503</real>
 			<key>longitude</key>
-			<integer>0</integer>
+			<real>-88.22646975517273</real>
 		</dict>
 		<key>monitor_size</key>
 		<integer>0</integer>
@@ -60,9 +60,9 @@
 		<key>geoLocation</key>
 		<dict>
 			<key>latitude</key>
-			<integer>0</integer>
+			<real>40.113091758503</real>
 			<key>longitude</key>
-			<integer>0</integer>
+			<real>-88.22646975517273</real>
 		</dict>
 		<key>monitor_size</key>
 		<integer>0</integer>

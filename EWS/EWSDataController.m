@@ -1,3 +1,9 @@
+/*
+
+USE PRIVATE SINGLETON VARIABLE DUDE. CHANGE THIS LATER
+ 
+*/
+
 //
 //  EWSDataController.m
 //  EWS
@@ -23,7 +29,7 @@
 
 @implementation EWSDataController
 
-static EWSDataController *sharedEWSLabSingleton;
+static EWSDataController *sharedEWSLabSingleton = nil;
 
 +(EWSDataController *) sharedEWSLabSingleton {
     @synchronized(self) {
@@ -43,13 +49,13 @@ static EWSDataController *sharedEWSLabSingleton;
     return nil;
 }
 
-//+(void) initialize {
-//    static BOOL initialized = NO;
-//    if (!initialized) {
-//        initialized = YES;
-//        sharedEWSLabSingleton = [[EWSDataController alloc] init];
-//    }
-//}
++ (void)initialize {
+    @synchronized(self) {
+        if (!sharedEWSLabSingleton) {
+            sharedEWSLabSingleton = [[EWSDataController alloc] init];
+        }
+    }
+}
 
 -(void)initDefault
 {
@@ -67,7 +73,9 @@ static EWSDataController *sharedEWSLabSingleton;
         NSString *locationTip = [[testArray objectAtIndex:i] objectForKey:@"location_tip"];
        
         
-        Lab *lab = [[Lab alloc] initWithName:name Capacity:capacity Building:building Platform:platform LatLng:geoLocation LocationTip:locationTip];
+        Lab *lab = [[Lab alloc] initWithName:name Capacity:capacity
+                                    Building:building Platform:platform
+                                      LatLng:geoLocation LocationTip:locationTip Index:i];
         
         [self.mainLabList addObject:lab];
     }
@@ -80,6 +88,7 @@ static EWSDataController *sharedEWSLabSingleton;
 - (Lab *)objectAtIndex:(NSUInteger)index {
     return [self.mainLabList objectAtIndex:index];
 }
+
 
 //-(void)asyncDownload {
 //    //Set yourself as the delegate in the header file!
@@ -94,21 +103,18 @@ static EWSDataController *sharedEWSLabSingleton;
 -(void)pollCurrentLabUsage
 {
     // Create new SBJSON parser object
-
     // Prepare URL request to download statuses from Twitter
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
 
-    NSLog(@"wtf");
     // Perform request and get JSON back as a NSData object
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 
-    NSLog(@"%@", response);
     // Get JSON as a NSString from NSData response
     NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     NSDictionary *results = [json_string JSONValue];
     NSArray *labJsonData = [results objectForKey:@"data"];
 
-    NSLog(@"%@", results);
+    //NSLog(@"%@", results);
     //NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     //[formatter setNumberStyle:NSNumberFormatterNoStyle];
     NSUInteger indexForMainList = 0;

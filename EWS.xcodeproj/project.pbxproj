@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190AC53516A723030034BC88 /* TicketController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190AC53416A723030034BC88 /* TicketController.m */; };
 		190E9954166FF05B006FDF0D /* EWSDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E9953166FF05B006FDF0D /* EWSDataController.m */; };
 		190E9960166FF5E7006FDF0D /* Lab.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E995F166FF5E7006FDF0D /* Lab.m */; };
 		190E998F167009D6006FDF0D /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 190E9977167009D6006FDF0D /* NSObject+SBJson.m */; };
@@ -67,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190AC53316A723030034BC88 /* TicketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketController.h; path = ../TicketController.h; sourceTree = "<group>"; };
+		190AC53416A723030034BC88 /* TicketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketController.m; path = ../TicketController.m; sourceTree = "<group>"; };
 		190E9952166FF05B006FDF0D /* EWSDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSDataController.h; sourceTree = "<group>"; };
 		190E9953166FF05B006FDF0D /* EWSDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDataController.m; sourceTree = "<group>"; };
 		190E995E166FF5E7006FDF0D /* Lab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lab.h; sourceTree = "<group>"; };
@@ -191,6 +194,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190AC53716A7230A0034BC88 /* Controlleres */ = {
+			isa = PBXGroup;
+			children = (
+				190AC53316A723030034BC88 /* TicketController.h */,
+				190AC53416A723030034BC88 /* TicketController.m */,
+			);
+			name = Controlleres;
+			sourceTree = "<group>";
+		};
+		190AC53816A723100034BC88 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		190C8346169B86D000281B59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +298,8 @@
 		1959BA8F166F1ED800C79F98 /* EWS */ = {
 			isa = PBXGroup;
 			children = (
+				190AC53816A723100034BC88 /* ViewController */,
+				190AC53716A7230A0034BC88 /* Controlleres */,
 				19176DB616A52CFA00423E48 /* External */,
 				190C8346169B86D000281B59 /* Views */,
 				19EFA3A0169A0A8800D1309D /* Model */,
@@ -488,6 +509,7 @@
 				19A06C1816A5E02F00C63A04 /* LabUsageTrackerController.m in Sources */,
 				19A06C2216A5E6BE00C63A04 /* EWSCustomLocalNotification.m in Sources */,
 				19CDED3516A6046700824A18 /* LocalNotificationTicket.m in Sources */,
+				190AC53516A723030034BC88 /* TicketController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

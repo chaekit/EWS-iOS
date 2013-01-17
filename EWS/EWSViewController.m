@@ -130,7 +130,6 @@
     [panGestureRecognizer setDelegate:self];
     //[cell.detailView addGestureRecognizer:tapGestureRecognizer];
     [cell addGestureRecognizer:tapGestureRecognizer];
-    NSLog(@"cell  class  %@", [cell class]);
     return cell;
 }
 
@@ -310,7 +309,9 @@
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
         EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
-        labDetailViewController.lab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        //labDetailViewController.lab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        labDetailViewController.lab = ((EWSCustomCell *) sender).lab;
+        NSLog(@"row  %d", [self.tableView indexPathForSelectedRow].row);
     }
 }
 
@@ -319,7 +320,7 @@
 -(void)handleTapGesture:(UITapGestureRecognizer *)sender {
     EWSCustomCell *cell = (EWSCustomCell *) [sender view];
     if (cell.meterViewOpen) {
-        [self performSegueWithIdentifier:@"ShowLabDetail" sender:self];
+        [self performSegueWithIdentifier:@"ShowLabDetail" sender:[sender view]];
         NSLog(@"lolol");
     }
 }

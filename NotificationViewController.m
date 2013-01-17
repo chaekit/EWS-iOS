@@ -12,6 +12,7 @@
 #import "EWSDataController.h"
 
 #import "LocalNotificationTicket.h"
+#import "TicketController.h"
 
 @interface NotificationViewController ()
 
@@ -57,15 +58,19 @@
 
 - (IBAction) addNotification:(id)sender {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:[datePicker countDownDuration]]];
+    //[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:[datePicker countDownDuration]]];
+    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:8]];
     [notification setAlertBody:@"wtf"];
 
     LocalNotificationTicket *ticket = [[LocalNotificationTicket alloc] init];
     [ticket setLabName:lab.name];
     [ticket setRequestedLabSize:requestedOpenLabSize];
     [ticket setNotification:notification];
+    [ticket setLabIndex:lab.indexInPlist];
 
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    [TicketController addTicket:ticket];
+//    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    //[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     NSLog(@"notification   %f", [datePicker countDownDuration]);
 }
 

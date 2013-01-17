@@ -21,14 +21,15 @@
 
 @property (nonatomic) CLLocationCoordinate2D geoLocation;
 
-
+@property (nonatomic) NSUInteger indexInPlist;
 
 -(id)initWithName:(NSString *)labName
         Capacity:(NSUInteger)labCapacity
         Building:(NSString *)buildingName
         Platform:(NSString *)computerPlatFormName
         LatLng:(NSDictionary *)geoLoc
-        LocationTip:(NSString *)locTip;
+        LocationTip:(NSString *)locTip
+        Index:(NSUInteger)index;
 
 
 

@@ -15,5 +15,5 @@
 
 @property (nonatomic, strong) NSString *labName;
 @property (nonatomic) NSUInteger requestedLabSize;
-
+@property (nonatomic) NSUInteger labIndex;
 @end
