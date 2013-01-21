@@ -22,7 +22,7 @@
 
 @implementation NotificationViewController
 
-@synthesize closeButton, datePicker, lab, requestedOpenLabSize;
+@synthesize closeButton, datePicker, lab, requestedOpenLabSize, cancelButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +50,8 @@
     [closeButton setTitle:@"Close"];
     [closeButton setAction:@selector(closeNotificaitonView)];
 }
+
+
 - (void) closeNotificaitonView {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -71,7 +73,6 @@
     [TicketController addTicket:ticket];
 //    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     //[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-    NSLog(@"notification   %f", [datePicker countDownDuration]);
 }
 
 - (IBAction)segmentSwitch:(id)sender {
@@ -84,7 +85,11 @@
     } else if (selectedSegment == 1)  {
         requestedOpenLabSize = 10;
     }
-    
     NSLog(@"Segment is set  %d", requestedOpenLabSize);
 }
+
+- (IBAction)cancelNotification:(id)sender {
+    [self closeNotificaitonView];
+}
+
 @end

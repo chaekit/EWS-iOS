@@ -206,6 +206,14 @@
 		190AC53816A723100034BC88 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				19176DB716A5314400423E48 /* NotificationViewController.h */,
+				19176DB816A5314400423E48 /* NotificationViewController.m */,
+				1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */,
+				1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */,
+				192B3F451690E0BA00E70BAC /* EWSDetailLabMapViewController.h */,
+				192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */,
+				1959BAAE166F1FF600C79F98 /* EWSViewController.h */,
+				1959BAAF166F1FF600C79F98 /* EWSViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -304,14 +312,6 @@
 				190C8346169B86D000281B59 /* Views */,
 				19EFA3A0169A0A8800D1309D /* Model */,
 				1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */,
-				19176DB716A5314400423E48 /* NotificationViewController.h */,
-				19176DB816A5314400423E48 /* NotificationViewController.m */,
-				1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */,
-				1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */,
-				192B3F451690E0BA00E70BAC /* EWSDetailLabMapViewController.h */,
-				192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */,
-				1959BAAE166F1FF600C79F98 /* EWSViewController.h */,
-				1959BAAF166F1FF600C79F98 /* EWSViewController.m */,
 				193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */,
 				193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */,
 				1959BA98166F1ED800C79F98 /* EWSAppDelegate.h */,

@@ -18,13 +18,14 @@
 -(void) setLabNameLabel;
 -(void) adjustSubViewOverlay;
 
+
 @end
 
 @implementation EWSCustomCell
 
 @synthesize lab;
 @synthesize meterContainerView, detailView, usageFractionLabel, platformIcon, meterView, labNameLabel, labNameLabelInDetailView;
-@synthesize meterViewOpen;
+@synthesize meterViewOpen, panGestureRecognizer;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -79,19 +80,25 @@
     meterView.alpha = alphaAdjuster * 0.5 + 0.5;
 }
 
--(void) setLabNameLabel
-{
+-(void) setLabNameLabel {
     [labNameLabel setText:lab.name];
 }
 
--(void) adjustSubViewOverlay
-{
+-(void) adjustSubViewOverlay {
     [meterContainerView insertSubview:labNameLabel aboveSubview:meterView];
     [detailView insertSubview:meterContainerView aboveSubview:usageFractionLabel];
 }
 
 -(void) scrollMeterViewWithPageControl:(NSNumber *) newTXOfCellObject {
     [self.meterContainerView setTransform:CGAffineTransformMakeTranslation([newTXOfCellObject floatValue], 0)];
+}
+
+-(void)toggleMeterView:(NSNumber *)boolMeterView {
+    [self setMeterViewOpen:[boolMeterView boolValue]];
+}
+
+- (void)togglePanGestureRecognizerWith:(NSNumber *)boolMeterViewOpen {
+    [panGestureRecognizer setEnabled:[boolMeterViewOpen boolValue]];
 }
 
 @end

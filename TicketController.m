@@ -117,15 +117,16 @@ static int ticketCounter = 0;
                                                                       cancelButtonTitle:@"Wow ok. Thanks"
                                                                           otherButtonTitles:nil];
                 [alert show];
+                
+            } else {
+                [sharedTicketControllerInstance.tickets replaceObjectAtIndex:ticket.labIndex withObject:ticket];
+                ticketCounter++;
+                // change 0 to 1 if necessary in the future
+                if (ticketCounter == 1) {
+                    [sharedTicketControllerInstance startTimer];
+                }
+                NSLog(@"lab index bro   %d",ticket.labIndex);
             }
-            
-            [sharedTicketControllerInstance.tickets replaceObjectAtIndex:ticket.labIndex withObject:ticket];
-            ticketCounter++;
-            // change 0 to 1 if necessary in the future
-            if (ticketCounter == 1) {
-                [sharedTicketControllerInstance startTimer];
-            }
-            NSLog(@"lab index bro   %d",ticket.labIndex);
         } else {
             NSLog(@"There are other shit in here");
         }

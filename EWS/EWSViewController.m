@@ -23,7 +23,13 @@
 #define CELL_OPEN_X -300
 #define CELL_CLOSED_X 0
 
+#define CELL_OPEN_X_DETAILVIEW -320
+
 #define NUM_OF_CTRL_PAGES 2
+
+static BOOL inDetailView = NO;
+static EWSCustomCell *openCell = nil;
+
 
 @interface EWSViewController ()
 
@@ -38,31 +44,26 @@
 @implementation EWSViewController
 
 @synthesize pageControlView, pageControl, previousPage;
+@synthesize openGestureView;
 
--(void)awakeFromNib
-{
+-(void)awakeFromNib {
     [super awakeFromNib];
     //self.dataController = [[EWSDataController alloc] init];
     self.dataController = [EWSDataController sharedEWSLabSingleton];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self initPageControViews];
     [self.navigationItem setTitle:@"EWS Labs"];
-    
-
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
     [machinesTableView reloadData];
-
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
@@ -116,6 +117,15 @@
     if(cell == nil) {
         cell = [[EWSCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+   
+    if (inDetailView) {
+        [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_OPEN_X_DETAILVIEW, 0)];
+    } else {
+//        if (![openGestureView isEqual:cell.meterContainerView]) {
+            [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_CLOSED_X, 0)];
+//        }
+    }
+    
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     [cell initSubViewsWithLab:labAtIndex];
     
@@ -130,6 +140,7 @@
     [panGestureRecognizer setDelegate:self];
     //[cell.detailView addGestureRecognizer:tapGestureRecognizer];
     [cell addGestureRecognizer:tapGestureRecognizer];
+    [cell setPanGestureRecognizer:panGestureRecognizer];
     return cell;
 }
 
@@ -287,6 +298,14 @@
                 [self.pageControlView setAlpha:(0.5 + (320 - contentOffset)/320 * 0.5)];
             }
         }
+
+        
+        
+//        if (newPage == 0) {
+//            inDetailView = NO;
+//        } else {
+//            inDetailView = YES;
+//        }
         
         float viewTXofCell = 0;
         viewTXofCell -= contentOffset;
@@ -303,7 +322,10 @@
 
 // At the end of scroll set lastPage for alpha manipulation
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    inDetailView = !inDetailView;
     previousPage = pageControl.currentPage;
+    [self.tableView.visibleCells makeObjectsPerformSelector:@selector(toggleMeterView:) withObject:[NSNumber numberWithBool:inDetailView]];
+    [self.tableView.visibleCells makeObjectsPerformSelector:@selector(togglePanGestureRecognizerWith:) withObject:[NSNumber numberWithBool:!inDetailView]];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

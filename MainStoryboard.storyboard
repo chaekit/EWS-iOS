@@ -55,14 +55,13 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="eD6-0D-69O" userLabel="NotificationBtn">
-                                                            <rect key="frame" x="265" y="5" width="35" height="35"/>
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="eD6-0D-69O" userLabel="NotificationBtn">
+                                                            <rect key="frame" x="268" y="7" width="29" height="31"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="1" green="0.45414282916692861" blue="0.18048624453906192" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <state key="normal">
-                                                                <color key="titleColor" red="1" green="0.45414282919999999" blue="0.1804862445" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="titleShadowColor" red="1" green="0.48023182641392193" blue="0.16887133346715855" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <state key="highlighted">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -211,7 +210,7 @@
                         <color key="backgroundColor" red="0.97403617527173914" green="0.97403617527173914" blue="0.97403617527173914" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="fUo-iI-Sk1">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="tFg-Zq-lgt" userLabel="RefreshButton"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tFg-Zq-lgt" userLabel="RefreshButton"/>
                     </navigationItem>
                     <connections>
                         <outlet property="labFeaturesSegCtrl" destination="Jer-rg-85T" id="f3r-zP-zDN"/>
@@ -277,8 +276,11 @@
                                 <color key="tintColor" red="0.091433558139999996" green="0.29162646240000001" blue="0.44962211279999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Title" id="NYb-B3-E4r">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="8BU-jX-vm1">
-                                            <color key="tintColor" red="0.091433558139999996" green="0.29162646240000001" blue="0.44962211279999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8BU-jX-vm1">
+                                            <color key="tintColor" red="0.44962211279999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Set" id="n5m-3P-J94">
+                                            <color key="tintColor" red="0.38265306122448983" green="0.38265306122448983" blue="0.38265306122448983" alpha="1" colorSpace="calibratedRGB"/>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -314,24 +316,27 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5qp-I8-l8R">
-                                <rect key="frame" x="0.0" y="193" width="164" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5qp-I8-l8R">
+                                <rect key="frame" x="20" y="167" width="137" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelNotification:" destination="4nD-gg-v5W" eventType="touchDown" id="0GY-1C-I5O"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rfE-tm-dHh">
-                                <rect key="frame" x="165" y="193" width="155" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rfE-tm-dHh">
+                                <rect key="frame" x="165" y="167" width="137" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Set">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -341,8 +346,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="addNotification:" destination="4nD-gg-v5W" eventType="touchDown" id="CuL-Wu-Qe2"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="hfO-Q8-lbD">
-                                <rect key="frame" x="80" y="79" width="161" height="30"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hfO-Q8-lbD">
+                                <rect key="frame" x="54" y="108" width="212" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="5"/>
@@ -352,6 +357,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="segmentSwitch:" destination="4nD-gg-v5W" eventType="valueChanged" id="myk-t1-tZS"/>
                                 </connections>
                             </segmentedControl>
+                            <navigationBar contentMode="scaleToFill" id="UjF-ad-5yb">
+                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Alert In: 0 hours, 1 minute" id="AAc-Ge-6aL"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -414,6 +427,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addNotification:"/>
+                <relationship kind="action" name="cancelNotification:"/>
                 <relationship kind="action" name="segmentSwitch:"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>

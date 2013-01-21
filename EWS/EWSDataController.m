@@ -15,11 +15,10 @@ USE PRIVATE SINGLETON VARIABLE DUDE. CHANGE THIS LATER
 #import "EWSDataController.h"
 #import "Lab.h"
 #import "SBJson.h"
+#import "ASIHTTPRequest.h"
 
-//Import QuartzCore into frameworks
-//#import <QuartzCore/QuartzCore.h>
-//UILabel *label;
-//[label.layer setCornerRadius:10];
+const NSString *EWS_URL = @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback=";
+
 
 //#import "EWSAsyncDemoCode.h"
 
@@ -30,6 +29,8 @@ USE PRIVATE SINGLETON VARIABLE DUDE. CHANGE THIS LATER
 @implementation EWSDataController
 
 static EWSDataController *sharedEWSLabSingleton = nil;
+
+@synthesize dataControllerDelegate;
 
 +(EWSDataController *) sharedEWSLabSingleton {
     @synchronized(self) {
@@ -55,6 +56,11 @@ static EWSDataController *sharedEWSLabSingleton = nil;
             sharedEWSLabSingleton = [[EWSDataController alloc] init];
         }
     }
+}
+
+- (void)postPollUsageNotification {
+    NSString *polledUsage = @"dataControlledPolledUsage";
+    [[NSNotificationCenter defaultCenter] postNotificationName:polledUsage object:self];
 }
 
 -(void)initDefault
@@ -100,28 +106,41 @@ static EWSDataController *sharedEWSLabSingleton = nil;
 //    //Process the data
 //}
 
--(void)pollCurrentLabUsage
-{
+-(void)pollCurrentLabUsage {
+
     // Create new SBJSON parser object
     // Prepare URL request to download statuses from Twitter
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:  @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
+    NSURL *url = [NSURL URLWithString:EWS_URL];
+    //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 
+    [request setCompletionBlock:^{
+        NSData *responseData = [request responseData];
+        
+        NSString *json_string = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        NSDictionary *results = [json_string JSONValue];
+        NSArray *labJsonData = [results objectForKey:@"data"];
+        NSLog(@"results   %@", labJsonData);
+        
+        NSUInteger indexForMainList = 0;
+        for (NSDictionary *lab in labJsonData) {
+            NSUInteger currentUsage = [[lab objectForKey:@"inusecount"] integerValue];
+            ((Lab *)[self.mainLabList objectAtIndex:indexForMainList]).currentLabUsage = currentUsage;
+            indexForMainList++;
+        }
+        
+        [self postPollUsageNotification];
+    }];
+    
+    [request startAsynchronous];
+    
     // Perform request and get JSON back as a NSData object
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 
     // Get JSON as a NSString from NSData response
-    NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    NSDictionary *results = [json_string JSONValue];
-    NSArray *labJsonData = [results objectForKey:@"data"];
 
     //NSLog(@"%@", results);
     //NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     //[formatter setNumberStyle:NSNumberFormatterNoStyle];
-    NSUInteger indexForMainList = 0;
-    for (NSDictionary *lab in labJsonData) {
-        NSUInteger currentUsage = [[lab objectForKey:@"inusecount"] integerValue];
-        ((Lab *)[self.mainLabList objectAtIndex:indexForMainList]).currentLabUsage = currentUsage;
-        indexForMainList++;
-    }
+    
 }
 @end

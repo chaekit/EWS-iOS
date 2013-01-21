@@ -9,11 +9,21 @@
 #import <Foundation/Foundation.h>
 
 @class Lab;
+@class EWSDataController;
+
+@protocol EWSDataControllerDelegate <NSObject>
+
+@required
+- (void)dataControllerDidPollUsage:(EWSDataController *)dataController;
+
+@end
 
 @interface EWSDataController : NSObject {
+    __weak id <EWSDataControllerDelegate> dataControllerDelegate;
     NSMutableData *responseData;
 }
 
+@property (nonatomic, weak) id <EWSDataControllerDelegate> dataControllerDelegate;
 @property (nonatomic, retain) NSMutableArray *mainLabList;
 
 +(EWSDataController *) sharedEWSLabSingleton;

@@ -39,13 +39,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    //[labFeaturesSegCtrl setSelectedSegmentIndex:0];
+    
     deviceData = [[DeviceDataModel alloc] init];
 
     [self setTitle:self.lab.name];
    
     //NSLog(@"%@  ", [[EWSDataController sharedEWSLabSingleton] objectAtIndex:0]);
-    
+   
+
     [self setNotifyButton];
     [self setNotifyMeActionSheet];
     
