@@ -22,7 +22,8 @@
 
 @implementation NotificationViewController
 
-@synthesize closeButton, datePicker, lab, requestedOpenLabSize, cancelButton;
+@synthesize closeButton, datePicker, lab, requestedOpenLabSize, cancelButton, alertTimeNavigationItem;
+@synthesize openLabSizeSegCtrl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +39,7 @@
     [self initCloseButton];
     
     //initial segemented control value is 5
-    requestedOpenLabSize = 5;
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -56,12 +57,29 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)setTimerAlertLabelWithCountdown:(NSString *)countDown {
+    
+}
 
+- (void)initOpenLabSizeSegCtrl {
+    [openLabSizeSegCtrl setSelectedSegmentIndex:0];
+}
+
+- (NSString *)getConvertedCountdownInString:(NSTimeInterval)time {
+    int timeInInteger = (int) rint(time);
+    if ((timeInInteger%100 - 60) == 0) {
+        timeInInteger -= 60;
+    }
+    
+    int hours = timeInInteger / 3600;
+    int minutes = (timeInInteger % 3600) / 60;
+    return [NSString stringWithFormat:@"In: %d hours, %d minutes", hours, minutes];
+}
 
 - (IBAction) addNotification:(id)sender {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    //[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:[datePicker countDownDuration]]];
-    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:8]];
+    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:[datePicker countDownDuration]]];
+    //[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:8]];
     [notification setAlertBody:@"wtf"];
 
     LocalNotificationTicket *ticket = [[LocalNotificationTicket alloc] init];
@@ -78,7 +96,7 @@
 - (IBAction)segmentSwitch:(id)sender {
     UISegmentedControl *segementControl = (UISegmentedControl *) sender;
     NSUInteger selectedSegment = segementControl.selectedSegmentIndex;
-    
+
     /* selected the first one which is 5 */
     if (selectedSegment == 0) {
         requestedOpenLabSize = 5;
@@ -92,4 +110,8 @@
     [self closeNotificaitonView];
 }
 
+- (IBAction)setTimer:(UIDatePicker *)sender {
+    NSTimeInterval countDown = [sender countDownDuration];
+    [alertTimeNavigationItem setTitle:[self getConvertedCountdownInString:countDown]];
+}
 @end

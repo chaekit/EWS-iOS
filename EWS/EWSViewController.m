@@ -12,6 +12,7 @@
 #import "EWSDataController.h"
 #import "EWSCustomCell.h"
 #import "EWSLabDetailViewController.h"
+#import "PullRefreshTableViewController.h"
 
 //Frameworks
 #import <UIKit/UIKit.h>
@@ -28,6 +29,7 @@
 #define NUM_OF_CTRL_PAGES 2
 
 static BOOL inDetailView = NO;
+
 static EWSCustomCell *openCell = nil;
 
 
@@ -60,7 +62,6 @@ static EWSCustomCell *openCell = nil;
 
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
-    [machinesTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,8 +72,7 @@ static EWSCustomCell *openCell = nil;
     return NO;
 }
 
--(void)initPageControViews
-{
+-(void)initPageControViews {
     [self.view insertSubview:self.pageControl aboveSubview:pageControlView];
 
     previousPage = 0;
@@ -87,30 +87,24 @@ static EWSCustomCell *openCell = nil;
     pageControlView.showsVerticalScrollIndicator = NO;
     pageControlView.showsHorizontalScrollIndicator = NO;
     
-    
     pageControlView.contentSize = CGSizeMake(pageControlView.frame.size.width * 2, pageControlView.frame.size.height);
    
     // pageController initialization
-    
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.dataController countOfMainLabList];
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //Interfaces
     static NSString *CellIdentifier = @"LabInfoCell";
     EWSCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -141,6 +135,7 @@ static EWSCustomCell *openCell = nil;
     //[cell.detailView addGestureRecognizer:tapGestureRecognizer];
     [cell addGestureRecognizer:tapGestureRecognizer];
     [cell setPanGestureRecognizer:panGestureRecognizer];
+    
     return cell;
 }
 
@@ -158,8 +153,7 @@ static EWSCustomCell *openCell = nil;
     return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
 }
 
--(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated
-{
+-(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated {
     if (animated) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -173,8 +167,7 @@ static EWSCustomCell *openCell = nil;
     }
 }
 
--(void) handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer
-{
+-(void) handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
     float threshold = (CELL_CLOSED_X + CELL_OPEN_X)/2.0;
     EWSCustomCell *cell = (EWSCustomCell *) [panGestureRecognizer view];
     UIView *gestureView = cell.meterContainerView;
@@ -234,7 +227,9 @@ static EWSCustomCell *openCell = nil;
 }
 
 -(void) refreshLabUsage {
-    [self.dataController pollCurrentLabUsage];
+    [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
+    //[self.dataController pollCurrentLabUsage];
+    [self performSelector:@selector(stopLoading) withObject:nil afterDelay:2.0];
     [self.tableView reloadData];
     //[self stopLoading];
 }
@@ -273,7 +268,9 @@ static EWSCustomCell *openCell = nil;
 
 
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    
+    if ([scrollView isEqual:self.tableView]) {
+        [super scrollViewWillBeginDragging:self.tableView];
+    }
 }
 
 
@@ -291,21 +288,23 @@ static EWSCustomCell *openCell = nil;
         int newPage = floor((self.pageControlView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
         pageControl.currentPage = newPage;
         
-        if (contentOffset <= 320.000 && contentOffset >= 0.0f) {
-            if (previousPage == 0) {
-                [self.pageControlView setAlpha:(1 - contentOffset/320 * 0.5)];
-            } else {
-                [self.pageControlView setAlpha:(0.5 + (320 - contentOffset)/320 * 0.5)];
-            }
-        }
-
-        
-        
-//        if (newPage == 0) {
-//            inDetailView = NO;
-//        } else {
-//            inDetailView = YES;
+//        if (contentOffset <= 320.000 && contentOffset >= 0.0f) {
+//            if (previousPage == 0) {
+//                [self.pageControlView setAlpha:(1 - contentOffset/320 * 0.75)];
+//            } else {
+//                [self.pageControlView setAlpha:(0.25 + (320 - contentOffset)/320 * 0.75)];
+//            }
 //        }
+        
+        if (newPage == 0) {
+            inDetailView = NO;
+            [self.tableView setBackgroundColor:[UIColor whiteColor]];
+            [self.refreshLabel setTextColor:[UIColor blackColor]];
+        } else {
+            inDetailView = YES;
+            [self.tableView setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
+            [self.refreshLabel setTextColor:[UIColor whiteColor]];
+        }
         
         float viewTXofCell = 0;
         viewTXofCell -= contentOffset;
@@ -315,6 +314,10 @@ static EWSCustomCell *openCell = nil;
             [self.tableView.visibleCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
         }
     }
+  
+    if ([sender isEqual:self.tableView]) {
+        [super scrollViewDidScroll:self.tableView];
+    }
 }
 
 
@@ -322,7 +325,7 @@ static EWSCustomCell *openCell = nil;
 
 // At the end of scroll set lastPage for alpha manipulation
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    inDetailView = !inDetailView;
+    //inDetailView = !inDetailView;
     previousPage = pageControl.currentPage;
     [self.tableView.visibleCells makeObjectsPerformSelector:@selector(toggleMeterView:) withObject:[NSNumber numberWithBool:inDetailView]];
     [self.tableView.visibleCells makeObjectsPerformSelector:@selector(togglePanGestureRecognizerWith:) withObject:[NSNumber numberWithBool:!inDetailView]];
@@ -336,7 +339,6 @@ static EWSCustomCell *openCell = nil;
         NSLog(@"row  %d", [self.tableView indexPathForSelectedRow].row);
     }
 }
-
 
 
 -(void)handleTapGesture:(UITapGestureRecognizer *)sender {

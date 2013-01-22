@@ -18,7 +18,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *cancelButton;
 @property (nonatomic, strong) IBOutlet UIButton *setButton;
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
-//@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentControl;
+@property (nonatomic, strong) IBOutlet UINavigationItem *alertTimeNavigationItem;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *openLabSizeSegCtrl;
 
 @property (nonatomic, strong) Lab *lab;
 

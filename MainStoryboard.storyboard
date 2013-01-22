@@ -29,14 +29,9 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="CCq-cg-Fb4">
-                                <rect key="frame" x="141" y="510" width="38" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aRx-yn-oZI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="349"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabInfoCell" id="vQ1-yv-OrN" customClass="EWSCustomCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -118,10 +113,16 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="EhY-y0-pWE">
                                 <rect key="frame" x="0.0" y="349" width="320" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="CCq-cg-Fb4">
+                                        <rect key="frame" x="141" y="384" width="38" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </pageControl>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="mny-ea-99K"/>
                     <connections>
@@ -275,17 +276,20 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.091433558139999996" green="0.29162646240000001" blue="0.44962211279999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Title" id="NYb-B3-E4r">
+                                    <navigationItem title="Notify" id="NYb-B3-E4r">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="8BU-jX-vm1">
-                                            <color key="tintColor" red="0.44962211279999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" red="0.091433558139999996" green="0.29162646240000001" blue="0.44962211279999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Set" id="n5m-3P-J94">
                                             <color key="tintColor" red="0.38265306122448983" green="0.38265306122448983" blue="0.38265306122448983" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="addNotification:" destination="4nD-gg-v5W" id="npB-YZ-IGV"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="5" id="Hdd-qm-RiZ">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="15" id="Hdd-qm-RiZ">
                                 <rect key="frame" x="0.0" y="245" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="378605244.45085502">
@@ -315,65 +319,45 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
+                                <connections>
+                                    <action selector="setTimer:" destination="4nD-gg-v5W" eventType="valueChanged" id="pBD-R6-7M5"/>
+                                </connections>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5qp-I8-l8R">
-                                <rect key="frame" x="20" y="167" width="137" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelNotification:" destination="4nD-gg-v5W" eventType="touchDown" id="0GY-1C-I5O"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rfE-tm-dHh">
-                                <rect key="frame" x="165" y="167" width="137" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Set">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addNotification:" destination="4nD-gg-v5W" eventType="touchDown" id="CuL-Wu-Qe2"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hfO-Q8-lbD">
-                                <rect key="frame" x="54" y="108" width="212" height="44"/>
+                                <rect key="frame" x="20" y="108" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="5"/>
-                                    <segment title="10"/>
+                                    <segment title="5 Stations"/>
+                                    <segment title="10 Stations"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentSwitch:" destination="4nD-gg-v5W" eventType="valueChanged" id="myk-t1-tZS"/>
                                 </connections>
                             </segmentedControl>
                             <navigationBar contentMode="scaleToFill" id="UjF-ad-5yb">
-                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="201" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Alert In: 0 hours, 1 minute" id="AAc-Ge-6aL"/>
+                                    <navigationItem title="In: 0 hours, 0 minute" id="AAc-Ge-6aL"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Alert Me When There Are ...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AWH-Ce-iRS">
+                                <rect key="frame" x="34" y="65" width="253" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94085427990000003" green="0.94085427990000003" blue="0.94085427990000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="HNH-Cs-5gd"/>
                     <connections>
-                        <outlet property="cancelButton" destination="5qp-I8-l8R" id="B0I-Ye-OxR"/>
+                        <outlet property="alertTimeNavigationItem" destination="AAc-Ge-6aL" id="Qic-Ia-eSR"/>
                         <outlet property="closeButton" destination="8BU-jX-vm1" id="6so-SH-Az7"/>
                         <outlet property="datePicker" destination="Hdd-qm-RiZ" id="tU3-Ye-iOB"/>
-                        <outlet property="setButton" destination="rfE-tm-dHh" id="qlg-0Y-t2y"/>
+                        <outlet property="openLabSizeSegCtrl" destination="hfO-Q8-lbD" id="Cld-5t-bhh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKU-kX-YYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,10 +398,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
-        <class className="EWSViewController" superclassName="UIViewController">
+        <class className="EWSViewController" superclassName="PullRefreshTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="machinesTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="pageControlView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
@@ -429,12 +412,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="addNotification:"/>
                 <relationship kind="action" name="cancelNotification:"/>
                 <relationship kind="action" name="segmentSwitch:"/>
+                <relationship kind="action" name="setTimer:" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="alertTimeNavigationItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="notificationTimePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="openLabSizeSegCtrl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="setButton" candidateClass="UIButton"/>
             </relationships>
+        </class>
+        <class className="PullRefreshTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

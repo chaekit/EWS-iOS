@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "PullRefreshTableViewController.h"
+
 @class EWSDataController;
 
 //@interface EWSViewController : PullRefreshTableViewController <UIGestureRecognizerDelegate> {
-@interface EWSViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
-    IBOutlet UITableView *machinesTableView;
+//@interface EWSViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
+//    UIScrollView *pageControlView;
+//}
+
+@interface EWSViewController : PullRefreshTableViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
     UIScrollView *pageControlView;
 }
 
