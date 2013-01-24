@@ -13,34 +13,9 @@
 
 @implementation EWSAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [TicketController initialize];
     return YES;
-}
-
-
-- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
-    NSString* token = [[[[deviceToken description]
-                     stringByReplacingOccurrencesOfString: @"<" withString: @""] 
-                        stringByReplacingOccurrencesOfString: @">" withString: @""]
-                            stringByReplacingOccurrencesOfString: @" " withString: @""] ;
-
-
-    DeviceDataModel *deviceData = [DeviceDataModel getInstance];
-
-    NSLog(@"token %@",token);
-    [DeviceDataModel setDeviceToken:token];
-    //DeviceDataModel *deviceData = [DeviceDataModel getInstance];
-    //deviceData.deviceToken = valu deviceToken;
-    //NSLog(@"token in string  %@", [[NSString alloc] initWithData:deviceToken encoding:NSASCIIStringEncoding]);
-	NSLog(@"My token is: %@", deviceToken);
-}
- 
-- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error {
-	NSLog(@"Failed to get token, error: %@", error);
 }
 
 
@@ -59,13 +34,12 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
+- (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
+- (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 

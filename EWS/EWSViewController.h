@@ -11,13 +11,8 @@
 
 @class EWSDataController;
 
-//@interface EWSViewController : PullRefreshTableViewController <UIGestureRecognizerDelegate> {
-//@interface EWSViewController : UIViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
-//    UIScrollView *pageControlView;
-//}
-
-@interface EWSViewController : PullRefreshTableViewController <UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
-    UIScrollView *pageControlView;
+@interface EWSViewController : PullRefreshTableViewController <UIGestureRecognizerDelegate, UITableViewDataSource,
+                                                                    UITableViewDelegate, UIScrollViewDelegate> {
 }
 
 #pragma mark - View properties

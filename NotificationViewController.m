@@ -14,19 +14,25 @@
 #import "LocalNotificationTicket.h"
 #import "TicketController.h"
 
+
+#define VALID_NOTIFICATION 0
+#define HAS_ENOUGH_STATIONS 1
+#define DID_NOT_SET_TIMER 2
+
 @interface NotificationViewController ()
 
 @property NSUInteger requestedOpenLabSize;
-@end
+@property (nonatomic, strong) UIAlertView *noSetTimerAlert;
+@property (nonatomic, strong) UIAlertView *enoughStationAlert;
 
+@end
 
 @implementation NotificationViewController
 
 @synthesize closeButton, datePicker, lab, requestedOpenLabSize, cancelButton, alertTimeNavigationItem;
-@synthesize openLabSizeSegCtrl;
+@synthesize openLabSizeSegCtrl, noSetTimerAlert, enoughStationAlert;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -38,7 +44,18 @@
     [super viewDidLoad];
     [self initCloseButton];
     
-    //initial segemented control value is 5
+    noSetTimerAlert = [[UIAlertView alloc] initWithTitle:@"Timer Not Set"
+                                                        message:@"Forgot to set the timer"
+                                                           delegate:nil
+                                                              cancelButtonTitle:@"Wow ok. Thanks"
+                                                                  otherButtonTitles:nil];
+    
+    enoughStationAlert = [[UIAlertView alloc] initWithTitle:@"Open Stations"
+                                                    message:@"There are already enough open stations."
+                                                       delegate:nil
+                                                          cancelButtonTitle:@"Wow ok. Thanks"
+                                                              otherButtonTitles:nil];
+//initial segemented control value is 5
     
 	// Do any additional setup after loading the view.
 }
@@ -76,21 +93,38 @@
     return [NSString stringWithFormat:@"In: %d hours, %d minutes", hours, minutes];
 }
 
-- (IBAction) addNotification:(id)sender {
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:[datePicker countDownDuration]]];
-    //[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:8]];
-    [notification setAlertBody:@"wtf"];
+- (int)notificationIsValid {
+    if (((int)[datePicker countDownDuration]) - 60 == 0)
+        return DID_NOT_SET_TIMER;
+    
+    NSUInteger numOpenstations = lab.maxCapacity - lab.currentLabUsage;
+    if (numOpenstations >= requestedOpenLabSize)
+        return HAS_ENOUGH_STATIONS;
 
-    LocalNotificationTicket *ticket = [[LocalNotificationTicket alloc] init];
-    [ticket setLabName:lab.name];
-    [ticket setRequestedLabSize:requestedOpenLabSize];
-    [ticket setNotification:notification];
-    [ticket setLabIndex:lab.indexInPlist];
+    return VALID_NOTIFICATION;
+}
 
-    [TicketController addTicket:ticket];
-//    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    //[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+- (IBAction)addNotification:(id)sender {
+    int validation = [self notificationIsValid];
+    if (validation == VALID_NOTIFICATION) {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+
+        LocalNotificationTicket *ticket = [[LocalNotificationTicket alloc] init];
+        [ticket setLabName:lab.name];
+        [ticket setRequestedLabSize:requestedOpenLabSize];
+        [ticket setNotification:notification];
+        [ticket setLabIndex:lab.indexInPlist];
+
+        [TicketController addTicket:ticket];
+        [lab setTimerSet:YES];
+        [self closeNotificaitonView];
+    } else if (validation == DID_NOT_SET_TIMER) {
+        [noSetTimerAlert show];
+    } else if (validation == HAS_ENOUGH_STATIONS) {
+        [enoughStationAlert show];
+    } else {
+        NSLog(@"WTF?");
+    }
 }
 
 - (IBAction)segmentSwitch:(id)sender {

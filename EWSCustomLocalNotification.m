@@ -14,7 +14,7 @@
 
 @implementation EWSCustomLocalNotification
 
-@synthesize labName, requestedOpenStations;
+@synthesize labName, requestedOpenStations, labIndex;
 
 - (id)init {
     self = [super init];

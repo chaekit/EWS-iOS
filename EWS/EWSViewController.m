@@ -14,7 +14,6 @@
 #import "EWSLabDetailViewController.h"
 #import "PullRefreshTableViewController.h"
 
-//Frameworks
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -29,9 +28,7 @@
 #define NUM_OF_CTRL_PAGES 2
 
 static BOOL inDetailView = NO;
-
-static EWSCustomCell *openCell = nil;
-
+static NSString *CellIdentifier = @"LabInfoCell";
 
 @interface EWSViewController ()
 
@@ -50,14 +47,12 @@ static EWSCustomCell *openCell = nil;
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-    //self.dataController = [[EWSDataController alloc] init];
     self.dataController = [EWSDataController sharedEWSLabSingleton];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPageControViews];
-    [self.navigationItem setTitle:@"EWS Labs"];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -76,18 +71,19 @@ static EWSCustomCell *openCell = nil;
     [self.view insertSubview:self.pageControl aboveSubview:pageControlView];
 
     previousPage = 0;
-    
-    pageControl.hidesForSinglePage = NO;
-    pageControl.numberOfPages = NUM_OF_CTRL_PAGES;
-    pageControl.currentPage = 0;
+
+    [pageControl setHidesForSinglePage:NO];
+    [pageControl setNumberOfPages:NUM_OF_CTRL_PAGES];
+    [pageControl setCurrentPage:0];
 
     // pageControlView initialization
-    pageControlView.pagingEnabled = YES;
-    pageControlView.delegate = self;
-    pageControlView.showsVerticalScrollIndicator = NO;
-    pageControlView.showsHorizontalScrollIndicator = NO;
-    
-    pageControlView.contentSize = CGSizeMake(pageControlView.frame.size.width * 2, pageControlView.frame.size.height);
+    [pageControlView setPagingEnabled:YES];
+    [pageControlView setDelegate:self];
+    [pageControlView setShowsVerticalScrollIndicator:NO];
+    [pageControlView setShowsHorizontalScrollIndicator:NO];
+
+    [pageControlView setContentSize:CGSizeMake(pageControlView.frame.size.width * 2, pageControlView.frame.size.height)];
+//    pageControlView.contentSize = CGSizeMake(pageControlView.frame.size.width * 2, pageControlView.frame.size.height);
    
     // pageController initialization
     [self loadScrollViewWithPage:0];
@@ -105,8 +101,6 @@ static EWSCustomCell *openCell = nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //Interfaces
-    static NSString *CellIdentifier = @"LabInfoCell";
     EWSCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil) {
         cell = [[EWSCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -115,9 +109,7 @@ static EWSCustomCell *openCell = nil;
     if (inDetailView) {
         [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_OPEN_X_DETAILVIEW, 0)];
     } else {
-//        if (![openGestureView isEqual:cell.meterContainerView]) {
-            [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_CLOSED_X, 0)];
-//        }
+        [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_CLOSED_X, 0)];
     }
     
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
@@ -127,12 +119,10 @@ static EWSCustomCell *openCell = nil;
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [panGestureRecognizer setDelegate:self];
-    //[cell.meterContainerView addGestureRecognizer:panGestureRecognizer];
     [cell addGestureRecognizer:panGestureRecognizer];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     [panGestureRecognizer setDelegate:self];
-    //[cell.detailView addGestureRecognizer:tapGestureRecognizer];
     [cell addGestureRecognizer:tapGestureRecognizer];
     [cell setPanGestureRecognizer:panGestureRecognizer];
     
@@ -147,8 +137,7 @@ static EWSCustomCell *openCell = nil;
 #pragma mark - Gesture recognizer delegate
 
 // Makes sure that the recognizer doesn't block vertical gesutre, which is scrolling
-- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer
-{
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
     CGPoint translation = [panGestureRecognizer translationInView:self.view];
     return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
 }
@@ -237,8 +226,7 @@ static EWSCustomCell *openCell = nil;
 
 #pragma mark - ScrollView delegate stuff
 
--(void) loadScrollViewWithPage:(NSInteger) page
-{
+-(void) loadScrollViewWithPage:(NSInteger) page {
     if (page < 0 || page >= NUM_OF_CTRL_PAGES)
         return;
    
@@ -257,7 +245,7 @@ static EWSCustomCell *openCell = nil;
     [pageControlLabel setTextColor:[UIColor whiteColor]];
     [pageControlLabel setFont:[UIFont fontWithName:@"Futura" size:17]];
     [pageControlLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.pageControlView addSubview:pageControlLabel];
+    [pageControlView addSubview:pageControlLabel];
     
     if (page == 0) {
         [pageControlLabel setText:@"Glance"];
@@ -267,43 +255,57 @@ static EWSCustomCell *openCell = nil;
 }
 
 
+
+#pragma UIScrollViewDelegate methods
+
+// At the end of scroll set lastPage for alpha manipulation
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    //inDetailView = !inDetailView;
+    previousPage = pageControl.currentPage;
+    [self.tableView.visibleCells makeObjectsPerformSelector:@selector(toggleMeterView:) withObject:[NSNumber numberWithBool:inDetailView]];
+    [self.tableView.visibleCells makeObjectsPerformSelector:@selector(togglePanGestureRecognizerWith:) withObject:[NSNumber numberWithBool:!inDetailView]];
+    if (inDetailView) {
+        [self.tableView setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
+        [self.refreshLabel setTextColor:[UIColor whiteColor]];
+    } else {
+        [self.tableView setBackgroundColor:[UIColor whiteColor]];
+        [self.refreshLabel setTextColor:[UIColor blackColor]];
+    }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
+        EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
+        labDetailViewController.lab = ((EWSCustomCell *) sender).lab;
+    }
+}
+
+
+-(void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    EWSCustomCell *cell = (EWSCustomCell *) [sender view];
+    if (cell.meterViewOpen) {
+        [self performSegueWithIdentifier:@"ShowLabDetail" sender:[sender view]];
+    }
+}
+
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if ([scrollView isEqual:self.tableView]) {
         [super scrollViewWillBeginDragging:self.tableView];
     }
 }
 
-
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
-    // We don't want a "feedback loop" between the UIPageControl and the scroll delegate in
-    // which a scroll event generated from the user hitting the page control triggers updates from
-    // the delegate method. We use a boolean to disable the delegate logic when the page control is used.
-	
-    // Switch the indicator when more than 50% of the previous/next page is visible
     if ([sender isEqual:pageControlView]) {
-        CGFloat pageWidth = self.pageControlView.frame.size.width;
-       
-        float contentOffset = self.pageControlView.contentOffset.x;
-        
+        CGFloat pageWidth = pageControlView.frame.size.width;
+        float contentOffset = pageControlView.contentOffset.x;
         int newPage = floor((self.pageControlView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-        pageControl.currentPage = newPage;
         
-//        if (contentOffset <= 320.000 && contentOffset >= 0.0f) {
-//            if (previousPage == 0) {
-//                [self.pageControlView setAlpha:(1 - contentOffset/320 * 0.75)];
-//            } else {
-//                [self.pageControlView setAlpha:(0.25 + (320 - contentOffset)/320 * 0.75)];
-//            }
-//        }
+        pageControl.currentPage = newPage;
         
         if (newPage == 0) {
             inDetailView = NO;
-            [self.tableView setBackgroundColor:[UIColor whiteColor]];
-            [self.refreshLabel setTextColor:[UIColor blackColor]];
         } else {
             inDetailView = YES;
-            [self.tableView setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
-            [self.refreshLabel setTextColor:[UIColor whiteColor]];
         }
         
         float viewTXofCell = 0;
@@ -317,35 +319,6 @@ static EWSCustomCell *openCell = nil;
   
     if ([sender isEqual:self.tableView]) {
         [super scrollViewDidScroll:self.tableView];
-    }
-}
-
-
-#pragma UIScrollViewDelegate methods
-
-// At the end of scroll set lastPage for alpha manipulation
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    //inDetailView = !inDetailView;
-    previousPage = pageControl.currentPage;
-    [self.tableView.visibleCells makeObjectsPerformSelector:@selector(toggleMeterView:) withObject:[NSNumber numberWithBool:inDetailView]];
-    [self.tableView.visibleCells makeObjectsPerformSelector:@selector(togglePanGestureRecognizerWith:) withObject:[NSNumber numberWithBool:!inDetailView]];
-}
-
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
-        EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
-        //labDetailViewController.lab = [self.dataController objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-        labDetailViewController.lab = ((EWSCustomCell *) sender).lab;
-        NSLog(@"row  %d", [self.tableView indexPathForSelectedRow].row);
-    }
-}
-
-
--(void)handleTapGesture:(UITapGestureRecognizer *)sender {
-    EWSCustomCell *cell = (EWSCustomCell *) [sender view];
-    if (cell.meterViewOpen) {
-        [self performSegueWithIdentifier:@"ShowLabDetail" sender:[sender view]];
-        NSLog(@"lolol");
     }
 }
 

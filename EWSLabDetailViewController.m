@@ -14,7 +14,6 @@
 //#import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "MBProgressHUD.h"
-#import "DeviceDataModel.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -27,7 +26,7 @@
 @implementation EWSLabDetailViewController
 
 
-@synthesize notifyButton, notifyMeActionSheet, labFeaturesSegCtrl, deviceData, refreshButton;
+@synthesize notifyButton, notifyMeActionSheet, labFeaturesSegCtrl, deviceData, refreshButton, lab;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,20 +38,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[labFeaturesSegCtrl setSelectedSegmentIndex:0];
-    
-    deviceData = [[DeviceDataModel alloc] init];
 
     [self setTitle:self.lab.name];
-   
-    //NSLog(@"%@  ", [[EWSDataController sharedEWSLabSingleton] objectAtIndex:0]);
-   
 
     [self setNotifyButton];
     [self setNotifyMeActionSheet];
-    
     [self initRefreshButton];
-   
     [self setIcons];
     
     [self.labLocationTip.layer setBorderWidth:1.0f];
@@ -64,19 +55,6 @@
     LabMKAnnotation *labAnnotation = [[LabMKAnnotation alloc] initWithCoordinate:self.lab.geoLocation Location:@"Basement"];
     [self.mapView addAnnotation:labAnnotation];
     [self.mapView setCenterCoordinate:self.lab.geoLocation];
-    
-    NSLog(@"annotation    %f", labAnnotation.coordinate.latitude );
-    NSLog(@"annotation    %f", labAnnotation.coordinate.longitude );
-    //    BackButton shit
-//    UIBarButtonItem *backbutton =  [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-//    
-//    [backbutton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-//                                        [UIColor blackColor],UITextAttributeTextColor,[UIFont fontWithName:@"Monaco" size:16.0f],UITextAttributeFont,
-//                                        nil] forState:UIControlStateNormal];
-//    
-//    self.navigationController.navigationItem.backBarButtonItem = backbutton;
-
-	// Do any additional setup after loading the view.
 }
 
 -(void) viewDidAppear {
@@ -84,15 +62,18 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-
 
 - (void) handleTapOnMap {
     [self performSegueWithIdentifier:@"ShowDetailMapView" sender:self];
 }
 
+- (void)initNotfiyButton {
+    if (lab.timerSet) {
+        [notifyButton setBackgroundColor:[UIColor redColor]];
+        [notifyButton setTitle:@"Cancel Notification" forState:UIControlStateNormal];
+    }
+}
 
 #pragma Segue Controller
 
@@ -155,9 +136,6 @@
     if (buttonIndex == 0) {
         NSLog(@"lol");
     }
-
-    //[self postNotifyRequest];
-    DeviceDataModel *deviceData = [DeviceDataModel getInstance];
 }
 
 -(void) setNotifyMeActionSheet {
@@ -174,8 +152,8 @@
     UIImage *platformIcon = [UIImage imageNamed:@"detail_tux.png"];
     UIImage *windowIcon = [UIImage imageNamed:@"windowsIcon.png"];
     UIImage *dualScreenIcon = [UIImage imageNamed:@"dual_screen_icon.png"];
-    [labFeaturesSegCtrl setImage:platformIcon forSegmentAtIndex:1];
-    [labFeaturesSegCtrl setImage:windowIcon forSegmentAtIndex:0];
+    [labFeaturesSegCtrl setImage:platformIcon forSegmentAtIndex:0];
+    [labFeaturesSegCtrl setImage:windowIcon forSegmentAtIndex:1];
     [labFeaturesSegCtrl setImage:dualScreenIcon forSegmentAtIndex:2];
 }
 
@@ -189,27 +167,15 @@
 
 
 -(void)postNotifyRequest {
-    
-    DeviceDataModel *deviceData = [DeviceDataModel getInstance];
     MBProgressHUD *progressHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	progressHud.labelText = @"Sending";
     
-	//NSURL* url = [NSURL URLWithString:@"http://localhost:8080/add-notification"];
 	NSURL* url = [NSURL URLWithString:@"http://localhost:8080"];
-    //	__block ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:url];
-//	[request setDelegate:self];
   
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
   
-//    [request setPostValue:deviceData.deviceToken forKey:@"token"];
-//    [request setPostValue:deviceData.secretCode forKey:@"code"];
-//    [request setPostValue:deviceData.udid forKey:@"udid"];
-
     [request startSynchronous];
     
-//	[request setPostValue:[deviceData udid] forKey:@"udid"];
-//	[request setPostValue:[deviceData deviceToken] forKey:@"token"];
-//	[request setPostValue:[deviceData secretCode] forKey:@"code"];
 
     [request setCompletionBlock:^ {
         NSLog(@"lol");
@@ -217,31 +183,6 @@
     [request setFailedBlock:^ {
         NSLog(@"lol");
     }];
-
-    
-    
-//	[request setCompletionBlock:^ {
-//         if ([self isViewLoaded]) {
-//             [MBProgressHUD hideHUDForView:self.view animated:YES];
-//             
-//             if ([request responseStatusCode] != 200) {
-//                 ShowErrorAlert(NSLocalizedString(@"There was an error communicating with the server", nil));
-//             } else {
-//                 [self userDidJoin];
-//             }
-//         }
-//     }];
-//    
-//	[request setFailedBlock:^
-//     {
-//         if ([self isViewLoaded])
-//         {
-//             [MBProgressHUD hideHUDForView:self.view animated:YES];
-//             ShowErrorAlert([[request error] localizedDescription]);
-//         }
-//     }];
-//    
-//	[request startAsynchronous];
 }
 
  

@@ -33,6 +33,7 @@
         
         self.locationTip = locTip;
         self.indexInPlist = index;
+        self.timerSet = NO;
         return self;
     }
     return nil;

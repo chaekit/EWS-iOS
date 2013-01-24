@@ -17,7 +17,7 @@ USE PRIVATE SINGLETON VARIABLE DUDE. CHANGE THIS LATER
 #import "SBJson.h"
 #import "ASIHTTPRequest.h"
 
-const NSString *EWS_URL = @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback=";
+NSString *const EWS_URL = @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback=";
 
 
 //#import "EWSAsyncDemoCode.h"
@@ -95,29 +95,20 @@ static EWSDataController *sharedEWSLabSingleton = nil;
     return [self.mainLabList objectAtIndex:index];
 }
 
-
-//-(void)asyncDownload {
-//    //Set yourself as the delegate in the header file!
-//    EWSAsyncDemoCode *manager = [[EWSAsyncDemoCode alloc] initWithDelegate:self];
-//    [manager downloadDataAtUrlStr:@"http://www.google.com/?q=cats"];
-//}
-//
-//-(void)downloadData:(NSData*)data withError:(NSError *)error {
-//    //Process the data
-//}
+- (void)setLabAtIndex:(NSUInteger)index TimerSet:(BOOL)timerSet {
+    [[self.mainLabList objectAtIndex:index] setTimerSet:timerSet];
+}
 
 -(void)pollCurrentLabUsage {
-
     // Create new SBJSON parser object
     // Prepare URL request to download statuses from Twitter
     NSURL *url = [NSURL URLWithString:EWS_URL];
     //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback="]];
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    __weak ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 
     [request setCompletionBlock:^{
-        NSData *responseData = [request responseData];
-        
-        NSString *json_string = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        NSData *response = [request responseData];
+        NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
         NSDictionary *results = [json_string JSONValue];
         NSArray *labJsonData = [results objectForKey:@"data"];
         NSLog(@"results   %@", labJsonData);
@@ -133,14 +124,5 @@ static EWSDataController *sharedEWSLabSingleton = nil;
     }];
     
     [request startAsynchronous];
-    
-    // Perform request and get JSON back as a NSData object
-
-    // Get JSON as a NSString from NSData response
-
-    //NSLog(@"%@", results);
-    //NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    //[formatter setNumberStyle:NSNumberFormatterNoStyle];
-    
 }
 @end
