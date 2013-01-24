@@ -25,11 +25,10 @@
 
 @synthesize lab;
 @synthesize meterContainerView, detailView, usageFractionLabel, platformIcon, meterView, labNameLabel, labNameLabelInDetailView;
-@synthesize meterViewOpen, panGestureRecognizer;
+@synthesize meterViewOpen, panGestureRecognizer, tapGestureRecognizer;
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
@@ -37,19 +36,15 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 
--(void) initSubViewsWithLab:(Lab *)labAtIndex
-{
+- (void)initSubViewsWithLab:(Lab *)labAtIndex {
     meterViewOpen = NO;
     lab = labAtIndex;
     [self setUsageFractionLabel];
-    //[self setPlatformIcon];
     [self setLabNameLabelInDetailView];
     [self setMeterView];
     [self setLabNameLabel];
@@ -57,8 +52,7 @@
     [self setAccessoryType:UITableViewCellAccessoryNone];
 }
 
-- (void) setUsageFractionLabel
-{
+- (void)setUsageFractionLabel {
     NSString *labUsageString = [NSString stringWithFormat:@"%d/%d", lab.currentLabUsage, lab.maxCapacity];
     [usageFractionLabel setText:labUsageString];
     [usageFractionLabel.layer setBorderColor:[UIColor whiteColor].CGColor];
@@ -66,13 +60,11 @@
 }
 
 
--(void) setLabNameLabelInDetailView
-{
+- (void)setLabNameLabelInDetailView {
     [labNameLabelInDetailView setText:lab.name];
 }
 
--(void) setMeterView
-{
+- (void)setMeterView {
     double widthBasedOnUsage = ((double) lab.currentLabUsage/(double)lab.maxCapacity)*320;
     [meterView setFrame:CGRectMake(meterView.frame.origin.x, meterView.frame.origin.y, widthBasedOnUsage, meterView.frame.size.height)];
     
@@ -89,7 +81,7 @@
     [detailView insertSubview:meterContainerView aboveSubview:usageFractionLabel];
 }
 
--(void) scrollMeterViewWithPageControl:(NSNumber *) newTXOfCellObject {
+- (void)scrollMeterViewWithPageControl:(NSNumber *) newTXOfCellObject {
     [self.meterContainerView setTransform:CGAffineTransformMakeTranslation([newTXOfCellObject floatValue], 0)];
 }
 

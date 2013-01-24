@@ -39,6 +39,7 @@
 @property BOOL meterViewOpen;
 
 @property (nonatomic,strong) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
 - (void) scrollMeterViewWithPageControl:(NSNumber *) newTXOfCellObject;
 - (void)toggleMeterView:(NSNumber *)boolMeterView;

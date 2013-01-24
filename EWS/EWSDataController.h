@@ -19,11 +19,11 @@
 @end
 
 @interface EWSDataController : NSObject {
-    __weak id <EWSDataControllerDelegate> dataControllerDelegate;
+    __weak id <EWSDataControllerDelegate> delegate;
     NSMutableData *responseData;
 }
 
-@property (nonatomic, weak) id <EWSDataControllerDelegate> dataControllerDelegate;
+@property (nonatomic, weak) id <EWSDataControllerDelegate> delegate;
 @property (nonatomic, retain) NSMutableArray *mainLabList;
 
 +(EWSDataController *) sharedEWSLabSingleton;

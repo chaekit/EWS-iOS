@@ -19,6 +19,10 @@
 
 #import "EWSDataController.h"
 #import "NotificationViewController.h"
+
+
+static NSString *POST_NOTIFICATION = @"polledUsage";
+
 @interface EWSLabDetailViewController ()
 
 @end
@@ -41,7 +45,6 @@
 
     [self setTitle:self.lab.name];
 
-    [self setNotifyMeActionSheet];
     [self initRefreshButton];
     [self setIcons];
     
@@ -86,9 +89,6 @@
         NotificationViewController *notificationController = [segue destinationViewController];
         [notificationController setLab:self.lab];
     }
-    
-//    else if ([segueIdentifier isEqualToString:@"SetNotification"]) {
-//    }
 }
 
 -(void) setMapView {
@@ -122,6 +122,12 @@
     [self setTextForLabUsage];
 }
 
+
+- (void)registerNotificationCenter {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshLabUsage:) name:POST_NOTIFICATION object:nil];
+}
+
+
 #pragma mark - UIActionSheet protocols
 
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -130,11 +136,6 @@
     }
 }
 
--(void) setNotifyMeActionSheet {
-    notifyMeActionSheet = [[UIActionSheet alloc] initWithTitle:@"Notify me when there are ..." delegate:self
-                                             cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"1 to 5", nil];
-}
 
 -(void) showActionSheet:(id)sender {
     [notifyMeActionSheet showInView:self.view];
@@ -149,7 +150,6 @@
     [labFeaturesSegCtrl setImage:dualScreenIcon forSegmentAtIndex:2];
 }
 
-
 #pragma mark - MKMapView protocols
 
 -(MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
@@ -157,24 +157,4 @@
     return labPAV;
 }
 
-
--(void)postNotifyRequest {
-    MBProgressHUD *progressHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-	progressHud.labelText = @"Sending";
-    
-	NSURL* url = [NSURL URLWithString:@"http://localhost:8080"];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-  
-    [request startSynchronous];
-    
-
-    [request setCompletionBlock:^ {
-        NSLog(@"lol");
-    }];
-    [request setFailedBlock:^ {
-        NSLog(@"lol");
-    }];
-}
-
- 
 @end

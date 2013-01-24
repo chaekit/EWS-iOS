@@ -29,6 +29,7 @@
 
 static BOOL inDetailView = NO;
 static NSString *CellIdentifier = @"LabInfoCell";
+NSString *const POST_NOTIFICATION = @"polledUsage";
 
 @interface EWSViewController ()
 
@@ -53,6 +54,8 @@ static NSString *CellIdentifier = @"LabInfoCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initPageControViews];
+    [self registerNotificationCenter];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -106,14 +109,19 @@ static NSString *CellIdentifier = @"LabInfoCell";
         cell = [[EWSCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
    
-    if (inDetailView) {
-        [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_OPEN_X_DETAILVIEW, 0)];
-    } else {
-        [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_CLOSED_X, 0)];
-    }
-    
     Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
     [cell initSubViewsWithLab:labAtIndex];
+    
+    if (inDetailView) {
+        [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_OPEN_X_DETAILVIEW, 0)];
+        [cell setMeterViewOpen:YES];
+        NSLog(@"cell meterView    YES");
+    } else {
+        [cell.meterContainerView setTransform:CGAffineTransformMakeTranslation(CELL_CLOSED_X, 0)];
+        [cell setMeterViewOpen:NO];
+        NSLog(@"cell meterView    NO");
+    }
+    
     
     // Gesture initialization
     
@@ -122,9 +130,17 @@ static NSString *CellIdentifier = @"LabInfoCell";
     [cell addGestureRecognizer:panGestureRecognizer];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    [panGestureRecognizer setDelegate:self];
+//    [panGestureRecognizer setDelegate:self];
     [cell addGestureRecognizer:tapGestureRecognizer];
     [cell setPanGestureRecognizer:panGestureRecognizer];
+    [cell setTapGestureRecognizer:tapGestureRecognizer];
+ 
+    if (cell.meterViewOpen) {
+        NSLog(@"cell meterView    YES");
+    } else {
+        NSLog(@"cell meterView    NO");
+    }
+        
     
     return cell;
 }
@@ -278,6 +294,22 @@ static NSString *CellIdentifier = @"LabInfoCell";
         EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
         labDetailViewController.lab = ((EWSCustomCell *) sender).lab;
     }
+}
+
+- (void)registerNotificationCenter {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableView) name:POST_NOTIFICATION object:nil];
+}
+
+static int counter = 0;
+
+- (void)reloadTableView {
+    NSLog(@"reloadedTableView   %d", counter++);
+    if (inDetailView) {
+        NSLog(@"detail VIEW???   True");
+    } else {
+        NSLog(@"detail VIEW???   NO");
+    }
+    [self.tableView reloadData];
 }
 
 

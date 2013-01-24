@@ -18,9 +18,8 @@ USE PRIVATE SINGLETON VARIABLE DUDE. CHANGE THIS LATER
 #import "ASIHTTPRequest.h"
 
 NSString *const EWS_URL = @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback=";
+static NSString *POST_NOTIFICATION = @"polledUsage";
 
-
-//#import "EWSAsyncDemoCode.h"
 
 @interface EWSDataController ()
 -(void)initDefault;
@@ -30,7 +29,6 @@ NSString *const EWS_URL = @"https://my.engr.illinois.edu/labtrack/util_data_json
 
 static EWSDataController *sharedEWSLabSingleton = nil;
 
-@synthesize dataControllerDelegate;
 
 +(EWSDataController *) sharedEWSLabSingleton {
     @synchronized(self) {
@@ -44,7 +42,7 @@ static EWSDataController *sharedEWSLabSingleton = nil;
 -(id) init {
     if (self = [super init]) {
         [self initDefault];
-        [self pollCurrentLabUsage];
+        //[self pollCurrentLabUsage];
         return self;
     }
     return nil;
@@ -59,12 +57,10 @@ static EWSDataController *sharedEWSLabSingleton = nil;
 }
 
 - (void)postPollUsageNotification {
-    NSString *polledUsage = @"dataControlledPolledUsage";
-    [[NSNotificationCenter defaultCenter] postNotificationName:polledUsage object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:POST_NOTIFICATION object:self];
 }
 
--(void)initDefault
-{
+-(void)initDefault {
     NSString *pathToLabPlist = [[NSBundle mainBundle] pathForResource:@"lab_info" ofType:@"plist"];
     NSArray *testArray = [NSArray arrayWithContentsOfFile:pathToLabPlist];
     self.mainLabList = [[NSMutableArray alloc] init];

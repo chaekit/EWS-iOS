@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EWSDataController.h"
 
 @class LocalNotificationTicket;
 
-@interface TicketController : NSObject
+@interface TicketController : NSObject <EWSDataControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *tickets;
 //@property (nonatomic, retain) NSMutableArray *tickets;
