@@ -41,7 +41,6 @@
 
     [self setTitle:self.lab.name];
 
-    [self setNotifyButton];
     [self setNotifyMeActionSheet];
     [self initRefreshButton];
     [self setIcons];
@@ -112,13 +111,6 @@
     [self.labUsageLabel.layer setBorderWidth:2.0];
 }
 
--(void) setNotifyButton {
-    //[notifyButton addTarget:self action:@selector(showActionSheet:) forControlEvents:UIControlEventTouchUpInside];
-    
-//    self.notifyButton.layer.borderWidth = 0.5f;
-//    self.notifyButton.layer.cornerRadius = 10.0f;
-}
-
 
 -(void) initRefreshButton {
     [refreshButton setTarget:self];
@@ -171,7 +163,6 @@
 	progressHud.labelText = @"Sending";
     
 	NSURL* url = [NSURL URLWithString:@"http://localhost:8080"];
-  
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
   
     [request startSynchronous];
