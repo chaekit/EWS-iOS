@@ -13,7 +13,6 @@
 
 @interface TicketController : NSObject <EWSDataControllerDelegate>
 
-@property (nonatomic, strong) NSMutableArray *tickets;
 //@property (nonatomic, retain) NSMutableArray *tickets;
 
 + (TicketController *) getTickets;

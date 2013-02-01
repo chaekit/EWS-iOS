@@ -90,7 +90,8 @@
 }
 
 - (void)togglePanGestureRecognizerWith:(NSNumber *)boolMeterViewOpen {
-    [panGestureRecognizer setEnabled:[boolMeterViewOpen boolValue]];
+    [[self.gestureRecognizers objectAtIndex:1] setEnabled:[boolMeterViewOpen boolValue]];
+//    [panGestureRecognizer setEnabled:[boolMeterViewOpen boolValue]];
 }
 
 @end

@@ -93,7 +93,8 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
     [self loadScrollViewWithPage:1];
 }
 
-#pragma mark - Table view data source
+#pragma mark - 
+#pragma mark TableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -131,6 +132,7 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
 //    [panGestureRecognizer setDelegate:self];
+//    [tapGestureRecognizer setDelegate:self];
     [cell addGestureRecognizer:tapGestureRecognizer];
     [cell setPanGestureRecognizer:panGestureRecognizer];
     [cell setTapGestureRecognizer:tapGestureRecognizer];
@@ -150,25 +152,30 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
 
 
 
-#pragma mark - Gesture recognizer delegate
+#pragma mark - 
+#pragma mark GestureRecognizerDelegate methods
 
 // Makes sure that the recognizer doesn't block vertical gesutre, which is scrolling
-- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
-    CGPoint translation = [panGestureRecognizer translationInView:self.view];
-    return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    NSLog(@"class of gesture   %@", [gestureRecognizer class]);
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+        if (inDetailView)
+            return NO;
+    
+        CGPoint translation = [((UIPanGestureRecognizer *) gestureRecognizer) translationInView:self.view];
+        return (fabs(translation.x) / fabs(translation.y) > 1) ? YES : NO;
+    }
+    return NO;
 }
 
--(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated {
-    if (animated) {
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-        [UIView setAnimationDuration:FAST_ANIMATION_DURATION];
-    }
-    
-    [view setTransform:CGAffineTransformMakeTranslation(x, 0)];
-    
-    if (animated) {
-        [UIView commitAnimations];
+
+#pragma mark -
+#pragma mark GestureRecognizer handlers and helper methods
+
+-(void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    EWSCustomCell *cell = (EWSCustomCell *) [sender view];
+    if (cell.meterViewOpen) {
+        [self performSegueWithIdentifier:@"ShowLabDetail" sender:[sender view]];
     }
 }
 
@@ -224,8 +231,23 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
     }
 }
 
+-(void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated {
+    if (animated) {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [UIView setAnimationDuration:FAST_ANIMATION_DURATION];
+    }
+    
+    [view setTransform:CGAffineTransformMakeTranslation(x, 0)];
+    
+    if (animated) {
+        [UIView commitAnimations];
+    }
+}
 
-#pragma mark - PullToRefresh method override
+
+#pragma mark -
+#pragma mark Overridden PullToRefresh methods
 
 -(void) refresh {
     [self performSelector:@selector(refreshLabUsage) withObject:nil afterDelay:2.0];
@@ -240,9 +262,10 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
 }
 
 
-#pragma mark - ScrollView delegate stuff
+#pragma mark - 
+#pragma mark ScrollView delegate stuff
 
--(void) loadScrollViewWithPage:(NSInteger) page {
+- (void)loadScrollViewWithPage:(NSInteger) page {
     if (page < 0 || page >= NUM_OF_CTRL_PAGES)
         return;
    
@@ -272,29 +295,27 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
 
 
 
-#pragma UIScrollViewDelegate methods
+#pragma mark -
+#pragma mark UIScrollViewDelegate methods
 
 // At the end of scroll set lastPage for alpha manipulation
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     //inDetailView = !inDetailView;
     previousPage = pageControl.currentPage;
     [self.tableView.visibleCells makeObjectsPerformSelector:@selector(toggleMeterView:) withObject:[NSNumber numberWithBool:inDetailView]];
-    [self.tableView.visibleCells makeObjectsPerformSelector:@selector(togglePanGestureRecognizerWith:) withObject:[NSNumber numberWithBool:!inDetailView]];
     if (inDetailView) {
         [self.tableView setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
         [self.refreshLabel setTextColor:[UIColor whiteColor]];
+        [self.tableView.visibleCells makeObjectsPerformSelector:@selector(togglePanGestureRecognizerWith:) withObject:[NSNumber numberWithBool:inDetailView]];
+        NSLog(@"in detailView");
     } else {
         [self.tableView setBackgroundColor:[UIColor whiteColor]];
         [self.refreshLabel setTextColor:[UIColor blackColor]];
+        [self.tableView.visibleCells makeObjectsPerformSelector:@selector(togglePanGestureRecognizerWith:) withObject:[NSNumber numberWithBool:!inDetailView]];
+        NSLog(@"NOT in detailView");
     }
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
-        EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
-        labDetailViewController.lab = ((EWSCustomCell *) sender).lab;
-    }
-}
 
 - (void)registerNotificationCenter {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableView) name:POST_NOTIFICATION object:nil];
@@ -313,12 +334,6 @@ static int counter = 0;
 }
 
 
--(void)handleTapGesture:(UITapGestureRecognizer *)sender {
-    EWSCustomCell *cell = (EWSCustomCell *) [sender view];
-    if (cell.meterViewOpen) {
-        [self performSegueWithIdentifier:@"ShowLabDetail" sender:[sender view]];
-    }
-}
 
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if ([scrollView isEqual:self.tableView]) {
@@ -351,6 +366,15 @@ static int counter = 0;
   
     if ([sender isEqual:self.tableView]) {
         [super scrollViewDidScroll:self.tableView];
+    }
+}
+
+#pragma mark -
+#pragma mark Global
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ShowLabDetail"]) {
+        EWSLabDetailViewController *labDetailViewController = [segue destinationViewController];
+        labDetailViewController.lab = ((EWSCustomCell *) sender).lab;
     }
 }
 

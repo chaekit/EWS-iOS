@@ -22,6 +22,7 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 
 @property (nonatomic, strong) NSTimer *pollUsageTimer;
 @property (nonatomic) NSUInteger ticketCounter;
+@property (nonatomic, strong) NSMutableArray *tickets;
 
 @end
 
@@ -81,7 +82,6 @@ static TicketController *sharedTicketControllerInstance = nil;
 }
 
 - (void)checkTickets {
-    NSLog(@"size of array  %d", [sharedTicketControllerInstance.tickets count]);
     for (int i = 0; i < TICKET_ARRAY_SIZE; i++) {
         NSLog(@"index of the array  %d", i);
         if ( ![[sharedTicketControllerInstance.tickets objectAtIndex:i] isEqual:[NSNull null]] ) {
@@ -117,10 +117,8 @@ static TicketController *sharedTicketControllerInstance = nil;
     }
 }
 
-
 - (void)registerNotificationCenter {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkTickets) name:POST_NOTIFICATION object:nil];
 }
-
 
 @end
