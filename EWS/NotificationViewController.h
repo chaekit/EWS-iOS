@@ -2,14 +2,25 @@
 //  NotificationViewController.h
 //  EWS
 //
-//  Created by Jay Chae  on 12/30/12.
-//  Copyright (c) 2012 com.chaebacca. All rights reserved.
+//  Created by Jay Chae  on 1/15/13.
+//  Copyright (c) 2013 com.chaebacca. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+@class Lab;
+
 @interface NotificationViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIDatePicker *notificationTimePicker;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *closeButton;
+
+@property (nonatomic, strong) IBOutlet UIButton *cancelButton;
+@property (nonatomic, strong) IBOutlet UIButton *setButton;
+@property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, strong) IBOutlet UINavigationItem *alertTimeNavigationItem;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *openLabSizeSegCtrl;
+
+@property (nonatomic, strong) Lab *lab;
 
 @end

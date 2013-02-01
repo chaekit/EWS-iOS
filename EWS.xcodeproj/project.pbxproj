@@ -43,7 +43,6 @@
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
 		196EA91316921F2500D19A86 /* detail_tux@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 196EA91216921F2500D19A86 /* detail_tux@2x.png */; };
 		196EA9151692209400D19A86 /* dual_screen_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 196EA9141692209400D19A86 /* dual_screen_icon.png */; };
-		197414FE16AFA26500837FCD /* windowsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197414FD16AFA26500837FCD /* windowsIcon@2x.png */; };
 		19A06C2216A5E6BE00C63A04 /* EWSCustomLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A06C2116A5E6BE00C63A04 /* EWSCustomLocalNotification.m */; };
 		19CDED3516A6046700824A18 /* LocalNotificationTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CDED3416A6046700824A18 /* LocalNotificationTicket.m */; };
 		19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC82AC167270C800BB6C77 /* QuartzCore.framework */; };
@@ -66,8 +65,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		190AC53316A723030034BC88 /* TicketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketController.h; path = ../TicketController.h; sourceTree = "<group>"; };
-		190AC53416A723030034BC88 /* TicketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketController.m; path = ../TicketController.m; sourceTree = "<group>"; };
+		190AC53316A723030034BC88 /* TicketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketController.h; sourceTree = "<group>"; };
+		190AC53416A723030034BC88 /* TicketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketController.m; sourceTree = "<group>"; };
 		190E9952166FF05B006FDF0D /* EWSDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSDataController.h; sourceTree = "<group>"; };
 		190E9953166FF05B006FDF0D /* EWSDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDataController.m; sourceTree = "<group>"; };
 		190E995E166FF5E7006FDF0D /* Lab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lab.h; sourceTree = "<group>"; };
@@ -97,15 +96,15 @@
 		190E998C167009D6006FDF0D /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = "../../Libraries/json-framework/Classes/SBJsonUTF8Stream.m"; sourceTree = "<group>"; };
 		190E998D167009D6006FDF0D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "../../Libraries/json-framework/Classes/SBJsonWriter.h"; sourceTree = "<group>"; };
 		190E998E167009D6006FDF0D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "../../Libraries/json-framework/Classes/SBJsonWriter.m"; sourceTree = "<group>"; };
-		19176DB716A5314400423E48 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationViewController.h; path = ../NotificationViewController.h; sourceTree = "<group>"; };
-		19176DB816A5314400423E48 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationViewController.m; path = ../NotificationViewController.m; sourceTree = "<group>"; };
+		19176DB716A5314400423E48 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationViewController.h; path = /Users/jaychae/Developers/iOS/EWS/EWS/NotificationViewController.h; sourceTree = "<absolute>"; };
+		19176DB816A5314400423E48 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationViewController.m; path = /Users/jaychae/Developers/iOS/EWS/EWS/NotificationViewController.m; sourceTree = "<absolute>"; };
 		1918F66E16AF25E400D1B52B /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = ../../Libraries/PullToRefresh/arrow.png; sourceTree = "<group>"; };
 		192B3F451690E0BA00E70BAC /* EWSDetailLabMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSDetailLabMapViewController.h; sourceTree = "<group>"; };
 		192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDetailLabMapViewController.m; sourceTree = "<group>"; };
 		193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.m; sourceTree = "<group>"; };
-		1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSLabDetailViewController.h; sourceTree = SOURCE_ROOT; };
-		1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSLabDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSLabDetailViewController.h; path = /Users/jaychae/Developers/iOS/EWS/EWS/EWSLabDetailViewController.h; sourceTree = "<absolute>"; };
+		1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSLabDetailViewController.m; path = /Users/jaychae/Developers/iOS/EWS/EWS/EWSLabDetailViewController.m; sourceTree = "<absolute>"; };
 		1957E478168FE3E300DC1824 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1957E47A168FFB1D00DC1824 /* LabMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabMKAnnotation.h; sourceTree = "<group>"; };
 		1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabMKAnnotation.m; sourceTree = "<group>"; };
@@ -128,9 +127,8 @@
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
 		196EA91216921F2500D19A86 /* detail_tux@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_tux@2x.png"; sourceTree = "<group>"; };
 		196EA9141692209400D19A86 /* dual_screen_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dual_screen_icon.png; sourceTree = "<group>"; };
-		197414FD16AFA26500837FCD /* windowsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "windowsIcon@2x.png"; path = "../../../../Dropbox/windowsIcon@2x.png"; sourceTree = "<group>"; };
-		19A06C2016A5E6BE00C63A04 /* EWSCustomLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSCustomLocalNotification.h; sourceTree = SOURCE_ROOT; };
-		19A06C2116A5E6BE00C63A04 /* EWSCustomLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSCustomLocalNotification.m; sourceTree = SOURCE_ROOT; };
+		19A06C2016A5E6BE00C63A04 /* EWSCustomLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSCustomLocalNotification.h; path = EWS/EWSCustomLocalNotification.h; sourceTree = SOURCE_ROOT; };
+		19A06C2116A5E6BE00C63A04 /* EWSCustomLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSCustomLocalNotification.m; path = EWS/EWSCustomLocalNotification.m; sourceTree = SOURCE_ROOT; };
 		19CDED3316A6046700824A18 /* LocalNotificationTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationTicket.h; sourceTree = "<group>"; };
 		19CDED3416A6046700824A18 /* LocalNotificationTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationTicket.m; sourceTree = "<group>"; };
 		19EC82AC167270C800BB6C77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -329,7 +327,6 @@
 		1959BA90166F1ED800C79F98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				197414FD16AFA26500837FCD /* windowsIcon@2x.png */,
 				1918F66E16AF25E400D1B52B /* arrow.png */,
 				196EA9141692209400D19A86 /* dual_screen_icon.png */,
 				196EA91216921F2500D19A86 /* detail_tux@2x.png */,
@@ -459,7 +456,6 @@
 				196EA91316921F2500D19A86 /* detail_tux@2x.png in Resources */,
 				196EA9151692209400D19A86 /* dual_screen_icon.png in Resources */,
 				1918F66F16AF25E400D1B52B /* arrow.png in Resources */,
-				197414FE16AFA26500837FCD /* windowsIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
