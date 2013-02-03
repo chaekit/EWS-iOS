@@ -58,11 +58,9 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
     [self.mapView addAnnotation:labAnnotation];
     [self.mapView setCenterCoordinate:self.lab.geoLocation];
     [self.backgroundImageView initWithImage:[UIImage imageNamed:@"paper_fibers.png"]];
-    [self initGradient];
+    [self addShadowToIconContainerView];
 }
 
--(void) viewDidAppear {
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -72,12 +70,14 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_fibers.png"]]];
 }
 
-- (void)initGradient {
-    iconContainerView.layer.masksToBounds = NO;
-    iconContainerView.layer.cornerRadius = 3; // if you like rounded corners
-    iconContainerView.layer.shadowOffset = CGSizeMake(0, 1);
-    iconContainerView.layer.shadowRadius = 1;
-    iconContainerView.layer.shadowOpacity = 0.5;
+- (void)addShadowToIconContainerView {
+    [iconContainerView.layer setMasksToBounds:NO];
+    [iconContainerView.layer setCornerRadius:3];
+    [iconContainerView.layer setShadowOffset:CGSizeMake(0, 1)];
+    [iconContainerView.layer setShadowRadius:1];
+    [iconContainerView.layer setShadowOpacity:0.5];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:iconContainerView.bounds];
+    [iconContainerView.layer setShadowPath:path.CGPath];
 }
 
 - (void) handleTapOnMap {
