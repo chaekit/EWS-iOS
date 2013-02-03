@@ -143,10 +143,27 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="A3a-45-nJy">
-                                <rect key="frame" x="0.0" y="0.0" width="330" height="429"/>
+                            <view contentMode="scaleToFill" id="Hrl-vY-ZFS">
+                                <rect key="frame" x="10" y="233" width="300" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" id="GSI-mw-NuA" userLabel="LabMapView">
+                                        <rect key="frame" x="8" y="8" width="284" height="133"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="CF8-9r-eLl" id="iwW-0s-rEQ"/>
+                                        </connections>
+                                    </mapView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nyn-Ct-i5R" userLabel="locationTipLabel">
+                                        <rect key="frame" x="0.0" y="140" width="300" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="bf7-Hf-1lY">
                                 <rect key="frame" x="10" y="102" width="300" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -211,24 +228,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" id="GSI-mw-NuA" userLabel="LabMapView">
-                                <rect key="frame" x="10" y="240" width="300" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="CF8-9r-eLl" id="iwW-0s-rEQ"/>
-                                </connections>
-                            </mapView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Usage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IL6-49-H9u" userLabel="LabUsageLabel">
                                 <rect key="frame" x="177" y="14" width="123" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nyn-Ct-i5R" userLabel="locationTipLabel">
-                                <rect key="frame" x="10" y="372" width="300" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -246,11 +249,11 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tFg-Zq-lgt" userLabel="RefreshButton"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="backgroundImageView" destination="A3a-45-nJy" id="VrY-v3-eel"/>
                         <outlet property="iconContainerView" destination="bf7-Hf-1lY" id="nwb-Zx-CYi"/>
                         <outlet property="labLocationTip" destination="nyn-Ct-i5R" id="YeY-1H-2Ka"/>
                         <outlet property="labNameLabel" destination="eBZ-7p-EIU" id="3Rm-e2-iAM"/>
                         <outlet property="labUsageLabel" destination="IL6-49-H9u" id="EBE-Qv-4w3"/>
+                        <outlet property="mapContainerView" destination="Hrl-vY-ZFS" id="EJN-Kc-Ied"/>
                         <outlet property="mapView" destination="GSI-mw-NuA" id="H5U-FS-lox"/>
                         <outlet property="refreshButton" destination="tFg-Zq-lgt" id="hp8-wI-D6y"/>
                         <segue destination="nAQ-NY-tLT" kind="modal" identifier="ShowDetailMapView" id="WJT-Qs-d9F"/>
@@ -398,6 +401,67 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-221" y="208"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="EWSCustomCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="labNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labNameLabelInDetailView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="meterContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="platformIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EWSDetailLabMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSDetailLabMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="detailMapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="EWSLabDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSLabDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="iconContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="labFeaturesSegCtrl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="labLocationTip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labUsageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="EWSViewController" superclassName="PullRefreshTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="pageControlView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NotificationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="alertTimeNavigationItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="notificationTimePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="openLabSizeSegCtrl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="setButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="PullRefreshTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

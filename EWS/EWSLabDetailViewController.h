@@ -25,6 +25,7 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic, strong) IBOutlet UIView *iconContainerView;
+@property (nonatomic, strong) IBOutlet UIView *mapContainerView;
 
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *refreshButton;
 

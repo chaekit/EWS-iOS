@@ -29,7 +29,7 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 
 
 @synthesize notifyButton, notifyMeActionSheet, labFeaturesSegCtrl, deviceData, refreshButton, lab;
-@synthesize iconContainerView, labNameLabel;
+@synthesize iconContainerView, labNameLabel, mapContainerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,8 +47,9 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
     [self initRefreshButton];
     [self setIcons];
     
-    [self.labLocationTip.layer setBorderWidth:1.0f];
-    [self.labLocationTip.layer setBorderColor:[UIColor grayColor].CGColor];
+//    [self.labLocationTip.layer setBorderWidth:1.0f];
+//    [self.labLocationTip.layer setBorderColor:[UIColor grayColor].CGColor];
+    
     [self setTextForLabUsage];
     
     [self setMapView];
@@ -57,8 +58,10 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
     LabMKAnnotation *labAnnotation = [[LabMKAnnotation alloc] initWithCoordinate:self.lab.geoLocation Location:@"Basement"];
     [self.mapView addAnnotation:labAnnotation];
     [self.mapView setCenterCoordinate:self.lab.geoLocation];
-    [self.backgroundImageView initWithImage:[UIImage imageNamed:@"paper_fibers.png"]];
+//    [self.backgroundImageView initWithImage:[UIImage imageNamed:@"paper_fibers.png"]];
     [self addShadowToIconContainerView];
+    [self addShadowToMapContainerView];
+    [self initViewBackground];
 }
 
 
@@ -67,7 +70,7 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 }
 
 - (void)initViewBackground {
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_fibers.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"solid.png"]]];
 }
 
 - (void)addShadowToIconContainerView {
@@ -78,6 +81,16 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
     [iconContainerView.layer setShadowOpacity:0.5];
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:iconContainerView.bounds];
     [iconContainerView.layer setShadowPath:path.CGPath];
+}
+
+- (void)addShadowToMapContainerView {
+    [mapContainerView.layer setMasksToBounds:NO];
+    [mapContainerView.layer setCornerRadius:3];
+    [mapContainerView.layer setShadowOffset:CGSizeMake(0, 1)];
+    [mapContainerView.layer setShadowRadius:1];
+    [mapContainerView.layer setShadowOpacity:0.5];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:mapContainerView.bounds];
+    [mapContainerView.layer setShadowPath:path.CGPath];
 }
 
 - (void) handleTapOnMap {
