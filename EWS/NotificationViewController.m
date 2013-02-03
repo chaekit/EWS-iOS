@@ -25,12 +25,14 @@
 @property (nonatomic, strong) UIAlertView *noSetTimerAlert;
 @property (nonatomic, strong) UIAlertView *enoughStationAlert;
 
+@property NSTimeInterval countDown;
+
 @end
 
 @implementation NotificationViewController
 
 @synthesize closeButton, datePicker, lab, requestedOpenLabSize, cancelButton, alertTimeNavigationItem;
-@synthesize openLabSizeSegCtrl, noSetTimerAlert, enoughStationAlert;
+@synthesize openLabSizeSegCtrl, noSetTimerAlert, enoughStationAlert, countDown;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -93,6 +95,16 @@
     return [NSString stringWithFormat:@"In: %d hours, %d minutes", hours, minutes];
 }
 
+- (NSUInteger)getConvertedCountdownInMinutes:(NSTimeInterval)time {
+    int timeInInteger = (int) rint(time);
+    if ((timeInInteger%100 - 60) == 0) {
+        timeInInteger -= 60;
+    }
+  
+    return timeInInteger / 60;
+}
+
+
 - (int)notificationIsValid {
     if (((int)[datePicker countDownDuration]) - 60 == 0)
         return DID_NOT_SET_TIMER;
@@ -108,12 +120,10 @@
     int validation = [self notificationIsValid];
     if (validation == VALID_NOTIFICATION) {
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-
-        LocalNotificationTicket *ticket = [[LocalNotificationTicket alloc] init];
-        [ticket setLabName:lab.name];
-        [ticket setRequestedLabSize:requestedOpenLabSize];
-        [ticket setNotification:notification];
-        [ticket setLabIndex:lab.indexInPlist];
+        LocalNotificationTicket *ticket = [[LocalNotificationTicket alloc] initWithName:lab.name
+                                                Size:requestedOpenLabSize Notification:notification
+                                                    IndexPath:lab.indexInPlist
+                                                        Timer:[self getConvertedCountdownInString:[self getConvertedCountdownInMinutes:self.countDown]]];
 
         [TicketController addTicket:ticket];
         [lab setTimerSet:YES];
@@ -145,7 +155,8 @@
 }
 
 - (IBAction)setTimer:(UIDatePicker *)sender {
-    NSTimeInterval countDown = [sender countDownDuration];
-    [alertTimeNavigationItem setTitle:[self getConvertedCountdownInString:countDown]];
+    NSTimeInterval countDownFromTicker = [sender countDownDuration];
+    [alertTimeNavigationItem setTitle:[self getConvertedCountdownInString:countDownFromTicker]];
+    self.countDown = [self getConvertedCountdownInMinutes:countDownFromTicker];
 }
 @end

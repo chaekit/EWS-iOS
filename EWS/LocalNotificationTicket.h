@@ -16,4 +16,9 @@
 @property (nonatomic, strong) NSString *labName;
 @property (nonatomic) NSUInteger requestedLabSize;
 @property (nonatomic) NSUInteger labIndex;
+@property (nonatomic) int labTimer;
+
+- (id)initWithName:(NSString *)labName Size:(NSUInteger)requestedSize
+        Notification:(UILocalNotification *)notification IndexPath:(NSUInteger)index Timer:(int)labTimer;
+- (void)startTimer;
 @end

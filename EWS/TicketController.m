@@ -98,19 +98,14 @@ static TicketController *sharedTicketControllerInstance = nil;
             }
         }
     }
-    
 }
 
 + (void)addTicket:(LocalNotificationTicket *)ticket {
     if (sharedTicketControllerInstance) {
-        NSLog(@"inside addTicket");
         if ([[sharedTicketControllerInstance.tickets objectAtIndex:ticket.labIndex] isEqual:[NSNull null]]) {
+            // starts the timer for the ticket and add it the controller
+            [ticket startTimer];
             [sharedTicketControllerInstance.tickets replaceObjectAtIndex:ticket.labIndex withObject:ticket];
-            if (sharedTicketControllerInstance.ticketCounter == 0) {
-                [sharedTicketControllerInstance startTimer];
-            }
-            
-            sharedTicketControllerInstance.ticketCounter++;
         } else {
             NSLog(@"There are other shit in here");
         }
