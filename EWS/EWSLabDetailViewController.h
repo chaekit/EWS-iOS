@@ -23,10 +23,14 @@
 @property (nonatomic, strong) IBOutlet UIButton *notifyButton;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *labFeaturesSegCtrl;
 
+@property (nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
+@property (nonatomic, strong) IBOutlet UIView *iconContainerView;
+
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *refreshButton;
 
 @property (nonatomic, strong) UIActionSheet *notifyMeActionSheet;
 
+@property (nonatomic, strong) IBOutlet UILabel *labNameLabel;
 
 @property (nonatomic, strong) Lab *lab;
 @property (nonatomic, strong) DeviceDataModel *deviceData;

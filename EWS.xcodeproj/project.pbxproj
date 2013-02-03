@@ -61,6 +61,8 @@
 		19EFA399169A05E500D1309D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EFA398169A05E500D1309D /* libz.dylib */; };
 		19EFA39B169A05ED00D1309D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EFA39A169A05ED00D1309D /* MobileCoreServices.framework */; };
 		19EFA39F169A08D600D1309D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EFA39E169A08D600D1309D /* MBProgressHUD.m */; };
+		19F43BF916BE248700C33CDE /* paper_fibers_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F43BF716BE248700C33CDE /* paper_fibers_@2X.png */; };
+		19F43BFA16BE248700C33CDE /* paper_fibers.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F43BF816BE248700C33CDE /* paper_fibers.png */; };
 		19F86A75168B6380009B1B30 /* lab_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19F86A74168B6380009B1B30 /* lab_info.plist */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +164,8 @@
 		19EFA39A169A05ED00D1309D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		19EFA39D169A08D600D1309D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../../Libraries/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		19EFA39E169A08D600D1309D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../../Libraries/MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
+		19F43BF716BE248700C33CDE /* paper_fibers_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paper_fibers_@2X.png"; path = "/Users/jaychae/Developers/iOS/EWS/EWS/paper_fibers_@2X.png"; sourceTree = "<absolute>"; };
+		19F43BF816BE248700C33CDE /* paper_fibers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paper_fibers.png; path = /Users/jaychae/Developers/iOS/EWS/EWS/paper_fibers.png; sourceTree = "<absolute>"; };
 		19F86A74168B6380009B1B30 /* lab_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lab_info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,6 +331,8 @@
 		1959BA90166F1ED800C79F98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				19F43BF716BE248700C33CDE /* paper_fibers_@2X.png */,
+				19F43BF816BE248700C33CDE /* paper_fibers.png */,
 				1918F66E16AF25E400D1B52B /* arrow.png */,
 				196EA9141692209400D19A86 /* dual_screen_icon.png */,
 				196EA91216921F2500D19A86 /* detail_tux@2x.png */,
@@ -456,6 +462,8 @@
 				196EA91316921F2500D19A86 /* detail_tux@2x.png in Resources */,
 				196EA9151692209400D19A86 /* dual_screen_icon.png in Resources */,
 				1918F66F16AF25E400D1B52B /* arrow.png in Resources */,
+				19F43BF916BE248700C33CDE /* paper_fibers_@2X.png in Resources */,
+				19F43BFA16BE248700C33CDE /* paper_fibers.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

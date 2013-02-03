@@ -11,10 +11,8 @@
 #import "Lab.h"
 #import "EWSDetailLabMapViewController.h"
 
-//#import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "MBProgressHUD.h"
-
 #import <QuartzCore/QuartzCore.h>
 
 #import "EWSDataController.h"
@@ -31,6 +29,7 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 
 
 @synthesize notifyButton, notifyMeActionSheet, labFeaturesSegCtrl, deviceData, refreshButton, lab;
+@synthesize iconContainerView, labNameLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -54,9 +53,12 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
     
     [self setMapView];
 
+    [labNameLabel setText:lab.name];
     LabMKAnnotation *labAnnotation = [[LabMKAnnotation alloc] initWithCoordinate:self.lab.geoLocation Location:@"Basement"];
     [self.mapView addAnnotation:labAnnotation];
     [self.mapView setCenterCoordinate:self.lab.geoLocation];
+    [self.backgroundImageView initWithImage:[UIImage imageNamed:@"paper_fibers.png"]];
+    [self initGradient];
 }
 
 -(void) viewDidAppear {
@@ -64,6 +66,18 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)initViewBackground {
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"paper_fibers.png"]]];
+}
+
+- (void)initGradient {
+    iconContainerView.layer.masksToBounds = NO;
+    iconContainerView.layer.cornerRadius = 3; // if you like rounded corners
+    iconContainerView.layer.shadowOffset = CGSizeMake(0, 1);
+    iconContainerView.layer.shadowRadius = 1;
+    iconContainerView.layer.shadowOpacity = 0.5;
 }
 
 - (void) handleTapOnMap {
