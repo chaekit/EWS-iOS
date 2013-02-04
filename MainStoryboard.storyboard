@@ -168,42 +168,18 @@
                                 <rect key="frame" x="10" y="102" width="300" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lav-HS-SB0">
-                                        <rect key="frame" x="109" y="9" width="80" height="81"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="detail_tux@2x.png" id="z56-Ww-qX3">
+                                        <rect key="frame" x="110" y="9" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eed-wo-2DG">
-                                        <rect key="frame" x="210" y="9" width="80" height="81"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="dual_screen_icon.png" id="awD-VH-Ydj">
+                                        <rect key="frame" x="210" y="9" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PbO-8X-xMR">
-                                        <rect key="frame" x="11" y="9" width="80" height="81"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrow.png" id="E8c-h8-mHz">
+                                        <rect key="frame" x="11" y="9" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
+                                    </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Single" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Yx-y2-OYI">
                                         <rect key="frame" x="210" y="90" width="80" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -249,13 +225,16 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tFg-Zq-lgt" userLabel="RefreshButton"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="dualScreenIcon" destination="awD-VH-Ydj" id="Feo-gm-TRz"/>
                         <outlet property="iconContainerView" destination="bf7-Hf-1lY" id="nwb-Zx-CYi"/>
                         <outlet property="labLocationTip" destination="nyn-Ct-i5R" id="YeY-1H-2Ka"/>
                         <outlet property="labNameLabel" destination="eBZ-7p-EIU" id="3Rm-e2-iAM"/>
                         <outlet property="labUsageLabel" destination="IL6-49-H9u" id="EBE-Qv-4w3"/>
                         <outlet property="mapContainerView" destination="Hrl-vY-ZFS" id="EJN-Kc-Ied"/>
                         <outlet property="mapView" destination="GSI-mw-NuA" id="H5U-FS-lox"/>
+                        <outlet property="platformIcon" destination="z56-Ww-qX3" id="VI3-fQ-9hj"/>
                         <outlet property="refreshButton" destination="tFg-Zq-lgt" id="hp8-wI-D6y"/>
+                        <outlet property="screenSizeIcon" destination="E8c-h8-mHz" id="t0y-XU-Zk8"/>
                         <segue destination="nAQ-NY-tLT" kind="modal" identifier="ShowDetailMapView" id="WJT-Qs-d9F"/>
                     </connections>
                 </viewController>
@@ -401,67 +380,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-221" y="208"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="EWSCustomCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="labNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labNameLabelInDetailView" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="meterContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="platformIcon" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EWSDetailLabMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSDetailLabMapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="detailMapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="EWSLabDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSLabDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="iconContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="labFeaturesSegCtrl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="labLocationTip" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labUsageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="EWSViewController" superclassName="PullRefreshTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="pageControlView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NotificationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="alertTimeNavigationItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="notificationTimePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="openLabSizeSegCtrl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="setButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="PullRefreshTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
-        </class>
-    </classes>
+    <resources>
+        <image name="arrow.png" width="54" height="88"/>
+        <image name="detail_tux@2x.png" width="44" height="44"/>
+        <image name="dual_screen_icon.png" width="48" height="48"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

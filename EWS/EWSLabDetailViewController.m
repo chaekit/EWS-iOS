@@ -29,39 +29,43 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 
 
 @synthesize notifyButton, notifyMeActionSheet, labFeaturesSegCtrl, deviceData, refreshButton, lab;
-@synthesize iconContainerView, labNameLabel, mapContainerView;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize iconContainerView, labNameLabel, mapContainerView, screenSizeIcon, platformIcon, dualScreenIcon;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self setTitle:self.lab.name];
+    [self setTitle:lab.name];
 
     [self initRefreshButton];
-    [self setIcons];
-    
-//    [self.labLocationTip.layer setBorderWidth:1.0f];
-//    [self.labLocationTip.layer setBorderColor:[UIColor grayColor].CGColor];
-    
     [self setTextForLabUsage];
-    
     [self setMapView];
 
     [labNameLabel setText:lab.name];
     LabMKAnnotation *labAnnotation = [[LabMKAnnotation alloc] initWithCoordinate:self.lab.geoLocation Location:@"Basement"];
     [self.mapView addAnnotation:labAnnotation];
     [self.mapView setCenterCoordinate:self.lab.geoLocation];
-//    [self.backgroundImageView initWithImage:[UIImage imageNamed:@"paper_fibers.png"]];
     [self addShadowToIconContainerView];
     [self addShadowToMapContainerView];
     [self initViewBackground];
+    [self initIcons];
+}
+
+- (void)initIcons {
+    [platformIcon.layer setMasksToBounds:YES];
+    [dualScreenIcon.layer setMasksToBounds:YES];
+    [screenSizeIcon.layer setMasksToBounds:YES];
+    
+    [platformIcon.layer setBorderColor:[UIColor blackColor].CGColor];
+    [platformIcon.layer setBorderWidth:2.0f];
+    
+    [dualScreenIcon.layer setBorderColor:[UIColor blackColor].CGColor];
+    [dualScreenIcon.layer setBorderWidth:2.0f];
+    
+    [screenSizeIcon.layer setBorderColor:[UIColor blackColor].CGColor];
+    [screenSizeIcon.layer setBorderWidth:2.0f];
+    
+    [platformIcon.layer setCornerRadius:5];
+    [dualScreenIcon.layer setCornerRadius:5];
+    [screenSizeIcon.layer setCornerRadius:5];
 }
 
 
@@ -149,33 +153,10 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
     [self setTextForLabUsage];
 }
 
-
 - (void)registerNotificationCenter {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshLabUsage:) name:POST_NOTIFICATION object:nil];
 }
 
-
-#pragma mark - UIActionSheet protocols
-
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        NSLog(@"lol");
-    }
-}
-
-
--(void) showActionSheet:(id)sender {
-    [notifyMeActionSheet showInView:self.view];
-}
-
--(void) setIcons {
-    UIImage *platformIcon = [UIImage imageNamed:@"detail_tux.png"];
-    UIImage *windowIcon = [UIImage imageNamed:@"windowsIcon.png"];
-    UIImage *dualScreenIcon = [UIImage imageNamed:@"dual_screen_icon.png"];
-    [labFeaturesSegCtrl setImage:platformIcon forSegmentAtIndex:0];
-    [labFeaturesSegCtrl setImage:windowIcon forSegmentAtIndex:1];
-    [labFeaturesSegCtrl setImage:dualScreenIcon forSegmentAtIndex:2];
-}
 
 #pragma mark - MKMapView protocols
 

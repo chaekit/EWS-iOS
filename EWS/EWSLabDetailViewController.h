@@ -36,4 +36,9 @@
 @property (nonatomic, strong) Lab *lab;
 @property (nonatomic, strong) DeviceDataModel *deviceData;
 
+@property (nonatomic, strong) IBOutlet UIImageView *platformIcon;
+@property (nonatomic, strong) IBOutlet UIImageView *screenSizeIcon;
+@property (nonatomic, strong) IBOutlet UIImageView *dualScreenIcon;
+
+
 @end
