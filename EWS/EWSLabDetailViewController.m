@@ -143,12 +143,12 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 }
 
 
--(void) initRefreshButton {
+- (void)initRefreshButton {
     [refreshButton setTarget:self];
     [refreshButton setAction:@selector(refreshLabUsage:)];
 }
 
--(void) refreshLabUsage:(id) sender {
+- (void)refreshLabUsage:(id) sender {
     [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
     [self setTextForLabUsage];
 }
