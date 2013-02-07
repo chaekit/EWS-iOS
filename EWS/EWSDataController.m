@@ -56,6 +56,10 @@ static EWSDataController *sharedEWSLabSingleton = nil;
     }
 }
 
+//int getNumber(int num1, num2)
+
+//-(int) getNumberWithNum1:(int)num1 Num2:(int)num2 
+
 - (void)postPollUsageNotification {
     [[NSNotificationCenter defaultCenter] postNotificationName:POST_NOTIFICATION object:self];
 }

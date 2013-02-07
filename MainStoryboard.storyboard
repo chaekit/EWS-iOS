@@ -168,11 +168,11 @@
                                 <rect key="frame" x="10" y="102" width="300" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="detail_tux@2x.png" id="z56-Ww-qX3">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Windows.png" id="z56-Ww-qX3">
                                         <rect key="frame" x="110" y="9" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="dual_screen_icon.png" id="awD-VH-Ydj">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DualScreen.png" id="awD-VH-Ydj">
                                         <rect key="frame" x="210" y="9" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -381,10 +381,78 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
+        <image name="DualScreen.png" width="64" height="64"/>
+        <image name="Windows.png" width="64" height="64"/>
         <image name="arrow.png" width="54" height="88"/>
-        <image name="detail_tux@2x.png" width="44" height="44"/>
-        <image name="dual_screen_icon.png" width="48" height="48"/>
     </resources>
+    <classes>
+        <class className="EWSCustomCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSCustomCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="labNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labNameLabelInDetailView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="meterContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="meterView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="platformIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="usageFractionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EWSDetailLabMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSDetailLabMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="detailMapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="EWSLabDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSLabDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="dualScreenIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="iconContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="labFeaturesSegCtrl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="labLocationTip" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labUsageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="platformIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="screenSizeIcon" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="EWSViewController" superclassName="PullRefreshTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EWSViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="pageControlView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NotificationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNotification:"/>
+                <relationship kind="action" name="cancelNotification:"/>
+                <relationship kind="action" name="segmentSwitch:"/>
+                <relationship kind="action" name="setTimer:" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="alertTimeNavigationItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="notificationTimePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="openLabSizeSegCtrl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="setButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="PullRefreshTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
