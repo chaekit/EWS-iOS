@@ -42,7 +42,7 @@
 }
 
 - (void)pollCurrentLabUsage {
-    [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
+    [EWSDataController pollCurrentLabUsage];
 }
 
 

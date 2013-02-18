@@ -47,6 +47,13 @@
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
 		196EA91316921F2500D19A86 /* detail_tux@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 196EA91216921F2500D19A86 /* detail_tux@2x.png */; };
 		196EA9151692209400D19A86 /* dual_screen_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 196EA9141692209400D19A86 /* dual_screen_icon.png */; };
+		197CC26916C8B061008B3FC1 /* WindowsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC26816C8B061008B3FC1 /* WindowsIcon@2x.png */; };
+		197CC27116C8B376008B3FC1 /* DualMonitor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27016C8B376008B3FC1 /* DualMonitor@2x.png */; };
+		197CC27316C8B420008B3FC1 /* DualMonitor@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27216C8B420008B3FC1 /* DualMonitor@2x copy.png */; };
+		197CC27916C8BC58008B3FC1 /* TuxIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27816C8BC58008B3FC1 /* TuxIcon@2x.png */; };
+		197CC27B16C8BC6D008B3FC1 /* TuxIcon@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27A16C8BC6D008B3FC1 /* TuxIcon@2x copy.png */; };
+		197CC27D16C8C193008B3FC1 /* ScreenSize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27C16C8C193008B3FC1 /* ScreenSize@2x.png */; };
+		197CC27F16C8C21C008B3FC1 /* ScreenSize18@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27E16C8C21C008B3FC1 /* ScreenSize18@2x.png */; };
 		19A06C2216A5E6BE00C63A04 /* EWSCustomLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A06C2116A5E6BE00C63A04 /* EWSCustomLocalNotification.m */; };
 		19CDED3516A6046700824A18 /* LocalNotificationTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CDED3416A6046700824A18 /* LocalNotificationTicket.m */; };
 		19EC82AD167270C800BB6C77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EC82AC167270C800BB6C77 /* QuartzCore.framework */; };
@@ -115,6 +122,7 @@
 		192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDetailLabMapViewController.m; sourceTree = "<group>"; };
 		193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		194E620716D1EDB400371EAA /* EWSProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSProjectConstants.h; sourceTree = "<group>"; };
 		1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSLabDetailViewController.h; path = /Users/jaychae/Developers/iOS/EWS/EWS/EWSLabDetailViewController.h; sourceTree = "<absolute>"; };
 		1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSLabDetailViewController.m; path = /Users/jaychae/Developers/iOS/EWS/EWS/EWSLabDetailViewController.m; sourceTree = "<absolute>"; };
 		1957E478168FE3E300DC1824 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -139,6 +147,13 @@
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
 		196EA91216921F2500D19A86 /* detail_tux@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_tux@2x.png"; sourceTree = "<group>"; };
 		196EA9141692209400D19A86 /* dual_screen_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dual_screen_icon.png; sourceTree = "<group>"; };
+		197CC26816C8B061008B3FC1 /* WindowsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WindowsIcon@2x.png"; path = "../../../../Desktop/WindowsIcon@2x.png"; sourceTree = "<group>"; };
+		197CC27016C8B376008B3FC1 /* DualMonitor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DualMonitor@2x.png"; sourceTree = "<group>"; };
+		197CC27216C8B420008B3FC1 /* DualMonitor@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DualMonitor@2x copy.png"; sourceTree = "<group>"; };
+		197CC27816C8BC58008B3FC1 /* TuxIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TuxIcon@2x.png"; sourceTree = "<group>"; };
+		197CC27A16C8BC6D008B3FC1 /* TuxIcon@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TuxIcon@2x copy.png"; sourceTree = "<group>"; };
+		197CC27C16C8C193008B3FC1 /* ScreenSize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ScreenSize@2x.png"; path = "EWS/ScreenSize@2x.png"; sourceTree = "<group>"; };
+		197CC27E16C8C21C008B3FC1 /* ScreenSize18@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ScreenSize18@2x.png"; path = "EWS/ScreenSize18@2x.png"; sourceTree = "<group>"; };
 		19A06C2016A5E6BE00C63A04 /* EWSCustomLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSCustomLocalNotification.h; path = EWS/EWSCustomLocalNotification.h; sourceTree = SOURCE_ROOT; };
 		19A06C2116A5E6BE00C63A04 /* EWSCustomLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSCustomLocalNotification.m; path = EWS/EWSCustomLocalNotification.m; sourceTree = SOURCE_ROOT; };
 		19CDED3316A6046700824A18 /* LocalNotificationTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationTicket.h; sourceTree = "<group>"; };
@@ -289,9 +304,19 @@
 			name = PullToRefresh;
 			sourceTree = "<group>";
 		};
+		194E620416D1EC5D00371EAA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				194E620716D1EDB400371EAA /* EWSProjectConstants.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 		1959BA7A166F1ED800C79F98 = {
 			isa = PBXGroup;
 			children = (
+				197CC27E16C8C21C008B3FC1 /* ScreenSize18@2x.png */,
+				197CC27C16C8C193008B3FC1 /* ScreenSize@2x.png */,
 				1959BA8F166F1ED800C79F98 /* EWS */,
 				1959BA88166F1ED800C79F98 /* Frameworks */,
 				1959BA86166F1ED800C79F98 /* Products */,
@@ -326,9 +351,10 @@
 		1959BA8F166F1ED800C79F98 /* EWS */ = {
 			isa = PBXGroup;
 			children = (
+				194E620416D1EC5D00371EAA /* Constants */,
+				19176DB616A52CFA00423E48 /* External */,
 				190AC53816A723100034BC88 /* ViewController */,
 				190AC53716A7230A0034BC88 /* Controlleres */,
-				19176DB616A52CFA00423E48 /* External */,
 				190C8346169B86D000281B59 /* Views */,
 				19EFA3A0169A0A8800D1309D /* Model */,
 				1959BAA8166F1F0D00C79F98 /* MainStoryboard.storyboard */,
@@ -343,6 +369,11 @@
 		1959BA90166F1ED800C79F98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				197CC27816C8BC58008B3FC1 /* TuxIcon@2x.png */,
+				197CC27A16C8BC6D008B3FC1 /* TuxIcon@2x copy.png */,
+				197CC27216C8B420008B3FC1 /* DualMonitor@2x copy.png */,
+				197CC27016C8B376008B3FC1 /* DualMonitor@2x.png */,
+				197CC26816C8B061008B3FC1 /* WindowsIcon@2x.png */,
 				1910A4B016C3285F008B56BB /* DualScreen@2x.png */,
 				1910A4B116C3285F008B56BB /* Windows@2x.png */,
 				1910A4AE16C327EA008B56BB /* Windows.png */,
@@ -488,6 +519,13 @@
 				1910A4AF16C327EA008B56BB /* Windows.png in Resources */,
 				1910A4B216C3285F008B56BB /* DualScreen@2x.png in Resources */,
 				1910A4B316C3285F008B56BB /* Windows@2x.png in Resources */,
+				197CC26916C8B061008B3FC1 /* WindowsIcon@2x.png in Resources */,
+				197CC27116C8B376008B3FC1 /* DualMonitor@2x.png in Resources */,
+				197CC27316C8B420008B3FC1 /* DualMonitor@2x copy.png in Resources */,
+				197CC27916C8BC58008B3FC1 /* TuxIcon@2x.png in Resources */,
+				197CC27B16C8BC6D008B3FC1 /* TuxIcon@2x copy.png in Resources */,
+				197CC27D16C8C193008B3FC1 /* ScreenSize@2x.png in Resources */,
+				197CC27F16C8C21C008B3FC1 /* ScreenSize18@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

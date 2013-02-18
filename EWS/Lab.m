@@ -25,12 +25,8 @@
         self.currentLabUsage = 0;
         self.buildingName = buildingName;
         self.computerPlatformName = computerPlatFormName;
-        
-        NSLog(@"geoloc object shit    %@", [geoLoc objectForKey:@"latitude"]);
-        NSLog(@"class of this object shit    %@", [[geoLoc objectForKey:@"latitude"] class]);
         self.geoLocation = CLLocationCoordinate2DMake([[geoLoc objectForKey:@"latitude"] doubleValue],
                                                       [[geoLoc objectForKey:@"longitude"] doubleValue]);
-        
         self.locationTip = locTip;
         self.indexInPlist = index;
         self.timerSet = NO;

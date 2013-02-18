@@ -16,9 +16,8 @@ USE PRIVATE SINGLETON VARIABLE DUDE. CHANGE THIS LATER
 #import "Lab.h"
 #import "SBJson.h"
 #import "ASIHTTPRequest.h"
+#import "EWSProjectConstants.h"
 
-NSString *const EWS_URL = @"https://my.engr.illinois.edu/labtrack/util_data_json.asp?callback=";
-static NSString *POST_NOTIFICATION = @"polledUsage";
 
 
 @interface EWSDataController ()
@@ -29,15 +28,6 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 
 static EWSDataController *sharedEWSLabSingleton = nil;
 
-
-+(EWSDataController *) sharedEWSLabSingleton {
-    @synchronized(self) {
-        if (!sharedEWSLabSingleton) {
-            sharedEWSLabSingleton = [[EWSDataController alloc] init];
-        }
-        return sharedEWSLabSingleton;
-    }
-}
 
 -(id) init {
     if (self = [super init]) {
@@ -56,11 +46,8 @@ static EWSDataController *sharedEWSLabSingleton = nil;
     }
 }
 
-//int getNumber(int num1, num2)
 
-//-(int) getNumberWithNum1:(int)num1 Num2:(int)num2 
-
-- (void)postPollUsageNotification {
++ (void)postPollUsageNotification {
     [[NSNotificationCenter defaultCenter] postNotificationName:POST_NOTIFICATION object:self];
 }
 
@@ -70,7 +57,6 @@ static EWSDataController *sharedEWSLabSingleton = nil;
     self.mainLabList = [[NSMutableArray alloc] init];
 
     for (int i =0; i < [testArray count]; i++) {
-        NSLog(@"class of cap   %@",[[[testArray objectAtIndex:i] objectForKey:@"capacity"] class]);
         NSString *name = [[testArray objectAtIndex:i] objectForKey:@"name"];
         NSUInteger capacity = [[[testArray objectAtIndex:i] objectForKey:@"capacity"] unsignedIntegerValue];
         NSString *building = [[testArray objectAtIndex:i] objectForKey:@"building"];
@@ -87,19 +73,16 @@ static EWSDataController *sharedEWSLabSingleton = nil;
     }
 }
 
-- (NSUInteger)countOfMainLabList {
-    return [self.mainLabList count];
++ (NSUInteger)countOfMainLabList {
+    return [sharedEWSLabSingleton.mainLabList count];
 }
 
-- (Lab *)objectAtIndex:(NSUInteger)index {
-    return [self.mainLabList objectAtIndex:index];
++ (Lab *)objectAtIndex:(NSUInteger)index {
+    return [sharedEWSLabSingleton.mainLabList objectAtIndex:index];
 }
 
-- (void)setLabAtIndex:(NSUInteger)index TimerSet:(BOOL)timerSet {
-    [[self.mainLabList objectAtIndex:index] setTimerSet:timerSet];
-}
 
--(void)pollCurrentLabUsage {
++ (void)pollCurrentLabUsage {
     // Create new SBJSON parser object
     // Prepare URL request to download statuses from Twitter
     NSURL *url = [NSURL URLWithString:EWS_URL];
@@ -111,12 +94,10 @@ static EWSDataController *sharedEWSLabSingleton = nil;
         NSString *json_string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
         NSDictionary *results = [json_string JSONValue];
         NSArray *labJsonData = [results objectForKey:@"data"];
-        NSLog(@"results   %@", labJsonData);
-        
         NSUInteger indexForMainList = 0;
         for (NSDictionary *lab in labJsonData) {
             NSUInteger currentUsage = [[lab objectForKey:@"inusecount"] integerValue];
-            ((Lab *)[self.mainLabList objectAtIndex:indexForMainList]).currentLabUsage = currentUsage;
+            ((Lab *)[sharedEWSLabSingleton.mainLabList objectAtIndex:indexForMainList]).currentLabUsage = currentUsage;
             indexForMainList++;
         }
         

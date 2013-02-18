@@ -17,9 +17,7 @@
 
 #import "EWSDataController.h"
 #import "NotificationViewController.h"
-
-
-static NSString *POST_NOTIFICATION = @"polledUsage";
+#import "EWSProjectConstants.h"
 
 @interface EWSLabDetailViewController ()
 
@@ -102,10 +100,10 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 }
 
 - (void)initNotfiyButton {
-    if (lab.timerSet) {
+//    if (lab.timerSet) {
         [notifyButton setBackgroundColor:[UIColor redColor]];
         [notifyButton setTitle:@"Cancel Notification" forState:UIControlStateNormal];
-    }
+//    }
 }
 
 #pragma Segue Controller
@@ -149,7 +147,7 @@ static NSString *POST_NOTIFICATION = @"polledUsage";
 }
 
 - (void)refreshLabUsage:(id) sender {
-    [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
+    [EWSDataController pollCurrentLabUsage];
     [self setTextForLabUsage];
 }
 

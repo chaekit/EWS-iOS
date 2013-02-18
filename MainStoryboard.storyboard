@@ -168,15 +168,15 @@
                                 <rect key="frame" x="10" y="102" width="300" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Windows.png" id="z56-Ww-qX3">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="TuxIcon@2x copy.png" id="z56-Ww-qX3">
                                         <rect key="frame" x="110" y="9" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DualScreen.png" id="awD-VH-Ydj">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DualMonitor@2x copy.png" id="awD-VH-Ydj">
                                         <rect key="frame" x="210" y="9" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrow.png" id="E8c-h8-mHz">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ScreenSize@2x.png" id="E8c-h8-mHz">
                                         <rect key="frame" x="11" y="9" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -381,9 +381,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="DualScreen.png" width="64" height="64"/>
-        <image name="Windows.png" width="64" height="64"/>
-        <image name="arrow.png" width="54" height="88"/>
+        <image name="DualMonitor@2x copy.png" width="80" height="80"/>
+        <image name="ScreenSize@2x.png" width="160" height="160"/>
+        <image name="TuxIcon@2x copy.png" width="160" height="160"/>
     </resources>
     <classes>
         <class className="EWSCustomCell" superclassName="UITableViewCell">
@@ -436,10 +436,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="NotificationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addNotification:"/>
-                <relationship kind="action" name="cancelNotification:"/>
-                <relationship kind="action" name="segmentSwitch:"/>
-                <relationship kind="action" name="setTimer:" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="alertTimeNavigationItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="closeButton" candidateClass="UIBarButtonItem"/>

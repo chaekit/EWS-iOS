@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-@interface LabMKAnnotation : NSObject <MKAnnotation> {
-    //CLLocationCoordinate2D coordinate;
-}
+@interface LabMKAnnotation : NSObject <MKAnnotation>
 
 @property (nonatomic, strong) NSString *locationInBuilding;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;

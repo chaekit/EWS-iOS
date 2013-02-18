@@ -68,7 +68,7 @@ static TicketController *sharedTicketControllerInstance = nil;
 
 - (void)startTimer {
     //poll usage
-    [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
+    [EWSDataController pollCurrentLabUsage];
     [sharedTicketControllerInstance checkTickets];
     pollUsageTimer = [NSTimer scheduledTimerWithTimeInterval:600 target:self selector:@selector(pollCurrentLabUsage:) userInfo:nil repeats:YES];
 }
@@ -78,7 +78,7 @@ static TicketController *sharedTicketControllerInstance = nil;
 }
 
 - (void)pollCurrentLabUsage:(id)sender {
-    [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
+    [EWSDataController pollCurrentLabUsage];
 }
 
 - (void)checkTickets {
@@ -86,7 +86,7 @@ static TicketController *sharedTicketControllerInstance = nil;
         NSLog(@"index of the array  %d", i);
         if ( ![[sharedTicketControllerInstance.tickets objectAtIndex:i] isEqual:[NSNull null]] ) {
             LocalNotificationTicket *ticket = [sharedTicketControllerInstance.tickets objectAtIndex:i];
-            Lab *lab = [[EWSDataController sharedEWSLabSingleton] objectAtIndex:i];
+            Lab *lab = [EWSDataController objectAtIndex:i];
             NSUInteger numOpenStations = lab.maxCapacity - lab.currentLabUsage;
            
             NSLog(@"Not Null");

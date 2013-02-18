@@ -13,6 +13,7 @@
 #import "EWSCustomCell.h"
 #import "EWSLabDetailViewController.h"
 #import "PullRefreshTableViewController.h"
+#import "EWSProjectConstants.h"
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
@@ -29,7 +30,6 @@
 
 static BOOL inDetailView = NO;
 static NSString *CellIdentifier = @"LabInfoCell";
-NSString *const POST_NOTIFICATION = @"polledUsage";
 
 @interface EWSViewController ()
 
@@ -48,7 +48,6 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
 
 -(void)awakeFromNib {
     [super awakeFromNib];
-    self.dataController = [EWSDataController sharedEWSLabSingleton];
 }
 
 - (void)viewDidLoad {
@@ -101,7 +100,7 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataController countOfMainLabList];
+    return [EWSDataController countOfMainLabList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,7 +109,7 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
         cell = [[EWSCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
    
-    Lab *labAtIndex = [self.dataController objectAtIndex:indexPath.row];
+    Lab *labAtIndex = [EWSDataController objectAtIndex:indexPath.row];
     [cell initSubViewsWithLab:labAtIndex];
     
     if (inDetailView) {
@@ -254,8 +253,7 @@ NSString *const POST_NOTIFICATION = @"polledUsage";
 }
 
 -(void) refreshLabUsage {
-    [[EWSDataController sharedEWSLabSingleton] pollCurrentLabUsage];
-    //[self.dataController pollCurrentLabUsage];
+    [EWSDataController pollCurrentLabUsage];
     [self performSelector:@selector(stopLoading) withObject:nil afterDelay:2.0];
     [self.tableView reloadData];
     //[self stopLoading];

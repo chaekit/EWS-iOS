@@ -18,12 +18,9 @@
 
 @property (nonatomic) NSUInteger maxCapacity;
 @property (nonatomic) NSUInteger currentLabUsage;
-
 @property (nonatomic) CLLocationCoordinate2D geoLocation;
-
 @property (nonatomic) NSUInteger indexInPlist;
 
-@property (nonatomic) BOOL timerSet;
 
 -(id)initWithName:(NSString *)labName
         Capacity:(NSUInteger)labCapacity
