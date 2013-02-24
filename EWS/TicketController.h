@@ -11,7 +11,7 @@
 
 @class LocalNotificationTicket;
 
-@interface TicketController : NSObject <EWSDataControllerDelegate>
+@interface TicketController : NSObject
 
 //@property (nonatomic, retain) NSMutableArray *tickets;
 

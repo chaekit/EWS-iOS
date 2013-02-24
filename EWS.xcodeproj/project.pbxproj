@@ -47,7 +47,6 @@
 		1959BAB0166F1FF600C79F98 /* EWSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1959BAAF166F1FF600C79F98 /* EWSViewController.m */; };
 		196EA91316921F2500D19A86 /* detail_tux@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 196EA91216921F2500D19A86 /* detail_tux@2x.png */; };
 		196EA9151692209400D19A86 /* dual_screen_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 196EA9141692209400D19A86 /* dual_screen_icon.png */; };
-		197CC26916C8B061008B3FC1 /* WindowsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC26816C8B061008B3FC1 /* WindowsIcon@2x.png */; };
 		197CC27116C8B376008B3FC1 /* DualMonitor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27016C8B376008B3FC1 /* DualMonitor@2x.png */; };
 		197CC27316C8B420008B3FC1 /* DualMonitor@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27216C8B420008B3FC1 /* DualMonitor@2x copy.png */; };
 		197CC27916C8BC58008B3FC1 /* TuxIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 197CC27816C8BC58008B3FC1 /* TuxIcon@2x.png */; };
@@ -147,7 +146,6 @@
 		1959BAAF166F1FF600C79F98 /* EWSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSViewController.m; sourceTree = "<group>"; };
 		196EA91216921F2500D19A86 /* detail_tux@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_tux@2x.png"; sourceTree = "<group>"; };
 		196EA9141692209400D19A86 /* dual_screen_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dual_screen_icon.png; sourceTree = "<group>"; };
-		197CC26816C8B061008B3FC1 /* WindowsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WindowsIcon@2x.png"; path = "../../../../Desktop/WindowsIcon@2x.png"; sourceTree = "<group>"; };
 		197CC27016C8B376008B3FC1 /* DualMonitor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DualMonitor@2x.png"; sourceTree = "<group>"; };
 		197CC27216C8B420008B3FC1 /* DualMonitor@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DualMonitor@2x copy.png"; sourceTree = "<group>"; };
 		197CC27816C8BC58008B3FC1 /* TuxIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TuxIcon@2x.png"; sourceTree = "<group>"; };
@@ -373,7 +371,6 @@
 				197CC27A16C8BC6D008B3FC1 /* TuxIcon@2x copy.png */,
 				197CC27216C8B420008B3FC1 /* DualMonitor@2x copy.png */,
 				197CC27016C8B376008B3FC1 /* DualMonitor@2x.png */,
-				197CC26816C8B061008B3FC1 /* WindowsIcon@2x.png */,
 				1910A4B016C3285F008B56BB /* DualScreen@2x.png */,
 				1910A4B116C3285F008B56BB /* Windows@2x.png */,
 				1910A4AE16C327EA008B56BB /* Windows.png */,
@@ -519,7 +516,6 @@
 				1910A4AF16C327EA008B56BB /* Windows.png in Resources */,
 				1910A4B216C3285F008B56BB /* DualScreen@2x.png in Resources */,
 				1910A4B316C3285F008B56BB /* Windows@2x.png in Resources */,
-				197CC26916C8B061008B3FC1 /* WindowsIcon@2x.png in Resources */,
 				197CC27116C8B376008B3FC1 /* DualMonitor@2x.png in Resources */,
 				197CC27316C8B420008B3FC1 /* DualMonitor@2x copy.png in Resources */,
 				197CC27916C8BC58008B3FC1 /* TuxIcon@2x.png in Resources */,

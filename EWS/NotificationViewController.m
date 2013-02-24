@@ -126,7 +126,6 @@
                                                         Timer:[self getConvertedCountdownInString:[self getConvertedCountdownInMinutes:self.countDown]]];
 
         [TicketController addTicket:ticket];
-        [lab setTimerSet:YES];
         [self closeNotificaitonView];
     } else if (validation == DID_NOT_SET_TIMER) {
         [noSetTimerAlert show];
