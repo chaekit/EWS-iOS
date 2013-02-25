@@ -30,6 +30,7 @@
 		1918F66F16AF25E400D1B52B /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1918F66E16AF25E400D1B52B /* arrow.png */; };
 		192B3F471690E0BA00E70BAC /* EWSDetailLabMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */; };
 		193D0AD41681AA0200C6B428 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */; };
+		1944A44D16DADA9600A6097D /* GuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1944A44C16DADA9600A6097D /* GuideView.xib */; };
 		1957E476168FDE4B00DC1824 /* EWSLabDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */; };
 		1957E479168FE3E300DC1824 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1957E478168FE3E300DC1824 /* MapKit.framework */; };
 		1957E47C168FFB1D00DC1824 /* LabMKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1957E47B168FFB1D00DC1824 /* LabMKAnnotation.m */; };
@@ -121,6 +122,7 @@
 		192B3F461690E0BA00E70BAC /* EWSDetailLabMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSDetailLabMapViewController.m; sourceTree = "<group>"; };
 		193D0AD21681AA0200C6B428 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		193D0AD31681AA0200C6B428 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = ../../Libraries/PullToRefresh/Classes/PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		1944A44C16DADA9600A6097D /* GuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView.xib; sourceTree = "<group>"; };
 		194E620716D1EDB400371EAA /* EWSProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSProjectConstants.h; sourceTree = "<group>"; };
 		1957E474168FDE4B00DC1824 /* EWSLabDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSLabDetailViewController.h; path = /Users/jaychae/Developers/iOS/EWS/EWS/EWSLabDetailViewController.h; sourceTree = "<absolute>"; };
 		1957E475168FDE4B00DC1824 /* EWSLabDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSLabDetailViewController.m; path = /Users/jaychae/Developers/iOS/EWS/EWS/EWSLabDetailViewController.m; sourceTree = "<absolute>"; };
@@ -246,6 +248,7 @@
 			children = (
 				19EEAAC6167B1A2B000E4F6D /* EWSCustomCell.h */,
 				19EEAAC7167B1A2B000E4F6D /* EWSCustomCell.m */,
+				1944A44C16DADA9600A6097D /* GuideView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				197CC27B16C8BC6D008B3FC1 /* TuxIcon@2x copy.png in Resources */,
 				197CC27D16C8C193008B3FC1 /* ScreenSize@2x.png in Resources */,
 				197CC27F16C8C21C008B3FC1 /* ScreenSize18@2x.png in Resources */,
+				1944A44D16DADA9600A6097D /* GuideView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

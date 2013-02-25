@@ -36,6 +36,9 @@ static NSString *CellIdentifier = @"LabInfoCell";
 @property (nonatomic) int previousPage;
 @property (nonatomic) float openCellLastTX;
 @property (nonatomic, strong) UIView *openGestureView;
+
+@property (nonatomic, strong) UIView *guideView;
+
 - (void)snapView:(UIView *)view toX:(float)x animated:(BOOL)animated;
 - (void)initPageControViews;
 
@@ -44,7 +47,7 @@ static NSString *CellIdentifier = @"LabInfoCell";
 @implementation EWSViewController
 
 @synthesize pageControlView, pageControl, previousPage;
-@synthesize openGestureView;
+@synthesize openGestureView, guideView;
 
 -(void)awakeFromNib {
     [super awakeFromNib];
@@ -52,13 +55,20 @@ static NSString *CellIdentifier = @"LabInfoCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView setDelegate:self];
     [self initPageControViews];
     [self registerNotificationCenter];
+    [self initGuideView];
     
+    EWSCustomCell *demoCell = (EWSCustomCell *) [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:4 inSection:0]];
+    [self snapView:demoCell.meterContainerView toX:CELL_OPEN_X animated:YES];
+   
+    NSLog(@"cell  %@", demoCell);
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     //[super viewDidAppear:animated];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +78,39 @@ static NSString *CellIdentifier = @"LabInfoCell";
 - (BOOL)shouldAutorotate {
     return NO;
 }
+
+- (void)initGuideView {
+    CGRect guideViewRect = CGRectMake(358, 86, 244, 93);
+    guideView = [[UIView alloc] initWithFrame:guideViewRect];
+    guideView.backgroundColor = [UIColor blackColor];
+    
+    UILabel *guideViewLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 204, 44)];
+    UILabel *guideViewLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(20, 51, 204, 22)];
+    
+    [guideViewLabel1 setBackgroundColor:[UIColor blackColor]];
+    [guideViewLabel1 setText:@"Swipe the cell to see"];
+    [guideViewLabel1 setTextColor:[UIColor whiteColor]];
+    [guideViewLabel1 setTextAlignment:NSTextAlignmentCenter];
+    [guideView addSubview:guideViewLabel1];
+    
+    [guideViewLabel2 setBackgroundColor:[UIColor blackColor]];
+    [guideViewLabel2 setText:@"exact usage"];
+    [guideViewLabel2 setTextColor:[UIColor whiteColor]];
+    [guideViewLabel2 setTextAlignment:NSTextAlignmentCenter];
+    [guideView addSubview:guideViewLabel2];
+
+    [UIView animateWithDuration:1.5
+                          delay:1.5
+                        options:UIViewAnimationCurveEaseOut
+                     animations:^{
+                         NSLog(@"guideView   %@", guideView);
+                        [guideView setTransform:CGAffineTransformMakeTranslation(-320, 0)];
+                     }
+                     completion:nil];
+   
+    [self.view insertSubview:guideView aboveSubview:self.tableView];
+}
+
 
 -(void)initPageControViews {
     [self.view insertSubview:self.pageControl aboveSubview:pageControlView];
@@ -136,12 +179,6 @@ static NSString *CellIdentifier = @"LabInfoCell";
     [cell setPanGestureRecognizer:panGestureRecognizer];
     [cell setTapGestureRecognizer:tapGestureRecognizer];
  
-    if (cell.meterViewOpen) {
-        NSLog(@"cell meterView    YES");
-    } else {
-        NSLog(@"cell meterView    NO");
-    }
-        
     
     return cell;
 }
@@ -187,14 +224,26 @@ static NSString *CellIdentifier = @"LabInfoCell";
     float newTXOfOpenCell;
     
     switch (panGestureRecognizer.state) {
-        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateBegan: {
             if (![self.openGestureView isEqual:gestureView]) {
                 [self snapView:self.openGestureView toX:CELL_CLOSED_X animated:YES];
                 self.openGestureView = nil;
                 self.openCellLastTX = 0.0;
                 cell.meterViewOpen = NO;
             }
+            
+            [UIView animateWithDuration:0.5
+                                  delay:0
+                                options:UIViewAnimationCurveEaseOut
+                             animations:^{
+//                                 [guideView setFrame:CGRectMake(-320, 86, 244, 93)];
+                                [guideView setTransform:CGAffineTransformMakeTranslation(-640, 0)];
+                             }
+                             completion:nil];
+           
+            NSLog(@"guideView %@", guideView);
             break;
+        }
         
         case UIGestureRecognizerStateChanged:
             //translation = [panGestureRecognizer translationInView:[gestureView superview]];
@@ -360,6 +409,7 @@ static int counter = 0;
         if (viewTXofCell < 0) {
             [self.tableView.visibleCells makeObjectsPerformSelector:@selector(scrollMeterViewWithPageControl:) withObject:[NSNumber numberWithFloat:viewTXofCell]];
         }
+    } else {
     }
   
     if ([sender isEqual:self.tableView]) {
