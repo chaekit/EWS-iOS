@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		19003E7017DECC5C00DC93C7 /* EWSMainLabTableViewCellSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19003E6F17DECC5C00DC93C7 /* EWSMainLabTableViewCellSpec.mm */; };
+		19003E7117DECC6200DC93C7 /* EWSMainLabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */; };
+		19003E7517DEDC5400DC93C7 /* SpecFactories.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7417DEDC5400DC93C7 /* SpecFactories.m */; };
+		19003E7917DEEF6700DC93C7 /* EWSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */; };
+		19003E7A17DEEF6700DC93C7 /* EWSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */; };
+		19003E7E17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */; };
+		1992F46E17DD60B2008C0071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A517DD07370085A3BA /* UIKit.framework */; };
+		1992F46F17DD60B2008C0071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A717DD07370085A3BA /* Foundation.framework */; };
+		1992F47017DD60B2008C0071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A917DD07370085A3BA /* CoreGraphics.framework */; };
+		1992F47617DD60B2008C0071 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1992F47417DD60B2008C0071 /* InfoPlist.strings */; };
+		1992F47817DD60B2008C0071 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992F47717DD60B2008C0071 /* main.m */; };
+		1992F47C17DD60B2008C0071 /* Cedar-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1992F47B17DD60B2008C0071 /* Cedar-iOS.framework */; };
+		1992F47E17DD60B2008C0071 /* ExampleSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1992F47D17DD60B2008C0071 /* ExampleSpec.mm */; };
+		199E729A17DD620C0037594E /* EWSLabSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 199E729917DD620C0037594E /* EWSLabSpec.mm */; };
+		199E729B17DD632B0037594E /* EWSLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89E17DD4C000005E43F /* EWSLab.m */; };
+		199E729C17DD632E0037594E /* EWSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F8A217DD4C430005E43F /* EWSDataModel.m */; };
+		199E729D17DD634F0037594E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0F89517DD49450005E43F /* CoreData.framework */; };
+		199E729E17DD635C0037594E /* _EWSLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89C17DD4C000005E43F /* _EWSLab.m */; };
+		199E729F17DD67390037594E /* EWS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */; };
+		19C0F89017DD138F0005E43F /* EWSMainLabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */; };
+		19C0F89617DD49450005E43F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0F89517DD49450005E43F /* CoreData.framework */; };
+		19C0F89A17DD49A30005E43F /* EWS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */; };
+		19C0F89F17DD4C000005E43F /* _EWSLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89C17DD4C000005E43F /* _EWSLab.m */; };
+		19C0F8A017DD4C000005E43F /* EWSLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89E17DD4C000005E43F /* EWSLab.m */; };
+		19C0F8A317DD4C430005E43F /* EWSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F8A217DD4C430005E43F /* EWSDataModel.m */; };
+		19E464A617DD07370085A3BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A517DD07370085A3BA /* UIKit.framework */; };
+		19E464A817DD07370085A3BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A717DD07370085A3BA /* Foundation.framework */; };
+		19E464AA17DD07370085A3BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A917DD07370085A3BA /* CoreGraphics.framework */; };
+		19E464B017DD07370085A3BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19E464AE17DD07370085A3BA /* InfoPlist.strings */; };
+		19E464B217DD07370085A3BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E464B117DD07370085A3BA /* main.m */; };
+		19E464B617DD07370085A3BA /* EWSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E464B517DD07370085A3BA /* EWSAppDelegate.m */; };
+		19E464B817DD07370085A3BA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 19E464B717DD07370085A3BA /* Default.png */; };
+		19E464BA17DD07370085A3BA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19E464B917DD07370085A3BA /* Default@2x.png */; };
+		19E464BC17DD07370085A3BA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19E464BB17DD07370085A3BA /* Default-568h@2x.png */; };
+		19EA7EE617DD5ACF003DD32C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C01A059F51B4108B2878553 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C01A059F51B4108B2878553 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		19003E6F17DECC5C00DC93C7 /* EWSMainLabTableViewCellSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSMainLabTableViewCellSpec.mm; path = Views/EWSMainLabTableViewCellSpec.mm; sourceTree = "<group>"; };
+		19003E7317DEDC5400DC93C7 /* SpecFactories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecFactories.h; path = Factories/SpecFactories.h; sourceTree = "<group>"; };
+		19003E7417DEDC5400DC93C7 /* SpecFactories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpecFactories.m; path = Factories/SpecFactories.m; sourceTree = "<group>"; };
+		19003E7717DEEF6700DC93C7 /* EWSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSMainViewController.h; path = EWS/Controllers/EWSMainViewController.h; sourceTree = SOURCE_ROOT; };
+		19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSMainViewController.m; path = EWS/Controllers/EWSMainViewController.m; sourceTree = SOURCE_ROOT; };
+		19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSMainViewControllerSpec.mm; path = Controllers/EWSMainViewControllerSpec.mm; sourceTree = "<group>"; };
+		191C9E6E17DD08EB00B8DE72 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1992F46D17DD60B2008C0071 /* EWSTestSuite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWSTestSuite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1992F47317DD60B2008C0071 /* EWSTestSuite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EWSTestSuite-Info.plist"; sourceTree = "<group>"; };
+		1992F47517DD60B2008C0071 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1992F47717DD60B2008C0071 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1992F47917DD60B2008C0071 /* EWSTestSuite-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EWSTestSuite-Prefix.pch"; sourceTree = "<group>"; };
+		1992F47A17DD60B2008C0071 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
+		1992F47B17DD60B2008C0071 /* Cedar-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Cedar-iOS.framework"; path = "Frameworks/Cedar-iOS.framework"; sourceTree = "<group>"; };
+		1992F47D17DD60B2008C0071 /* ExampleSpec.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ExampleSpec.mm; sourceTree = "<group>"; };
+		199E729917DD620C0037594E /* EWSLabSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSLabSpec.mm; path = Models/EWSLabSpec.mm; sourceTree = "<group>"; };
+		19C0F88E17DD138F0005E43F /* EWSMainLabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSMainLabTableViewCell.h; path = Views/EWSMainLabTableViewCell.h; sourceTree = "<group>"; };
+		19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSMainLabTableViewCell.m; path = Views/EWSMainLabTableViewCell.m; sourceTree = "<group>"; };
+		19C0F89517DD49450005E43F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		19C0F89917DD49A30005E43F /* EWS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EWS.xcdatamodel; sourceTree = "<group>"; };
+		19C0F89B17DD4C000005E43F /* _EWSLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _EWSLab.h; path = Models/_EWSLab.h; sourceTree = "<group>"; };
+		19C0F89C17DD4C000005E43F /* _EWSLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _EWSLab.m; path = Models/_EWSLab.m; sourceTree = "<group>"; };
+		19C0F89D17DD4C000005E43F /* EWSLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSLab.h; path = Models/EWSLab.h; sourceTree = "<group>"; };
+		19C0F89E17DD4C000005E43F /* EWSLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSLab.m; path = Models/EWSLab.m; sourceTree = "<group>"; };
+		19C0F8A117DD4C430005E43F /* EWSDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSDataModel.h; path = Models/DataModel/EWSDataModel.h; sourceTree = "<group>"; };
+		19C0F8A217DD4C430005E43F /* EWSDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSDataModel.m; path = Models/DataModel/EWSDataModel.m; sourceTree = "<group>"; };
+		19E464A217DD07370085A3BA /* EWS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19E464A517DD07370085A3BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		19E464A717DD07370085A3BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		19E464A917DD07370085A3BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		19E464AD17DD07370085A3BA /* EWS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EWS-Info.plist"; sourceTree = "<group>"; };
+		19E464AF17DD07370085A3BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		19E464B117DD07370085A3BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		19E464B317DD07370085A3BA /* EWS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EWS-Prefix.pch"; sourceTree = "<group>"; };
+		19E464B417DD07370085A3BA /* EWSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWSAppDelegate.h; sourceTree = "<group>"; };
+		19E464B517DD07370085A3BA /* EWSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWSAppDelegate.m; sourceTree = "<group>"; };
+		19E464B717DD07370085A3BA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		19E464B917DD07370085A3BA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		19E464BB17DD07370085A3BA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		63509324D8E54B399CF4FBBD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1992F46A17DD60B2008C0071 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				199E729D17DD634F0037594E /* CoreData.framework in Frameworks */,
+				1992F46E17DD60B2008C0071 /* UIKit.framework in Frameworks */,
+				1992F46F17DD60B2008C0071 /* Foundation.framework in Frameworks */,
+				1992F47017DD60B2008C0071 /* CoreGraphics.framework in Frameworks */,
+				1992F47C17DD60B2008C0071 /* Cedar-iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19E4649F17DD07370085A3BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C0F89617DD49450005E43F /* CoreData.framework in Frameworks */,
+				19E464A617DD07370085A3BA /* UIKit.framework in Frameworks */,
+				19E464A817DD07370085A3BA /* Foundation.framework in Frameworks */,
+				19E464AA17DD07370085A3BA /* CoreGraphics.framework in Frameworks */,
+				19EA7EE617DD5ACF003DD32C /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19003E6E17DECBFD00DC93C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19003E6F17DECC5C00DC93C7 /* EWSMainLabTableViewCellSpec.mm */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		19003E7217DEDC2600DC93C7 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				19003E7317DEDC5400DC93C7 /* SpecFactories.h */,
+				19003E7417DEDC5400DC93C7 /* SpecFactories.m */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
+		19003E7617DEEEF100DC93C7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		191C9EB417DD0B2200B8DE72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19C0F88E17DD138F0005E43F /* EWSMainLabTableViewCell.h */,
+				19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		191C9EB517DD0B2900B8DE72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19C0F89B17DD4C000005E43F /* _EWSLab.h */,
+				19C0F89C17DD4C000005E43F /* _EWSLab.m */,
+				19C0F89D17DD4C000005E43F /* EWSLab.h */,
+				19C0F89E17DD4C000005E43F /* EWSLab.m */,
+				19C0F89717DD49600005E43F /* DataModel */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		191C9EB617DD0B2D00B8DE72 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				19003E7717DEEF6700DC93C7 /* EWSMainViewController.h */,
+				19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1992F47117DD60B2008C0071 /* EWSTestSuite */ = {
+			isa = PBXGroup;
+			children = (
+				19003E7617DEEEF100DC93C7 /* Controllers */,
+				19003E7217DEDC2600DC93C7 /* Factories */,
+				19003E6E17DECBFD00DC93C7 /* Views */,
+				199E729517DD61610037594E /* Models */,
+				1992F47A17DD60B2008C0071 /* Rakefile */,
+				1992F47B17DD60B2008C0071 /* Cedar-iOS.framework */,
+				1992F47D17DD60B2008C0071 /* ExampleSpec.mm */,
+				1992F47217DD60B2008C0071 /* Supporting Files */,
+			);
+			path = EWSTestSuite;
+			sourceTree = "<group>";
+		};
+		1992F47217DD60B2008C0071 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1992F47317DD60B2008C0071 /* EWSTestSuite-Info.plist */,
+				1992F47417DD60B2008C0071 /* InfoPlist.strings */,
+				1992F47717DD60B2008C0071 /* main.m */,
+				1992F47917DD60B2008C0071 /* EWSTestSuite-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		199E729517DD61610037594E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				199E729917DD620C0037594E /* EWSLabSpec.mm */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		19C0F89717DD49600005E43F /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */,
+				19C0F8A117DD4C430005E43F /* EWSDataModel.h */,
+				19C0F8A217DD4C430005E43F /* EWSDataModel.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		19E4649917DD07370085A3BA = {
+			isa = PBXGroup;
+			children = (
+				19E464AB17DD07370085A3BA /* EWS */,
+				1992F47117DD60B2008C0071 /* EWSTestSuite */,
+				19E464A417DD07370085A3BA /* Frameworks */,
+				19E464A317DD07370085A3BA /* Products */,
+				63509324D8E54B399CF4FBBD /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		19E464A317DD07370085A3BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19E464A217DD07370085A3BA /* EWS.app */,
+				1992F46D17DD60B2008C0071 /* EWSTestSuite.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		19E464A417DD07370085A3BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19C0F89517DD49450005E43F /* CoreData.framework */,
+				19E464A517DD07370085A3BA /* UIKit.framework */,
+				19E464A717DD07370085A3BA /* Foundation.framework */,
+				19E464A917DD07370085A3BA /* CoreGraphics.framework */,
+				0C01A059F51B4108B2878553 /* libPods.a */,
+				191C9E6E17DD08EB00B8DE72 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		19E464AB17DD07370085A3BA /* EWS */ = {
+			isa = PBXGroup;
+			children = (
+				191C9EB617DD0B2D00B8DE72 /* Controllers */,
+				191C9EB517DD0B2900B8DE72 /* Models */,
+				191C9EB417DD0B2200B8DE72 /* Views */,
+				19E464B417DD07370085A3BA /* EWSAppDelegate.h */,
+				19E464B517DD07370085A3BA /* EWSAppDelegate.m */,
+				19E464AC17DD07370085A3BA /* Supporting Files */,
+			);
+			path = EWS;
+			sourceTree = "<group>";
+		};
+		19E464AC17DD07370085A3BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				19E464AD17DD07370085A3BA /* EWS-Info.plist */,
+				19E464AE17DD07370085A3BA /* InfoPlist.strings */,
+				19E464B117DD07370085A3BA /* main.m */,
+				19E464B317DD07370085A3BA /* EWS-Prefix.pch */,
+				19E464B717DD07370085A3BA /* Default.png */,
+				19E464B917DD07370085A3BA /* Default@2x.png */,
+				19E464BB17DD07370085A3BA /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1992F46C17DD60B2008C0071 /* EWSTestSuite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1992F47F17DD60B2008C0071 /* Build configuration list for PBXNativeTarget "EWSTestSuite" */;
+			buildPhases = (
+				1992F46917DD60B2008C0071 /* Sources */,
+				1992F46A17DD60B2008C0071 /* Frameworks */,
+				1992F46B17DD60B2008C0071 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EWSTestSuite;
+			productName = EWSTestSuite;
+			productReference = 1992F46D17DD60B2008C0071 /* EWSTestSuite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		19E464A117DD07370085A3BA /* EWS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19E464BF17DD07370085A3BA /* Build configuration list for PBXNativeTarget "EWS" */;
+			buildPhases = (
+				8AC97E223A674274B7F9DD81 /* Check Pods Manifest.lock */,
+				19E4649E17DD07370085A3BA /* Sources */,
+				19E4649F17DD07370085A3BA /* Frameworks */,
+				19E464A017DD07370085A3BA /* Resources */,
+				C5DFB84719954144955AC6B8 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EWS;
+			productName = EWS;
+			productReference = 19E464A217DD07370085A3BA /* EWS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19E4649A17DD07370085A3BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EWS;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = JCLab;
+			};
+			buildConfigurationList = 19E4649D17DD07370085A3BA /* Build configuration list for PBXProject "EWS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 19E4649917DD07370085A3BA;
+			productRefGroup = 19E464A317DD07370085A3BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				19E464A117DD07370085A3BA /* EWS */,
+				1992F46C17DD60B2008C0071 /* EWSTestSuite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1992F46B17DD60B2008C0071 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1992F47617DD60B2008C0071 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19E464A017DD07370085A3BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19E464B017DD07370085A3BA /* InfoPlist.strings in Resources */,
+				19E464B817DD07370085A3BA /* Default.png in Resources */,
+				19E464BA17DD07370085A3BA /* Default@2x.png in Resources */,
+				19E464BC17DD07370085A3BA /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8AC97E223A674274B7F9DD81 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C5DFB84719954144955AC6B8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1992F46917DD60B2008C0071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				199E729E17DD635C0037594E /* _EWSLab.m in Sources */,
+				1992F47817DD60B2008C0071 /* main.m in Sources */,
+				1992F47E17DD60B2008C0071 /* ExampleSpec.mm in Sources */,
+				199E729A17DD620C0037594E /* EWSLabSpec.mm in Sources */,
+				199E729B17DD632B0037594E /* EWSLab.m in Sources */,
+				199E729C17DD632E0037594E /* EWSDataModel.m in Sources */,
+				199E729F17DD67390037594E /* EWS.xcdatamodeld in Sources */,
+				19003E7017DECC5C00DC93C7 /* EWSMainLabTableViewCellSpec.mm in Sources */,
+				19003E7117DECC6200DC93C7 /* EWSMainLabTableViewCell.m in Sources */,
+				19003E7517DEDC5400DC93C7 /* SpecFactories.m in Sources */,
+				19003E7A17DEEF6700DC93C7 /* EWSMainViewController.m in Sources */,
+				19003E7E17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19E4649E17DD07370085A3BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19E464B217DD07370085A3BA /* main.m in Sources */,
+				19E464B617DD07370085A3BA /* EWSAppDelegate.m in Sources */,
+				19C0F89017DD138F0005E43F /* EWSMainLabTableViewCell.m in Sources */,
+				19C0F89A17DD49A30005E43F /* EWS.xcdatamodeld in Sources */,
+				19C0F89F17DD4C000005E43F /* _EWSLab.m in Sources */,
+				19C0F8A017DD4C000005E43F /* EWSLab.m in Sources */,
+				19C0F8A317DD4C430005E43F /* EWSDataModel.m in Sources */,
+				19003E7917DEEF6700DC93C7 /* EWSMainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1992F47417DD60B2008C0071 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1992F47517DD60B2008C0071 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		19E464AE17DD07370085A3BA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19E464AF17DD07370085A3BA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1992F48017DD60B2008C0071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/EWSTestSuite/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EWSTestSuite/EWSTestSuite-Prefix.pch";
+				INFOPLIST_FILE = "EWSTestSuite/EWSTestSuite-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1992F48117DD60B2008C0071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/EWSTestSuite/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EWSTestSuite/EWSTestSuite-Prefix.pch";
+				INFOPLIST_FILE = "EWSTestSuite/EWSTestSuite-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		19E464BD17DD07370085A3BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		19E464BE17DD07370085A3BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		19E464C017DD07370085A3BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
+				INFOPLIST_FILE = "EWS/EWS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		19E464C117DD07370085A3BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
+				INFOPLIST_FILE = "EWS/EWS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1992F47F17DD60B2008C0071 /* Build configuration list for PBXNativeTarget "EWSTestSuite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1992F48017DD60B2008C0071 /* Debug */,
+				1992F48117DD60B2008C0071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19E4649D17DD07370085A3BA /* Build configuration list for PBXProject "EWS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19E464BD17DD07370085A3BA /* Debug */,
+				19E464BE17DD07370085A3BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19E464BF17DD07370085A3BA /* Build configuration list for PBXNativeTarget "EWS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19E464C017DD07370085A3BA /* Debug */,
+				19E464C117DD07370085A3BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				19C0F89917DD49A30005E43F /* EWS.xcdatamodel */,
+			);
+			currentVersion = 19C0F89917DD49A30005E43F /* EWS.xcdatamodel */;
+			name = EWS.xcdatamodeld;
+			path = Models/DataModel/EWS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 19E4649A17DD07370085A3BA /* Project object */;
+}

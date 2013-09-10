@@ -1,0 +1,558 @@
+TEWSTestSuite
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/Info.plist EWSTestSuite/EWSTestSuite-Info.plist
+cProcessPCH /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-ddyeuywurgevxubhxiiltokmkrdy/EWSTestSuite-Prefix.pch.pth EWSTestSuite/EWSTestSuite-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH++ /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-fhembnutpmnuspecnjotsbgtfogq/EWSTestSuite-Prefix.pch.pth EWSTestSuite/EWSTestSuite-Prefix.pch normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cDataModelVersionCompile /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWS.momd /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWS.xcdatamodeld
+cCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/ExampleSpec.o /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/ExampleSpec.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/_EWSLab.o /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/_EWSLab.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/main.o /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLabSpec.o /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Models/EWSLabSpec.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLab.o /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/EWSLab.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSDataModel.o /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWSDataModel.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite normal i386
+cGenerateDSYMFile /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app.dSYM /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite
+cCopyStringsFile /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/en.lproj/InfoPlist.strings EWSTestSuite/en.lproj/InfoPlist.strings
+cTouch /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk
+c0000000050EDEAFB0000000000000110
+t1357769467
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreData.framework/CoreData
+c00000000521C15CB000000000030F580
+t1377572299
+s3208576
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c00000000521C15CB0000000000228FE0
+t1377572299
+s2265056
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000521C15CB00000000003DDFA0
+t1377572299
+s4054944
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c00000000521C15CB00000000000015F7
+t1377572299
+s5623
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c00000000521C15CD0000000000000E8D
+t1377572301
+s3725
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c00000000521C15CE0000000000AB6230
+t1377572302
+s11231792
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWS.xcdatamodeld
+c00000000522D2FBA0000000000000066
+t1378693050
+s102
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWSDataModel.m
+c00000000522D30ED0000000000000AB5
+t1378693357
+s2741
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/EWSLab.m
+c00000000522D347B0000000000000274
+t1378694267
+s628
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/_EWSLab.m
+c00000000522D146400000000000009CF
+t1378686052
+s2511
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/EWSTestSuite-Prefix.pch
+c00000000522D293200000000000000E6
+t1378691378
+s230
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+i<Cedar-iOS/SpecHelper.h>
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/ExampleSpec.mm
+c00000000522D2A470000000000000474
+t1378691655
+s1140
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Cedar-iOS
+c00000000522CD06D0000000000555C44
+t1378668653
+s5594180
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/ActualValue.h
+c00000000522D29320000000000000F58
+t1378691378
+s3928
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/AnyArgument.h
+c00000000522D2932000000000000030F
+t1378691378
+s783
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/AnyInstanceArgument.h
+c00000000522D293200000000000002E6
+t1378691378
+s742
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/Argument.h
+c00000000522D293200000000000003E2
+t1378691378
+s994
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/Base.h
+c00000000522D29320000000000000793
+t1378691378
+s1939
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeCloseTo.h
+c00000000522D2932000000000000186C
+t1378691378
+s6252
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeEmpty.h
+c00000000522D293200000000000002E1
+t1378691378
+s737
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeGTE.h
+c00000000522D2932000000000000077E
+t1378691378
+s1918
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeGreaterThan.h
+c00000000522D29320000000000000724
+t1378691378
+s1828
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeInstanceOf.h
+c00000000522D293200000000000007D1
+t1378691378
+s2001
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeLTE.h
+c00000000522D2932000000000000073E
+t1378691378
+s1854
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeLessThan.h
+c00000000522D29320000000000000731
+t1378691378
+s1841
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeNil.h
+c00000000522D2932000000000000060E
+t1378691378
+s1550
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeSameInstanceAs.h
+c00000000522D29320000000000000682
+t1378691378
+s1666
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/BeTruthy.h
+c00000000522D293200000000000002FC
+t1378691378
+s764
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRClassFake.h
+c00000000522D293200000000000000B9
+t1378691378
+s185
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRExampleBase.h
+c00000000522D29320000000000000424
+t1378691378
+s1060
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRExampleParent.h
+c00000000522D2932000000000000013D
+t1378691378
+s317
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRFake.h
+c00000000522D293200000000000001AB
+t1378691378
+s427
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRProtocolFake.h
+c00000000522D2932000000000000015B
+t1378691378
+s347
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRSharedExampleGroupPool.h
+c00000000522D293200000000000003E1
+t1378691378
+s993
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRSpec.h
+c00000000522D29320000000000000770
+t1378691378
+s1904
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRSpecFailure.h
+c00000000522D29320000000000000335
+t1378691378
+s821
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CDRSpy.h
+c00000000522D293200000000000001DE
+t1378691378
+s478
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CedarComparators.h
+c00000000522D29320000000000000086
+t1378691378
+s134
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CedarDouble.h
+c00000000522D2932000000000000032C
+t1378691378
+s812
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CedarDoubles.h
+c00000000522D293200000000000000F7
+t1378691378
+s247
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CedarMatchers.h
+c00000000522D29320000000000000176
+t1378691378
+s374
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CedarStringifiers.h
+c00000000522D2932000000000000008A
+t1378691378
+s138
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/ComparatorsBase.h
+c00000000522D29320000000000000078
+t1378691378
+s120
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/ComparatorsContainer.h
+c00000000522D29320000000000000C9A
+t1378691378
+s3226
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CompareEqual.h
+c00000000522D293200000000000016D0
+t1378691378
+s5840
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/CompareGreaterThan.h
+c00000000522D29320000000000001D63
+t1378691378
+s7523
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/Contain.h
+c00000000522D293200000000000004D8
+t1378691378
+s1240
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/Equal.h
+c00000000522D29320000000000000838
+t1378691378
+s2104
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/HaveReceived.h
+c00000000522D29320000000000000531
+t1378691378
+s1329
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/InvocationMatcher.h
+c00000000522D293200000000000005CE
+t1378691378
+s1486
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/RaiseException.h
+c00000000522D29320000000000000671
+t1378691378
+s1649
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/ReturnValue.h
+c00000000522D293200000000000002EC
+t1378691378
+s748
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/ShouldSyntax.h
+c00000000522D29320000000000000396
+t1378691378
+s918
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/SpecHelper.h
+c00000000522D29320000000000000242
+t1378691378
+s578
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/StringifiersBase.h
+c00000000522D2932000000000000045B
+t1378691378
+s1115
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/StringifiersContainer.h
+c00000000522D29320000000000000743
+t1378691378
+s1859
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/StubbedMethod.h
+c00000000522D29320000000000000DB2
+t1378691378
+s3506
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/UIGeometryCompareEqual.h
+c00000000522D29320000000000000422
+t1378691378
+s1058
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/UIGeometryStringifiers.h
+c00000000522D2932000000000000029F
+t1378691378
+s671
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks/Cedar-iOS.framework/Headers/ValueArgument.h
+c00000000522D29320000000000000E9D
+t1378691378
+s3741
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Models/EWSLabSpec.mm
+c00000000522D38B200000000000009DC
+t1378695346
+s2524
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/en.lproj/InfoPlist.strings
+c00000000522D2932000000000000002D
+t1378691378
+s45
+
+N/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/main.m
+c00000000522D29320000000000000149
+t1378691378
+s329
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSDataModel.o
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLab.o
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLabSpec.o
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSTestSuite.LinkFileList
+c00000000522D3B570000000000000320
+t1378696023
+s800
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/ExampleSpec.o
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/_EWSLab.o
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app.dSYM
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWS.momd
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/Info.plist
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/PkgInfo
+t2
+s0
+
+N/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-ddyeuywurgevxubhxiiltokmkrdy/EWSTestSuite-Prefix.pch.pth
+t1378695717
+s4697588
+
+N/var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-fhembnutpmnuspecnjotsbgtfogq/EWSTestSuite-Prefix.pch.pth
+t1378695717
+s11601076
+
+NEWSTestSuite/EWSTestSuite-Info.plist
+c00000000522D293200000000000003AF
+t1378691378
+s943
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies6f123fd772ddb741^029c52d772ddb741^---0#1#0#--18"Check dependencies36"D76CF090-40B5-45AF-A370-449DA3A97A33-
+
+CCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSDataModel.o /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWSDataModel.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s400388823.349838
+e400388823.426242
+r1
+xCompileC
+xbuild/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSDataModel.o
+x/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWSDataModel.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection86"Compile /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWSDataModel.m85b559d772ddb741^471d6dd772ddb741^---0#0#0#-19%DVTDocumentLocation2@94"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWSDataModel.m0000000000000000^4195"CompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSDataModel.o EWS/Models/DataModel/EWSDataModel.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jaychae/Developers/Personal/ews-ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-generated-files.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-own-target-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-all-target-headers.hmap -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-project-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources/i386 -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources -F/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator -F/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-ddyeuywurgevxubhxiiltokmkrdy/EWSTestSuite-Prefix.pch -MMD -MT dependencies -MF /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSDataModel.d --serialize-diagnostics /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSDataModel.dia -c /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWSDataModel.m -o /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSDataModel.o36"23E1995B-9ACF-4479-9F8E-82271296387C-
+
+CCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLab.o /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/EWSLab.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s400388823.349827
+e400388823.417733
+r1
+xCompileC
+xbuild/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLab.o
+x/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/EWSLab.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/EWSLab.mbdc759d772ddb741^2cef6ad772ddb741^---0#0#0#-19%DVTDocumentLocation2@78"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/EWSLab.m0000000000000000^4139"CompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLab.o EWS/Models/EWSLab.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jaychae/Developers/Personal/ews-ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-generated-files.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-own-target-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-all-target-headers.hmap -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-project-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources/i386 -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources -F/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator -F/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-ddyeuywurgevxubhxiiltokmkrdy/EWSTestSuite-Prefix.pch -MMD -MT dependencies -MF /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLab.d --serialize-diagnostics /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLab.dia -c /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/EWSLab.m -o /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLab.o36"9BEF26DC-4004-4636-BBF0-D7C88F11488E-
+
+CCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLabSpec.o /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Models/EWSLabSpec.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s400388823.349811
+e400388823.757554
+r1
+xCompileC
+xbuild/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLabSpec.o
+x/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Models/EWSLabSpec.mm
+xnormal
+xi386
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Compile /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Models/EWSLabSpec.mm7ec659d772ddb741^9aeec1d772ddb741^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Models/EWSLabSpec.mm0000000000000000^4331"CompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLabSpec.o EWSTestSuite/Models/EWSLabSpec.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jaychae/Developers/Personal/ews-ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch i386 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-generated-files.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-own-target-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-all-target-headers.hmap -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-project-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources/i386 -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources -F/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator -F/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-fhembnutpmnuspecnjotsbgtfogq/EWSTestSuite-Prefix.pch -MMD -MT dependencies -MF /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLabSpec.d --serialize-diagnostics /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLabSpec.dia -c /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Models/EWSLabSpec.mm -o /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSLabSpec.o36"31654A62-3310-4370-BB49-5E6EAD76118C-
+
+CCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/ExampleSpec.o /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/ExampleSpec.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s400388823.349674
+e400388823.721751
+r1
+xCompileC
+xbuild/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/ExampleSpec.o
+x/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/ExampleSpec.mm
+xnormal
+xi386
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection78"Compile /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/ExampleSpec.mm1ac259d772ddb741^acc4b8d772ddb741^---0#0#0#-19%DVTDocumentLocation2@86"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/ExampleSpec.mm0000000000000000^4323"CompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/ExampleSpec.o EWSTestSuite/ExampleSpec.mm normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jaychae/Developers/Personal/ews-ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch i386 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-generated-files.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-own-target-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-all-target-headers.hmap -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-project-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources/i386 -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources -F/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator -F/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-fhembnutpmnuspecnjotsbgtfogq/EWSTestSuite-Prefix.pch -MMD -MT dependencies -MF /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/ExampleSpec.d --serialize-diagnostics /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/ExampleSpec.dia -c /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/ExampleSpec.mm -o /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/ExampleSpec.o36"D60D28CF-85D3-4183-8815-D5D75540C734-
+
+CCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/_EWSLab.o /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/_EWSLab.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s400388823.349759
+e400388823.418796
+r1
+xCompileC
+xbuild/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/_EWSLab.o
+x/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/_EWSLab.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/_EWSLab.ma4c159d772ddb741^26366bd772ddb741^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/_EWSLab.m0000000000000000^4145"CompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/_EWSLab.o EWS/Models/_EWSLab.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jaychae/Developers/Personal/ews-ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-generated-files.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-own-target-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-all-target-headers.hmap -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-project-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources/i386 -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources -F/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator -F/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-ddyeuywurgevxubhxiiltokmkrdy/EWSTestSuite-Prefix.pch -MMD -MT dependencies -MF /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/_EWSLab.d --serialize-diagnostics /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/_EWSLab.dia -c /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/_EWSLab.m -o /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/_EWSLab.o36"7F602FD6-D9BA-460B-855F-93E9C7906E7B-
+
+CCompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/main.o /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s400388823.349784
+e400388823.384243
+r1
+xCompileC
+xbuild/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/main.o
+x/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection70"Compile /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/main.md7c159d772ddb741^b35c62d772ddb741^---0#0#0#-19%DVTDocumentLocation2@78"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/main.m0000000000000000^4131"CompileC build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/main.o EWSTestSuite/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/jaychae/Developers/Personal/ews-ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-generated-files.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-own-target-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-all-target-headers.hmap -iquote /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/EWSTestSuite-project-headers.hmap -I/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources/i386 -I/Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/DerivedSources -F/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator -F/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-ddyeuywurgevxubhxiiltokmkrdy/EWSTestSuite-Prefix.pch -MMD -MT dependencies -MF /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/main.dia -c /Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/main.m -o /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/main.o36"D37559BC-DFC4-41E9-91CF-724AF5DBC95C-
+
+CCopyStringsFile /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/en.lproj/InfoPlist.strings EWSTestSuite/en.lproj/InfoPlist.strings
+s400388823.884126
+e400388823.886835
+r1
+xCopyStringsFile
+x/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/en.lproj/InfoPlist.strings
+xEWSTestSuite/en.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy EWSTestSuite/en.lproj/InfoPlist.strings9b75e2d772ddb741^af07e3d772ddb741^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/en.lproj/InfoPlist.strings0000000000000000^1118"CopyStringsFile build/Release-iphonesimulator/EWSTestSuite.app/en.lproj/InfoPlist.strings EWSTestSuite/en.lproj/InfoPlist.strings    cd /Users/jaychae/Developers/Personal/ews-ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/en.lproj -- EWSTestSuite/en.lproj/InfoPlist.strings36"08F529D9-82D1-40E3-9E22-68171351CD9E-
+
+CDataModelVersionCompile /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWS.momd /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWS.xcdatamodeld
+s400388823.343152
+e400388823.514492
+r1
+xDataModelVersionCompile
+x/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWS.momd
+x/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWS.xcdatamodeld
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"DataModelVersionCompile build/Release-iphonesimulator/EWSTestSuite.app/EWS.momd EWS/Models/DataModel/EWS.xcdatamodeld4cfe57d772ddb741^18b583d772ddb741^---0#0#0#-19%DVTDocumentLocation2@97"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWS.xcdatamodeld/0000000000000000^1410"DataModelVersionCompile build/Release-iphonesimulator/EWSTestSuite.app/EWS.momd EWS/Models/DataModel/EWS.xcdatamodeld    cd /Users/jaychae/Developers/Personal/ews-ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/momc -XD_MOMC_SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -XD_MOMC_IOS_TARGET_VERSION=6.1 -MOMC_PLATFORMS iphonesimulator -MOMC_PLATFORMS iphoneos -XD_MOMC_TARGET_VERSION=10.6 /Users/jaychae/Developers/Personal/ews-ios/EWS/Models/DataModel/EWS.xcdatamodeld /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWS.momd36"AF66B00C-CD30-441E-AB66-23251FB2E351-
+
+CGenerateDSYMFile /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app.dSYM /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite
+s400388823.810544
+e400388823.876117
+r1
+xGenerateDSYMFile
+x/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app.dSYM
+x/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Generate /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app.dSYM6b9ecfd772ddb741^3449e0d772ddb741^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app.dSYM0000000f90021042^1186"GenerateDSYMFile build/Release-iphonesimulator/EWSTestSuite.app.dSYM build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite    cd /Users/jaychae/Developers/Personal/ews-ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite -o /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app.dSYM36"3DA16A65-4B90-41F8-920B-AEAC28EEFD1B-
+
+CLd /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite normal i386
+s400388823.764386
+e400388823.804134
+r1
+xLd
+x/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite
+xnormal
+xi386
+old: warning: direct access in __GLOBAL__I_a to global weak symbol vtable for std::__1::__shared_ptr_pointer<Cedar::Doubles::AnyArgument*, std::__1::default_delete<Cedar::Doubles::AnyArgument>, std::__1::allocator<Cedar::Doubles::AnyArgument> > means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.
+old: warning: direct access in __GLOBAL__I_a to global weak symbol vtable for Cedar::Doubles::AnyArgument means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.
+old: warning: direct access in __GLOBAL__I_a to global weak symbol vtable for std::__1::__shared_ptr_pointer<Cedar::Doubles::AnyArgument*, std::__1::default_delete<Cedar::Doubles::AnyArgument>, std::__1::allocator<Cedar::Doubles::AnyArgument> > means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.
+old: warning: direct access in __GLOBAL__I_a to global weak symbol vtable for Cedar::Doubles::AnyArgument means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Link /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite0fd2c3d772ddb741^50e0cdd772ddb741^-1338"ld: warning: direct access in __GLOBAL__I_a to global weak symbol vtable for std::__1::__shared_ptr_pointer<Cedar::Doubles::AnyArgument*, std::__1::default_delete<Cedar::Doubles::AnyArgument>, std::__1::allocator<Cedar::Doubles::AnyArgument> > means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.ld: warning: direct access in __GLOBAL__I_a to global weak symbol vtable for Cedar::Doubles::AnyArgument means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.ld: warning: direct access in __GLOBAL__I_a to global weak symbol vtable for std::__1::__shared_ptr_pointer<Cedar::Doubles::AnyArgument*, std::__1::default_delete<Cedar::Doubles::AnyArgument>, std::__1::allocator<Cedar::Doubles::AnyArgument> > means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.ld: warning: direct access in __GLOBAL__I_a to global weak symbol vtable for Cedar::Doubles::AnyArgument means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.4(21%IDEActivityLogMessage2@390"Direct access in __GLOBAL__I_a to global weak symbol vtable for std::__1::__shared_ptr_pointer<Cedar::Doubles::AnyArgument*, std::__1::default_delete<Cedar::Doubles::AnyArgument>, std::__1::allocator<Cedar::Doubles::AnyArgument> > means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.-400388823#0#404#-1#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#27"Apple Mach-O Linker Warning--2@251"Direct access in __GLOBAL__I_a to global weak symbol vtable for Cedar::Doubles::AnyArgument means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.-400388823#404#265#-1#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#27"Apple Mach-O Linker Warning--2@390"Direct access in __GLOBAL__I_a to global weak symbol vtable for std::__1::__shared_ptr_pointer<Cedar::Doubles::AnyArgument*, std::__1::default_delete<Cedar::Doubles::AnyArgument>, std::__1::allocator<Cedar::Doubles::AnyArgument> > means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.-400388823#669#404#-1#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#27"Apple Mach-O Linker Warning--2@251"Direct access in __GLOBAL__I_a to global weak symbol vtable for Cedar::Doubles::AnyArgument means the weak symbol cannot be overridden at runtime. This was likely caused by different translation units being compiled with different visibility settings.-400388823#1073#265#-1#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#27"Apple Mach-O Linker Warning--0#0#0#--1866"Ld build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite normal i386    cd /Users/jaychae/Developers/Personal/ews-ios    setenv IPHONEOS_DEPLOYMENT_TARGET 6.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -L/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator -F/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator -F/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/Frameworks -filelist /Users/jaychae/Developers/Personal/ews-ios/build/EWS.build/Release-iphonesimulator/EWSTestSuite.build/Objects-normal/i386/EWSTestSuite.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -ObjC -all_load -lstdc++ -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -stdlib=libc++ -mios-simulator-version-min=6.1 -framework CoreData -framework UIKit -framework Foundation -framework CoreGraphics -framework Cedar-iOS -o /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/EWSTestSuite36"9B32BC19-6156-4239-9D8C-0B8B3074494C-
+
+CProcessInfoPlistFile /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/Info.plist EWSTestSuite/EWSTestSuite-Info.plist
+s400388823.331444
+e400388823.334841
+r1
+xProcessInfoPlistFile
+x/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/Info.plist
+xEWSTestSuite/EWSTestSuite-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Process EWSTestSuite/EWSTestSuite-Info.plist11ff54d772ddb741^bfb755d772ddb741^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/jaychae/Developers/Personal/ews-ios/EWSTestSuite/EWSTestSuite-Info.plist0000000000000000^1214"ProcessInfoPlistFile build/Release-iphonesimulator/EWSTestSuite.app/Info.plist EWSTestSuite/EWSTestSuite-Info.plist    cd /Users/jaychae/Developers/Personal/ews-ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    builtin-infoPlistUtility EWSTestSuite/EWSTestSuite-Info.plist -genpkginfo /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app/Info.plist36"396BA953-9D26-4EA6-9ACD-B2B319779CD0-
+
+CProcessPCH /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-ddyeuywurgevxubhxiiltokmkrdy/EWSTestSuite-Prefix.pch.pth EWSTestSuite/EWSTestSuite-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH++ /var/folders/fv/vyxd6z8j7_j1r28z7b7v_jch0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/EWSTestSuite-Prefix-fhembnutpmnuspecnjotsbgtfogq/EWSTestSuite-Prefix.pch.pth EWSTestSuite/EWSTestSuite-Prefix.pch normal i386 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CTouch /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app
+s400388823.894719
+e400388823.900207
+r1
+xTouch
+x/Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Touch /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.appbb25e5d772ddb741^b473e6d772ddb741^---0#0#0#--921"Touch build/Release-iphonesimulator/EWSTestSuite.app    cd /Users/jaychae/Developers/Personal/ews-ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/gems/ruby-2.0.0-p195@global/bin:/Users/jaychae/.rvm/rubies/ruby-2.0.0-p195/bin:/Users/jaychae/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/jaychae/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/jaychae/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Users/jaychae/.ec2/bin:/Users/jaychae/Developers/play-2.1.0/"    /usr/bin/touch -c /Users/jaychae/Developers/Personal/ews-ios/build/Release-iphonesimulator/EWSTestSuite.app36"DF63B073-D371-4077-8765-5C6F5C6AA3E0-
+
