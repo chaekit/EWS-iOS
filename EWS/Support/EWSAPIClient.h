@@ -11,6 +11,8 @@
 
 @interface EWSAPIClient : AFHTTPClient
 
++ (EWSAPIClient *)sharedAPIClient;
+
 @end
 
 

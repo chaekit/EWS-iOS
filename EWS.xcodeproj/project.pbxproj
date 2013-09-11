@@ -17,6 +17,8 @@
 		190A8A5A17DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */; };
 		190A8A5D17DFB0F200858210 /* PrototypeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190A8A5C17DFB0F200858210 /* PrototypeStoryboard.storyboard */; };
 		190A8A5E17DFB0F200858210 /* PrototypeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190A8A5C17DFB0F200858210 /* PrototypeStoryboard.storyboard */; };
+		1915CDF817E031D900E50DC3 /* EWSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0297B17E007A500C412D0 /* EWSAPIClient.m */; };
+		1915CDFA17E032E500E50DC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1915CDF917E032E500E50DC3 /* libPods.a */; };
 		1992F46E17DD60B2008C0071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A517DD07370085A3BA /* UIKit.framework */; };
 		1992F46F17DD60B2008C0071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A717DD07370085A3BA /* Foundation.framework */; };
 		1992F47017DD60B2008C0071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A917DD07370085A3BA /* CoreGraphics.framework */; };
@@ -31,7 +33,6 @@
 		199E729E17DD635C0037594E /* _EWSLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89C17DD4C000005E43F /* _EWSLab.m */; };
 		199E729F17DD67390037594E /* EWS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */; };
 		19C0297C17E007A500C412D0 /* EWSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0297B17E007A500C412D0 /* EWSAPIClient.m */; };
-		19C0297D17E007A500C412D0 /* EWSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0297B17E007A500C412D0 /* EWSAPIClient.m */; };
 		19C0F89017DD138F0005E43F /* EWSMainLabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */; };
 		19C0F89617DD49450005E43F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0F89517DD49450005E43F /* CoreData.framework */; };
 		19C0F89A17DD49A30005E43F /* EWS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */; };
@@ -48,6 +49,7 @@
 		19E464BA17DD07370085A3BA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19E464B917DD07370085A3BA /* Default@2x.png */; };
 		19E464BC17DD07370085A3BA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19E464BB17DD07370085A3BA /* Default-568h@2x.png */; };
 		19EA7EE617DD5ACF003DD32C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C01A059F51B4108B2878553 /* libPods.a */; };
+		19F1472C17E037F30019842A /* EWSAPIClientSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19F1472B17E037F30019842A /* EWSAPIClientSpec.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSSharedProjectConstants.m; path = Support/EWSSharedProjectConstants.m; sourceTree = "<group>"; };
 		190A8A5B17DFA21E00858210 /* EWSWithLabIndex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EWSWithLabIndex.xcdatamodel; sourceTree = "<group>"; };
 		190A8A5C17DFB0F200858210 /* PrototypeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PrototypeStoryboard.storyboard; path = Views/PrototypeStoryboard.storyboard; sourceTree = "<group>"; };
+		1915CDF917E032E500E50DC3 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		1915CDFB17E0331E00E50DC3 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/build/Release-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
 		191C9E6E17DD08EB00B8DE72 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1992F46D17DD60B2008C0071 /* EWSTestSuite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWSTestSuite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1992F47317DD60B2008C0071 /* EWSTestSuite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EWSTestSuite-Info.plist"; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 		19E464B717DD07370085A3BA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		19E464B917DD07370085A3BA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		19E464BB17DD07370085A3BA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		19F1472B17E037F30019842A /* EWSAPIClientSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSAPIClientSpec.mm; path = Support/EWSAPIClientSpec.mm; sourceTree = "<group>"; };
 		63509324D8E54B399CF4FBBD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -110,6 +115,7 @@
 				1992F46F17DD60B2008C0071 /* Foundation.framework in Frameworks */,
 				1992F47017DD60B2008C0071 /* CoreGraphics.framework in Frameworks */,
 				1992F47C17DD60B2008C0071 /* Cedar-iOS.framework in Frameworks */,
+				1915CDFA17E032E500E50DC3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +204,7 @@
 		1992F47117DD60B2008C0071 /* EWSTestSuite */ = {
 			isa = PBXGroup;
 			children = (
+				19F1472A17E037AF0019842A /* Support */,
 				19003E7617DEEEF100DC93C7 /* Controllers */,
 				19003E7217DEDC2600DC93C7 /* Factories */,
 				19003E6E17DECBFD00DC93C7 /* Views */,
@@ -262,6 +269,8 @@
 		19E464A417DD07370085A3BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1915CDFB17E0331E00E50DC3 /* libPods-AFNetworking.a */,
+				1915CDF917E032E500E50DC3 /* libPods.a */,
 				19C0F89517DD49450005E43F /* CoreData.framework */,
 				19E464A517DD07370085A3BA /* UIKit.framework */,
 				19E464A717DD07370085A3BA /* Foundation.framework */,
@@ -298,6 +307,14 @@
 				19E464BB17DD07370085A3BA /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		19F1472A17E037AF0019842A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				19F1472B17E037F30019842A /* EWSAPIClientSpec.mm */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,7 +421,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		8AC97E223A674274B7F9DD81 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -446,9 +464,10 @@
 				199E729E17DD635C0037594E /* _EWSLab.m in Sources */,
 				1992F47817DD60B2008C0071 /* main.m in Sources */,
 				1992F47E17DD60B2008C0071 /* ExampleSpec.mm in Sources */,
+				19F1472C17E037F30019842A /* EWSAPIClientSpec.mm in Sources */,
 				199E729A17DD620C0037594E /* EWSLabSpec.mm in Sources */,
 				199E729B17DD632B0037594E /* EWSLab.m in Sources */,
-				19C0297D17E007A500C412D0 /* EWSAPIClient.m in Sources */,
+				1915CDF817E031D900E50DC3 /* EWSAPIClient.m in Sources */,
 				199E729C17DD632E0037594E /* EWSDataModel.m in Sources */,
 				199E729F17DD67390037594E /* EWS.xcdatamodeld in Sources */,
 				19003E7017DECC5C00DC93C7 /* EWSMainLabTableViewCellSpec.mm in Sources */,
@@ -501,6 +520,7 @@
 /* Begin XCBuildConfiguration section */
 		1992F48017DD60B2008C0071 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -511,18 +531,19 @@
 				GCC_PREFIX_HEADER = "EWSTestSuite/EWSTestSuite-Prefix.pch";
 				INFOPLIST_FILE = "EWSTestSuite/EWSTestSuite-Info.plist";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-all_load",
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "${HEADER_SEARCH_PATH}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		1992F48117DD60B2008C0071 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -534,12 +555,12 @@
 				INFOPLIST_FILE = "EWSTestSuite/EWSTestSuite-Info.plist";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-all_load",
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "${HEADER_SEARCH_PATH}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -578,6 +599,7 @@
 		};
 		19E464BE17DD07370085A3BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
