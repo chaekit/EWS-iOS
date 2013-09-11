@@ -22,7 +22,30 @@ describe(@"EWSAPIClient", ^{
                 [client baseURL] should equal([NSURL URLWithString:@"http://ews-api.herokuapp.com"]);
             });
         });
+        
     });
+    
+
+    context(@"instance methods", ^{
+        describe(@"#pollUsageFromAPI:Success:Failure:", ^{
+            it(@"should poll labUsage from the server", ^{
+                spy_on(client);
+                [client pollUsageFromAPISucess:nil Failure:nil];
+                client should have_received("getPath:parameters:success:failure:").with(@"/labusage",
+                                                                                        nil, nil, nil);
+            });
+        });
+        
+        describe(@"#registerNotificationForParams:Success:Failure:", ^{
+            it(@"should send a POST request to register endpoint", ^{
+                spy_on(client);
+                [client registerNotificationParams:nil Success:nil Failure:nil];
+                client should have_received("postPath:parameters:success:failure:").with(@"/ticket",
+                                                                                        nil,nil,nil);
+            });
+        });
+    });
+
 });
 
 SPEC_END

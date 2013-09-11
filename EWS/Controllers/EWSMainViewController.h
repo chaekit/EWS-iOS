@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class AFHTTPRequestOperation;
+
+
 @interface EWSMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *mainTableView;
+
+- (void)updateLabUsage;
 
 @end

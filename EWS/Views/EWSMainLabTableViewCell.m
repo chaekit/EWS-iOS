@@ -50,7 +50,7 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
 /* @private */
 
 - (void)_initLabDetailUsageLabel {
-    CGRect frame = CGRectMake(0, 0, 0, 0);
+    CGRect frame = CGRectMake(258, 22, 42, 21);
 
     labDetailUsageLabel = [[UILabel alloc] initWithFrame:frame];
     [self.contentView addSubview:labDetailUsageLabel];
@@ -59,18 +59,18 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
 /* @private */
 
 - (void)_initLabTicketStatusButton {
-    CGRect frame = CGRectMake(0, 0, 0, 0);
+    CGRect frame = CGRectMake(20, 15, 46, 30);
     
     labTicketStatusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [labTicketStatusButton setFrame:frame];
     [labTicketStatusButton addTarget:self action:@selector(registerForNotification:) forControlEvents:UIControlEventTouchUpInside];
+    [labTicketStatusButton setTitle:@"Touchme" forState:UIControlStateNormal];
     [self.contentView addSubview:labTicketStatusButton];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 - (void)registerForNotification:(id)sender {

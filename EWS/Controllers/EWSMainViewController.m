@@ -13,6 +13,8 @@
 #import "EWSSharedProjectConstants.h"
 #import "EWSDataModel.h"
 #import "EWSLab.h"
+#import "EWSAPIClient.h"
+
 @interface EWSMainViewController ()
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedRequestController;
@@ -36,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _initFetchedRequestController];
+    [self updateLabUsage];
     [self _initAllSubViews];
 }
 
@@ -43,7 +46,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 /* @private */
@@ -68,6 +70,35 @@
     }
 }
 
+- (NSMutableArray *)fetchedLabObjects {
+    NSArray<NSFetchedResultsSectionInfo> *sections = [fetchedRequestController sections][0];
+    return [[sections objects] mutableCopy];
+}
+
+- (void)updateLabUsage {
+    [[EWSAPIClient sharedAPIClient] pollUsageFromAPISucess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self matchAndUpdateLabUsage:responseObject];
+        [self.mainTableView reloadData];
+    } Failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+    }];
+}
+
+- (void)matchAndUpdateLabUsage:(id)responseObject {
+    NSArray *labData = responseObject[@"data"];
+    NSMutableArray *fetchedLabData = [self fetchedLabObjects];
+    for (NSInteger i = 0; i < [labData count]; i++) {
+        for (NSInteger j= 0; j < [fetchedLabData count];  j++) {
+            BOOL isMatching = [labData[i][@"labname"] isEqualToString:[fetchedLabData[j] labName]];
+            if (isMatching) {
+                EWSLab *fetchedLabObject = (EWSLab *)fetchedLabData[j];
+                [fetchedLabObject updateWithJSON:labData[i]];
+            }
+        }
+    }
+}
+
+/* @private */
 - (void)_initAllSubViews {
     [self _initMainTableView];
 }
@@ -83,6 +114,13 @@
     [self.view addSubview:mainTableView];
 }
 
+
+#pragma mark -
+#pragma UITableViewProtocol methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 64.0;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *sections = [fetchedRequestController sections];
@@ -100,7 +138,7 @@
         cell = [[EWSMainLabTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:UNREGISTERED_CELL_IDENTIFIER];
     }
     
-    NSArray *fetchedLabs = [[fetchedRequestController sections][0] objects];
+    NSArray *fetchedLabs = [self fetchedLabObjects];
 //    NSLog(@"lab  %@", [((EWSLab *)[fetchedLabs objectAtIndex:indexPath.row]) valueForKey:@"labName"]);
     [cell updateWithLab:[fetchedLabs objectAtIndex:indexPath.row]];
     return cell;

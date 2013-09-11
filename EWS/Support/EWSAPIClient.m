@@ -34,5 +34,15 @@ NSString *const API_URL = @"http://ews-api.herokuapp.com";
     return self;
 }
 
+- (void)pollUsageFromAPISucess:(void (^)(AFHTTPRequestOperation *, id))successBlock
+                       Failure:(void (^)(AFHTTPRequestOperation *, NSError *))failureBlock {
+    
+    NSString *getPath = @"/labusage";
+    [self getPath:getPath parameters:nil success:successBlock failure:failureBlock];
+}
 
+- (void)registerNotificationParams:(id)params Success:(void (^)(AFHTTPRequestOperation *, id))successBlock Failure:(void (^)(AFHTTPRequestOperation *, NSError *))failureBlock{
+    NSString *postPath = @"/ticket";
+    [self postPath:postPath parameters:nil success:successBlock failure:failureBlock];
+}
 @end

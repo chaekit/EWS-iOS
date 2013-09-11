@@ -57,12 +57,23 @@ describe(@"EWSLab", ^{
         });
         
         describe(@"#updateWithJSON:", ^{
-            it(@"should throw an exception if the parameter has wrong keys", ^{
-                NSDictionary *badJSONFormat = @{@"strlabname": @"abc",
+            xit(@"should throw an exception if the parameter has wrong keys", ^{
+                NSDictionary *badJSONFormat = @{@"labname": @"abc",
                                                 @"inusecount": @10,
                                                 @"machinecount": @12};
                 
                 ^{[lab updateWithJSON:badJSONFormat];} should raise_exception([NSInvalidArgumentException class]);
+            });
+            
+            it(@"should update the lab's properties", ^{
+                NSDictionary *validJSON = @{@"labname": @"abc",
+                                            @"inusecount": @10,
+                                            @"machinecount": @12,
+                                            @"_id": @"abc"};
+                
+                [lab updateWithJSON:validJSON];
+                [lab machineCount] should equal(@12);
+                [lab inuseCount] should equal(@10);
             });
         });
         
@@ -72,6 +83,7 @@ describe(@"EWSLab", ^{
                 [lab usageFractionInString] should equal(usageFraction);
             });
         });
+        
     });
 });
 

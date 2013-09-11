@@ -1,5 +1,6 @@
 #import <CoreData/CoreData.h>
 #import "EWSMainViewController.h"
+#import "EWSAPIClient.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -47,12 +48,27 @@ describe(@"EWSMainViewController", ^{
         
     });
     
-
-
+    context(@"instance methods", ^{
+        describe(@"updateLabUsage:Success:Failure", ^{
+            it(@"should call pollLabUsage:Success:Failure using EWSAPIClient", ^{
+                
+            });
+        });
+    });
+    
     context(@"valid protocols", ^{
         it(@"should conform to UITableView delegate and datasource protocols", ^{
             [mainVC conformsToProtocol:@protocol(UITableViewDelegate)] should be_truthy;
             [mainVC conformsToProtocol:@protocol(UITableViewDataSource)] should be_truthy;
+        });
+    });
+    
+    context(@"UITableViewProtocol methods", ^{
+        describe(@"tableView:heightForRowAtIndexPath:", ^{
+            it(@"should return 64", ^{
+                CGFloat height = [mainVC tableView:mainVC.mainTableView heightForRowAtIndexPath:nil];
+                height should equal(64);
+            });
         });
     });
     
