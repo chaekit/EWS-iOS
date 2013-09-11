@@ -29,4 +29,37 @@
     return factory;
 }
 
+/*
+ Factories with 10+ vacant machines aren't eligible for notification;
+ */
+
++ (id)labFactoryNotValidForNotification {
+    static EWSLab *factory;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
+        factory = [EWSLab insertInManagedObjectContext:mainContext];
+        [factory setLabName:@"DCL 416"];
+        [factory setInuseCount:@15];
+        [factory setMachineCount:@40];
+        [factory setLabIndex:@0];
+    });
+    return factory;
+}
+
++ (id)labFactoryValidForNotification {
+    static EWSLab *factory;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
+        factory = [EWSLab insertInManagedObjectContext:mainContext];
+        [factory setLabName:@"DCL 416"];
+        [factory setInuseCount:@39];
+        [factory setMachineCount:@40];
+        [factory setLabIndex:@0];
+    });
+    return factory;
+}
+
+
 @end

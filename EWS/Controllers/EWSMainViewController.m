@@ -114,6 +114,18 @@
     [self.view addSubview:mainTableView];
 }
 
+#pragma mark -
+#pragma EWSMainLabTableViewCellLabNotificationProtocol methods
+
+- (void)userTappedTicketStatusButton:(EWSMainLabTableViewCell *)cell {
+    EWSLab *correspondingLab = cell.labObject;
+    if ([correspondingLab isValidForNotification]) {
+        UIViewController *testController = [[UIViewController alloc] init];
+        [self presentViewController:testController animated:nil completion:nil];
+    }
+}
+
+
 
 #pragma mark -
 #pragma UITableViewProtocol methods

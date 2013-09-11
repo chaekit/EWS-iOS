@@ -17,6 +17,8 @@
 @interface EWSLab (SpecFactory)
 
 + (id)labFactoryWithStandardAttributes;
-
++ (id)labFactoryNotValidForNotification;
++ (id)labFactoryValidForNotification;
+    
 @end
 

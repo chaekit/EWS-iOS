@@ -74,6 +74,7 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
 }
 
 - (void)registerForNotification:(id)sender {
+    [self.delegate userTappedTicketStatusButton:self];
     NSLog(@"wtf");
 }
 

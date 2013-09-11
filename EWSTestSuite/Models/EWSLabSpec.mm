@@ -1,6 +1,7 @@
 #import <CoreData/CoreData.h>
 #import "EWSLab.h"
 #import "EWSDataModel.h"
+#import "SpecFactories.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -57,8 +58,8 @@ describe(@"EWSLab", ^{
         });
         
         describe(@"#updateWithJSON:", ^{
-            xit(@"should throw an exception if the parameter has wrong keys", ^{
-                NSDictionary *badJSONFormat = @{@"labname": @"abc",
+            it(@"should throw an exception if the parameter has wrong keys", ^{ // the api current returns _id as part of the key. need to get rid ofit
+                NSDictionary *badJSONFormat = @{@"strlabname": @"abc",
                                                 @"inusecount": @10,
                                                 @"machinecount": @12};
                 
@@ -81,6 +82,13 @@ describe(@"EWSLab", ^{
             it(@"should return an NSString in format inusecount/machinecount", ^{
                 NSString *usageFraction = [NSString stringWithFormat:@"%@/%@", lab.inuseCount, lab.machineCount];
                 [lab usageFractionInString] should equal(usageFraction);
+            });
+        });
+        
+        describe(@"#isValidForNotification", ^{
+            it(@"should return NO if there are more than 10 vacant machines", ^{
+                BOOL isValid = [[EWSLab labFactoryNotValidForNotification] isValidForNotification];
+                isValid should_not be_truthy;
             });
         });
         

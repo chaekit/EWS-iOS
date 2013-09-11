@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EWSMainLabTableViewCell.h"
 
 @class AFHTTPRequestOperation;
 
 
-@interface EWSMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface EWSMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,
+                                                    EWSMainLabTableViewCellLabNotificationProtocol>
 
 @property (nonatomic, strong) UITableView *mainTableView;
 

@@ -2,6 +2,7 @@
 #import "EWSLab.h"
 #import "EWSDataModel.h"
 #import "SpecFactories.h"
+#import "EWSMainViewController.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -45,8 +46,6 @@ describe(@"EWSMainLabTableViewCell", ^{
                 spy_on(tableViewCell);
                 [tableViewCell.labTicketStatusButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                 tableViewCell should have_received("registerForNotification:");
-
-
             });
         });
         
@@ -95,6 +94,17 @@ describe(@"EWSMainLabTableViewCell", ^{
             it(@"should throw an NSInvalidArgumentException if the argument is not an instance of EWSLab", ^{
                 id bogusParam = @"bogus";
                 ^{ [tableViewCell updateWithLab:bogusParam]; } should raise_exception([NSInvalidArgumentException class]);
+            });
+        });
+        
+        describe(@"#registerForNotification", ^{
+            it(@"should send userTappedTicketStatusButtonCell: to the cell's delegate", ^{
+                id<CedarDouble, EWSMainLabTableViewCellLabNotificationProtocol> fakeDelegate = fake_for([EWSMainViewController class]);
+                [tableViewCell setDelegate:fakeDelegate];
+                fakeDelegate stub_method("userTappedTicketStatusButton:");
+                spy_on(fakeDelegate);
+                [tableViewCell registerForNotification:nil];
+                fakeDelegate should have_received("userTappedTicketStatusButton:").with(tableViewCell);
             });
         });
     });

@@ -5,5 +5,6 @@
 - (CGFloat)fractionInUse;
 - (void)updateWithJSON:(NSDictionary *)JSON;
 - (NSString *)usageFractionInString;
+- (BOOL)isValidForNotification;
 
 @end
