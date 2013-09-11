@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D994D131-FA9F-4270-B21F-E0AD83651A72</string>
+	<string>FC5B0129-3D71-4681-9EB4-714A3B13A08F</string>
 	<key>IDESourceControlProjectName</key>
 	<string>EWS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>72AD6A6B-9447-4CE3-96C4-76B370CF239C</key>
-		<string>https://github.com/wayfare/EWS.git</string>
+		<key>195A650A-9F5B-41AB-B131-2DC91CF574C6</key>
+		<string>https://github.com/wayfare/EWS-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>EWS.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>72AD6A6B-9447-4CE3-96C4-76B370CF239C</key>
+		<key>195A650A-9F5B-41AB-B131-2DC91CF574C6</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/wayfare/EWS.git</string>
+	<string>https://github.com/wayfare/EWS-iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>72AD6A6B-9447-4CE3-96C4-76B370CF239C</string>
+	<string>195A650A-9F5B-41AB-B131-2DC91CF574C6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>72AD6A6B-9447-4CE3-96C4-76B370CF239C</string>
+			<string>195A650A-9F5B-41AB-B131-2DC91CF574C6</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ews-ios</string>
+			<string>EWS-iOS</string>
 		</dict>
 	</array>
 </dict>

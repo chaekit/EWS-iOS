@@ -310,6 +310,7 @@
 				1992F46917DD60B2008C0071 /* Sources */,
 				1992F46A17DD60B2008C0071 /* Frameworks */,
 				1992F46B17DD60B2008C0071 /* Resources */,
+				19D896BE17E02CB7009E0B62 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -392,6 +393,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		19D896BE17E02CB7009E0B62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		8AC97E223A674274B7F9DD81 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,6 +516,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${HEADER_SEARCH_PATH}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -524,12 +539,14 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${HEADER_SEARCH_PATH}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		19E464BD17DD07370085A3BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -588,18 +605,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"${PODS_ROOT}/Headers",
-					"${PODS_ROOT}/Headers/AFNetworking",
-					"${PODS_ROOT}/Headers/FlatUIKit",
-				);
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "${HEADER_SEARCH_PATHS}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -608,19 +619,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"${PODS_ROOT}/Headers",
-					"${PODS_ROOT}/Headers/AFNetworking",
-					"${PODS_ROOT}/Headers/FlatUIKit",
-				);
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "${HEADER_SEARCH_PATHS}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPClient.h"
 
-@interface EWSAPIClient
+@interface EWSAPIClient : AFHTTPClient
 
 @end
 
 
 
-
-@end
