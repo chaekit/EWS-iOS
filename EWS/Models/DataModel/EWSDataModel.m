@@ -7,6 +7,7 @@
 //
 
 #import "EWSDataModel.h"
+#import "EWSLab.h"
 
 @implementation EWSDataModel
 
@@ -31,8 +32,60 @@
         [self initManagedObjectModel];
         [self initPersistentCoordinator];
         [self initMainContext];
+        [self _checkIfDatabaseIsEmpty];
     }
     return self;
+}
+
+
+/* @private */
+
+- (void)_checkIfDatabaseIsEmpty {
+    NSManagedObjectContext *context = mainContext;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"EWSLab" inManagedObjectContext:context]];
+    
+    NSError *error;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"An error has occured while fetching request");
+        return;
+    }
+    
+    if ([results count] == 0) {
+        NSLog(@"Database is Empty");
+        [self _fillDatabaseWithDefaultLabData];
+    } else {
+        NSLog(@"Fetch result  %@", results);
+    }
+}
+
+/* @private */
+
+- (void)_fillDatabaseWithDefaultLabData {
+    NSArray *labData = @[@{@"DCL L416": @0},
+                         @{@"DCL L440": @1},
+                         @{@"DCL L520": @2},
+                         @{@"EH 406B1": @3},
+                         @{@"EH 406B8": @4},
+                          @{@"EVRT 252": @5},
+                          @{@"GELIB 057": @6},
+                          @{@"GELIB 4th": @7},
+                          @{@"MEL 1001": @8},
+                          @{@"MEL 1009": @9},
+                          @{@"SIEBL 0218": @10},
+                          @{@"SIEBL 0220": @11},
+                          @{@"SIEBL 0222": @12}];
+   
+    for (NSDictionary *labDict in labData) {
+        EWSLab *lab = [EWSLab insertInManagedObjectContext:mainContext];
+        NSString *labName = [labDict allKeys][0];
+        NSNumber *labIndex = labDict[labName];
+        [lab setLabName:labName];
+        [lab setLabIndex:labIndex];
+        NSError *error;
+        [mainContext save:&error];
+    }
 }
 
 - (void)initPersistentCoordinator {

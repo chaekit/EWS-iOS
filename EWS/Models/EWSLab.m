@@ -10,13 +10,9 @@
 
 @implementation EWSLab
 
-@synthesize labName;
-@synthesize machineCount;
-@synthesize inuseCount;
-@synthesize labIndex;
 
 - (CGFloat)fractionInUse {
-    return ((CGFloat)[inuseCount integerValue]) / [machineCount integerValue];
+    return ((CGFloat)[self.inuseCount integerValue]) / [self.machineCount integerValue];
 }
 
 - (void)updateWithJSON:(NSDictionary *)JSON {
@@ -31,7 +27,7 @@
 }
 
 - (NSString *)usageFractionInString {
-    return [NSString stringWithFormat:@"%@/%@", inuseCount, machineCount];
+    return [NSString stringWithFormat:@"%@/%@", self.inuseCount, self.machineCount];
 }
 
 @end

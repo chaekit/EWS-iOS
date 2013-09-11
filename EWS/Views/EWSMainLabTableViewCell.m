@@ -9,6 +9,9 @@
 #import "EWSMainLabTableViewCell.h"
 #import "EWSLab.h"
 
+NSString *const UNREGISTERED_CELL_IDENTIFIER = @"UnregisteredCell";
+NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
+
 @implementation EWSMainLabTableViewCell
 
 @synthesize labObject;
@@ -37,7 +40,7 @@
 /* @private */
 
 - (void)_initLabNameLabel {
-    CGRect frame = CGRectMake(0, 0, 0, 0);
+    CGRect frame = CGRectMake(114, 20, 92, 19);
     
     labNameLabel = [[UILabel alloc] initWithFrame:frame];
     [self.contentView addSubview:labNameLabel];
@@ -58,7 +61,9 @@
 - (void)_initLabTicketStatusButton {
     CGRect frame = CGRectMake(0, 0, 0, 0);
     
-    labTicketStatusButton = [[UIButton alloc] initWithFrame:frame];
+    labTicketStatusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [labTicketStatusButton setFrame:frame];
+    [labTicketStatusButton addTarget:self action:@selector(registerForNotification:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:labTicketStatusButton];
 }
 
@@ -68,12 +73,16 @@
     // Configure the view for the selected state
 }
 
+- (void)registerForNotification:(id)sender {
+    NSLog(@"wtf");
+}
+
 - (void)updateWithLab:(EWSLab *)lab {
     if ([lab isKindOfClass:[EWSLab class]] == NO) {
         @throw NSInvalidArgumentException;
     }
     [self setLabObject:lab];
-    
+   
     [labNameLabel setText:[lab labName]];
     [labDetailUsageLabel setText:[lab usageFractionInString]];
 }

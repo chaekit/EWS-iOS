@@ -10,6 +10,9 @@
 
 @class EWSLab;
 
+FOUNDATION_EXPORT NSString *const UNREGISTERED_CELL_IDENTIFIER;
+FOUNDATION_EXPORT NSString *const REGISTERED_CELL_IDENTIFIER;
+
 @interface EWSMainLabTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) EWSLab *labObject;
@@ -19,5 +22,7 @@
 @property (nonatomic, strong) UILabel *labDetailUsageLabel;
 
 - (void)updateWithLab:(EWSLab *)lab;
+
+- (void)registerForNotification:(id)sender;
 
 @end

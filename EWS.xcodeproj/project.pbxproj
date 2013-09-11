@@ -13,6 +13,10 @@
 		19003E7917DEEF6700DC93C7 /* EWSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */; };
 		19003E7A17DEEF6700DC93C7 /* EWSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */; };
 		19003E7E17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */; };
+		190A8A5917DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */; };
+		190A8A5A17DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */; };
+		190A8A5D17DFB0F200858210 /* PrototypeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190A8A5C17DFB0F200858210 /* PrototypeStoryboard.storyboard */; };
+		190A8A5E17DFB0F200858210 /* PrototypeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190A8A5C17DFB0F200858210 /* PrototypeStoryboard.storyboard */; };
 		1992F46E17DD60B2008C0071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A517DD07370085A3BA /* UIKit.framework */; };
 		1992F46F17DD60B2008C0071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A717DD07370085A3BA /* Foundation.framework */; };
 		1992F47017DD60B2008C0071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A917DD07370085A3BA /* CoreGraphics.framework */; };
@@ -26,6 +30,8 @@
 		199E729D17DD634F0037594E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0F89517DD49450005E43F /* CoreData.framework */; };
 		199E729E17DD635C0037594E /* _EWSLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89C17DD4C000005E43F /* _EWSLab.m */; };
 		199E729F17DD67390037594E /* EWS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */; };
+		19C0297C17E007A500C412D0 /* EWSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0297B17E007A500C412D0 /* EWSAPIClient.m */; };
+		19C0297D17E007A500C412D0 /* EWSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0297B17E007A500C412D0 /* EWSAPIClient.m */; };
 		19C0F89017DD138F0005E43F /* EWSMainLabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */; };
 		19C0F89617DD49450005E43F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0F89517DD49450005E43F /* CoreData.framework */; };
 		19C0F89A17DD49A30005E43F /* EWS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */; };
@@ -52,6 +58,10 @@
 		19003E7717DEEF6700DC93C7 /* EWSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSMainViewController.h; path = EWS/Controllers/EWSMainViewController.h; sourceTree = SOURCE_ROOT; };
 		19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSMainViewController.m; path = EWS/Controllers/EWSMainViewController.m; sourceTree = SOURCE_ROOT; };
 		19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSMainViewControllerSpec.mm; path = Controllers/EWSMainViewControllerSpec.mm; sourceTree = "<group>"; };
+		190A8A5717DF9CCB00858210 /* EWSSharedProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSSharedProjectConstants.h; path = Support/EWSSharedProjectConstants.h; sourceTree = "<group>"; };
+		190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSSharedProjectConstants.m; path = Support/EWSSharedProjectConstants.m; sourceTree = "<group>"; };
+		190A8A5B17DFA21E00858210 /* EWSWithLabIndex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EWSWithLabIndex.xcdatamodel; sourceTree = "<group>"; };
+		190A8A5C17DFB0F200858210 /* PrototypeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PrototypeStoryboard.storyboard; path = Views/PrototypeStoryboard.storyboard; sourceTree = "<group>"; };
 		191C9E6E17DD08EB00B8DE72 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1992F46D17DD60B2008C0071 /* EWSTestSuite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWSTestSuite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1992F47317DD60B2008C0071 /* EWSTestSuite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EWSTestSuite-Info.plist"; sourceTree = "<group>"; };
@@ -62,6 +72,8 @@
 		1992F47B17DD60B2008C0071 /* Cedar-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Cedar-iOS.framework"; path = "Frameworks/Cedar-iOS.framework"; sourceTree = "<group>"; };
 		1992F47D17DD60B2008C0071 /* ExampleSpec.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ExampleSpec.mm; sourceTree = "<group>"; };
 		199E729917DD620C0037594E /* EWSLabSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSLabSpec.mm; path = Models/EWSLabSpec.mm; sourceTree = "<group>"; };
+		19C0297A17E007A500C412D0 /* EWSAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSAPIClient.h; path = Support/EWSAPIClient.h; sourceTree = "<group>"; };
+		19C0297B17E007A500C412D0 /* EWSAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSAPIClient.m; path = Support/EWSAPIClient.m; sourceTree = "<group>"; };
 		19C0F88E17DD138F0005E43F /* EWSMainLabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSMainLabTableViewCell.h; path = Views/EWSMainLabTableViewCell.h; sourceTree = "<group>"; };
 		19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSMainLabTableViewCell.m; path = Views/EWSMainLabTableViewCell.m; sourceTree = "<group>"; };
 		19C0F89517DD49450005E43F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -141,11 +153,23 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		190A8A5617DF9CA900858210 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				190A8A5717DF9CCB00858210 /* EWSSharedProjectConstants.h */,
+				190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */,
+				19C0297A17E007A500C412D0 /* EWSAPIClient.h */,
+				19C0297B17E007A500C412D0 /* EWSAPIClient.m */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		191C9EB417DD0B2200B8DE72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				19C0F88E17DD138F0005E43F /* EWSMainLabTableViewCell.h */,
 				19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */,
+				190A8A5C17DFB0F200858210 /* PrototypeStoryboard.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -251,6 +275,7 @@
 		19E464AB17DD07370085A3BA /* EWS */ = {
 			isa = PBXGroup;
 			children = (
+				190A8A5617DF9CA900858210 /* Support */,
 				191C9EB617DD0B2D00B8DE72 /* Controllers */,
 				191C9EB517DD0B2900B8DE72 /* Models */,
 				191C9EB417DD0B2200B8DE72 /* Views */,
@@ -348,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1992F47617DD60B2008C0071 /* InfoPlist.strings in Resources */,
+				190A8A5E17DFB0F200858210 /* PrototypeStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +385,7 @@
 				19E464B817DD07370085A3BA /* Default.png in Resources */,
 				19E464BA17DD07370085A3BA /* Default@2x.png in Resources */,
 				19E464BC17DD07370085A3BA /* Default-568h@2x.png in Resources */,
+				190A8A5D17DFB0F200858210 /* PrototypeStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +434,7 @@
 				1992F47E17DD60B2008C0071 /* ExampleSpec.mm in Sources */,
 				199E729A17DD620C0037594E /* EWSLabSpec.mm in Sources */,
 				199E729B17DD632B0037594E /* EWSLab.m in Sources */,
+				19C0297D17E007A500C412D0 /* EWSAPIClient.m in Sources */,
 				199E729C17DD632E0037594E /* EWSDataModel.m in Sources */,
 				199E729F17DD67390037594E /* EWS.xcdatamodeld in Sources */,
 				19003E7017DECC5C00DC93C7 /* EWSMainLabTableViewCellSpec.mm in Sources */,
@@ -414,6 +442,7 @@
 				19003E7517DEDC5400DC93C7 /* SpecFactories.m in Sources */,
 				19003E7A17DEEF6700DC93C7 /* EWSMainViewController.m in Sources */,
 				19003E7E17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm in Sources */,
+				190A8A5A17DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,11 +453,13 @@
 				19E464B217DD07370085A3BA /* main.m in Sources */,
 				19E464B617DD07370085A3BA /* EWSAppDelegate.m in Sources */,
 				19C0F89017DD138F0005E43F /* EWSMainLabTableViewCell.m in Sources */,
+				19C0297C17E007A500C412D0 /* EWSAPIClient.m in Sources */,
 				19C0F89A17DD49A30005E43F /* EWS.xcdatamodeld in Sources */,
 				19C0F89F17DD4C000005E43F /* _EWSLab.m in Sources */,
 				19C0F8A017DD4C000005E43F /* EWSLab.m in Sources */,
 				19C0F8A317DD4C430005E43F /* EWSDataModel.m in Sources */,
 				19003E7917DEEF6700DC93C7 /* EWSMainViewController.m in Sources */,
+				190A8A5917DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,10 +588,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/Headers",
+					"${PODS_ROOT}/Headers/AFNetworking",
+					"${PODS_ROOT}/Headers/FlatUIKit",
+				);
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${HEADER_SEARCH_PATHS}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -569,11 +608,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/Headers",
+					"${PODS_ROOT}/Headers/AFNetworking",
+					"${PODS_ROOT}/Headers/FlatUIKit",
+				);
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${HEADER_SEARCH_PATHS}";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -614,9 +661,10 @@
 		19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				190A8A5B17DFA21E00858210 /* EWSWithLabIndex.xcdatamodel */,
 				19C0F89917DD49A30005E43F /* EWS.xcdatamodel */,
 			);
-			currentVersion = 19C0F89917DD49A30005E43F /* EWS.xcdatamodel */;
+			currentVersion = 190A8A5B17DFA21E00858210 /* EWSWithLabIndex.xcdatamodel */;
 			name = EWS.xcdatamodeld;
 			path = Models/DataModel/EWS.xcdatamodeld;
 			sourceTree = "<group>";

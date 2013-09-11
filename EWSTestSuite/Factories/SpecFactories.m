@@ -7,6 +7,7 @@
 //
 
 #import "SpecFactories.h"
+#import "EWSDataModel.h"
 
 @implementation SpecFactories
 
@@ -18,7 +19,8 @@
     static EWSLab *factory;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        factory = [[EWSLab alloc] init];
+        NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
+        factory = [EWSLab insertInManagedObjectContext:mainContext];
         [factory setLabName:@"DCL 416"];
         [factory setInuseCount:@30];
         [factory setMachineCount:@40];

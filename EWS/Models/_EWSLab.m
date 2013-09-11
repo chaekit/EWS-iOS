@@ -5,6 +5,7 @@
 
 const struct EWSLabAttributes EWSLabAttributes = {
 	.inuseCount = @"inuseCount",
+	.labIndex = @"labIndex",
 	.labName = @"labName",
 	.machineCount = @"machineCount",
 };
@@ -46,6 +47,11 @@ const struct EWSLabFetchedProperties EWSLabFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"labIndexValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"labIndex"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"machineCountValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"machineCount"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -78,6 +84,32 @@ const struct EWSLabFetchedProperties EWSLabFetchedProperties = {
 
 - (void)setPrimitiveInuseCountValue:(int32_t)value_ {
 	[self setPrimitiveInuseCount:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
+@dynamic labIndex;
+
+
+
+- (int32_t)labIndexValue {
+	NSNumber *result = [self labIndex];
+	return [result intValue];
+}
+
+- (void)setLabIndexValue:(int32_t)value_ {
+	[self setLabIndex:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveLabIndexValue {
+	NSNumber *result = [self primitiveLabIndex];
+	return [result intValue];
+}
+
+- (void)setPrimitiveLabIndexValue:(int32_t)value_ {
+	[self setPrimitiveLabIndex:[NSNumber numberWithInt:value_]];
 }
 
 

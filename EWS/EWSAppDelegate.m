@@ -8,11 +8,11 @@
 
 #import "EWSAppDelegate.h"
 #import "EWSDataModel.h"
+#import "EWSMainViewController.h"
 
 @implementation EWSAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSManagedObjectContext *context = [[EWSDataModel sharedDataModel] mainContext];
     if (context) {
         NSLog(@"CoreData set up");
@@ -20,9 +20,9 @@
         NSLog(@"you fucked it up");
     }
     
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[EWSMainViewController alloc] initWithNibName:nil bundle:nil];
     [self.window makeKeyAndVisible];
     return YES;
 }

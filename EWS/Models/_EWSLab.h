@@ -6,6 +6,7 @@
 
 extern const struct EWSLabAttributes {
 	__unsafe_unretained NSString *inuseCount;
+	__unsafe_unretained NSString *labIndex;
 	__unsafe_unretained NSString *labName;
 	__unsafe_unretained NSString *machineCount;
 } EWSLabAttributes;
@@ -15,6 +16,7 @@ extern const struct EWSLabRelationships {
 
 extern const struct EWSLabFetchedProperties {
 } EWSLabFetchedProperties;
+
 
 
 
@@ -43,6 +45,20 @@ extern const struct EWSLabFetchedProperties {
 - (void)setInuseCountValue:(int32_t)value_;
 
 //- (BOOL)validateInuseCount:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* labIndex;
+
+
+
+@property int32_t labIndexValue;
+- (int32_t)labIndexValue;
+- (void)setLabIndexValue:(int32_t)value_;
+
+//- (BOOL)validateLabIndex:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -87,6 +103,15 @@ extern const struct EWSLabFetchedProperties {
 
 - (int32_t)primitiveInuseCountValue;
 - (void)setPrimitiveInuseCountValue:(int32_t)value_;
+
+
+
+
+- (NSNumber*)primitiveLabIndex;
+- (void)setPrimitiveLabIndex:(NSNumber*)value;
+
+- (int32_t)primitiveLabIndexValue;
+- (void)setPrimitiveLabIndexValue:(int32_t)value_;
 
 
 

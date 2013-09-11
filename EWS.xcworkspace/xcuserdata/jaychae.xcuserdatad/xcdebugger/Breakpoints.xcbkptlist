@@ -8,22 +8,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EWS/Models/EWSLab.m"
-         timestampString = "400479994.693309"
+         timestampString = "400539193.685772"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40">
+         startingLineNumber = "36"
+         endingLineNumber = "36">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EWS/Models/DataModel/EWSDataModel.m"
-         timestampString = "400386271.964342"
+         timestampString = "400533827.048122"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "62"
-         endingLineNumber = "62"
+         startingLineNumber = "115"
+         endingLineNumber = "115"
          landmarkName = "-initManagedObjectModel"
          landmarkType = "5">
       </FileBreakpoint>
@@ -32,11 +32,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "EWS/Models/DataModel/EWSDataModel.m"
-         timestampString = "400386271.964342"
+         timestampString = "400533827.048122"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
          landmarkName = "-initPersistentCoordinator"
          landmarkType = "5">
       </FileBreakpoint>

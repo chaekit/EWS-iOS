@@ -40,6 +40,14 @@ describe(@"EWSMainLabTableViewCell", ^{
             it(@"should be an instance of UIButton", ^{
                 tableViewCell.labTicketStatusButton should be_instance_of([UIButton class]);
             });
+            
+            it(@"should register for a push notification after tapping", ^{
+                spy_on(tableViewCell);
+                [tableViewCell.labTicketStatusButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                tableViewCell should have_received("registerForNotification:");
+
+
+            });
         });
         
         describe(@"labDetailUsageLabel", ^{

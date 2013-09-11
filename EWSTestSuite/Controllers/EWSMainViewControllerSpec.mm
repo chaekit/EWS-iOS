@@ -1,7 +1,14 @@
+#import <CoreData/CoreData.h>
 #import "EWSMainViewController.h"
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
+
+@interface EWSMainViewController (SpecTest)
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedRequestController;
+
+@end
 
 SPEC_BEGIN(EWSMainViewControllerSpec)
 
@@ -24,8 +31,24 @@ describe(@"EWSMainViewController", ^{
                 mainVC.mainTableView.dataSource should equal(mainVC);
             });
         });
+        
+        context(@"private properties", ^{
+            describe(@"fetchedRequestController", ^{
+                it(@"should always return exactly one section", ^{
+                    [[mainVC.fetchedRequestController sections] count] should equal(1);
+                });
+                
+                it(@"should always return 13 elements in the section", ^{
+                    NSArray *sections = mainVC.fetchedRequestController.sections;
+                    [[sections[0] objects] count] should equal(13);
+                });
+            });
+        });
+        
     });
     
+
+
     context(@"valid protocols", ^{
         it(@"should conform to UITableView delegate and datasource protocols", ^{
             [mainVC conformsToProtocol:@protocol(UITableViewDelegate)] should be_truthy;
