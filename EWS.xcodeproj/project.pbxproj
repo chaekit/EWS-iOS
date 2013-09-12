@@ -13,6 +13,9 @@
 		19003E7917DEEF6700DC93C7 /* EWSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */; };
 		19003E7A17DEEF6700DC93C7 /* EWSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */; };
 		19003E7E17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */; };
+		1901000017E179640038B575 /* EWSNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1901FFFC17E1793A0038B575 /* EWSNotificationViewController.m */; };
+		1901FFFD17E1793A0038B575 /* EWSNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1901FFFC17E1793A0038B575 /* EWSNotificationViewController.m */; };
+		1901FFFF17E1795E0038B575 /* EWSNotificationViewControllerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1901FFFE17E1795E0038B575 /* EWSNotificationViewControllerSpec.mm */; };
 		190A8A5917DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */; };
 		190A8A5A17DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */; };
 		190A8A5D17DFB0F200858210 /* PrototypeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190A8A5C17DFB0F200858210 /* PrototypeStoryboard.storyboard */; };
@@ -60,6 +63,9 @@
 		19003E7717DEEF6700DC93C7 /* EWSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSMainViewController.h; path = EWS/Controllers/EWSMainViewController.h; sourceTree = SOURCE_ROOT; };
 		19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSMainViewController.m; path = EWS/Controllers/EWSMainViewController.m; sourceTree = SOURCE_ROOT; };
 		19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSMainViewControllerSpec.mm; path = Controllers/EWSMainViewControllerSpec.mm; sourceTree = "<group>"; };
+		1901FFFB17E1793A0038B575 /* EWSNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSNotificationViewController.h; path = Controllers/EWSNotificationViewController.h; sourceTree = "<group>"; };
+		1901FFFC17E1793A0038B575 /* EWSNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSNotificationViewController.m; path = Controllers/EWSNotificationViewController.m; sourceTree = "<group>"; };
+		1901FFFE17E1795E0038B575 /* EWSNotificationViewControllerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSNotificationViewControllerSpec.mm; path = Controllers/EWSNotificationViewControllerSpec.mm; sourceTree = "<group>"; };
 		190A8A5717DF9CCB00858210 /* EWSSharedProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSSharedProjectConstants.h; path = Support/EWSSharedProjectConstants.h; sourceTree = "<group>"; };
 		190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSSharedProjectConstants.m; path = Support/EWSSharedProjectConstants.m; sourceTree = "<group>"; };
 		190A8A5B17DFA21E00858210 /* EWSWithLabIndex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EWSWithLabIndex.xcdatamodel; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */,
+				1901FFFE17E1795E0038B575 /* EWSNotificationViewControllerSpec.mm */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +204,8 @@
 			children = (
 				19003E7717DEEF6700DC93C7 /* EWSMainViewController.h */,
 				19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */,
+				1901FFFB17E1793A0038B575 /* EWSNotificationViewController.h */,
+				1901FFFC17E1793A0038B575 /* EWSNotificationViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -461,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1901000017E179640038B575 /* EWSNotificationViewController.m in Sources */,
 				199E729E17DD635C0037594E /* _EWSLab.m in Sources */,
 				1992F47817DD60B2008C0071 /* main.m in Sources */,
 				1992F47E17DD60B2008C0071 /* ExampleSpec.mm in Sources */,
@@ -473,6 +483,7 @@
 				19003E7017DECC5C00DC93C7 /* EWSMainLabTableViewCellSpec.mm in Sources */,
 				19003E7117DECC6200DC93C7 /* EWSMainLabTableViewCell.m in Sources */,
 				19003E7517DEDC5400DC93C7 /* SpecFactories.m in Sources */,
+				1901FFFF17E1795E0038B575 /* EWSNotificationViewControllerSpec.mm in Sources */,
 				19003E7A17DEEF6700DC93C7 /* EWSMainViewController.m in Sources */,
 				19003E7E17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm in Sources */,
 				190A8A5A17DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */,
@@ -487,6 +498,7 @@
 				19E464B617DD07370085A3BA /* EWSAppDelegate.m in Sources */,
 				19C0F89017DD138F0005E43F /* EWSMainLabTableViewCell.m in Sources */,
 				19C0297C17E007A500C412D0 /* EWSAPIClient.m in Sources */,
+				1901FFFD17E1793A0038B575 /* EWSNotificationViewController.m in Sources */,
 				19C0F89A17DD49A30005E43F /* EWS.xcdatamodeld in Sources */,
 				19C0F89F17DD4C000005E43F /* _EWSLab.m in Sources */,
 				19C0F8A017DD4C000005E43F /* EWSLab.m in Sources */,

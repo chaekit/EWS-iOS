@@ -121,8 +121,19 @@
     EWSLab *correspondingLab = cell.labObject;
     if ([correspondingLab isValidForNotification]) {
         UIViewController *testController = [[UIViewController alloc] init];
-        [self presentViewController:testController animated:nil completion:nil];
+        [self presentViewController:testController animated:YES completion:nil];
+    } else {
+        [self showAlertViewForIneligibleLabNotification];
     }
+}
+
+- (void)showAlertViewForIneligibleLabNotification {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Whoa"
+                                                        message:@"There are enough machines. Carry on"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cool"
+                                              otherButtonTitles: nil];
+    [alertView show];
 }
 
 

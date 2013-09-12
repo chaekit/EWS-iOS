@@ -50,13 +50,6 @@ describe(@"EWSMainViewController", ^{
         
     });
     
-    context(@"instance methods", ^{
-        describe(@"updateLabUsage:Success:Failure", ^{
-            it(@"should call pollLabUsage:Success:Failure using EWSAPIClient", ^{
-                
-            });
-        });
-    });
     
     context(@"valid protocols", ^{
         it(@"should conform to UITableView delegate and datasource protocols", ^{
@@ -83,6 +76,7 @@ describe(@"EWSMainViewController", ^{
                 testCell = [[EWSMainLabTableViewCell alloc] init];
                 [testCell setDelegate:mainVC];
                 spy_on(mainVC);
+                mainVC stub_method("showAlertViewForIneligibleLabNotification");
             });
             
             it(@"should present a modalViewController if it is eligible for notification", ^{
@@ -97,6 +91,14 @@ describe(@"EWSMainViewController", ^{
                 [testCell setLabObject:ineligibleLab];
                 [mainVC userTappedTicketStatusButton:testCell];
                 mainVC should_not have_received("presentViewController:animated:completion:");
+            });
+            
+            it(@"should show an alertView when the lab is ineligible for notification", ^{
+                EWSLab *ineligibleLab = [EWSLab labFactoryNotValidForNotification];
+                [testCell setLabObject:ineligibleLab];
+//                mainVC stub_method("showAlertViewForIneligibleLabNotification");
+                [mainVC userTappedTicketStatusButton:testCell];
+                mainVC should have_received("showAlertViewForIneligibleLabNotification");
             });
         });
     });

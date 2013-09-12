@@ -76,10 +76,6 @@ describe(@"EWSMainLabTableViewCell", ^{
                 tableViewCell.labNameLabel.text should equal(lab.labName);
                 tableViewCell.labDetailUsageLabel.text should equal([lab usageFractionInString]);
             });
-
-            xit(@"should have a labTicketStatusImageView that has an Image", ^{
-                tableViewCell.labTicketStatusButton.imageView.image != nil should be_truthy;
-            });
             
             it(@"should have a non nil labObject", ^{
                 tableViewCell.labObject == nil should_not be_truthy;
