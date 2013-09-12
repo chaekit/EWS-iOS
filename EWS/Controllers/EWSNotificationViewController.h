@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *titlesForTimePickerView;
 @property (nonatomic, strong) UIButton *confirmationButton;
 @property (nonatomic, strong) UIBarButtonItem *cancelButton;
+@property (nonatomic, strong) UIToolbar *menuToolBar;
 
 @property (nonatomic, strong) EWSMainLabTableViewCell *cellObject;
 

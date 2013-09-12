@@ -12,16 +12,20 @@ describe(@"EWSNotificationViewController", ^{
     __block EWSNotificationViewController *notificationVC;
 
     beforeEach(^{
-        notificationVC = [[EWSNotificationViewController alloc] init];
+        notificationVC = [[EWSNotificationViewController alloc] initWithNibName:nil bundle:nil];
         [notificationVC viewDidLoad];
     });
     
     context(@"properties", ^{
-
+        
+        
         it(@"should make transition in crossDissolveStyle", ^{
             notificationVC.modalTransitionStyle should equal(UIModalTransitionStyleCrossDissolve);
         });
         
+        it(@"should have a mainView whose background is white", ^{
+            notificationVC.view.backgroundColor should equal([UIColor whiteColor]);
+        });
         
         context(@"UI componenets", ^{
             it(@"should have a picker", ^{
@@ -83,6 +87,13 @@ describe(@"EWSNotificationViewController", ^{
                     [EWSAPIClient sharedAPIClient] should have_received("registerNotificationParams:Success:Failure:");
                 });
             });
+            
+            describe(@"openStationSegmentControl", ^{
+                it(@"should have 2 segments", ^{
+                    notificationVC.openStationSegmentControl.numberOfSegments should equal(2);
+                });
+            });
+            
         });
     });
     

@@ -14,6 +14,7 @@
 #import "EWSDataModel.h"
 #import "EWSLab.h"
 #import "EWSAPIClient.h"
+#import "EWSNotificationViewController.h"
 
 @interface EWSMainViewController ()
 
@@ -120,8 +121,10 @@
 - (void)userTappedTicketStatusButton:(EWSMainLabTableViewCell *)cell {
     EWSLab *correspondingLab = cell.labObject;
     if ([correspondingLab isValidForNotification]) {
-        UIViewController *testController = [[UIViewController alloc] init];
-        [self presentViewController:testController animated:YES completion:nil];
+        EWSNotificationViewController *notificationVC = [[EWSNotificationViewController alloc] initWithNibName:nil
+                                                                                                    bundle:nil];
+        [notificationVC setCellObject:cell];
+        [self presentViewController:notificationVC animated:YES completion:nil];
     } else {
         [self showAlertViewForIneligibleLabNotification];
     }
@@ -159,6 +162,7 @@
     
     if (cell == nil) {
         cell = [[EWSMainLabTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:UNREGISTERED_CELL_IDENTIFIER];
+        [cell setDelegate:self];
     }
     
     NSArray *fetchedLabs = [self fetchedLabObjects];

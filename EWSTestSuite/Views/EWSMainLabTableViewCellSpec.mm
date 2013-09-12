@@ -99,6 +99,7 @@ describe(@"EWSMainLabTableViewCell", ^{
                 [tableViewCell setDelegate:fakeDelegate];
                 fakeDelegate stub_method("userTappedTicketStatusButton:");
                 spy_on(fakeDelegate);
+
                 [tableViewCell registerForNotification:nil];
                 fakeDelegate should have_received("userTappedTicketStatusButton:").with(tableViewCell);
             });

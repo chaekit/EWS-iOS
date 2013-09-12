@@ -22,10 +22,13 @@
 @synthesize confirmationButton;
 @synthesize cellObject;
 @synthesize cancelButton;
+@synthesize openStationSegmentControl;
+@synthesize menuToolBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [self _initAllProperties];
     }
     return self;
 }
@@ -33,7 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _initAllSubViews];
-    [self _initAllProperties];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -46,9 +48,12 @@
     [self _initTimePickerView];
     [self _initConfirmationButton];
     [self _initCancelButton];
+    [self _initMenuToolBar];
+    [self _initOpenSegmentControl];
 }
 
 - (void)_initAllProperties {
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self setTitlesForTimePickerView:@[@"1 hour",
                                        @"2 hours",
@@ -61,10 +66,11 @@
 /* @private */
 
 - (void)_initConfirmationButton {
-    CGRect frame = CGRectMake(0, 0, 0, 0);
+    CGRect frame = CGRectMake(103, 467, 114, 30);
     
     confirmationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [confirmationButton setFrame:frame];
+    [confirmationButton setTitle:@"Confirm" forState:UIControlStateNormal];
     [confirmationButton addTarget:self
                            action:@selector(userConfirmedNotification:)
                  forControlEvents:UIControlEventTouchUpInside];
@@ -79,6 +85,17 @@
                                                                  target:self
                                                                  action:@selector(dismissNotificationViewController)];
 }
+
+/* @private */
+
+- (void)_initMenuToolBar {
+    CGRect frame = CGRectMake(0, 0, 320, 44);
+    menuToolBar = [[UIToolbar alloc] initWithFrame:frame];
+    [menuToolBar setItems:@[cancelButton]];
+    
+    [self.view addSubview:menuToolBar];
+}
+
 
 - (void)dismissNotificationViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -119,14 +136,26 @@
 /* @private */
 
 - (void)_initTimePickerView {
-    CGRect frame = CGRectMake(0, 0, 0, 0);
+    CGRect frame = CGRectMake(0, 239, 320, 162);
     
     timePickerView = [[UIPickerView alloc] initWithFrame:frame];
     [timePickerView setDelegate:self];
     [timePickerView setDataSource:self];
+    
     [self.view addSubview:timePickerView];
 }
 
+/* @private */
+
+- (void)_initOpenSegmentControl {
+    CGRect frame = CGRectMake(43, 189, 235, 28);
+    
+    NSArray *items = @[@"5 Stations", @"10 stations"];
+    openStationSegmentControl = [[UISegmentedControl alloc] initWithItems:items];
+    [openStationSegmentControl setFrame:frame];
+    
+    [self.view addSubview:openStationSegmentControl];
+}
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
