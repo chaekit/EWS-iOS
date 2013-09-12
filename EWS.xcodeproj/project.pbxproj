@@ -29,6 +29,10 @@
 		1992F47817DD60B2008C0071 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1992F47717DD60B2008C0071 /* main.m */; };
 		1992F47C17DD60B2008C0071 /* Cedar-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1992F47B17DD60B2008C0071 /* Cedar-iOS.framework */; };
 		1992F47E17DD60B2008C0071 /* ExampleSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1992F47D17DD60B2008C0071 /* ExampleSpec.mm */; };
+		199BCC6017E2446E004E8125 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199BCC5F17E2446E004E8125 /* NewRelicAgent.framework */; };
+		199BCC6217E24552004E8125 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199BCC6117E24552004E8125 /* CoreTelephony.framework */; };
+		199BCC6417E2457D004E8125 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199BCC6317E2457D004E8125 /* SystemConfiguration.framework */; };
+		199BCC6617E24588004E8125 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 199BCC6517E24588004E8125 /* libz.dylib */; };
 		199E729A17DD620C0037594E /* EWSLabSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 199E729917DD620C0037594E /* EWSLabSpec.mm */; };
 		199E729B17DD632B0037594E /* EWSLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89E17DD4C000005E43F /* EWSLab.m */; };
 		199E729C17DD632E0037594E /* EWSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F8A217DD4C430005E43F /* EWSDataModel.m */; };
@@ -81,6 +85,10 @@
 		1992F47A17DD60B2008C0071 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		1992F47B17DD60B2008C0071 /* Cedar-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Cedar-iOS.framework"; path = "Frameworks/Cedar-iOS.framework"; sourceTree = "<group>"; };
 		1992F47D17DD60B2008C0071 /* ExampleSpec.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ExampleSpec.mm; sourceTree = "<group>"; };
+		199BCC5F17E2446E004E8125 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NewRelicAgent.framework; path = Frameworks/NewRelicAgent.framework; sourceTree = "<group>"; };
+		199BCC6117E24552004E8125 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		199BCC6317E2457D004E8125 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		199BCC6517E24588004E8125 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		199E729917DD620C0037594E /* EWSLabSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSLabSpec.mm; path = Models/EWSLabSpec.mm; sourceTree = "<group>"; };
 		19C0297A17E007A500C412D0 /* EWSAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSAPIClient.h; path = Support/EWSAPIClient.h; sourceTree = "<group>"; };
 		19C0297B17E007A500C412D0 /* EWSAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSAPIClient.m; path = Support/EWSAPIClient.m; sourceTree = "<group>"; };
@@ -129,7 +137,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				199BCC6617E24588004E8125 /* libz.dylib in Frameworks */,
+				199BCC6417E2457D004E8125 /* SystemConfiguration.framework in Frameworks */,
+				199BCC6217E24552004E8125 /* CoreTelephony.framework in Frameworks */,
 				19C0F89617DD49450005E43F /* CoreData.framework in Frameworks */,
+				199BCC6017E2446E004E8125 /* NewRelicAgent.framework in Frameworks */,
 				19E464A617DD07370085A3BA /* UIKit.framework in Frameworks */,
 				19E464A817DD07370085A3BA /* Foundation.framework in Frameworks */,
 				19E464AA17DD07370085A3BA /* CoreGraphics.framework in Frameworks */,
@@ -278,6 +290,10 @@
 		19E464A417DD07370085A3BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				199BCC6517E24588004E8125 /* libz.dylib */,
+				199BCC6317E2457D004E8125 /* SystemConfiguration.framework */,
+				199BCC6117E24552004E8125 /* CoreTelephony.framework */,
+				199BCC5F17E2446E004E8125 /* NewRelicAgent.framework */,
 				1915CDFB17E0331E00E50DC3 /* libPods-AFNetworking.a */,
 				1915CDF917E032E500E50DC3 /* libPods.a */,
 				19C0F89517DD49450005E43F /* CoreData.framework */,
@@ -375,6 +391,11 @@
 				CLASSPREFIX = EWS;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = JCLab;
+				TargetAttributes = {
+					19E464A117DD07370085A3BA = {
+						DevelopmentTeam = 4M39WZ89ZP;
+					};
+				};
 			};
 			buildConfigurationList = 19E4649D17DD07370085A3BA /* Build configuration list for PBXProject "EWS" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -590,6 +611,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jooyoung Chae (NL3VSPN9D8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -605,6 +627,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "E581B826-4BF5-49D1-8579-7563F42807E9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -630,6 +653,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "E581B826-4BF5-49D1-8579-7563F42807E9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -640,11 +664,18 @@
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jaychae/EWS-iOS",
+					"/Users/jaychae/EWS-iOS/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -654,12 +685,19 @@
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jaychae/EWS-iOS",
+					"/Users/jaychae/EWS-iOS/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
