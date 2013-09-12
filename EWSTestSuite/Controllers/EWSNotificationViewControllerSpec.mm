@@ -17,7 +17,9 @@ describe(@"EWSNotificationViewController", ^{
     });
     
     context(@"properties", ^{
-        
+        it(@"should not want fullLayout", ^{
+            notificationVC.wantsFullScreenLayout should_not be_truthy;
+        });
         
         it(@"should make transition in crossDissolveStyle", ^{
             notificationVC.modalTransitionStyle should equal(UIModalTransitionStyleCrossDissolve);

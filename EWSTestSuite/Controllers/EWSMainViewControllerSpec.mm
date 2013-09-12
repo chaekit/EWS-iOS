@@ -24,6 +24,10 @@ describe(@"EWSMainViewController", ^{
     });
     
     context(@"valid properties", ^{
+        it(@"should not want fullLayout", ^{
+            mainVC.wantsFullScreenLayout should_not be_truthy;
+        });
+        
         it(@"should have a mainTableView", ^{
             [mainVC respondsToSelector:@selector(mainTableView)] should be_truthy;
         });

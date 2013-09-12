@@ -54,6 +54,7 @@
 
 - (void)_initAllProperties {
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self setWantsFullScreenLayout:NO];
     [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self setTitlesForTimePickerView:@[@"1 hour",
                                        @"2 hours",
