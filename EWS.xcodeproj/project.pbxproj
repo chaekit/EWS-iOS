@@ -39,6 +39,7 @@
 		199E729D17DD634F0037594E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0F89517DD49450005E43F /* CoreData.framework */; };
 		199E729E17DD635C0037594E /* _EWSLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89C17DD4C000005E43F /* _EWSLab.m */; };
 		199E729F17DD67390037594E /* EWS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */; };
+		19B1C63117E2EE4600E3398B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B1C63017E2EE4600E3398B /* MobileCoreServices.framework */; };
 		19C0297C17E007A500C412D0 /* EWSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0297B17E007A500C412D0 /* EWSAPIClient.m */; };
 		19C0F89017DD138F0005E43F /* EWSMainLabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F88F17DD138F0005E43F /* EWSMainLabTableViewCell.m */; };
 		19C0F89617DD49450005E43F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C0F89517DD49450005E43F /* CoreData.framework */; };
@@ -90,6 +91,7 @@
 		199BCC6317E2457D004E8125 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		199BCC6517E24588004E8125 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		199E729917DD620C0037594E /* EWSLabSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSLabSpec.mm; path = Models/EWSLabSpec.mm; sourceTree = "<group>"; };
+		19B1C63017E2EE4600E3398B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		19C0297A17E007A500C412D0 /* EWSAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSAPIClient.h; path = Support/EWSAPIClient.h; sourceTree = "<group>"; };
 		19C0297B17E007A500C412D0 /* EWSAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EWSAPIClient.m; path = Support/EWSAPIClient.m; sourceTree = "<group>"; };
 		19C0F88E17DD138F0005E43F /* EWSMainLabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSMainLabTableViewCell.h; path = Views/EWSMainLabTableViewCell.h; sourceTree = "<group>"; };
@@ -124,12 +126,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B1C63117E2EE4600E3398B /* MobileCoreServices.framework in Frameworks */,
+				1915CDFA17E032E500E50DC3 /* libPods.a in Frameworks */,
 				199E729D17DD634F0037594E /* CoreData.framework in Frameworks */,
 				1992F46E17DD60B2008C0071 /* UIKit.framework in Frameworks */,
 				1992F46F17DD60B2008C0071 /* Foundation.framework in Frameworks */,
 				1992F47017DD60B2008C0071 /* CoreGraphics.framework in Frameworks */,
 				1992F47C17DD60B2008C0071 /* Cedar-iOS.framework in Frameworks */,
-				1915CDFA17E032E500E50DC3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +293,7 @@
 		19E464A417DD07370085A3BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19B1C63017E2EE4600E3398B /* MobileCoreServices.framework */,
 				199BCC6517E24588004E8125 /* libz.dylib */,
 				199BCC6317E2457D004E8125 /* SystemConfiguration.framework */,
 				199BCC6117E24552004E8125 /* CoreTelephony.framework */,
@@ -563,6 +567,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWSTestSuite/EWSTestSuite-Prefix.pch";
 				INFOPLIST_FILE = "EWSTestSuite/EWSTestSuite-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jaychae/EWS-iOS/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -586,6 +595,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWSTestSuite/EWSTestSuite-Prefix.pch";
 				INFOPLIST_FILE = "EWSTestSuite/EWSTestSuite-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jaychae/EWS-iOS/Pods/build/Debug-iphoneos",
+				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -668,8 +682,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jaychae/EWS-iOS",
-					"/Users/jaychae/EWS-iOS/Frameworks",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
@@ -690,8 +703,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jaychae/EWS-iOS",
-					"/Users/jaychae/EWS-iOS/Frameworks",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";

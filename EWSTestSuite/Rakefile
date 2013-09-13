@@ -87,7 +87,7 @@ end
 desc "Build EWSTestSuite"
 task :build_EWSTestSuite => :clean_EWSTestSuite do
   EWSTestSuite.kill_simulator
-  EWSTestSuite.system_or_exit "pushd #{EWSTestSuite::PROJECT_ROOT} && xcodebuild -target #{EWSTestSuite::UI_SPECS_TARGET_NAME} -configuration #{EWSTestSuite::CONFIGURATION} -sdk iphonesimulator build && popd", EWSTestSuite.output_file("EWSTestSuite")
+  EWSTestSuite.system_or_exit "pushd #{EWSTestSuite::PROJECT_ROOT} && xctool -workspace '#{EWSTestSuite::PROJECT_ROOT}/EWS.xcworkspace' -scheme #{EWSTestSuite::UI_SPECS_TARGET_NAME} -configuration #{EWSTestSuite::CONFIGURATION} -sdk iphonesimulator CONFIGURATION_BUILD_DIR=#{File.join(EWSTestSuite.build_dir("-iphonesimulator"))} && popd", EWSTestSuite.output_file("EWSTestSuite")
 end
 
 desc "Run EWSTestSuite"
@@ -95,7 +95,7 @@ task :EWSTestSuite => :build_EWSTestSuite do
   env_vars = {
     "DYLD_ROOT_PATH" => EWSTestSuite.deployment_target_sdk_dir,
     "IPHONE_SIMULATOR_ROOT" => EWSTestSuite.deployment_target_sdk_dir,
-    "CFFIXED_USER_HOME" => Dir.tmpdir,
+    "CFFIXED_USER_HOME" => "#{Dir.tmpdir}",
     "CEDAR_HEADLESS_SPECS" => "1",
     "CEDAR_REPORTER_CLASS" => "CDRColorizedReporter"
   }

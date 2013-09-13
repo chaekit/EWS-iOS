@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>605B9A90-71FD-43B1-AA0F-049598E6B4C3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EWS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2ABEC725-123E-4B0A-82CB-95CDBFD151FD</key>
+		<string>https://github.com/wayfare/EWS-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EWS.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2ABEC725-123E-4B0A-82CB-95CDBFD151FD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wayfare/EWS-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2ABEC725-123E-4B0A-82CB-95CDBFD151FD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2ABEC725-123E-4B0A-82CB-95CDBFD151FD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EWS-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

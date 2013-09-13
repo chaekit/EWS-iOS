@@ -52,7 +52,7 @@ end
 desc "Build the scheme for Ad Hoc distribution"
 task :build, [:sdk, :config] do |task, args|
   args.with_defaults(sdk: "7.0", config: "Ad Hoc")
-  sh "xcodebuild -workspace #{EWSDistribution.workspace} "\
+  sh "xctool -workspace #{EWSDistribution.workspace} "\
       "-sdk iphoneos#{args.sdk} "\
       "-scheme #{EWSDistribution.production_scheme} "\
       "-configuration '#{args.config}' "\

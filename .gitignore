@@ -1,3 +1,4 @@
 DistributionBuild/
 MobileProvisions/
+build/
 .env

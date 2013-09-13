@@ -97,6 +97,7 @@
 
     NSURL *storeURL = [NSURL fileURLWithPath:[self pathToPersistentStorage]];
     
+    NSLog(@"store URL %@", storeURL);
     NSError *error;
     if (![psc addPersistentStoreWithType:NSSQLiteStoreType
                            configuration:nil
@@ -106,6 +107,7 @@
         NSException *exc = [NSException exceptionWithName:NSInternalInconsistencyException
                                                    reason:@"Could not create persistent storage"
                                                  userInfo:userInfo];
+        NSLog(@"%@", [error localizedDescription]);
         @throw exc;
     }
     persistentStoreCoordinator = psc;
@@ -136,6 +138,7 @@
     NSString *documentsDirectory = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     documentsDirectory = [paths objectAtIndex:0];
+    NSLog(@"DOCUMENTDS    %@", documentsDirectory);
     return documentsDirectory;
 }
 

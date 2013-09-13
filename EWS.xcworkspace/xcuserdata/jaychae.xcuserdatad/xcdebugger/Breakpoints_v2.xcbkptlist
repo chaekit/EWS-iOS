@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EWS/Models/DataModel/EWSDataModel.m"
-            timestampString = "400533827.048122"
+            timestampString = "400746915.78363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-initManagedObjectModel"
             landmarkType = "5">
          </BreakpointContent>
