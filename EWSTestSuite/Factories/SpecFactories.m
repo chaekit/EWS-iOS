@@ -15,6 +15,7 @@
 
 @implementation EWSLab (SpecFactory)
 
+
 + (id)labFactoryWithStandardAttributes {
     static EWSLab *factory;
     static dispatch_once_t onceToken;

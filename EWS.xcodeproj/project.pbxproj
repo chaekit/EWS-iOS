@@ -396,6 +396,9 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = JCLab;
 				TargetAttributes = {
+					1992F46C17DD60B2008C0071 = {
+						DevelopmentTeam = 4M39WZ89ZP;
+					};
 					19E464A117DD07370085A3BA = {
 						DevelopmentTeam = 4M39WZ89ZP;
 					};
@@ -559,6 +562,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -579,6 +583,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -587,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -608,6 +614,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -626,7 +633,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jooyoung Chae (NL3VSPN9D8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jooyoung Chae (NL3VSPN9D8)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -641,7 +648,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "E581B826-4BF5-49D1-8579-7563F42807E9";
+				PROVISIONING_PROFILE = "3A941D42-679C-49DA-A921-8642324D6EDA";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -659,7 +666,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jooyoung Chae (NL3VSPN9D8)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -667,7 +674,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "E581B826-4BF5-49D1-8579-7563F42807E9";
+				PROVISIONING_PROFILE = "3A941D42-679C-49DA-A921-8642324D6EDA";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -678,8 +685,8 @@
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jooyoung Chae (NL3VSPN9D8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jooyoung Chae (NL3VSPN9D8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -688,7 +695,7 @@
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "E373116F-9F0C-4E54-B7DA-5FC82ECBC66B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -698,8 +705,8 @@
 			baseConfigurationReference = 63509324D8E54B399CF4FBBD /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jooyoung Chae (NL3VSPN9D8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jooyoung Chae (NL3VSPN9D8)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -709,7 +716,7 @@
 				GCC_PREFIX_HEADER = "EWS/EWS-Prefix.pch";
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "E373116F-9F0C-4E54-B7DA-5FC82ECBC66B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

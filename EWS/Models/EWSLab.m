@@ -1,4 +1,8 @@
 #import "EWSLab.h"
+#import "EWSDataModel.h"
+
+
+static NSMutableArray *sharedLabData;
 
 
 @interface EWSLab ()
@@ -9,6 +13,42 @@
 
 
 @implementation EWSLab
+
++ (id)sharedLabData {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedLabData = [[NSMutableArray alloc] init];
+    });
+    
+    if (sharedLabData && [sharedLabData count] == 0) {
+        [self fetchFromCoreData];
+    }
+    return sharedLabData;
+}
+
+
++ (void)fetchFromCoreData {
+    static NSFetchedResultsController *fetchedRequestController = nil;
+    NSManagedObjectContext *context = [[EWSDataModel sharedDataModel] mainContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"EWSLab"
+                                   inManagedObjectContext:context]];
+    NSArray *sortArray = @[[[NSSortDescriptor alloc] initWithKey:@"labIndex" ascending:YES]];
+    
+    [request setSortDescriptors:sortArray];
+    [request setReturnsObjectsAsFaults:NO];
+    
+    fetchedRequestController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                   managedObjectContext:context
+                                                                     sectionNameKeyPath:nil cacheName:@"Master"];
+    
+    NSError *error;
+    if (error) {
+        NSLog(@"Could not do shit");
+    }
+
+    sharedLabData = [[[fetchedRequestController sections][0] allObjects] mutableCopy];
+}
 
 
 - (CGFloat)fractionInUse {
