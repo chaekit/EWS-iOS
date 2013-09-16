@@ -31,6 +31,10 @@ describe(@"EWSMainLabTableViewCell", ^{
             [tableViewCell.contentView.subviews count] should equal(3);
         });
         
+        it(@"should not highlight on selection", ^{
+            tableViewCell.selectionStyle should equal(UITableViewCellSelectionStyleNone);
+        });
+        
         describe(@"labNameLabel", ^{
             it(@"should be an instance of UILabel", ^{
                 tableViewCell.labNameLabel should be_instance_of([UILabel class]);
@@ -103,6 +107,8 @@ describe(@"EWSMainLabTableViewCell", ^{
                 [tableViewCell registerForNotification:nil];
                 fakeDelegate should have_received("userTappedTicketStatusButton:").with(tableViewCell);
             });
+            
+
         });
     });
     

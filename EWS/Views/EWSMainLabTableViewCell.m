@@ -25,9 +25,17 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
     if (self) {
         // Initialization code
         [self _initAllSubViews];
+        [self _initAllProperties];
     }
     return self;
 }
+
+/* Non UI properties */
+
+- (void)_initAllProperties {
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+}
+
 
 /* @private */
 

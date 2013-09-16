@@ -26,6 +26,7 @@
         [factory setInuseCount:@30];
         [factory setMachineCount:@40];
         [factory setLabIndex:@0];
+        [factory setRegisteredForNotification:NO];
     });
     return factory;
 }
@@ -44,6 +45,7 @@
         [factory setInuseCount:@15];
         [factory setMachineCount:@40];
         [factory setLabIndex:@0];
+        [factory setRegisteredForNotification:NO];
     });
     return factory;
 }
@@ -58,6 +60,7 @@
         [factory setInuseCount:@39];
         [factory setMachineCount:@40];
         [factory setLabIndex:@0];
+        [factory setRegisteredForNotification:NO];
     });
     return factory;
 }

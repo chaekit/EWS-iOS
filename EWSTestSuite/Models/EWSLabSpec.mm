@@ -26,8 +26,10 @@ describe(@"EWSLab", ^{
             [lab respondsToSelector:@selector(machineCount)] should be_truthy;
             [lab respondsToSelector:@selector(inuseCount)] should be_truthy;
             [lab respondsToSelector:@selector(labIndex)] should be_truthy;
+            [lab respondsToSelector:@selector(registeredForNotification)] should be_truthy;
         });
         
+
         describe(@"labName", ^{
             it(@"should be an instance of NSString", ^{
                 lab.labName should be_instance_of([NSString class]).or_any_subclass();

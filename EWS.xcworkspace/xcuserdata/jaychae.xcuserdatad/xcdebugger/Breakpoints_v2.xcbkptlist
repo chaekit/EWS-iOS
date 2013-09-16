@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EWS/Models/EWSLab.m"
-            timestampString = "400627009.254702"
+            timestampString = "401040520.583127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "+fetchFromCoreData"
             landmarkType = "5">
          </BreakpointContent>

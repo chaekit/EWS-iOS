@@ -49,6 +49,7 @@ install_resource "FlatUIKit/Resources/Lato-Italic.ttf"
 install_resource "FlatUIKit/Resources/Lato-Light.ttf"
 install_resource "FlatUIKit/Resources/Lato-LightItalic.ttf"
 install_resource "FlatUIKit/Resources/Lato-Regular.ttf"
+install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 
 rsync -avr --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rm -f "$RESOURCES_TO_COPY"

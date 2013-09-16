@@ -54,7 +54,6 @@
 
 - (void)_initAllProperties {
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self setWantsFullScreenLayout:NO];
     [self setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self setTitlesForTimePickerView:@[@"1 hour",
                                        @"2 hours",
@@ -106,6 +105,8 @@
 - (void)userConfirmedNotification:(id)sender {
 
     NSDictionary *params = [self paramsForLabNotification];
+    
+
     [[EWSAPIClient sharedAPIClient] registerNotificationParams:params Success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
     } Failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -123,14 +124,21 @@
     NSNumber *expirationDate = @(expirationDateInInteger);
     
     NSString *labName = cellObject.labObject.labName;
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+
+    if (deviceToken == nil) {
+        @throw NSInvalidArgumentException;
+    }
     
-    
-    NSDictionary *retVal = @{@"ticket" :
-                                 @{@"expires_at": expirationDate,
-                                   @"labname": labName,
-                                   @"requested_size": @5,
-                                   @"device_udid": @"lolcat"}
-                             };
+
+    NSDictionary *retVal;
+        retVal = @{@"ticket" :
+                       @{@"expires_at": expirationDate,
+                         @"labname": labName,
+                         @"requested_size": @5,
+                         @"device_udid": deviceToken }
+                   };
+
     return retVal;
 }
 

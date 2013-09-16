@@ -14,6 +14,8 @@ static NSMutableArray *sharedLabData;
 
 @implementation EWSLab
 
+@synthesize registeredForNotification;
+
 + (id)sharedLabData {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

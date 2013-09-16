@@ -15,6 +15,7 @@
 #import "EWSLab.h"
 #import "EWSAPIClient.h"
 #import "EWSNotificationViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface EWSMainViewController ()
 
@@ -27,7 +28,6 @@
 @synthesize mainTableView;
 @synthesize fetchedRequestController;
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -38,9 +38,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self _initAllProperties];
     [self _initFetchedRequestController];
     [self updateLabUsage];
     [self _initAllSubViews];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self showProgressHudWhilePolling];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,8 +85,9 @@
     [[EWSAPIClient sharedAPIClient] pollUsageFromAPISucess:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self matchAndUpdateLabUsage:responseObject];
         [self.mainTableView reloadData];
+        [SVProgressHUD showSuccessWithStatus:@"Done!"];
     } Failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-
+        [SVProgressHUD showErrorWithStatus:@"Failed to Update!"];
     }];
 }
 
@@ -100,14 +106,31 @@
 }
 
 /* @private */
+
+- (void)_initAllProperties {
+
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleBlackOpaque;
+}
+
+
+/* @private */
 - (void)_initAllSubViews {
     [self _initMainTableView];
 }
 
 /* @private */
 
+- (void)showProgressHudWhilePolling {
+    [SVProgressHUD showWithStatus:@"Updating Usage"];
+}
+
 - (void)_initMainTableView {
-    CGRect frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
+    CGRect frame = CGRectMake(0, 20, 320, self.view.frame.size.height - 20);
     mainTableView = [[UITableView alloc] initWithFrame:frame];
     [mainTableView setDelegate:self];
     [mainTableView setDataSource:self];
@@ -170,6 +193,4 @@
     [cell updateWithLab:[fetchedLabs objectAtIndex:indexPath.row]];
     return cell;
 }
-
-
 @end

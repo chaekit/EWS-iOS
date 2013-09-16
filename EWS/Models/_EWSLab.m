@@ -8,6 +8,7 @@ const struct EWSLabAttributes EWSLabAttributes = {
 	.labIndex = @"labIndex",
 	.labName = @"labName",
 	.machineCount = @"machineCount",
+	.registeredForNotification = @"registeredForNotification",
 };
 
 const struct EWSLabRelationships EWSLabRelationships = {
@@ -54,6 +55,11 @@ const struct EWSLabFetchedProperties EWSLabFetchedProperties = {
 	}
 	if ([key isEqualToString:@"machineCountValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"machineCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"registeredForNotificationValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"registeredForNotification"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -143,6 +149,32 @@ const struct EWSLabFetchedProperties EWSLabFetchedProperties = {
 
 - (void)setPrimitiveMachineCountValue:(int32_t)value_ {
 	[self setPrimitiveMachineCount:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
+@dynamic registeredForNotification;
+
+
+
+- (BOOL)registeredForNotificationValue {
+	NSNumber *result = [self registeredForNotification];
+	return [result boolValue];
+}
+
+- (void)setRegisteredForNotificationValue:(BOOL)value_ {
+	[self setRegisteredForNotification:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveRegisteredForNotificationValue {
+	NSNumber *result = [self primitiveRegisteredForNotification];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveRegisteredForNotificationValue:(BOOL)value_ {
+	[self setPrimitiveRegisteredForNotification:[NSNumber numberWithBool:value_]];
 }
 
 

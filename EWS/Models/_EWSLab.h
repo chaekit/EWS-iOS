@@ -9,6 +9,7 @@ extern const struct EWSLabAttributes {
 	__unsafe_unretained NSString *labIndex;
 	__unsafe_unretained NSString *labName;
 	__unsafe_unretained NSString *machineCount;
+	__unsafe_unretained NSString *registeredForNotification;
 } EWSLabAttributes;
 
 extern const struct EWSLabRelationships {
@@ -16,6 +17,7 @@ extern const struct EWSLabRelationships {
 
 extern const struct EWSLabFetchedProperties {
 } EWSLabFetchedProperties;
+
 
 
 
@@ -88,6 +90,20 @@ extern const struct EWSLabFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* registeredForNotification;
+
+
+
+@property BOOL registeredForNotificationValue;
+- (BOOL)registeredForNotificationValue;
+- (void)setRegisteredForNotificationValue:(BOOL)value_;
+
+//- (BOOL)validateRegisteredForNotification:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 
 @end
 
@@ -127,6 +143,15 @@ extern const struct EWSLabFetchedProperties {
 
 - (int32_t)primitiveMachineCountValue;
 - (void)setPrimitiveMachineCountValue:(int32_t)value_;
+
+
+
+
+- (NSNumber*)primitiveRegisteredForNotification;
+- (void)setPrimitiveRegisteredForNotification:(NSNumber*)value;
+
+- (BOOL)primitiveRegisteredForNotificationValue;
+- (void)setPrimitiveRegisteredForNotificationValue:(BOOL)value_;
 
 
 

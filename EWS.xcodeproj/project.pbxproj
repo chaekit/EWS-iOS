@@ -117,6 +117,7 @@
 		19E464B717DD07370085A3BA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		19E464B917DD07370085A3BA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		19E464BB17DD07370085A3BA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		19EC378F17E76A7600C41B84 /* EWSWithRegistration.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EWSWithRegistration.xcdatamodel; sourceTree = "<group>"; };
 		19F1472B17E037F30019842A /* EWSAPIClientSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EWSAPIClientSpec.mm; path = Support/EWSAPIClientSpec.mm; sourceTree = "<group>"; };
 		63509324D8E54B399CF4FBBD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -696,6 +697,7 @@
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "E373116F-9F0C-4E54-B7DA-5FC82ECBC66B";
+				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -717,6 +719,7 @@
 				INFOPLIST_FILE = "EWS/EWS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "E373116F-9F0C-4E54-B7DA-5FC82ECBC66B";
+				SDKROOT = iphoneos7.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -757,10 +760,11 @@
 		19C0F89817DD49A30005E43F /* EWS.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				19EC378F17E76A7600C41B84 /* EWSWithRegistration.xcdatamodel */,
 				190A8A5B17DFA21E00858210 /* EWSWithLabIndex.xcdatamodel */,
 				19C0F89917DD49A30005E43F /* EWS.xcdatamodel */,
 			);
-			currentVersion = 190A8A5B17DFA21E00858210 /* EWSWithLabIndex.xcdatamodel */;
+			currentVersion = 19EC378F17E76A7600C41B84 /* EWSWithRegistration.xcdatamodel */;
 			name = EWS.xcdatamodeld;
 			path = Models/DataModel/EWS.xcdatamodeld;
 			sourceTree = "<group>";

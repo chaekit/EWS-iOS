@@ -18,7 +18,6 @@ describe(@"EWSNotificationViewController", ^{
     
     context(@"properties", ^{
         it(@"should not want fullLayout", ^{
-            notificationVC.wantsFullScreenLayout should_not be_truthy;
         });
         
         it(@"should make transition in crossDissolveStyle", ^{
@@ -72,6 +71,8 @@ describe(@"EWSNotificationViewController", ^{
                     notificationVC stub_method("paramsForLabNotification").and_return(fakeParam);
                 });
                 it(@"should send userConfirmedNotification: to the notificationVC", ^{
+                    NSLog(@"deviceudid  %@", [[notificationVC paramsForLabNotification] objectForKey:@"device_udid"]);
+                    NSLog(@"deviceudid  %@", [[notificationVC paramsForLabNotification] allKeys]);
                     [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                     notificationVC should have_received("userConfirmedNotification:");
                 });
@@ -88,6 +89,16 @@ describe(@"EWSNotificationViewController", ^{
                     [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                     [EWSAPIClient sharedAPIClient] should have_received("registerNotificationParams:Success:Failure:");
                 });
+                
+                it(@"should change the registeredForNotification attribute of the labobject", ^{
+                    EWSLab *fakeLab = [EWSLab labFactoryValidForNotification];
+                    EWSMainLabTableViewCell *fakeCell = [[EWSMainLabTableViewCell alloc] init];
+                    [fakeCell setLabObject:fakeLab];
+                    [notificationVC setCellObject:fakeCell];
+                    [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    [fakeLab registeredForNotification] should be_truthy;
+                });
+                
             });
             
             describe(@"openStationSegmentControl", ^{
@@ -107,23 +118,36 @@ describe(@"EWSNotificationViewController", ^{
                 EWSMainLabTableViewCell *cell = [[EWSMainLabTableViewCell alloc] init];
                 [cell setLabObject:[EWSLab labFactoryWithStandardAttributes]];
                 [notificationVC setCellObject:cell];
-                paramForEndpoint = [notificationVC paramsForLabNotification];
+                spy_on([NSUserDefaults standardUserDefaults]);
             });
+            
             it(@"should return an NSDictionary", ^{
+                ([NSUserDefaults standardUserDefaults]) stub_method("objectForKey:").with(@"deviceToken").and_return(@"token");
+                paramForEndpoint = [notificationVC paramsForLabNotification];
                 paramForEndpoint should be_instance_of([NSDictionary class]).or_any_subclass();
             });
             
             it(@"should have ticket as the root key", ^{
+                ([NSUserDefaults standardUserDefaults]) stub_method("objectForKey:").with(@"deviceToken").and_return(@"token");
+                paramForEndpoint = [notificationVC paramsForLabNotification];
                 [paramForEndpoint valueForKey:@"ticket"] != nil should be_truthy;
             });
             
             it(@"should have valid subroot keys", ^{
+                ([NSUserDefaults standardUserDefaults]) stub_method("objectForKey:").with(@"deviceToken").and_return(@"token");
+                paramForEndpoint = [notificationVC paramsForLabNotification];
                 NSDictionary *contentDict = [paramForEndpoint valueForKey:@"ticket"];
                 [contentDict valueForKey:@"expires_at"] != nil should be_truthy;
                 [contentDict valueForKey:@"device_udid"] != nil should be_truthy;
                 [contentDict valueForKey:@"requested_size"] != nil should be_truthy;
                 [contentDict valueForKey:@"labname"] != nil should be_truthy;
             });
+            
+            it(@"should throw an exception if the device token is nil", ^{
+                ([NSUserDefaults standardUserDefaults]) stub_method("objectForKey:").with(@"deviceToken");
+                ^{ [notificationVC paramsForLabNotification]; } should raise_exception(NSInvalidArgumentException);
+            });
+
         });
     });
     
