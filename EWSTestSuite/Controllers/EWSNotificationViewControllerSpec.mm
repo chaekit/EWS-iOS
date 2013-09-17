@@ -68,6 +68,7 @@ describe(@"EWSNotificationViewController", ^{
                                                       @"requested_size": @5,
                                                       @"device_udid": @"lolcat"}
                                                 };
+                    notificationVC stub_method("_hasAllUIInputs").and_return(YES);
                     notificationVC stub_method("paramsForLabNotification").and_return(fakeParam);
                 });
                 it(@"should send userConfirmedNotification: to the notificationVC", ^{
@@ -86,6 +87,15 @@ describe(@"EWSNotificationViewController", ^{
                     [EWSAPIClient sharedAPIClient] stub_method("registerNotificationParams:Success:Failure:");
                     [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                     [EWSAPIClient sharedAPIClient] should have_received("registerNotificationParams:Success:Failure:");
+                });
+                
+                it(@"should change the registeredForNotification property of the lab", ^{
+                    EWSMainLabTableViewCell *cell = [[EWSMainLabTableViewCell alloc] init];
+                    [cell setLabObject:[EWSLab labFactoryValidForNotification]];
+                    [notificationVC setCellObject:cell];
+//                    spy_on(notificationVC.cellObject.labObject);
+                    [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    notificationVC.cellObject.labObject.registeredForNotification should equal([NSNumber numberWithBool:YES]);
                 });
             });
             

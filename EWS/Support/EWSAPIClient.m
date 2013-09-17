@@ -46,6 +46,6 @@ NSString *const API_URL = @"http://ews-api.herokuapp.com";
                            Failure:(void (^)(AFHTTPRequestOperation *, NSError *))failureBlock{
     
     NSString *postPath = @"/ticket";
-    [self postPath:postPath parameters:nil success:successBlock failure:failureBlock];
+    [self postPath:postPath parameters:params success:successBlock failure:failureBlock];
 }
 @end

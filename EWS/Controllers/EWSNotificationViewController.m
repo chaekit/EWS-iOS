@@ -115,6 +115,7 @@
     } Failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
     }];
+    [self.cellObject.labObject setRegisteredForNotification:[NSNumber numberWithBool:YES]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

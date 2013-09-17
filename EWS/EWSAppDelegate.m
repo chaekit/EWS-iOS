@@ -20,8 +20,8 @@
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert];
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge];
  
-    NSLog(@"Device Token %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"APNSDeviceToken"]);
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@"D418D4EC5C96C7234A8FA4B7CEE2837933F1AB9AFF5824642AFBF3A3FF9EF0FB" forKey:@"deviceToken"];
+   
     /*     sanity check on core data     */
     NSManagedObjectContext *context = [[EWSDataModel sharedDataModel] mainContext];
     if (context) {

@@ -12,7 +12,6 @@
 		19003E7517DEDC5400DC93C7 /* SpecFactories.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7417DEDC5400DC93C7 /* SpecFactories.m */; };
 		19003E7917DEEF6700DC93C7 /* EWSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */; };
 		19003E7A17DEEF6700DC93C7 /* EWSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7817DEEF6700DC93C7 /* EWSMainViewController.m */; };
-		19003E7E17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */; };
 		1901000017E179640038B575 /* EWSNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1901FFFC17E1793A0038B575 /* EWSNotificationViewController.m */; };
 		1901FFFD17E1793A0038B575 /* EWSNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1901FFFC17E1793A0038B575 /* EWSNotificationViewController.m */; };
 		190A8A5917DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 190A8A5817DF9CCB00858210 /* EWSSharedProjectConstants.m */; };
@@ -22,6 +21,7 @@
 		1915CDF817E031D900E50DC3 /* EWSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0297B17E007A500C412D0 /* EWSAPIClient.m */; };
 		1915CDFA17E032E500E50DC3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1915CDF917E032E500E50DC3 /* libPods.a */; };
 		191C59B817E23D1900A2DDEB /* EWSNotificationViewControllerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1901FFFE17E1795E0038B575 /* EWSNotificationViewControllerSpec.mm */; };
+		1987CA5617E8E4A900BD4476 /* EWSMainViewControllerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 19003E7D17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm */; };
 		1992F46E17DD60B2008C0071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A517DD07370085A3BA /* UIKit.framework */; };
 		1992F46F17DD60B2008C0071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A717DD07370085A3BA /* Foundation.framework */; };
 		1992F47017DD60B2008C0071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E464A917DD07370085A3BA /* CoreGraphics.framework */; };
@@ -500,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1901000017E179640038B575 /* EWSNotificationViewController.m in Sources */,
+				1987CA5617E8E4A900BD4476 /* EWSMainViewControllerSpec.mm in Sources */,
 				199E729E17DD635C0037594E /* _EWSLab.m in Sources */,
 				1992F47817DD60B2008C0071 /* main.m in Sources */,
 				1992F47E17DD60B2008C0071 /* ExampleSpec.mm in Sources */,
@@ -514,7 +515,6 @@
 				19003E7117DECC6200DC93C7 /* EWSMainLabTableViewCell.m in Sources */,
 				19003E7517DEDC5400DC93C7 /* SpecFactories.m in Sources */,
 				19003E7A17DEEF6700DC93C7 /* EWSMainViewController.m in Sources */,
-				19003E7E17DEEFB500DC93C7 /* EWSMainViewControllerSpec.mm in Sources */,
 				190A8A5A17DF9CCB00858210 /* EWSSharedProjectConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,10 +44,6 @@
     [self _initAllSubViews];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self showProgressHudWhilePolling];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -82,6 +78,7 @@
 }
 
 - (void)updateLabUsage {
+    [self showProgressHudWhilePolling];
     [[EWSAPIClient sharedAPIClient] pollUsageFromAPISucess:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self matchAndUpdateLabUsage:responseObject];
         [self.mainTableView reloadData];
