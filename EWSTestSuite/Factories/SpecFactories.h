@@ -19,6 +19,8 @@
 + (id)labFactoryWithStandardAttributes;
 + (id)labFactoryNotValidForNotification;
 + (id)labFactoryValidForNotification;
++ (id)labFactoryRegisteredForNotification;
+
     
 @end
 

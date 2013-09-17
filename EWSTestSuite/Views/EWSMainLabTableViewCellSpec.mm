@@ -98,17 +98,26 @@ describe(@"EWSMainLabTableViewCell", ^{
         });
         
         describe(@"#registerForNotification", ^{
-            it(@"should send userTappedTicketStatusButtonCell: to the cell's delegate", ^{
-                id<CedarDouble, EWSMainLabTableViewCellLabNotificationProtocol> fakeDelegate = fake_for([EWSMainViewController class]);
+            __block id<CedarDouble, EWSMainLabTableViewCellLabNotificationProtocol> fakeDelegate;
+
+            beforeEach(^{
+                fakeDelegate = fake_for([EWSMainViewController class]);
                 [tableViewCell setDelegate:fakeDelegate];
                 fakeDelegate stub_method("userTappedTicketStatusButton:");
                 spy_on(fakeDelegate);
-
+            });
+            
+            it(@"should send userTappedTicketStatusButtonCell: to the cell's delegate", ^{
+                [tableViewCell setLabObject:[EWSLab labFactoryValidForNotification]];
                 [tableViewCell registerForNotification:nil];
                 fakeDelegate should have_received("userTappedTicketStatusButton:").with(tableViewCell);
             });
             
-
+//            it(@"should not send userTappedTicketStatusButtonCell if the lab is already registered", ^{
+//                [tableViewCell setLabObject:[EWSLab labFactoryNotValidForNotification]];
+//                [tableViewCell registerForNotification:nil];
+//                fakeDelegate should have_received("userTappedTicketStatusButton:").with(tableViewCell);
+//            });
         });
     });
     

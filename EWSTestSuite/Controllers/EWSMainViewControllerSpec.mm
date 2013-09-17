@@ -78,35 +78,49 @@ describe(@"EWSMainViewController", ^{
 
     context(@"EWSMainLabTableViewCellLabNotificationProtocol methods", ^{
         describe(@"#userTappedTicketStatusButton:", ^{
-            __block EWSMainLabTableViewCell *testCell;
-            
-            beforeEach(^{
-                testCell = [[EWSMainLabTableViewCell alloc] init];
-                [testCell setDelegate:mainVC];
-                spy_on(mainVC);
-                mainVC stub_method("showAlertViewForIneligibleLabNotification");
+            context(@"lab eligibility", ^{
+                __block EWSMainLabTableViewCell *testCell;
+                
+                beforeEach(^{
+                    testCell = [[EWSMainLabTableViewCell alloc] init];
+                    [testCell setDelegate:mainVC];
+                    spy_on(mainVC);
+                    mainVC stub_method("showAlertViewForIneligibleLabNotification");
+                });
+                
+                it(@"should present a modalViewController if it is eligible for notification", ^{
+                    EWSLab *eligibleLab = [EWSLab labFactoryValidForNotification];
+                    [testCell setLabObject:eligibleLab];
+                    [mainVC userTappedTicketStatusButton:testCell];
+                    mainVC should have_received("presentViewController:animated:completion:");
+                });
+                
+                it(@"should not present a modalViewController if it is ineligible for notification", ^{
+                    EWSLab *ineligibleLab = [EWSLab labFactoryNotValidForNotification];
+                    [testCell setLabObject:ineligibleLab];
+                    [mainVC userTappedTicketStatusButton:testCell];
+                    mainVC should_not have_received("presentViewController:animated:completion:");
+                });
+                
+                it(@"should show an alertView when the lab is ineligible for notification", ^{
+                    EWSLab *ineligibleLab = [EWSLab labFactoryNotValidForNotification];
+                    [testCell setLabObject:ineligibleLab];
+                    //                mainVC stub_method("showAlertViewForIneligibleLabNotification");
+                    [mainVC userTappedTicketStatusButton:testCell];
+                    mainVC should have_received("showAlertViewForIneligibleLabNotification");
+                });
+                
             });
             
-            it(@"should present a modalViewController if it is eligible for notification", ^{
-                EWSLab *eligibleLab = [EWSLab labFactoryValidForNotification];
-                [testCell setLabObject:eligibleLab];
-                [mainVC userTappedTicketStatusButton:testCell];
-                mainVC should have_received("presentViewController:animated:completion:");
-            });
-            
-            it(@"should not present a modalViewController if it is ineligible for notification", ^{
-                EWSLab *ineligibleLab = [EWSLab labFactoryNotValidForNotification];
-                [testCell setLabObject:ineligibleLab];
-                [mainVC userTappedTicketStatusButton:testCell];
-                mainVC should_not have_received("presentViewController:animated:completion:");
-            });
-            
-            it(@"should show an alertView when the lab is ineligible for notification", ^{
-                EWSLab *ineligibleLab = [EWSLab labFactoryNotValidForNotification];
-                [testCell setLabObject:ineligibleLab];
-//                mainVC stub_method("showAlertViewForIneligibleLabNotification");
-                [mainVC userTappedTicketStatusButton:testCell];
-                mainVC should have_received("showAlertViewForIneligibleLabNotification");
+            context(@"when the cell is already registered", ^{
+                it(@"should ask the user if he/she wants to cancel it", ^{
+                    EWSMainLabTableViewCell *testCell = [[EWSMainLabTableViewCell alloc] init];
+                    [testCell setLabObject:[EWSLab labFactoryRegisteredForNotification]];
+                    [testCell setDelegate:mainVC];
+                    [mainVC userTappedTicketStatusButton:testCell];
+                    spy_on(mainVC);
+                    mainVC should_not have_received("presentViewController:animated:completion:");
+                });
             });
         });
     });

@@ -140,7 +140,9 @@
 
 - (void)userTappedTicketStatusButton:(EWSMainLabTableViewCell *)cell {
     EWSLab *correspondingLab = cell.labObject;
-    if ([correspondingLab isValidForNotification]) {
+    if ([correspondingLab registeredForNotificationValue]) {
+        
+    } else if ([correspondingLab isValidForNotification]) {
         EWSNotificationViewController *notificationVC = [[EWSNotificationViewController alloc] initWithNibName:nil
                                                                                                     bundle:nil];
         [notificationVC setCellObject:cell];
