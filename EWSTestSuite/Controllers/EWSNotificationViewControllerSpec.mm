@@ -87,16 +87,6 @@ describe(@"EWSNotificationViewController", ^{
                     [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                     [EWSAPIClient sharedAPIClient] should have_received("registerNotificationParams:Success:Failure:");
                 });
-                
-                it(@"should change the registeredForNotification attribute of the labobject", ^{
-                    EWSLab *fakeLab = [EWSLab labFactoryValidForNotification];
-                    EWSMainLabTableViewCell *fakeCell = [[EWSMainLabTableViewCell alloc] init];
-                    [fakeCell setLabObject:fakeLab];
-                    [notificationVC setCellObject:fakeCell];
-                    [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-                    [fakeLab registeredForNotification] should be_truthy;
-                });
-                
             });
             
             describe(@"openStationSegmentControl", ^{

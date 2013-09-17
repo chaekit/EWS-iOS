@@ -26,4 +26,5 @@
 - (NSNumber *)requestedExpirationDateInCtime;
 - (NSString *)requestedLabName;
 - (NSString *)requestedDeviceToken;
+
 @end

@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EWSTestSuite/Controllers/EWSNotificationViewControllerSpec.mm"
-            timestampString = "401078372.11304"
+            timestampString = "401079101.981105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "SPEC_BEGIN(EWSNotificationViewControllerSpec)"
             landmarkType = "6">
          </BreakpointContent>

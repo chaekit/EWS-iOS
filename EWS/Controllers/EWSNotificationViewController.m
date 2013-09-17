@@ -102,21 +102,38 @@
 }
 
 
-- (void)userConfirmedNotification:(id)sender {
+/* Triggered when the user taps the confirmation button */
 
-    NSDictionary *params = [self paramsForLabNotification];
+- (void)userConfirmedNotification:(id)sender {
+    if ([self _hasAllUIInputs] == NO) return;
+
     
+    NSDictionary *params = [self paramsForLabNotification];
 
     [[EWSAPIClient sharedAPIClient] registerNotificationParams:params Success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    
+        
     } Failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    
+
     }];
-        [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -
 #pragma Request param builder
+
+- (BOOL)_hasAllUIInputs {
+    if (openStationSegmentControl.selectedSegmentIndex == -1) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"wtf"
+                                                            message:@"wtf"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"wtf"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        return NO;
+    } else {
+        return YES;
+    }
+}
 
 - (NSString *)requestedLabName {
     return cellObject.labObject.labName;
@@ -157,7 +174,6 @@
         @throw NSInvalidArgumentException;
     }
     
-
     NSDictionary *retVal = @{@"ticket" :
                                 @{@"expires_at": requestedExpirationDate,
                                   @"labname": requestedLabName,
