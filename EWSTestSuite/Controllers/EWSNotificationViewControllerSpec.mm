@@ -71,8 +71,6 @@ describe(@"EWSNotificationViewController", ^{
                     notificationVC stub_method("paramsForLabNotification").and_return(fakeParam);
                 });
                 it(@"should send userConfirmedNotification: to the notificationVC", ^{
-                    NSLog(@"deviceudid  %@", [[notificationVC paramsForLabNotification] objectForKey:@"device_udid"]);
-                    NSLog(@"deviceudid  %@", [[notificationVC paramsForLabNotification] allKeys]);
                     [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                     notificationVC should have_received("userConfirmedNotification:");
                 });
@@ -118,36 +116,80 @@ describe(@"EWSNotificationViewController", ^{
                 EWSMainLabTableViewCell *cell = [[EWSMainLabTableViewCell alloc] init];
                 [cell setLabObject:[EWSLab labFactoryWithStandardAttributes]];
                 [notificationVC setCellObject:cell];
-                spy_on([NSUserDefaults standardUserDefaults]);
+                spy_on(notificationVC);
+                notificationVC stub_method("requestedExpirationDateInCtime").and_return(@30000);
+                notificationVC stub_method("requestedOpenLabCount").and_return(@5);
+                notificationVC stub_method("requestedDeviceToken").and_return(@"token");
             });
             
             it(@"should return an NSDictionary", ^{
-                ([NSUserDefaults standardUserDefaults]) stub_method("objectForKey:").with(@"deviceToken").and_return(@"token");
                 paramForEndpoint = [notificationVC paramsForLabNotification];
                 paramForEndpoint should be_instance_of([NSDictionary class]).or_any_subclass();
             });
             
             it(@"should have ticket as the root key", ^{
-                ([NSUserDefaults standardUserDefaults]) stub_method("objectForKey:").with(@"deviceToken").and_return(@"token");
                 paramForEndpoint = [notificationVC paramsForLabNotification];
                 [paramForEndpoint valueForKey:@"ticket"] != nil should be_truthy;
             });
             
             it(@"should have valid subroot keys", ^{
-                ([NSUserDefaults standardUserDefaults]) stub_method("objectForKey:").with(@"deviceToken").and_return(@"token");
                 paramForEndpoint = [notificationVC paramsForLabNotification];
                 NSDictionary *contentDict = [paramForEndpoint valueForKey:@"ticket"];
                 [contentDict valueForKey:@"expires_at"] != nil should be_truthy;
-                [contentDict valueForKey:@"device_udid"] != nil should be_truthy;
+                [contentDict valueForKey:@"device_token"] != nil should be_truthy;
                 [contentDict valueForKey:@"requested_size"] != nil should be_truthy;
                 [contentDict valueForKey:@"labname"] != nil should be_truthy;
             });
             
-            it(@"should throw an exception if the device token is nil", ^{
-                ([NSUserDefaults standardUserDefaults]) stub_method("objectForKey:").with(@"deviceToken");
-                ^{ [notificationVC paramsForLabNotification]; } should raise_exception(NSInvalidArgumentException);
+        });
+        
+        describe(@"#requestOpenLabCount", ^{
+            __block UISegmentedControl *segmentedControl;
+            beforeEach(^{
+                segmentedControl = notificationVC.openStationSegmentControl;
+            });
+            
+            it(@"should return the selected OpenSegmentedControl", ^{
+                [segmentedControl setSelectedSegmentIndex:0];
+                [notificationVC requestedOpenLabCount] should equal(@5);
+            });
+            
+            it(@"should be able to tell the change in selected segment", ^{
+                [segmentedControl setSelectedSegmentIndex:0];
+                [notificationVC requestedOpenLabCount] should equal(@5);
+                [segmentedControl setSelectedSegmentIndex:1];
+                [notificationVC requestedOpenLabCount] should equal(@10);
+            });
+        });
+        
+        describe(@"#requestedExpirationDate", ^{
+            it(@"should return an instance of NSNumber", ^{
+                [notificationVC requestedExpirationDateInCtime] should be_instance_of([NSNumber class]).or_any_subclass();
+            });         
+        });
+        
+        describe(@"#requestedLabName", ^{
+            beforeEach(^{
+                EWSMainLabTableViewCell *cell = [[EWSMainLabTableViewCell alloc] init];
+                [cell setLabObject:[EWSLab labFactoryWithStandardAttributes]];
+                [notificationVC setCellObject:cell];
             });
 
+            it(@"should return an instance of NSString", ^{
+                [notificationVC requestedLabName] should be_instance_of([NSString class]).or_any_subclass();
+            });
+            
+            it(@"should equal the labName property of the labObject", ^{
+                [notificationVC requestedLabName] should equal(notificationVC.cellObject.labObject.labName);
+            });
+        });
+        
+        describe(@"#requestedDeviceToken", ^{
+            it(@"should return @'deviceToken' key of NSUserDefaults", ^{
+                spy_on([NSUserDefaults standardUserDefaults]);
+                [NSUserDefaults standardUserDefaults] stub_method("objectForKey:").with(@"deviceToken").and_return(@"lolcat");
+                [notificationVC requestedDeviceToken] should equal(@"lolcat");
+            });
         });
     });
     

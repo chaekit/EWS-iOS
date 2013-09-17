@@ -115,29 +115,55 @@
         [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (NSDictionary *)paramsForLabNotification {
+#pragma mark -
+#pragma Request param builder
+
+- (NSString *)requestedLabName {
+    return cellObject.labObject.labName;
+}
+
+- (NSNumber *)requestedOpenLabCount {
+    NSUInteger selectedIndex = openStationSegmentControl.selectedSegmentIndex;
+    NSString *selectedTitle = [openStationSegmentControl titleForSegmentAtIndex:selectedIndex];
+    NSInteger selectedLabCountInNumber = [selectedTitle integerValue];
+    NSLog(@"selectedLabCount   %d", selectedLabCountInNumber);
+    
+    return [NSNumber numberWithInteger:selectedLabCountInNumber];
+}
+
+- (NSNumber *)requestedExpirationDateInCtime {
     NSInteger selectedRow = [timePickerView selectedRowInComponent:0];
     NSString *selectedTimeInString = [titlesForTimePickerView[selectedRow] componentsSeparatedByString:@" "][0];
     
     NSTimeInterval expirationDateInInteger = (NSInteger)[[NSDate date] timeIntervalSince1970];
     expirationDateInInteger += [selectedTimeInString integerValue] * 60;
     NSNumber *expirationDate = @(expirationDateInInteger);
-    
-    NSString *labName = cellObject.labObject.labName;
-    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+    return expirationDate;
+}
 
-    if (deviceToken == nil) {
+- (NSString *)requestedDeviceToken {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+}
+
+
+- (NSDictionary *)paramsForLabNotification {
+    
+    NSString *requestedLabName = [self requestedLabName];
+    NSString *requestedDeviceToken = [self requestedDeviceToken];
+    NSNumber *requestedExpirationDate = [self requestedExpirationDateInCtime];
+    NSNumber *requestedOpenLabCount = [self requestedOpenLabCount];
+    
+    if (requestedDeviceToken == nil) {
         @throw NSInvalidArgumentException;
     }
     
 
-    NSDictionary *retVal;
-        retVal = @{@"ticket" :
-                       @{@"expires_at": expirationDate,
-                         @"labname": labName,
-                         @"requested_size": @5,
-                         @"device_udid": deviceToken }
-                   };
+    NSDictionary *retVal = @{@"ticket" :
+                                @{@"expires_at": requestedExpirationDate,
+                                  @"labname": requestedLabName,
+                                  @"requested_size": requestedOpenLabCount,
+                                  @"device_token": requestedDeviceToken }
+                            };
 
     return retVal;
 }

@@ -22,4 +22,8 @@
 @property (nonatomic, strong) EWSMainLabTableViewCell *cellObject;
 
 - (NSDictionary *)paramsForLabNotification;
+- (NSNumber *)requestedOpenLabCount;
+- (NSNumber *)requestedExpirationDateInCtime;
+- (NSString *)requestedLabName;
+- (NSString *)requestedDeviceToken;
 @end
