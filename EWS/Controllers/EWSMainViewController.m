@@ -140,8 +140,8 @@
 
 - (void)userTappedTicketStatusButton:(EWSMainLabTableViewCell *)cell {
     EWSLab *correspondingLab = cell.labObject;
-    if ([correspondingLab registeredForNotificationValue]) {
-        
+    if ([[correspondingLab registeredForNotification] boolValue]) {
+        [self promptRegistrationCancellation];
     } else if ([correspondingLab isValidForNotification]) {
         EWSNotificationViewController *notificationVC = [[EWSNotificationViewController alloc] initWithNibName:nil
                                                                                                     bundle:nil];
@@ -161,7 +161,27 @@
     [alertView show];
 }
 
+- (void)promptRegistrationCancellation {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You Sure?"
+                                                        message:@"this will cancel notification"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Yeah"
+                                              otherButtonTitles:@"Oops", nil];
+    [alertView show];
+}
 
+#pragma mark -
+#pragma UIAlertViewProtocol methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) { //clicked Yeah
+        return;
+    } else if (buttonIndex == 1) {
+        return;
+    } else {
+        return;
+    }
+}
 
 #pragma mark -
 #pragma UITableViewProtocol methods

@@ -72,8 +72,30 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
     labTicketStatusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [labTicketStatusButton setFrame:frame];
     [labTicketStatusButton addTarget:self action:@selector(registerForNotification:) forControlEvents:UIControlEventTouchUpInside];
-    [labTicketStatusButton setTitle:@"Touchme" forState:UIControlStateNormal];
+    
+    if ([[labObject registeredForNotification] boolValue] == YES) {
+        [self _initButtonForRegisteredLab];
+    } else {
+        [self _initButtonForUnRegisteredLab];
+    }
     [self.contentView addSubview:labTicketStatusButton];
+}
+
+- (void)_initButtonForRegisteredLab {
+    [labTicketStatusButton setTitle:@"RR" forState:UIControlStateNormal];
+}
+
+- (void)_initButtonForUnRegisteredLab {
+    [labTicketStatusButton setTitle:@"UR" forState:UIControlStateNormal];
+}
+
+- (UIImage *)ticketStatusButtonImage {
+    if ([[labObject registeredForNotification] boolValue]) {
+        return nil; // return an icon for registered lab
+    } else {
+        return nil; // return an icon for unregistered lab
+    }
+    return nil;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

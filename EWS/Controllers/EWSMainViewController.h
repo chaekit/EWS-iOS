@@ -9,14 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "EWSMainLabTableViewCell.h"
 
+
+
 @class AFHTTPRequestOperation;
 
 
 @interface EWSMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,
-                                                    EWSMainLabTableViewCellLabNotificationProtocol>
+                                                    EWSMainLabTableViewCellLabNotificationProtocol,
+                                                    UIAlertViewDelegate>
 
 @property (nonatomic, strong) UITableView *mainTableView;
 
 - (void)updateLabUsage;
+- (void)promptRegistrationCancellation;
 
 @end

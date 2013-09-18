@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EWSTestSuite/Controllers/EWSNotificationViewControllerSpec.mm"
-            timestampString = "401138440.568382"
+            timestampString = "401155543.338196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "SPEC_BEGIN(EWSNotificationViewControllerSpec)"
             landmarkType = "6">
          </BreakpointContent>
@@ -128,6 +128,22 @@
             startingLineNumber = "167"
             endingLineNumber = "167"
             landmarkName = "-paramsForLabNotification"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EWS/Controllers/EWSMainViewController.m"
+            timestampString = "401143429.197062"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-userTappedTicketStatusButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

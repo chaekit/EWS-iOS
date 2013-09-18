@@ -93,7 +93,6 @@ describe(@"EWSNotificationViewController", ^{
                     EWSMainLabTableViewCell *cell = [[EWSMainLabTableViewCell alloc] init];
                     [cell setLabObject:[EWSLab labFactoryValidForNotification]];
                     [notificationVC setCellObject:cell];
-//                    spy_on(notificationVC.cellObject.labObject);
                     [notificationVC.confirmationButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                     notificationVC.cellObject.labObject.registeredForNotification should equal([NSNumber numberWithBool:YES]);
                 });

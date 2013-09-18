@@ -73,7 +73,7 @@ describe(@"EWSMainViewController", ^{
                 CGFloat height = [mainVC tableView:mainVC.mainTableView heightForRowAtIndexPath:nil];
                 height should equal(64);
             });
-        });
+        });        
     });
 
     context(@"EWSMainLabTableViewCellLabNotificationProtocol methods", ^{
@@ -86,6 +86,7 @@ describe(@"EWSMainViewController", ^{
                     [testCell setDelegate:mainVC];
                     spy_on(mainVC);
                     mainVC stub_method("showAlertViewForIneligibleLabNotification");
+                    mainVC stub_method("promptRegistrationCancellation");
                 });
                 
                 it(@"should present a modalViewController if it is eligible for notification", ^{
@@ -113,13 +114,26 @@ describe(@"EWSMainViewController", ^{
             });
             
             context(@"when the cell is already registered", ^{
-                it(@"should ask the user if he/she wants to cancel it", ^{
-                    EWSMainLabTableViewCell *testCell = [[EWSMainLabTableViewCell alloc] init];
+                __block EWSMainLabTableViewCell *testCell;
+                
+                beforeEach(^{
+                    testCell = [[EWSMainLabTableViewCell alloc] init];
                     [testCell setLabObject:[EWSLab labFactoryRegisteredForNotification]];
                     [testCell setDelegate:mainVC];
-                    [mainVC userTappedTicketStatusButton:testCell];
+                });
+                
+                it(@"should not present notificationViewController", ^{
                     spy_on(mainVC);
+                    mainVC stub_method("promptRegistrationCancellation");
+                    [mainVC userTappedTicketStatusButton:testCell];
                     mainVC should_not have_received("presentViewController:animated:completion:");
+                });
+                
+                it(@"should call promptRegistrationCancellation", ^{
+                    spy_on(mainVC);
+                    mainVC stub_method("promptRegistrationCancellation");
+                    [mainVC userTappedTicketStatusButton:testCell];
+                    mainVC should have_received("promptRegistrationCancellation");
                 });
             });
         });
