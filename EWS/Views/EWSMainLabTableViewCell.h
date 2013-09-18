@@ -33,5 +33,6 @@ FOUNDATION_EXPORT NSString *const REGISTERED_CELL_IDENTIFIER;
 
 - (void)updateWithLab:(EWSLab *)lab;
 - (void)registerForNotification:(id)sender;
+- (void)markAsRegistered;
 
 @end

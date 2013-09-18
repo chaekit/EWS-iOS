@@ -107,6 +107,10 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
     [self.delegate userTappedTicketStatusButton:self];
 }
 
+- (void)markAsRegistered {
+    [labObject setRegisteredForNotification:[NSNumber numberWithBool:YES]];
+}
+
 - (void)updateWithLab:(EWSLab *)lab {
     if ([lab isKindOfClass:[EWSLab class]] == NO) {
         @throw NSInvalidArgumentException;

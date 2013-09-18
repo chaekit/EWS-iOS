@@ -118,6 +118,15 @@ describe(@"EWSMainLabTableViewCell", ^{
 //                [tableViewCell registerForNotification:nil];
 //                fakeDelegate should have_received("userTappedTicketStatusButton:").with(tableViewCell);
 //            });
+            
+        });
+        
+        describe(@"#markAsRegistered", ^{
+            it(@"should change the registration status of the associated labObject", ^{
+                [tableViewCell setLabObject:[EWSLab labFactoryValidForNotification]];
+                [tableViewCell markAsRegistered];
+                tableViewCell.labObject.registeredForNotification should equal([NSNumber numberWithBool:YES]);
+            });
         });
     });
     

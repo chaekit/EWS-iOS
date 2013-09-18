@@ -3,6 +3,7 @@
 #import "EWSAPIClient.h"
 #import "EWSMainLabTableViewCell.h"
 #import "SpecFactories.h"
+#import <objc/runtime.h>
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -22,15 +23,13 @@ describe(@"EWSMainViewController", ^{
     beforeEach(^{
         mainVC = [[EWSMainViewController alloc] initWithNibName:nil bundle:nil];
         [mainVC viewDidLoad];
+        NSLog(@"mainVc conforms   %@", [NSNumber numberWithBool:[mainVC conformsToProtocol:@protocol(UITableViewDelegate)]]);
+        NSLog(@"mainVc conforms   %@", [NSNumber numberWithBool:[mainVC conformsToProtocol:@protocol(UITableViewDataSource)]]);
+
         spy_on(mainVC);
         
         mainVC stub_method("showProgressHudWhilePolling");
         mainVC stub_method("updateLabUsage");
-
-
-        
-        NSLog(@"mainVc conforms   %@", [NSNumber numberWithBool:[mainVC conformsToProtocol:@protocol(UITableViewDelegate)]]);
-        NSLog(@"mainVc conforms   %@", [NSNumber numberWithBool:[mainVC conformsToProtocol:@protocol(UITableViewDataSource)]]);
     });
     
     context(@"valid properties", ^{
@@ -73,7 +72,21 @@ describe(@"EWSMainViewController", ^{
                 CGFloat height = [mainVC tableView:mainVC.mainTableView heightForRowAtIndexPath:nil];
                 height should equal(64);
             });
-        });        
+        });
+    });
+    
+    context(@"UIAlertViewDelegate methods", ^{
+        describe(@"alertView:ClickedButtonAtIndex:", ^{
+            it(@"should unregister the cell at index 0", ^{
+                UIAlertView *testAlertView = [[UIAlertView alloc] initWithTitle:nil
+                                                                        message:nil
+                                                                       delegate:mainVC
+                                                              cancelButtonTitle:@"wtf"
+                                                              otherButtonTitles:@"hi", nil];
+                [mainVC alertView:testAlertView clickedButtonAtIndex:0];
+                
+            });
+        });
     });
 
     context(@"EWSMainLabTableViewCellLabNotificationProtocol methods", ^{
@@ -86,7 +99,7 @@ describe(@"EWSMainViewController", ^{
                     [testCell setDelegate:mainVC];
                     spy_on(mainVC);
                     mainVC stub_method("showAlertViewForIneligibleLabNotification");
-                    mainVC stub_method("promptRegistrationCancellation");
+                    mainVC stub_method("promptRegistrationCancellation:");
                 });
                 
                 it(@"should present a modalViewController if it is eligible for notification", ^{
@@ -124,16 +137,16 @@ describe(@"EWSMainViewController", ^{
                 
                 it(@"should not present notificationViewController", ^{
                     spy_on(mainVC);
-                    mainVC stub_method("promptRegistrationCancellation");
+                    mainVC stub_method("promptRegistrationCancellation:");
                     [mainVC userTappedTicketStatusButton:testCell];
                     mainVC should_not have_received("presentViewController:animated:completion:");
                 });
                 
                 it(@"should call promptRegistrationCancellation", ^{
                     spy_on(mainVC);
-                    mainVC stub_method("promptRegistrationCancellation");
+                    mainVC stub_method("promptRegistrationCancellation:");
                     [mainVC userTappedTicketStatusButton:testCell];
-                    mainVC should have_received("promptRegistrationCancellation");
+                    mainVC should have_received("promptRegistrationCancellation:");
                 });
             });
         });

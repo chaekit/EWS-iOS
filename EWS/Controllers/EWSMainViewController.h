@@ -10,9 +10,7 @@
 #import "EWSMainLabTableViewCell.h"
 
 
-
 @class AFHTTPRequestOperation;
-
 
 @interface EWSMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,
                                                     EWSMainLabTableViewCellLabNotificationProtocol,
@@ -21,6 +19,6 @@
 @property (nonatomic, strong) UITableView *mainTableView;
 
 - (void)updateLabUsage;
-- (void)promptRegistrationCancellation;
+- (void)promptRegistrationCancellation:(EWSMainLabTableViewCell *)cell;
 
 @end

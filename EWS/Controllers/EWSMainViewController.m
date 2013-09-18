@@ -17,6 +17,8 @@
 #import "EWSNotificationViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
+static EWSMainLabTableViewCell *potentialCellForCancellation = nil;
+
 @interface EWSMainViewController ()
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedRequestController;
@@ -111,7 +113,7 @@
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleBlackOpaque;
+    return UIStatusBarStyleLightContent;
 }
 
 
@@ -141,7 +143,7 @@
 - (void)userTappedTicketStatusButton:(EWSMainLabTableViewCell *)cell {
     EWSLab *correspondingLab = cell.labObject;
     if ([[correspondingLab registeredForNotification] boolValue]) {
-        [self promptRegistrationCancellation];
+        [self promptRegistrationCancellation:cell];
     } else if ([correspondingLab isValidForNotification]) {
         EWSNotificationViewController *notificationVC = [[EWSNotificationViewController alloc] initWithNibName:nil
                                                                                                     bundle:nil];
@@ -150,6 +152,10 @@
     } else {
         [self showAlertViewForIneligibleLabNotification];
     }
+}
+
++ (EWSMainLabTableViewCell *)potentialCellForCancellation {
+    return potentialCellForCancellation;
 }
 
 - (void)showAlertViewForIneligibleLabNotification {
@@ -161,26 +167,31 @@
     [alertView show];
 }
 
-- (void)promptRegistrationCancellation {
+- (void)promptRegistrationCancellation:(EWSMainLabTableViewCell *)cell {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You Sure?"
                                                         message:@"this will cancel notification"
                                                        delegate:self
                                               cancelButtonTitle:@"Yeah"
                                               otherButtonTitles:@"Oops", nil];
+    potentialCellForCancellation = cell;
     [alertView show];
 }
+
 
 #pragma mark -
 #pragma UIAlertViewProtocol methods
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) { //clicked Yeah
+        [potentialCellForCancellation markAsRegistered];
         return;
     } else if (buttonIndex == 1) {
         return;
     } else {
         return;
     }
+    
+    potentialCellForCancellation = nil; //makes sure tha this is always clean
 }
 
 #pragma mark -
@@ -208,7 +219,6 @@
     }
     
     NSArray *fetchedLabs = [self fetchedLabObjects];
-//    NSLog(@"lab  %@", [((EWSLab *)[fetchedLabs objectAtIndex:indexPath.row]) valueForKey:@"labName"]);
     [cell updateWithLab:[fetchedLabs objectAtIndex:indexPath.row]];
     return cell;
 }
