@@ -73,11 +73,6 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
     [labTicketStatusButton setFrame:frame];
     [labTicketStatusButton addTarget:self action:@selector(registerForNotification:) forControlEvents:UIControlEventTouchUpInside];
     
-    if ([[labObject registeredForNotification] boolValue] == YES) {
-        [self _initButtonForRegisteredLab];
-    } else {
-        [self _initButtonForUnRegisteredLab];
-    }
     [self.contentView addSubview:labTicketStatusButton];
 }
 
@@ -109,6 +104,7 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
 
 - (void)markAsRegistered {
     [labObject setRegisteredForNotification:[NSNumber numberWithBool:YES]];
+    [labTicketStatusButton setTitle:@"RR" forState:UIControlStateNormal];
 }
 
 - (void)updateWithLab:(EWSLab *)lab {
@@ -119,6 +115,12 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
    
     [labNameLabel setText:[lab labName]];
     [labDetailUsageLabel setText:[lab usageFractionInString]];
+    if ([[labObject registeredForNotification] boolValue] == YES) {
+        [self _initButtonForRegisteredLab];
+    } else {
+        [self _initButtonForUnRegisteredLab];
+    }
+
 }
 
 @end

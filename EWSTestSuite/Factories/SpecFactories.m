@@ -17,17 +17,14 @@
 
 
 + (id)labFactoryWithStandardAttributes {
-    static EWSLab *factory;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
-        factory = [EWSLab insertInManagedObjectContext:mainContext];
-        [factory setLabName:@"DCL 416"];
-        [factory setInuseCount:@30];
-        [factory setMachineCount:@40];
-        [factory setLabIndex:@0];
-        [factory setRegisteredForNotification:[NSNumber numberWithBool:NO]];
-    });
+    NSManagedObjectContext *context = [[EWSDataModel sharedDataModel] mainContext];
+    EWSLab * factory = [EWSLab insertInManagedObjectContext:context];
+    [factory setLabName:@"DCL 416"];
+    [factory setInuseCount:@30];
+    [factory setMachineCount:@40];
+    [factory setLabIndex:@0];
+    [factory setRegisteredForNotification:[NSNumber numberWithBool:NO]];
+    
     return factory;
 }
 
@@ -36,47 +33,38 @@
  */
 
 + (id)labFactoryNotValidForNotification {
-    static EWSLab *factory;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
-        factory = [EWSLab insertInManagedObjectContext:mainContext];
-        [factory setLabName:@"DCL 416"];
-        [factory setInuseCount:@15];
-        [factory setMachineCount:@40];
-        [factory setLabIndex:@0];
-        [factory setRegisteredForNotification:[NSNumber numberWithBool:NO]];
-    });
+    NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
+    EWSLab* factory = [EWSLab insertInManagedObjectContext:mainContext];
+    [factory setLabName:@"DCL 416"];
+    [factory setInuseCount:@15];
+    [factory setMachineCount:@40];
+    [factory setLabIndex:@0];
+    [factory setRegisteredForNotification:[NSNumber numberWithBool:NO]];
+
     return factory;
 }
 
 + (id)labFactoryValidForNotification {
-    static EWSLab *factory;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
-        factory = [EWSLab insertInManagedObjectContext:mainContext];
-        [factory setLabName:@"DCL 416"];
-        [factory setInuseCount:@39];
-        [factory setMachineCount:@40];
-        [factory setLabIndex:@0];
-        [factory setRegisteredForNotification:[NSNumber numberWithBool:NO]];
-    });
+    NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
+    EWSLab* factory = [EWSLab insertInManagedObjectContext:mainContext];
+    [factory setLabName:@"DCL 416"];
+    [factory setInuseCount:@39];
+    [factory setMachineCount:@40];
+    [factory setLabIndex:@0];
+    [factory setRegisteredForNotification:[NSNumber numberWithBool:NO]];
+
     return factory;
 }
 
 + (id)labFactoryRegisteredForNotification {
-    static EWSLab *factory;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
-        factory = [EWSLab insertInManagedObjectContext:mainContext];
-        [factory setLabName:@"DCL 416"];
-        [factory setInuseCount:@30];
-        [factory setMachineCount:@40];
-        [factory setLabIndex:@0];
-        [factory setRegisteredForNotification:[NSNumber numberWithBool:YES]];
-    });
+    NSManagedObjectContext *mainContext = [[EWSDataModel sharedDataModel] mainContext];
+    EWSLab * factory = [EWSLab insertInManagedObjectContext:mainContext];
+    [factory setLabName:@"DCL 416"];
+    [factory setInuseCount:@30];
+    [factory setMachineCount:@40];
+    [factory setLabIndex:@0];
+    [factory setRegisteredForNotification:[NSNumber numberWithBool:YES]];
+
     return factory;
 }
 

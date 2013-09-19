@@ -95,6 +95,11 @@ describe(@"EWSMainLabTableViewCell", ^{
                 id bogusParam = @"bogus";
                 ^{ [tableViewCell updateWithLab:bogusParam]; } should raise_exception([NSInvalidArgumentException class]);
             });
+            
+            it(@"should change the labTicketStatusButton's title if the lab is registered", ^{
+                [tableViewCell updateWithLab:[EWSLab labFactoryRegisteredForNotification]];
+                tableViewCell.labTicketStatusButton.titleLabel.text should equal(@"RR");
+            });
         });
         
         describe(@"#registerForNotification", ^{
@@ -127,6 +132,12 @@ describe(@"EWSMainLabTableViewCell", ^{
                 [tableViewCell markAsRegistered];
                 tableViewCell.labObject.registeredForNotification should equal([NSNumber numberWithBool:YES]);
             });
+            
+            it(@"should change the title of the labTicketStatusButton", ^{
+                [tableViewCell markAsRegistered];
+                tableViewCell.labTicketStatusButton.titleLabel.text should equal(@"RR");
+            });
+            
         });
     });
     

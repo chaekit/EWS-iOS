@@ -10,6 +10,7 @@
 #import "EWSAPIClient.h"
 #import "EWSLab.h"
 #import "EWSMainLabTableViewCell.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface EWSNotificationViewController ()
 
@@ -106,8 +107,7 @@
 
 - (void)userConfirmedNotification:(id)sender {
     if ([self _hasAllUIInputs] == NO) return;
-
-    
+ 
     NSDictionary *params = [self paramsForLabNotification];
 
     [[EWSAPIClient sharedAPIClient] registerNotificationParams:params Success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -115,7 +115,10 @@
     } Failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
     }];
-    [self.cellObject.labObject setRegisteredForNotification:[NSNumber numberWithBool:YES]];
+    
+    [SVProgressHUD showSuccessWithStatus:@"Done!"];
+    [self.cellObject markAsRegistered];
+//    [self.cellObject.labObject setRegisteredForNotification:[NSNumber numberWithBool:YES]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
