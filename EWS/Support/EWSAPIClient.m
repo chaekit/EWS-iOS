@@ -48,4 +48,11 @@ NSString *const API_URL = @"http://ews-api.herokuapp.com";
     NSString *postPath = @"/ticket";
     [self postPath:postPath parameters:params success:successBlock failure:failureBlock];
 }
+
+- (void)deleteNotificationParams:(id)params
+                         Success:(void (^)(AFHTTPRequestOperation *, id))successBlock
+                         Failure:(void (^)(AFHTTPRequestOperation *, NSError *))failureBlock {
+    NSString *postPath = @"/deleteticket";
+    [self postPath:postPath parameters:params success:successBlock failure:failureBlock];
+}
 @end

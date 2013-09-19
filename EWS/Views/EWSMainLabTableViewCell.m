@@ -107,6 +107,11 @@ NSString *const REGISTERED_CELL_IDENTIFIER = @"RegisteredCell";
     [labTicketStatusButton setTitle:@"RR" forState:UIControlStateNormal];
 }
 
+- (void)markAsUnregistered {
+    [labObject setRegisteredForNotification:[NSNumber numberWithBool:NO]];
+    [labTicketStatusButton setTitle:@"UR" forState:UIControlStateNormal];
+}
+
 - (void)updateWithLab:(EWSLab *)lab {
     if ([lab isKindOfClass:[EWSLab class]] == NO) {
         @throw NSInvalidArgumentException;

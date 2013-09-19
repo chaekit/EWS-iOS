@@ -21,6 +21,10 @@
                      Success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                      Failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 
+- (void)deleteNotificationParams:(id)params
+                         Success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
+                         Failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
+
 
 
 @end

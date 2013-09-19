@@ -17,8 +17,11 @@
                                                     UIAlertViewDelegate>
 
 @property (nonatomic, strong) UITableView *mainTableView;
+@property (nonatomic, strong) EWSMainLabTableViewCell *cellForCancellation;
 
 - (void)updateLabUsage;
 - (void)promptRegistrationCancellation:(EWSMainLabTableViewCell *)cell;
+- (NSDictionary *)paramsForTicketCancellation;
+
 
 @end

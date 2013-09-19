@@ -33,12 +33,8 @@ describe(@"EWSMainViewController", ^{
     });
     
     context(@"valid properties", ^{
-        it(@"should not want fullLayout", ^{
-            mainVC.wantsFullScreenLayout should_not be_truthy;
-        });
-        
         it(@"should have a blackOpaqueStatusBar", ^{
-            [mainVC preferredStatusBarStyle] should equal(UIStatusBarStyleBlackOpaque);
+            [mainVC preferredStatusBarStyle] should equal(UIStatusBarStyleLightContent);
         });
         it(@"should have a mainTableView", ^{
             [mainVC respondsToSelector:@selector(mainTableView)] should be_truthy;
@@ -56,14 +52,63 @@ describe(@"EWSMainViewController", ^{
                 it(@"should always return exactly one section", ^{
                     [[mainVC.fetchedRequestController sections] count] should equal(1);
                 });
-                
-//                it(@"should always return 13 elements in the section", ^{
-//                    NSArray *sections = [mainVC.fetchedRequestController sections];
-//                    [[sections[0] objects] count] should equal(13);
-//                });
             });
         });
-        
+    });
+    
+    context(@"instance methods", ^{
+        describe(@"#paramsForTicketCancellation", ^{
+            __block NSDictionary *params;
+            __block EWSLab *labForCancellation;
+            
+            beforeEach(^{
+                labForCancellation = [EWSLab labFactoryWithStandardAttributes];
+                mainVC.cellForCancellation = [[EWSMainLabTableViewCell alloc] init];
+                mainVC.cellForCancellation.labObject = labForCancellation;
+
+                spy_on([NSUserDefaults standardUserDefaults]);
+                [NSUserDefaults standardUserDefaults] stub_method("objectForKey:").
+                                                                    with(@"deviceToken").
+                                                                    and_return(@"abcdef");
+               
+                params = [mainVC paramsForTicketCancellation];
+            });
+            
+            it(@"should be an instance of NSDictionary", ^{
+                params should be_instance_of([NSDictionary class]).or_any_subclass();
+            });
+            
+            it(@"should have 'ticket' as the root key", ^{
+                params[@"ticket"] != nil should be_truthy;
+            });
+            
+            
+            context(@"subkeys", ^{
+                describe(@"labname key", ^{
+                    it(@"should have labname key", ^{
+                        params[@"ticket"][@"labname"] != nil should be_truthy;
+                    });
+                    
+                    it(@"should equal the labname property of cellForCancellation.labObject", ^{
+                        params[@"ticket"][@"labname"] should equal(@"DCL 416");
+                    });
+                });
+                
+                describe(@"devicetoken key", ^{
+                    it(@"should have devicetoken key", ^{
+                        params[@"ticket"][@"devicetoken"] != nil should be_truthy;
+                    });
+                    
+                    it(@"should equal deviceToken key in NSUserDefaults", ^{
+                        params[@"ticket"][@"devicetoken"] should equal(@"abcdef");
+                    });
+                });
+            });
+            
+            afterEach(^{
+                mainVC.cellForCancellation = nil;
+            });
+        });
     });
  
     context(@"UITableViewProtocol methods", ^{
@@ -77,14 +122,47 @@ describe(@"EWSMainViewController", ^{
     
     context(@"UIAlertViewDelegate methods", ^{
         describe(@"alertView:ClickedButtonAtIndex:", ^{
-            it(@"should unregister the cell at index 0", ^{
-                UIAlertView *testAlertView = [[UIAlertView alloc] initWithTitle:nil
-                                                                        message:nil
-                                                                       delegate:mainVC
-                                                              cancelButtonTitle:@"wtf"
-                                                              otherButtonTitles:@"hi", nil];
-                [mainVC alertView:testAlertView clickedButtonAtIndex:0];
+            __block EWSMainLabTableViewCell *cell;
+            __block UIAlertView *testAlertView;
+            
+            beforeEach(^{
+                cell = [[EWSMainLabTableViewCell alloc] init];
+                mainVC.cellForCancellation = cell;
+                testAlertView = [[UIAlertView alloc] initWithTitle:nil
+                                                           message:nil
+                                                          delegate:mainVC
+                                                 cancelButtonTitle:@"wtf"
+                                                 otherButtonTitles:@"hi", nil];
+            });
+            
+            context(@"when the user decides to cancel", ^{
+                it(@"should unregister the cell at index 0", ^{
+                    EWSMainLabTableViewCell *dummyCell = mainVC.cellForCancellation;
+                    spy_on(dummyCell);
+                    [mainVC alertView:testAlertView clickedButtonAtIndex:0];
+                    dummyCell should have_received("markAsUnregistered");
+                    dummyCell = nil;
+                });
                 
+                it(@"should send delete request to the server", ^{
+                    spy_on([EWSAPIClient sharedAPIClient]);
+                    [mainVC alertView:testAlertView clickedButtonAtIndex:0];
+                    [EWSAPIClient sharedAPIClient] should have_received("deleteNotificationParams:Success:Failure:");
+                });
+            
+                it(@"should clear the cellForCancellation", ^{
+                    spy_on(mainVC.cellForCancellation);
+                    [mainVC alertView:testAlertView clickedButtonAtIndex:0];
+                    mainVC.cellForCancellation == nil should be_truthy;
+                });
+            });
+          
+            context(@"when the user decides not to cancel", ^{
+                it(@"should clear the cellForCancellation", ^{
+                    spy_on(mainVC.cellForCancellation);
+                    [mainVC alertView:testAlertView clickedButtonAtIndex:0];
+                    mainVC.cellForCancellation == nil should be_truthy;
+                });
             });
         });
     });

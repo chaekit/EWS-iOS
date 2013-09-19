@@ -17,7 +17,6 @@
 #import "EWSNotificationViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
-static EWSMainLabTableViewCell *potentialCellForCancellation = nil;
 
 @interface EWSMainViewController ()
 
@@ -29,6 +28,7 @@ static EWSMainLabTableViewCell *potentialCellForCancellation = nil;
 
 @synthesize mainTableView;
 @synthesize fetchedRequestController;
+@synthesize cellForCancellation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -104,6 +104,20 @@ static EWSMainLabTableViewCell *potentialCellForCancellation = nil;
     }
 }
 
+#pragma mark -
+#pragma instance methods
+
+- (NSDictionary *)paramsForTicketCancellation {
+    EWSLab *labForCancellation = cellForCancellation.labObject;
+    NSString *labName = [labForCancellation labName];
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+    NSDictionary *params = @{@"ticket": @{@"labname": labName,
+                                          @"devicetoken": deviceToken}
+                             };
+    return params;
+}
+
+
 /* @private */
 
 - (void)_initAllProperties {
@@ -154,14 +168,14 @@ static EWSMainLabTableViewCell *potentialCellForCancellation = nil;
     }
 }
 
-+ (EWSMainLabTableViewCell *)potentialCellForCancellation {
-    return potentialCellForCancellation;
-}
+#pragma mark -
+#pragma pops alertviews
+
 
 - (void)showAlertViewForIneligibleLabNotification {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Whoa"
                                                         message:@"There are enough machines. Carry on"
-                                                       delegate:self
+                                                       delegate:nil
                                               cancelButtonTitle:@"Cool"
                                               otherButtonTitles: nil];
     [alertView show];
@@ -173,9 +187,10 @@ static EWSMainLabTableViewCell *potentialCellForCancellation = nil;
                                                        delegate:self
                                               cancelButtonTitle:@"Yeah"
                                               otherButtonTitles:@"Oops", nil];
-    potentialCellForCancellation = cell;
+    cellForCancellation = cell;
     [alertView show];
 }
+
 
 
 #pragma mark -
@@ -183,15 +198,19 @@ static EWSMainLabTableViewCell *potentialCellForCancellation = nil;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) { //clicked Yeah
-        [potentialCellForCancellation markAsRegistered];
-        return;
+        [cellForCancellation markAsUnregistered];
+        [[EWSAPIClient sharedAPIClient] deleteNotificationParams:nil Success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+        } Failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
     } else if (buttonIndex == 1) {
         return;
     } else {
         return;
     }
     
-    potentialCellForCancellation = nil; //makes sure tha this is always clean
+    cellForCancellation = nil;
 }
 
 #pragma mark -

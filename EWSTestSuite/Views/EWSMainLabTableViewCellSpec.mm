@@ -137,7 +137,19 @@ describe(@"EWSMainLabTableViewCell", ^{
                 [tableViewCell markAsRegistered];
                 tableViewCell.labTicketStatusButton.titleLabel.text should equal(@"RR");
             });
+        });
+        
+        describe(@"#markAsUnregistered", ^{
+            it(@"should change the registration status of the associated labObject", ^{
+                [tableViewCell setLabObject:[EWSLab labFactoryRegisteredForNotification]];
+                [tableViewCell markAsUnregistered];
+                tableViewCell.labObject.registeredForNotification should equal([NSNumber numberWithBool:NO]);
+            });
             
+            it(@"should change the title of the labTicketStatusButton", ^{
+                [tableViewCell markAsUnregistered];
+                tableViewCell.labTicketStatusButton.titleLabel.text should equal(@"UR");
+            });
         });
     });
     
