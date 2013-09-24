@@ -112,7 +112,7 @@
     NSString *labName = [labForCancellation labName];
     NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
     NSDictionary *params = @{@"ticket": @{@"labname": labName,
-                                          @"devicetoken": deviceToken}
+                                          @"device_token": deviceToken}
                              };
     return params;
 }
@@ -199,10 +199,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) { //clicked Yeah
         [cellForCancellation markAsUnregistered];
-        [[EWSAPIClient sharedAPIClient] deleteNotificationParams:nil Success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
+        NSDictionary *params = [self paramsForTicketCancellation];
+        [[EWSAPIClient sharedAPIClient] deleteNotificationParams:params Success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"delete succeeded bro");
         } Failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
+            NSLog(@"delete failed bro");            
         }];
     } else if (buttonIndex == 1) {
         return;
